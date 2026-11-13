@@ -1,0 +1,97 @@
+{
+  "schema": 1,
+  "step": 6,
+  "qualification": false,
+  "cases": [
+    {
+      "run_id": "cap-01",
+      "volume_db": 0,
+      "text": "The harbor opens early. Small fishing boats cross the water while workers unload baskets beside the old stone pier.",
+      "stop_offset_s": null
+    },
+    {
+      "run_id": "cap-02",
+      "volume_db": -6,
+      "text": "To plant a bean, place it in damp soil near a sunny window. Water gently and watch for the first green leaves.",
+      "stop_offset_s": null
+    },
+    {
+      "run_id": "cap-03",
+      "volume_db": 0,
+      "text": "The museum has a blue door and a wide staircase. Inside, visitors can explore paintings, maps, and models of ancient ships.",
+      "stop_offset_s": null
+    },
+    {
+      "run_id": "cap-04",
+      "volume_db": -6,
+      "text": "A bicycle bell helps warn people on a shared path. Slow down near corners and leave enough space when passing.",
+      "stop_offset_s": null
+    },
+    {
+      "run_id": "cap-05",
+      "volume_db": 0,
+      "text": "The train leaves from platform seven. Keep your ticket nearby and check the destination before stepping into the carriage.",
+      "stop_offset_s": null
+    },
+    {
+      "run_id": "cap-06",
+      "volume_db": -6,
+      "text": "On a clear evening, the moon can appear above the eastern hills. Its bright surface reflects sunlight toward the Earth.",
+      "stop_offset_s": null
+    }
+  ],
+  "boot_ref_gain_db": 0,
+  "runtime_gain_db": 15,
+  "guard_ms": 400,
+  "rearm_silence_ms": 2000,
+  "afe_delay_samples": 1024,
+  "noise_gate": {
+    "version": 2,
+    "frame_ms": 20,
+    "transient_max_dbfs": -46,
+    "max_retries": 2,
+    "pause_consecutive_cells": 3,
+    "quiet_seconds": 2,
+    "baseline_seconds": 6,
+    "baseline_max_attempts": 3,
+    "settle_seconds": 5,
+    "baseline_max_dbfs": -53,
+    "level_max_dbfs": -55,
+    "level_rise_max_db": 6
+  },
+  "quiet_pre_seconds": 2.1,
+  "reply_window_seconds": 16,
+  "quiet_post_seconds": 2.1,
+  "baseline": "Fresh settled six-second baseline, at most three attempts after five-second settling; same frozen v2 rule, no threshold changes.",
+  "noise_policy": "Check separate preflight quiet before stimulus, and first/last two seconds of main capture; retain every attempt. Only measured room-noise failures permit two retries, appended after pending cells. Acquisition failures are neutral for the streak and grant no retake. Three consecutive distinct noisy cells auto-pause and restore. No performance retakes.",
+  "trace_policy": "Enable arrival trace. Drain immediately after each reply window BEFORE any PCM or WiFi export; also drain once at eight seconds and before each capture to bound the ring. Save metadata around every drain. Export-era overwrites are not represented as reply-window coverage.",
+  "wifi_observe": true,
+  "wifi_precondition": "Build CONFIG_DG_WIFI_OBSERVE=y and require wifi_observation.dump available:true before first reply; abort/restore if unavailable.",
+  "observers": [
+    "rtp_evidence authenticated, UDP, downlink (health required; cap 200000)",
+    "recorder successful tts-written tap",
+    "live admission: zero admission_budget delta, received == dispatched at each quiescent endpoint"
+  ],
+  "scoring_anchor": "first non-silent successful transport write (20 ms mean-square >1024); BotStarted remains diagnostic only",
+  "stop_policy": "Offsets from first non-silent successful transport write; absent anchor means stop_not_played failure. Retain in-guard loss and recognition/interruption, including wholly suppressed utterances. Use actual 48 kHz invocation/duration witness and conservative clock/sample bounds, no listening or fitted-delay scoring.",
+  "stop_fixture": "/home/khkramer/src/evidence/echoear/aec-assess/astra/live-cat/stimuli/stop-48k.wav",
+  "stop_sha256": "5630e546041a02b783bd921a9f2776eddab57b20e97643a918f227ce31d66587",
+  "pipecat": "1.12.0",
+  "aiortc": "1.15.0",
+  "rtp_packet_cap": 200000,
+  "pass_rule": "Six clean two-sentence replies, alternating volumes 0/-6, cold first included. Zero proposed/accepted false turns; exactly one onset per clean reply at rearm_ms=2000; report all deviations, no performance retries. All step-2 resources and live admission checks required.",
+  "guard_basis": "Step-3 twelve clean 15 dB speech cells: largest startup residuals commonly at 200..400 ms, outliers extend later. Select 400 ms source interval; 64 ms fixed AFE delay plus block quantization and conservative DMA/read bounds extend actual closure beyond nominal 464..484 ms. Not a guarantee against all residual echo; test live false turns.",
+  "metrics_decision": "No device-bound RTVI metrics; server metrics remain enabled.",
+  "cleanup": "flock for all board/Jabra operations; restore/hash verify normal 9936da45, mixer byte-equal, stop owned bot, release lock; retain lock if restoration fails",
+  "duplex_override": null,
+  "witness_checks": [
+    "Connect/Ready/post-Ready minimum internal heap versus 83840 B",
+    "Whole-session zero RTVI metrics, received==dispatched, admission_budget delta0, reply-start burst count/types over first 100ms",
+    "Exactly one onset and closure per reply; rearm_ms=2000; report MIC3 onset lead interval and flag any possible lead >100ms; expected lead 0..50ms and closure600..660ms reported, not assumed",
+    "Zero proposed/accepted false turns; AFE residual in first400ms after each unguarded MIC3 re-onset following >=500ms quiet (fixed1024sample delay)",
+    "Gap from previous accepted non-silent last_end estimate to next onset; historical export-separated sample, not spontaneous conversation",
+    "Boot AEC_GUARD_CONFIG=400/2000 and manifest0dB gain/400msguard/2000msrearm"
+  ],
+  "reonset_quiet_ms": 500,
+  "notes": "Step5b witness, exploratory short hold. No Stop stimulus, no clock tightening. Frozen v2 gate unchanged. All original failures retained; no performance retakes."
+}

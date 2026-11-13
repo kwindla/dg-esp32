@@ -1,0 +1,159 @@
+{
+  "schema": 1,
+  "status": "measured",
+  "coverage_decision": null,
+  "variants": {
+    "normal": {
+      "stall_us": 68411,
+      "p99_delta_us": 7000,
+      "coverage": 0.95,
+      "pairs": 3,
+      "captures": 3,
+      "sessions": 3,
+      "observed_stall_us": 58411,
+      "observed_p99_delta_us": 6000,
+      "observed_coverage_min": 0.9999671107839232,
+      "stall_margin_us": 10000,
+      "p99_margin_us": 1000
+    },
+    "demo": {
+      "stall_us": 65571,
+      "p99_delta_us": 6000,
+      "coverage": 0.95,
+      "pairs": 3,
+      "captures": 3,
+      "sessions": 9,
+      "observed_stall_us": 55571,
+      "observed_p99_delta_us": 5000,
+      "observed_coverage_min": 0.9991636247767194,
+      "stall_margin_us": 10000,
+      "p99_margin_us": 1000
+    },
+    "aec-normal": {
+      "stall_us": 75825,
+      "p99_delta_us": 16000,
+      "coverage": 0.95,
+      "pairs": 3,
+      "captures": 3,
+      "sessions": 3,
+      "observed_stall_us": 65825,
+      "observed_p99_delta_us": 15000,
+      "observed_coverage_min": 0.9999723237516952,
+      "stall_margin_us": 10000,
+      "p99_margin_us": 1000
+    },
+    "aec-demo": {
+      "stall_us": 78059,
+      "p99_delta_us": 14000,
+      "coverage": 0.95,
+      "pairs": 3,
+      "captures": 3,
+      "sessions": 9,
+      "observed_stall_us": 68059,
+      "observed_p99_delta_us": 13000,
+      "observed_coverage_min": 0.9985051576071152,
+      "stall_margin_us": 10000,
+      "p99_margin_us": 1000
+    }
+  },
+  "inputs": [
+    {
+      "path": "/home/khkramer/src/evidence/echoear/p4/step-11/calibration/runs/normal-1/result.json",
+      "sha256": "c4c9473cfae70730fccfc745bf5ccfea283e974e20c6de2fa8f487bbf11d1249",
+      "wire_sha256": {
+        "main": "eaab12d99f30e907207d658e03dbc48ba69d282973e2a448998a893b6b5c96ba"
+      }
+    },
+    {
+      "path": "/home/khkramer/src/evidence/echoear/p4/step-11/calibration/runs/normal-2/result.json",
+      "sha256": "a0af5384e644fbf5dd20d3aa8636da3512db84c349783d4edfd8f083543f5900",
+      "wire_sha256": {
+        "main": "26f26696a15f0a4bd31effa5ad22cc2b2068e4a33f77ac6c4dfb7b0cfb4706ce"
+      }
+    },
+    {
+      "path": "/home/khkramer/src/evidence/echoear/p4/step-11/calibration/runs/normal-3/result.json",
+      "sha256": "1ec15a673360effcf8906b036875c1892b8688f6504a9680f008447a7d7f0646",
+      "wire_sha256": {
+        "main": "3b593e82d79725571a015b818f5fb869929e293c671f2dc0353c0a847526282e"
+      }
+    },
+    {
+      "path": "/home/khkramer/src/evidence/echoear/p4/step-11/calibration/runs/demo-2/result.json",
+      "sha256": "63c6fce3fcc74894aa15e953392eb144312e7ab5203ec4b3599d32eccf4166cc",
+      "wire_sha256": {
+        "main": "eaa1c7079cbaeffb7afcf73907c5938deef31378a4f34f782c594f2ac3bfc153",
+        "resume": "434f2db648d9a4ef12e6469884c3524d017fb4aafe2fb0824060ea491d1ff81e",
+        "cold": "1d940cbb4aadf67784c5ef81f099020327a58ecd028ae64f43de388efdfe83a0"
+      }
+    },
+    {
+      "path": "/home/khkramer/src/evidence/echoear/p4/step-11/calibration/runs/demo-3/result.json",
+      "sha256": "25668e0d59f9005322e9d3f7f1b7d3def76157f7d93ed02c020eb305bc43852e",
+      "wire_sha256": {
+        "main": "698dd54ced7676f498785710754e28dc61e7ad113f2cb9e7f698147b541bed29",
+        "resume": "a39c9882fefc4aee3555e03a45e95a88050acb2c4ad4cf8b914615c9ee38911e",
+        "cold": "d1fbfe89d3315894bb636261d120194cfcb0a440e860178cbc51d2f1d656ed28"
+      }
+    },
+    {
+      "path": "/home/khkramer/src/evidence/echoear/p4/step-11/calibration/runs/demo-4/result.json",
+      "sha256": "918ccf4ab33e27874d6388bbc6f05580618a8efd6896e7591c9148ddf011ef91",
+      "wire_sha256": {
+        "main": "7965d37bbb20e678196606715b7e87818ad0f427410f80e4ca4a5ad0e4745cff",
+        "resume": "a0d2e480e7dba5633945a2b4a0d4472df215ca2000604a02f351ccd6b29f4d5b",
+        "cold": "40971d874a6ec7d938f543a2b09bdf9e1eff69d3fdf88deef26cce9159be7906"
+      }
+    },
+    {
+      "path": "/home/khkramer/src/evidence/echoear/p4/step-11/calibration/runs/aec-normal-2/result.json",
+      "sha256": "adeb7213d15c2712dc1100ada4fd0a7e786584961e24204e855496b2c00d7103",
+      "wire_sha256": {
+        "main": "683629c1c484261ebdf9f59e5fefa0c561ce8c63138891f89bb277f4eb1e49a4"
+      }
+    },
+    {
+      "path": "/home/khkramer/src/evidence/echoear/p4/step-11/calibration/runs/aec-normal-3/result.json",
+      "sha256": "0ee40de5297ba3259493d58e8a262a9ec66443537878323090a9bd3192fdfdf8",
+      "wire_sha256": {
+        "main": "d2023e408ed864338023afe9d2b3ee9958455f9419fdc13cb03a817e655374d7"
+      }
+    },
+    {
+      "path": "/home/khkramer/src/evidence/echoear/p4/step-11/calibration/runs/aec-normal-4/result.json",
+      "sha256": "6716693226ff1429a16d8e0699a03a2b1839aa69d44b8bb5338662bf8762cb01",
+      "wire_sha256": {
+        "main": "c811e09bb084a6ac67fcb67f9754ccf0f124fd3dad30dfd0cf23598e663d0ed8"
+      }
+    },
+    {
+      "path": "/home/khkramer/src/evidence/echoear/p4/step-11/calibration/runs/aec-demo-1/result.json",
+      "sha256": "17cc4a5a2d346fabf7c3b5b8b13045c0d8b6c10234fa8e23f3344ce2455727bc",
+      "wire_sha256": {
+        "main": "fcfa8c37b26242c44cd25003be184cf41b616b1b527966e14dce024c1924d9d1",
+        "resume": "784606cde2326bdc5ba6b065ad97319b66b8143a1e79cfa51678f08f0d821fd1",
+        "cold": "40b5c1c233b33fa39b7e7f46086e19dc5beeaa6feeb515b79373a2dc542f88ec"
+      }
+    },
+    {
+      "path": "/home/khkramer/src/evidence/echoear/p4/step-11/calibration/runs/aec-demo-2/result.json",
+      "sha256": "ad349524e126dcb9901ff6e8c145e1e783c332ca70e1dd14c254fd6067a895b8",
+      "wire_sha256": {
+        "main": "0407d3eb0a13bf866a8c154d9c1fb318f547c62d651379904e7c7884879151bc",
+        "resume": "b98322af38eef60243ca0045041162afe549df4ab8ecfb254e7bcabb232c65c3",
+        "cold": "d0439231c9938117214e0baaebdc9a8f927622a385dcde6fb4e962c114ae823c"
+      }
+    },
+    {
+      "path": "/home/khkramer/src/evidence/echoear/p4/step-11/calibration/runs/aec-demo-3/result.json",
+      "sha256": "ea8966d1dee826d1367d80ea0432421ca5d7fea5564f520dabb288f6a0f95aa3",
+      "wire_sha256": {
+        "main": "a6d005a691a6675077aef102a03f0e43509be6380b67d6a1d54c24bbe3071086",
+        "resume": "83c1aa4b08b40e0581421a5b28c0b65f7680b7aa66f7af11997bc66472aae610",
+        "cold": "45df83c43bf41fcea22a5c06c48e0ddfb398797547fc1aa98960a9bc2d434a33"
+      }
+    }
+  ],
+  "margin_rule": "v1: stall max + max(10000 us, ceil(10% max)); p99 max(1000 us, max pair delta) + 1000 us; CLI may increase floors",
+  "basis": "All-pairs same-process S3 captures including demo resume/cold; peer-submit only. Median lower bin edge, 1 ms resolution: 22.x ms cannot be distinguished from 22.0 ms."
+}

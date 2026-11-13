@@ -1,0 +1,127 @@
+{
+  "schema": 1,
+  "name": "echoear-first-scored-aec",
+  "state": "PROTOCOL_PREPARATION_NOT_STARTED",
+  "firmware_elf_sha256": "52a61f231e9d81aeaae7f49630e3a1ca57a0f13b884ebaefa449dfd898a9754d",
+  "firmware_image": "/home/khkramer/src/evidence/echoear/A/aec-mic3-57c8fe6-clean-experimental-image",
+  "aec_enabled": true,
+  "ns_enabled": false,
+  "agc_enabled": false,
+  "bot_entrypoint": "server/demo_bot.py",
+  "bot_full_duplex_environment": "ECHOEAR_AEC_FULL_DUPLEX=1",
+  "scripted_live_tts": true,
+  "automatic_llm_responses_during_evaluation": false,
+  "flux_stt_and_interruptions_remain_active": true,
+  "volume_relative_db": 0,
+  "microphone_analog_db": 30,
+  "reference_analog_db": 0,
+  "microphone_digital_percent": 125,
+  "display": "cat",
+  "quiet": 1,
+  "no_retakes": true,
+  "maximum_scored_campaigns": 1,
+  "maximum_hold_seconds": 900,
+  "minimum_remaining_grant_seconds": 1020,
+  "capture_max_seconds_each": 28,
+  "capture_schema": 2,
+  "whole_session_includes_bulk_exports_and_interturns": true,
+  "room_max_dbfs": -55,
+  "nic_gated_interface": "wlp8s0",
+  "nic_limit_bytes_per_300s": 20000000,
+  "nic_record_only_interface": "enp7s0",
+  "echo_replies": [
+    {
+      "id": "echo-01",
+      "text": "Paris is the capital."
+    },
+    {
+      "id": "echo-02",
+      "text": "The blue book is open."
+    },
+    {
+      "id": "echo-03",
+      "text": "The train arrives at noon."
+    },
+    {
+      "id": "echo-04",
+      "text": "The boat crossed the harbor."
+    },
+    {
+      "id": "echo-05",
+      "text": "Fresh orange juice tastes sweet."
+    },
+    {
+      "id": "echo-06",
+      "text": "The library opens on Friday."
+    },
+    {
+      "id": "echo-07",
+      "text": "Three trees shade the garden."
+    },
+    {
+      "id": "echo-08",
+      "text": "Sunlight fills the kitchen window."
+    },
+    {
+      "id": "echo-09",
+      "text": "The silver key is safe."
+    },
+    {
+      "id": "echo-10",
+      "text": "Flowers bloom after spring rain."
+    }
+  ],
+  "barge_ids": [
+    "barge-01",
+    "barge-02",
+    "barge-03",
+    "barge-04",
+    "barge-05"
+  ],
+  "barge_bot_text": "The morning train crosses a wide green valley beside a calm river. Beyond the river there are fields of golden wheat, tall trees, a stone bridge, and a small village. Travelers watch the clouds drift over the hills while sunlight fills every window. The journey continues past farms and gardens toward the coast, where fishing boats return to the harbor and families gather along the water.",
+  "barge_user_text": "Stop.",
+  "barge_user_max_active_seconds": 0.55,
+  "barge_user_leading_silence_seconds": 0.08,
+  "barge_user_trailing_silence_seconds": 0.1,
+  "barge_user_tempo": 1.25,
+  "barge_after_bot_started_seconds": 0.8,
+  "barge_quiet_confirmation_seconds": 0.2,
+  "barge_no_resumption_seconds": 2.0,
+  "barge_jabra_quiet_margin_db": 6,
+  "barge_latency_max_seconds": 1.0,
+  "barge_correct_transcripts_required": 4,
+  "erle_median_reply_min_db": 20,
+  "erle_reference_activity_method": "independent-quiet-v2",
+  "reference_min_rms_lsb": 2,
+  "reference_min_rise_db": 10,
+  "minimum_reference_active_frames_per_reply": 5,
+  "afe_delay_samples_independent_prior": 1024,
+  "afe_delay_must_be_remeasured_before_scoring": true,
+  "false_user_turns_max": 0,
+  "internal_heap_floor_bytes": 81920,
+  "internal_largest_floor_bytes": 32768,
+  "failed_allocations_max": 0,
+  "transport_all_13_counter_deltas_max": 0,
+  "adc_saturation_max": 0,
+  "aec_reference_output_clips_max": 0,
+  "uplink_over60_rate_max": 0.01,
+  "uplink_over150_rate_max": 0.0005,
+  "uplink_hard_max_gap_ms": 2000,
+  "qualification_requires_every_gate": true,
+  "default_aec_changes_allowed": false,
+  "capture_scope": "one bounded capture per original; all 15 originals required",
+  "barge_coverage_marker_after_request_seconds": 2.1,
+  "barge_coverage_marker_seconds": 0.3,
+  "barge_timing_method": "receipt-bound-witness-v1",
+  "barge_future_generated_pcm_seconds": 2.0,
+  "barge_natural_quiet_max_seconds": 0.2,
+  "barge_source_quiet_dbfs": -45,
+  "maximum_original_seconds": 12,
+  "barge_transcript_wait_seconds": 3,
+  "stimulus_prepare_path": "/home/khkramer/src/evidence/echoear/A/aec-scored-prep/stimuli-v1",
+  "barge_word_sha256": "45e101f8bc642a2163067f65259ede0a0ed780f5456b3f6ac844adff36eeaa35",
+  "barge_marker_sha256": "68dd40c5c359b749822463c0371690f664a29b389c2411ac6e57e126d2926f8c",
+  "independent_delay_prompt": "/home/khkramer/src/evidence/echoear/B/item2-final-master-9bc2d42/strict_voice_cat/attempt-2/run1/calibration/prompt-adjustment-1-playback.wav",
+  "bulk_exports_only_between_originals": true,
+  "scored_consumption_marker": "/home/khkramer/src/evidence/echoear/A/aec-first-scored-v1-consumed.json"
+}

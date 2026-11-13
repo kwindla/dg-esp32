@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "step": "6c",
+  "run_id": "live-1",
+  "qualification": false,
+  "firmware_commit": "6f852fcbd43b4fdcd321b9e7e226c0b7a491b9b2",
+  "metrics_enabled": false,
+  "cases": [
+    {
+      "run_id": "cap-01",
+      "volume_db": 0,
+      "text": "The harbor opens early. Small fishing boats cross the water while workers unload baskets beside the old stone pier.",
+      "stop_offset_s": null
+    },
+    {
+      "run_id": "cap-02",
+      "volume_db": -6,
+      "text": "To plant a bean, place it in damp soil near a sunny window. Water gently and watch for the first green leaves.",
+      "stop_offset_s": null
+    },
+    {
+      "run_id": "cap-03",
+      "volume_db": 0,
+      "text": "The museum has a blue door and a wide staircase. Inside, visitors can explore paintings, maps, and models of ancient ships.",
+      "stop_offset_s": null
+    },
+    {
+      "run_id": "cap-04",
+      "volume_db": -6,
+      "text": "A bicycle bell helps warn people on a shared path. Slow down near corners and leave enough space when passing.",
+      "stop_offset_s": null
+    },
+    {
+      "run_id": "cap-05",
+      "volume_db": 0,
+      "text": "The train leaves from platform seven. Keep your ticket nearby and check the destination before stepping into the carriage.",
+      "stop_offset_s": null
+    },
+    {
+      "run_id": "cap-06",
+      "volume_db": -6,
+      "text": "On a clear evening, the moon can appear above the eastern hills. Its bright surface reflects sunlight toward the Earth.",
+      "stop_offset_s": null
+    }
+  ],
+  "reply_window_seconds": 16,
+  "reply_period_seconds": 85,
+  "pipecat": "1.12.0",
+  "aiortc": "1.15.0",
+  "cat": true,
+  "runtime_gain_db": 15,
+  "noise_gate": null,
+  "acoustic_scoring": false,
+  "raw_levels": "Retain each capture, raw MIC1 whole/pre/post RMS; no threshold or retake.",
+  "stop_rule": "Stop further replies on first admission failure or unresolved T3 flight recovery at the cell export boundary, restore and retain failure. No retakes.",
+  "readout": {
+    "1b": "DATA sent, T3/retransmissions, SACK cumulative TSN stuck below retransmitted TSN: device not acknowledging; distinguish loss on the return path if not observable.",
+    "1a": "SACK advances past undelivered messages, device receive delta short: SCTP acknowledges but does not deliver to application.",
+    "2": "No DATA while bufferedAmount grows, or outbound_queue grows with flight below cwnd: host send side."
+  },
+  "repeat": "None; six original replies, no performance retakes or metrics override.",
+  "cleanup": "flock for all board/Jabra operations; restore/hash verify normal 9936da45, mixer byte-equal, stop owned bot, release lock; retain lock if restoration fails",
+  "pass_rule": "Six per-reply live_admission checks: device received/dispatched delta >= recorder count, zero admission-budget delta, equal final counters. Fix/tap supported and enabled. For every t3-expired, a later same-pc_id receive-sack-complete row has flight_size, sent_queue, outbound_queue all zero by hold end. Report natural T3 count, including zero (host tests carry proof). Resource gates required; no acoustic scoring.",
+  "fix": "Exact non-abandoned _acked=False pre-T3 wrapper; aiortc1.15.0 and rtcsctptransport.py SHA256 d0d42fd9b568d44e687b564ca17bb384ea06c481bf8f38091ccb09d20be716c6"
+}

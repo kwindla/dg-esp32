@@ -1,0 +1,343 @@
+{
+  "basis": "canonical tools/dgi.py encoder; nearest-neighbor scale; fixture metadata only, no timing claim",
+  "rows": [
+    {
+      "source": "halloween-cat-faceplate-412.png",
+      "source_sha256": "ca8b71c8e0141f25cd8802d25bdbcf6decb97e477f67416eb8e7430cbb793d77",
+      "hash": "15fc3baa2f757d36a20298fe09719c182a47081551a771643ad1255890640394",
+      "bytes": 137835,
+      "width": 360,
+      "height": 360,
+      "codec": 1,
+      "alpha": 0
+    },
+    {
+      "source": "halloween-cat-faceplate-412.png",
+      "source_sha256": "ca8b71c8e0141f25cd8802d25bdbcf6decb97e477f67416eb8e7430cbb793d77",
+      "hash": "fa0c6ed8ed1597741ee7c3630abec8417d3ff25150f9d553009e5819f0976ba6",
+      "bytes": 78353,
+      "width": 360,
+      "height": 360,
+      "codec": 2,
+      "alpha": 0
+    },
+    {
+      "source": "sprites/eyes-happy.png",
+      "source_sha256": "5319ed0c4891b152266d6b8f7116b3fb462e7e2d209af40f513925182bf06db1",
+      "hash": "9fe0cbee65d7040495b257ae7a9504baabc1da33eb2d75a560d1b94a6608a41f",
+      "bytes": 337,
+      "width": 88,
+      "height": 21,
+      "codec": 1,
+      "alpha": 1
+    },
+    {
+      "source": "sprites/eyes-happy.png",
+      "source_sha256": "5319ed0c4891b152266d6b8f7116b3fb462e7e2d209af40f513925182bf06db1",
+      "hash": "33e3d19d9ae6b882ee2a2549ceeda274ed92b69e69848a28fff318c3bf02ea95",
+      "bytes": 278,
+      "width": 88,
+      "height": 21,
+      "codec": 2,
+      "alpha": 1
+    },
+    {
+      "source": "sprites/eyes-open.png",
+      "source_sha256": "6336d3d4fc1c33718ca7bca3af910f1d0bf95b86e7d5a4ec38d16a2fdef81a6d",
+      "hash": "5485ba93158b944e2f27ef17259ae28f8068966a6eeea77b7f7b954910e17b9f",
+      "bytes": 561,
+      "width": 88,
+      "height": 21,
+      "codec": 1,
+      "alpha": 1
+    },
+    {
+      "source": "sprites/eyes-open.png",
+      "source_sha256": "6336d3d4fc1c33718ca7bca3af910f1d0bf95b86e7d5a4ec38d16a2fdef81a6d",
+      "hash": "8af38357ac6573ed0298d41deecf097f68b13c75ff7b691b77be1f47fa3d15ec",
+      "bytes": 414,
+      "width": 88,
+      "height": 21,
+      "codec": 2,
+      "alpha": 1
+    },
+    {
+      "source": "sprites/eyes-half.png",
+      "source_sha256": "b74470407a0e0e42d793844406294565a697c791b38f82e10e4b28a85628ed36",
+      "hash": "27c79a2c70722b5c5b8139100be3d7b0c562a80b469e82898074fed4aeac1db7",
+      "bytes": 385,
+      "width": 88,
+      "height": 21,
+      "codec": 1,
+      "alpha": 1
+    },
+    {
+      "source": "sprites/eyes-half.png",
+      "source_sha256": "b74470407a0e0e42d793844406294565a697c791b38f82e10e4b28a85628ed36",
+      "hash": "5fbe52f5adc9fceb911ca4dc7430efd846e1d49a0aa86a2da133eb9b44502744",
+      "bytes": 304,
+      "width": 88,
+      "height": 21,
+      "codec": 2,
+      "alpha": 1
+    },
+    {
+      "source": "sprites/eyes-closed.png",
+      "source_sha256": "f759c2961d2b7855d59bdd44a721dc57aa284b408966396e323a2f5a9e69c1dd",
+      "hash": "19531de0cedda16fbe85d21981b7ca38cfb5041553ab0f979efd34f3c915277e",
+      "bytes": 273,
+      "width": 88,
+      "height": 21,
+      "codec": 1,
+      "alpha": 1
+    },
+    {
+      "source": "sprites/eyes-closed.png",
+      "source_sha256": "f759c2961d2b7855d59bdd44a721dc57aa284b408966396e323a2f5a9e69c1dd",
+      "hash": "4e96222e809673ebf446c954cc4252a47732c1488e4d161d6c74ef1b5e552985",
+      "bytes": 234,
+      "width": 88,
+      "height": 21,
+      "codec": 2,
+      "alpha": 1
+    },
+    {
+      "source": "sprites/eyes-left.png",
+      "source_sha256": "bd0f008d62af06b7b210da96ac1e680fecaefabc3ae3f015f74c70248f8a065a",
+      "hash": "706ebb43099ac648fa0e7f1f565b5736eab171c666afd62fbd465ef724140cf7",
+      "bytes": 561,
+      "width": 88,
+      "height": 21,
+      "codec": 1,
+      "alpha": 1
+    },
+    {
+      "source": "sprites/eyes-left.png",
+      "source_sha256": "bd0f008d62af06b7b210da96ac1e680fecaefabc3ae3f015f74c70248f8a065a",
+      "hash": "e5e257a1884a091c85799ba7a97ec059d45227085472e9d54ce78bede89a0fa8",
+      "bytes": 414,
+      "width": 88,
+      "height": 21,
+      "codec": 2,
+      "alpha": 1
+    },
+    {
+      "source": "sprites/eyes-right.png",
+      "source_sha256": "dcb19a64c401511db428d77696313989d032afc77eb924ff4786d8450b40a30e",
+      "hash": "6919f21294442bd85c41049631032feea21ff5d1f1804b2b8f3fc0cc793ab8aa",
+      "bytes": 561,
+      "width": 88,
+      "height": 21,
+      "codec": 1,
+      "alpha": 1
+    },
+    {
+      "source": "sprites/eyes-right.png",
+      "source_sha256": "dcb19a64c401511db428d77696313989d032afc77eb924ff4786d8450b40a30e",
+      "hash": "9783cc8c9be38139cabf7620ed441a7069fb385c2aefbc8121ea2e675bdf84b3",
+      "bytes": 414,
+      "width": 88,
+      "height": 21,
+      "codec": 2,
+      "alpha": 1
+    },
+    {
+      "source": "sprites/mouth-smile.png",
+      "source_sha256": "ec0a25f3f175eb44121b8f4fea16c5b3079954b592c3ef065d50624ae6f7d92e",
+      "hash": "55174d0ba9db59715c7d5f1be89d26fde4859b064afd921183bb72a9db8e3b90",
+      "bytes": 623,
+      "width": 56,
+      "height": 35,
+      "codec": 1,
+      "alpha": 1
+    },
+    {
+      "source": "sprites/mouth-smile.png",
+      "source_sha256": "ec0a25f3f175eb44121b8f4fea16c5b3079954b592c3ef065d50624ae6f7d92e",
+      "hash": "78e4da3c5ad75e317c8197dabc2e7ddb9bc5bb990c77ab3b35576f64c82d75bc",
+      "bytes": 459,
+      "width": 56,
+      "height": 35,
+      "codec": 2,
+      "alpha": 1
+    },
+    {
+      "source": "sprites/mouth-closed.png",
+      "source_sha256": "ec0a25f3f175eb44121b8f4fea16c5b3079954b592c3ef065d50624ae6f7d92e",
+      "hash": "55174d0ba9db59715c7d5f1be89d26fde4859b064afd921183bb72a9db8e3b90",
+      "bytes": 623,
+      "width": 56,
+      "height": 35,
+      "codec": 1,
+      "alpha": 1
+    },
+    {
+      "source": "sprites/mouth-closed.png",
+      "source_sha256": "ec0a25f3f175eb44121b8f4fea16c5b3079954b592c3ef065d50624ae6f7d92e",
+      "hash": "78e4da3c5ad75e317c8197dabc2e7ddb9bc5bb990c77ab3b35576f64c82d75bc",
+      "bytes": 459,
+      "width": 56,
+      "height": 35,
+      "codec": 2,
+      "alpha": 1
+    },
+    {
+      "source": "sprites/mouth-small.png",
+      "source_sha256": "c78e8add81bbbd29a91dad4ded473bfd1de9498bbd51aee49be2c2492636ad70",
+      "hash": "54aa2e3a0479d7d8817fbe6c851b1f000933021a73a981821e6aa49797d49051",
+      "bytes": 599,
+      "width": 56,
+      "height": 35,
+      "codec": 1,
+      "alpha": 1
+    },
+    {
+      "source": "sprites/mouth-small.png",
+      "source_sha256": "c78e8add81bbbd29a91dad4ded473bfd1de9498bbd51aee49be2c2492636ad70",
+      "hash": "452bfb5cb55047d13114ea8514234c4f0ff26df424d57661e303a1e77f98d5f6",
+      "bytes": 456,
+      "width": 56,
+      "height": 35,
+      "codec": 2,
+      "alpha": 1
+    },
+    {
+      "source": "sprites/mouth-medium.png",
+      "source_sha256": "2382811bad3ae77a8e6b614eb8f7c8b93f47c8e63aecb89a832560cd34785531",
+      "hash": "e93822bf4a7fdbc7610c6b909e4d0cee8820d3589af3ea3e46da3b2a03926ed3",
+      "bytes": 687,
+      "width": 56,
+      "height": 35,
+      "codec": 1,
+      "alpha": 1
+    },
+    {
+      "source": "sprites/mouth-medium.png",
+      "source_sha256": "2382811bad3ae77a8e6b614eb8f7c8b93f47c8e63aecb89a832560cd34785531",
+      "hash": "713bb37a77ea95bc6865a1d246294bf1be3bf484c7b83a65fc6b94caaed12d58",
+      "bytes": 526,
+      "width": 56,
+      "height": 35,
+      "codec": 2,
+      "alpha": 1
+    },
+    {
+      "source": "sprites/mouth-wide.png",
+      "source_sha256": "768e516c355bac4b78fd07e973a8a9a77529d336a7af5d0f4827f2d7d51a2fe6",
+      "hash": "d8b4056159c7d71663572517ece375f65b06ab7d77571651df50e25d030d8824",
+      "bytes": 743,
+      "width": 56,
+      "height": 35,
+      "codec": 1,
+      "alpha": 1
+    },
+    {
+      "source": "sprites/mouth-wide.png",
+      "source_sha256": "768e516c355bac4b78fd07e973a8a9a77529d336a7af5d0f4827f2d7d51a2fe6",
+      "hash": "21e69520771facf41bff1f9b375b2d6faee9f596f32e724a3c3bbf5203d04bfc",
+      "bytes": 575,
+      "width": 56,
+      "height": 35,
+      "codec": 2,
+      "alpha": 1
+    },
+    {
+      "source": "sprites/mouth-round.png",
+      "source_sha256": "7f3840959505e3a1359829606ff1a081d961c68e66fff89969623f47f570dccb",
+      "hash": "7786c61be9852d27eeaeb9a9a02535b89b41f498a607afafe2bceebf4382a287",
+      "bytes": 543,
+      "width": 56,
+      "height": 35,
+      "codec": 1,
+      "alpha": 1
+    },
+    {
+      "source": "sprites/mouth-round.png",
+      "source_sha256": "7f3840959505e3a1359829606ff1a081d961c68e66fff89969623f47f570dccb",
+      "hash": "77909b175b4814f73f0d7cb7e477508b8265c3700598a8b4eac47ed0f3e44f1d",
+      "bytes": 449,
+      "width": 56,
+      "height": 35,
+      "codec": 2,
+      "alpha": 1
+    },
+    {
+      "source": "sprites/whiskers-rest.png",
+      "source_sha256": "61cd442cf75b256c33573e3ca2bd3604a195affc61d2fef0b616831b36b4c0a9",
+      "hash": "7df018d40572553f5407ee4d5f96a027f05b72923b9c9d15d5a5bdac256d2633",
+      "bytes": 798,
+      "width": 196,
+      "height": 42,
+      "codec": 1,
+      "alpha": 1
+    },
+    {
+      "source": "sprites/whiskers-rest.png",
+      "source_sha256": "61cd442cf75b256c33573e3ca2bd3604a195affc61d2fef0b616831b36b4c0a9",
+      "hash": "0e581104027e9e73541745c24ea9525d14b9f37e1985df8f24392a1684f87ac7",
+      "bytes": 679,
+      "width": 196,
+      "height": 42,
+      "codec": 2,
+      "alpha": 1
+    },
+    {
+      "source": "sprites/whiskers-lift.png",
+      "source_sha256": "96fbfd40204f1f3d93e409efd8d1c24751cd14dd8b1cc65e3c92b3bbca4b23d6",
+      "hash": "76eda817b21e7493f61eb6605c53550a8931401dd030b0dc7f314af68e462d25",
+      "bytes": 798,
+      "width": 196,
+      "height": 42,
+      "codec": 1,
+      "alpha": 1
+    },
+    {
+      "source": "sprites/whiskers-lift.png",
+      "source_sha256": "96fbfd40204f1f3d93e409efd8d1c24751cd14dd8b1cc65e3c92b3bbca4b23d6",
+      "hash": "6df39fecd3f7a6fe0d8339ec4715e1dd7eea11b2224dc12cb8d9fa1f89608be7",
+      "bytes": 671,
+      "width": 196,
+      "height": 42,
+      "codec": 2,
+      "alpha": 1
+    },
+    {
+      "source": "sprites/whiskers-drop.png",
+      "source_sha256": "e570ab128ffdfc0341552e8a61228b0ed113d678cb84f8589cdd9617a25a1bec",
+      "hash": "d571ffdbf4181a10fae940f17832cf5a98f1bcfd3f33127c7130c569721b6195",
+      "bytes": 814,
+      "width": 196,
+      "height": 42,
+      "codec": 1,
+      "alpha": 1
+    },
+    {
+      "source": "sprites/whiskers-drop.png",
+      "source_sha256": "e570ab128ffdfc0341552e8a61228b0ed113d678cb84f8589cdd9617a25a1bec",
+      "hash": "4133a6acd54d67cb5368746e3fdae2aae843d7549abb181ac205b099154e974a",
+      "bytes": 689,
+      "width": 196,
+      "height": 42,
+      "codec": 2,
+      "alpha": 1
+    },
+    {
+      "source": "synthetic-noise",
+      "hash": "593d929158dfc890ebb7ddc117eb5307b025bdfb713e45e8c6efe94c8b58b6ef",
+      "bytes": 261036,
+      "width": 360,
+      "height": 360,
+      "codec": 1,
+      "alpha": 0
+    },
+    {
+      "source": "synthetic-noise",
+      "hash": "a1f63ee61bc49d5c6e8a415b700fd9df996ac1cd9a229e1fc6e862b6d83a5fca",
+      "bytes": 261036,
+      "width": 360,
+      "height": 360,
+      "codec": 2,
+      "alpha": 0
+    }
+  ]
+}

@@ -1,0 +1,271 @@
+{
+  "heap": {
+    "dma": {
+      "free": 162907,
+      "largest": 114688,
+      "minimum_free": 144960,
+      "sampled_largest_minimum": null,
+      "window_minimum_free": null,
+      "window_session_minimum_free": null
+    },
+    "internal": {
+      "free": 170695,
+      "largest": 114688,
+      "minimum_free": 152748,
+      "sampled_largest_minimum": null,
+      "window_minimum_free": null,
+      "window_session_minimum_free": null
+    },
+    "psram": {
+      "free": 12675564,
+      "largest": 12582912,
+      "minimum_free": 12153932,
+      "sampled_largest_minimum": null,
+      "window_minimum_free": null,
+      "window_session_minimum_free": null
+    }
+  },
+  "failed_allocations": {
+    "basis": "Requested bits; generic and DMA failures conservatively count internal, including a benign first failure in a future internal-then-PSRAM fallback; counts overlap; last size/caps one coherent atomic pair",
+    "dma": 0,
+    "internal": 0,
+    "last_caps": 0,
+    "last_size": 0,
+    "psram": 0,
+    "total": 0
+  },
+  "tasks": [
+    {
+      "core": 0,
+      "cpu_percent": null,
+      "id": 14,
+      "name": "console",
+      "priority": 4,
+      "runtime_us": 634323,
+      "stack_bytes": 18432,
+      "stack_free_bytes": 6196,
+      "stack_margin_percent": 33.615451388888886
+    },
+    {
+      "core": 0,
+      "cpu_percent": null,
+      "id": 21,
+      "name": "demo-touch",
+      "priority": 2,
+      "runtime_us": 7020,
+      "stack_bytes": null,
+      "stack_free_bytes": 3316,
+      "stack_margin_percent": null
+    },
+    {
+      "core": 0,
+      "cpu_percent": null,
+      "id": 8,
+      "name": "console-output",
+      "priority": 1,
+      "runtime_us": 7057,
+      "stack_bytes": 4096,
+      "stack_free_bytes": 3196,
+      "stack_margin_percent": 78.02734375
+    },
+    {
+      "core": 0,
+      "cpu_percent": null,
+      "id": 22,
+      "name": "display",
+      "priority": 1,
+      "runtime_us": 26113,
+      "stack_bytes": 4096,
+      "stack_free_bytes": 3076,
+      "stack_margin_percent": 75.09765625
+    },
+    {
+      "core": 1,
+      "cpu_percent": null,
+      "id": 6,
+      "name": "IDLE1",
+      "priority": 0,
+      "runtime_us": 6141287,
+      "stack_bytes": 1536,
+      "stack_free_bytes": 808,
+      "stack_margin_percent": 52.604166666666664
+    },
+    {
+      "core": 0,
+      "cpu_percent": null,
+      "id": 5,
+      "name": "IDLE0",
+      "priority": 0,
+      "runtime_us": 4312991,
+      "stack_bytes": 1536,
+      "stack_free_bytes": 688,
+      "stack_margin_percent": 44.791666666666664
+    },
+    {
+      "core": 0,
+      "cpu_percent": null,
+      "id": 20,
+      "name": "app-session",
+      "priority": 4,
+      "runtime_us": 2643,
+      "stack_bytes": 16384,
+      "stack_free_bytes": 13876,
+      "stack_margin_percent": 84.6923828125
+    },
+    {
+      "core": 1,
+      "cpu_percent": null,
+      "id": 17,
+      "name": "audio-playback",
+      "priority": 13,
+      "runtime_us": 18799,
+      "stack_bytes": 17152,
+      "stack_free_bytes": 16012,
+      "stack_margin_percent": 93.3535447761194
+    },
+    {
+      "core": 0,
+      "cpu_percent": null,
+      "id": 19,
+      "name": "app-control",
+      "priority": 4,
+      "runtime_us": 12035,
+      "stack_bytes": 16384,
+      "stack_free_bytes": 10536,
+      "stack_margin_percent": 64.306640625
+    },
+    {
+      "core": 1,
+      "cpu_percent": null,
+      "id": 16,
+      "name": "audio-capture",
+      "priority": 12,
+      "runtime_us": 404829,
+      "stack_bytes": 16384,
+      "stack_free_bytes": 13364,
+      "stack_margin_percent": 81.5673828125
+    },
+    {
+      "core": 0,
+      "cpu_percent": null,
+      "id": 10,
+      "name": "tcpip",
+      "priority": 18,
+      "runtime_us": 3212,
+      "stack_bytes": 3584,
+      "stack_free_bytes": 1904,
+      "stack_margin_percent": 53.125
+    },
+    {
+      "core": 0,
+      "cpu_percent": null,
+      "id": 18,
+      "name": "power-gauge",
+      "priority": 1,
+      "runtime_us": 909,
+      "stack_bytes": 3072,
+      "stack_free_bytes": 1840,
+      "stack_margin_percent": 59.895833333333336
+    },
+    {
+      "core": 0,
+      "cpu_percent": null,
+      "id": 23,
+      "name": "display-store",
+      "priority": 1,
+      "runtime_us": 1427155,
+      "stack_bytes": 8192,
+      "stack_free_bytes": 5136,
+      "stack_margin_percent": 62.6953125
+    },
+    {
+      "core": 0,
+      "cpu_percent": null,
+      "id": 13,
+      "name": "demo-config",
+      "priority": 2,
+      "runtime_us": 11,
+      "stack_bytes": 4096,
+      "stack_free_bytes": 3356,
+      "stack_margin_percent": 81.93359375
+    },
+    {
+      "core": 0,
+      "cpu_percent": null,
+      "id": 1,
+      "name": "ipc0",
+      "priority": 4,
+      "runtime_us": 5435,
+      "stack_bytes": 1280,
+      "stack_free_bytes": 332,
+      "stack_margin_percent": 25.9375
+    },
+    {
+      "core": 0,
+      "cpu_percent": null,
+      "id": 11,
+      "name": "sys_evt",
+      "priority": 20,
+      "runtime_us": 887,
+      "stack_bytes": 2816,
+      "stack_free_bytes": 1436,
+      "stack_margin_percent": 50.99431818181818
+    },
+    {
+      "core": 0,
+      "cpu_percent": null,
+      "id": 9,
+      "name": "diagnostic-log",
+      "priority": 1,
+      "runtime_us": 2500,
+      "stack_bytes": 4096,
+      "stack_free_bytes": 3052,
+      "stack_margin_percent": 74.51171875
+    },
+    {
+      "core": 0,
+      "cpu_percent": null,
+      "id": 12,
+      "name": "wifi",
+      "priority": 23,
+      "runtime_us": 106931,
+      "stack_bytes": 6656,
+      "stack_free_bytes": 4392,
+      "stack_margin_percent": 65.98557692307692
+    },
+    {
+      "core": 0,
+      "cpu_percent": null,
+      "id": 3,
+      "name": "esp_timer",
+      "priority": 22,
+      "runtime_us": 5597,
+      "stack_bytes": 4096,
+      "stack_free_bytes": 3120,
+      "stack_margin_percent": 76.171875
+    },
+    {
+      "core": 1,
+      "cpu_percent": null,
+      "id": 2,
+      "name": "ipc1",
+      "priority": 24,
+      "runtime_us": 5414,
+      "stack_bytes": 1280,
+      "stack_free_bytes": 516,
+      "stack_margin_percent": 40.3125
+    },
+    {
+      "core": "any",
+      "cpu_percent": null,
+      "id": 7,
+      "name": "Tmr Svc",
+      "priority": 1,
+      "runtime_us": 23,
+      "stack_bytes": 2048,
+      "stack_free_bytes": 1344,
+      "stack_margin_percent": 65.625
+    }
+  ],
+  "pc_id": "sanitized-peer"
+}

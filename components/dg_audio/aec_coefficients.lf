@@ -1,0 +1,28 @@
+# ESP-SR 2.4.7 ESP32-S3 archive is hash-guarded in echoear_aec_memory.cmake.
+# Its local 3072-byte table has one executable reference: the source argument
+# of the init memcpy into a private SPIRAM working buffer. No runtime stores
+# or escaping pointer. Keep only that immutable source in mapped rodata.
+# The pinned object has no other initialized data. Use IDF's data section
+# family so ldgen excludes this object from the earlier default DRAM rule.
+# All other vendor objects and every instruction retain default placement.
+# P4 rev<3/IDF6 audit (decision-2026-11-02-p4-aec-coefficient-placement):
+# its unique local table is read only by the flash-resident init copy loop.
+# The pinned P4 archive has the same 3072 source bytes; no pointer escapes.
+# Separate target mappings preserve the qualified S3 selection unchanged.
+[scheme:echoear_aec_coefficients]
+entries:
+    data -> flash_rodata
+
+[mapping:echoear_aec_coefficients]
+archive: libesp_audio_processor.a
+entries:
+    if IDF_TARGET_ESP32S3 = y:
+        if DG_ECHOEAR_AEC = y:
+            dios_ssp_share_subband_dlfft (echoear_aec_coefficients)
+
+[mapping:p4_aec_coefficients]
+archive: libesp_audio_processor.a
+entries:
+    if IDF_TARGET_ESP32P4 = y:
+        if DG_ECHOEAR_AEC = y:
+            dios_ssp_share_subband_dlfft (echoear_aec_coefficients)

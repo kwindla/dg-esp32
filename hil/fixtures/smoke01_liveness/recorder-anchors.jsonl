@@ -1,0 +1,13 @@
+{"kind": "peer-binding", "monotonic_ns": 4438254065916482, "pc_id": "SmallWebRTCConnection#1-0adb6529f53145bf94db78b57931f171"}
+{"kind": "aggregator-user-turn-started", "monotonic_ns": 4438256954605754, "pc_id": "SmallWebRTCConnection#1-0adb6529f53145bf94db78b57931f171"}
+{"kind": "aggregator-user-turn-stopped", "monotonic_ns": 4438258957558331, "pc_id": "SmallWebRTCConnection#1-0adb6529f53145bf94db78b57931f171"}
+{"kind": "aggregator-assistant-turn-stopped", "monotonic_ns": 4438260089393120, "pc_id": "SmallWebRTCConnection#1-0adb6529f53145bf94db78b57931f171"}
+{"kind": "session-end", "monotonic_ns": 4438264931312713, "pc_id": "SmallWebRTCConnection#1-0adb6529f53145bf94db78b57931f171"}
+{"kind": "peer-binding", "monotonic_ns": 4438237459077950, "pc_id": "SmallWebRTCConnection#0-0fac7ccbe12140bca907af26dc18547d"}
+{"kind": "aggregator-user-turn-started", "monotonic_ns": 4438240872976494, "pc_id": "SmallWebRTCConnection#0-0fac7ccbe12140bca907af26dc18547d"}
+{"kind": "aggregator-user-turn-stopped", "monotonic_ns": 4438242755254083, "pc_id": "SmallWebRTCConnection#0-0fac7ccbe12140bca907af26dc18547d"}
+{"kind": "aggregator-assistant-turn-stopped", "monotonic_ns": 4438244858639082, "pc_id": "SmallWebRTCConnection#0-0fac7ccbe12140bca907af26dc18547d"}
+{"kind": "aggregator-user-turn-started", "monotonic_ns": 4438248986853531, "pc_id": "SmallWebRTCConnection#0-0fac7ccbe12140bca907af26dc18547d"}
+{"kind": "aggregator-user-turn-stopped", "monotonic_ns": 4438251615182549, "pc_id": "SmallWebRTCConnection#0-0fac7ccbe12140bca907af26dc18547d"}
+{"kind": "aggregator-assistant-turn-stopped", "monotonic_ns": 4438255273834919, "pc_id": "SmallWebRTCConnection#0-0fac7ccbe12140bca907af26dc18547d"}
+{"kind": "session-end", "monotonic_ns": 4438255274405522, "pc_id": "SmallWebRTCConnection#0-0fac7ccbe12140bca907af26dc18547d"}

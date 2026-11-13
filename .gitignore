@@ -1,0 +1,44 @@
+# ESP-IDF build output
+build/
+managed_components/
+sdkconfig
+sdkconfig.old
+
+# Editor / tooling
+.vscode/settings.json
+.cache/
+compile_commands.json
+*.swp
+.DS_Store
+
+# HIL test outputs
+hil/out/
+
+# upstream clones used only for plan review
+proj-*/research-clones/
+
+# Python / uv (server/, hil/)
+.venv/
+__pycache__/
+server/.env
+server/events.jsonl
+
+# Local-only build config (WiFi creds etc.)
+sdkconfig.local
+
+# Host build of the vendored C++ core
+third_party/pipecat-client-cxx/build*/
+
+# Test evidence bundles (logs, WAVs, JSON) stay local; results are summarized
+# in commit messages, PLAN.md progress notes, and docs.
+proj-*/evidence/
+
+# Optional received audio evidence
+server/out/
+
+# Vendor source archives (pinned by sources/*-pin.json)
+sources/*.tar.gz
+build-*/
+
+# Working notes, plans and Codex job records stay local.
+proj-*/

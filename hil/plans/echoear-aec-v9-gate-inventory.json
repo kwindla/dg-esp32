@@ -1,0 +1,2780 @@
+{
+ "raise_sites": [
+  [
+   "hil/echoear_aec_accept.py",
+   "require_zero_i2s",
+   "RuntimeError",
+   "Whole-session ",
+   "hardware.audio_io"
+  ],
+  [
+   "hil/echoear_aec_accept.py",
+   "run",
+   "RuntimeError",
+   "No clean settled baseline; environmental pause",
+   "EXCLUDED: legacy pre-v8 accept runner, not on the acceptance path"
+  ],
+  [
+   "hil/echoear_aec_accept.py",
+   "run",
+   "RuntimeError",
+   "Three consecutive noisy cells; environmental pause",
+   "EXCLUDED: legacy pre-v8 accept runner, not on the acceptance path"
+  ],
+  [
+   "hil/echoear_aec_accept.py",
+   "run",
+   "StimulusTimingFailure",
+   "Invocation timing failed; see timer.json and capture.npz",
+   "EXCLUDED: legacy pre-v8 accept runner, not on the acceptance path"
+  ],
+  [
+   "hil/echoear_aec_accept.py",
+   "run.send",
+   "RuntimeError",
+   "Evaluation command not acknowledged",
+   "EXCLUDED: legacy pre-v8 accept runner, not on the acceptance path"
+  ],
+  [
+   "hil/echoear_aec_accept.py",
+   "run.stop_hold",
+   "KeyboardInterrupt",
+   "Stop requested",
+   "EXCLUDED: legacy pre-v8 accept runner, not on the acceptance path"
+  ],
+  [
+   "hil/echoear_aec_accept.py",
+   "validate_plan",
+   "ValueError",
+   "A declared run is required; the step-9 specification is still a draft",
+   "EXCLUDED: legacy pre-v8 accept runner, not on the acceptance path"
+  ],
+  [
+   "hil/echoear_aec_accept.py",
+   "validate_plan",
+   "ValueError",
+   "Acceptance stimuli require active TTS at the declared deadline",
+   "EXCLUDED: legacy pre-v8 accept runner, not on the acceptance path"
+  ],
+  [
+   "hil/echoear_aec_accept.py",
+   "validate_plan",
+   "ValueError",
+   "Declare cells before acquiring",
+   "EXCLUDED: legacy pre-v8 accept runner, not on the acceptance path"
+  ],
+  [
+   "hil/echoear_aec_accept.py",
+   "validate_plan",
+   "ValueError",
+   "Frozen guard/volume changed",
+   "EXCLUDED: legacy pre-v8 accept runner, not on the acceptance path"
+  ],
+  [
+   "hil/echoear_aec_accept.py",
+   "validate_plan",
+   "ValueError",
+   "Near-end offsets must be 0..3 seconds",
+   "EXCLUDED: legacy pre-v8 accept runner, not on the acceptance path"
+  ],
+  [
+   "hil/echoear_aec_accept.py",
+   "validate_plan",
+   "ValueError",
+   "No automatic acceptance/performance retakes",
+   "EXCLUDED: legacy pre-v8 accept runner, not on the acceptance path"
+  ],
+  [
+   "hil/echoear_aec_accept.py",
+   "validate_plan",
+   "ValueError",
+   "Reconnect requires +1s active-TTS deadline and declared reply/post-roll window",
+   "EXCLUDED: legacy pre-v8 accept runner, not on the acceptance path"
+  ],
+  [
+   "hil/echoear_aec_accept.py",
+   "validate_plan",
+   "ValueError",
+   "Step-9 acquisition requires its reviewed frozen specification",
+   "EXCLUDED: legacy pre-v8 accept runner, not on the acceptance path"
+  ],
+  [
+   "hil/echoear_aec_accept_analysis.py",
+   "classify_opportunity",
+   "ValueError",
+   "Unknown prospective lull policy",
+   "analyzer.exception"
+  ],
+  [
+   "hil/echoear_aec_accept_analysis.py",
+   "main",
+   "ValueError",
+   "Diagnostic additional cases require an explicit output path",
+   "analyzer.exception"
+  ],
+  [
+   "hil/echoear_aec_accept_analysis.py",
+   "main",
+   "ValueError",
+   "Diagnostic policy override requires explicit output",
+   "analyzer.exception"
+  ],
+  [
+   "hil/echoear_aec_accept_analysis.py",
+   "summarize",
+   "ValueError",
+   "Unknown prospective lull policy",
+   "analyzer.exception"
+  ],
+  [
+   "hil/echoear_aec_bench.py",
+   "acquire",
+   "RuntimeError",
+   "Cleanup failed; see retained acquisition.json",
+   "EXCLUDED: legacy bench acquisition, not on the acceptance path"
+  ],
+  [
+   "hil/echoear_aec_bench.py",
+   "acquire",
+   "RuntimeError",
+   "Mixer restoration differs",
+   "EXCLUDED: legacy bench acquisition, not on the acceptance path"
+  ],
+  [
+   "hil/echoear_aec_bench.py",
+   "acquire",
+   "ValueError",
+   "Capture duration must include full fixture plus delayed AFE tail",
+   "EXCLUDED: legacy bench acquisition, not on the acceptance path"
+  ],
+  [
+   "hil/echoear_aec_bench.py",
+   "acquire",
+   "ValueError",
+   "Capture too short for near fixture and tail",
+   "EXCLUDED: legacy bench acquisition, not on the acceptance path"
+  ],
+  [
+   "hil/echoear_aec_bench.py",
+   "acquire",
+   "ValueError",
+   "Far fixture must sustain the full near utterance",
+   "EXCLUDED: legacy bench acquisition, not on the acceptance path"
+  ],
+  [
+   "hil/echoear_aec_bench.py",
+   "boot",
+   "ValueError",
+   "Boot analog_db/register disagrees with declared gain",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_bench.py",
+   "boot",
+   "ValueError",
+   "Verify the image and declare its boot gain before boot",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_bench.py",
+   "declared_boot_gain",
+   "ValueError",
+   "AEC image requires declared boot_ref_gain_db (0..33 by 3)",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_bench.py",
+   "declared_boot_gain",
+   "ValueError",
+   "Plan and image boot gain declarations disagree",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_bench.py",
+   "jabra_card_zero",
+   "RuntimeError",
+   "Jabra is not ALSA card 0",
+   "bench.audio_device"
+  ],
+  [
+   "hil/echoear_aec_bench.py",
+   "json_scalar",
+   "TypeError",
+   "Object of type ",
+   "unknown.unclassified"
+  ],
+  [
+   "hil/echoear_aec_bench.py",
+   "load_capture",
+   "ValueError",
+   "Expected complete EchoEar 16 kHz capture",
+   "capture.export"
+  ],
+  [
+   "hil/echoear_aec_bench.py",
+   "read_wav",
+   "ValueError",
+   "Expected mono 16 kHz S16 fixture",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_bench.py",
+   "transcribe_afe",
+   "RuntimeError",
+   "STT HTTP ",
+   "EXCLUDED: legacy bench STT helper, not on the acceptance path"
+  ],
+  [
+   "hil/echoear_aec_bench.py",
+   "verify_bundle",
+   "ValueError",
+   "ELF identity mismatch",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_bench.py",
+   "verify_bundle",
+   "ValueError",
+   "Frozen image bundle mismatch: ",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "",
+   "ValueError",
+   "Declaration digest mismatch",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "",
+   "ValueError",
+   "Frozen campaign output mismatch",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "BenchHold.__enter__",
+   "RuntimeError",
+   "Character preload failed",
+   "resources.display"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "BenchHold.__enter__",
+   "RuntimeError",
+   "RF pre-gate failed",
+   "rf.part_pre_gate"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "BenchHold.__exit__",
+   "EnvironmentalPause",
+   "Host environment failed at hold end: no credit; restored and lock released",
+   "host.environment"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "BenchHold.baseline_capture",
+   "RuntimeError",
+   "Environmental pause: no clean settled baseline",
+   "noise.part_baseline"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "BenchHold.capture",
+   "HarnessFailure",
+   "capture-deadline",
+   "capture.cap"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "BenchHold.capture",
+   "HarnessFailure",
+   "long-tts",
+   "tts.long_lead"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "BenchHold.capture",
+   "HarnessFailure",
+   "rf-pre-gate",
+   "rf.cell_pre_gate"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "BenchHold.capture",
+   "HarnessFailure",
+   "stimulus-timing",
+   "timing.stimulus_lateness"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "BenchHold.capture",
+   "HarnessFailure",
+   "stimulus-timing",
+   "timing.stimulus_lateness"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "BenchHold.capture",
+   "RuntimeError",
+   "Active bot/transport error",
+   "bot.pipeline_error"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "BenchHold.capture",
+   "RuntimeError",
+   "Capture-interval or integrity failure; v8.5 has no link retake",
+   "capture.interval_checks"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "BenchHold.capture",
+   "RuntimeError",
+   "Clock regressed",
+   "timing.host_clock"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "BenchHold.capture",
+   "RuntimeError",
+   "Incomplete long-TTS generation witnesses",
+   "tts.generation_witness"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "BenchHold.capture",
+   "RuntimeError",
+   "Invalid capture/quiet windows; acquisition failure",
+   "quiet.board_silent"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "BenchHold.capture",
+   "RuntimeError",
+   "Observer health failure",
+   "observer.health"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "BenchHold.capture",
+   "RuntimeError",
+   "Resource/admission/RF/delivery/transport failure",
+   "capture.interval_checks"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "BenchHold.capture",
+   "RuntimeError",
+   "Soak request deadline missed; no shifting",
+   "soak.block"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "BenchHold.connect",
+   "RuntimeError",
+   "SCTP patch not enabled",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "BenchHold.finish",
+   "RuntimeError",
+   "Active bot/transport error at final audit",
+   "bot.pipeline_error"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "BenchHold.finish",
+   "RuntimeError",
+   "Exception final resource/liveness audit failed",
+   "resources.part_audit"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "BenchHold.finish",
+   "RuntimeError",
+   "Observer health failure at hold boundary",
+   "observer.health"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "BenchHold.link_probe",
+   "LinkProbeFailed",
+   "result",
+   "link_probe.part"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "BenchHold.link_probe",
+   "RuntimeError",
+   "Link probe device/observer/idle failure",
+   "link_probe.part"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "BenchHold.probe",
+   "RuntimeError",
+   "Canonical probe failed",
+   "reference.probe"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "BenchHold.probe",
+   "RuntimeError",
+   "Probe hardware fault",
+   "hardware.aec_errors"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "BenchHold.reconnect",
+   "RuntimeError",
+   "Long-TTS reconnect witness/budget/integrity failure",
+   "reconnect.cycle"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "BenchHold.reconnect",
+   "RuntimeError",
+   "Reconnect hardware/resource failure even in noisy capture",
+   "reconnect.cycle"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "BenchHold.reconnect",
+   "RuntimeError",
+   "Reconnect noise retry budget exhausted",
+   "reconnect.cycle"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "BenchHold.reconnect",
+   "RuntimeError",
+   "Reconnect performance/witness failure; no retry",
+   "reconnect.cycle"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "BenchHold.recover_harness",
+   "RuntimeError",
+   "Device counters/resources not clean; harness retry forbidden",
+   "retry.clean_witness"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "BenchHold.recover_harness",
+   "RuntimeError",
+   "Hard observer/bot failure during acquisition",
+   "bot.pipeline_error"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "BenchHold.send",
+   "HarnessFailure",
+   "evaluation-ack-timeout",
+   "harness.evaluation_ack"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "BenchHold.settle_attempt",
+   "RuntimeError",
+   "Evaluation control remains unacknowledged",
+   "bot.pipeline_error"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "BenchHold.settle_attempt",
+   "RuntimeError",
+   "Incomplete bot generation after harness failure",
+   "bot.pipeline_error"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "HarnessFailure.__init__",
+   "ValueError",
+   "Unknown harness failure",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "Schedule.__init__",
+   "ValueError",
+   "Prior schedule has a hard failure or exhausted budget",
+   "parts.ledger"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "Schedule.__init__",
+   "ValueError",
+   "Resume journal attempt/order mismatch",
+   "parts.ledger"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "Schedule.__init__",
+   "ValueError",
+   "Resume pending attempts do not match lifetime journal",
+   "parts.ledger"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "Schedule.__init__",
+   "ValueError",
+   "Resume spare order mismatch",
+   "parts.ledger"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "acquire",
+   "RuntimeError",
+   "Long-TTS witness/budget/integrity failure; no retake",
+   "tts.generation_witness"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "check_capture_timing",
+   "HarnessFailure",
+   "single-capture-gap",
+   "timing.single_gap"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "check_jabra_duration",
+   "HarnessFailure",
+   "jabra-duration",
+   "harness.jabra_duration"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "environmental_cap",
+   "EnvironmentalPause",
+   "Transport-environmental attempt cap exceeded; new declared hold required",
+   "transport.environmental_classifier"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "play_fixture",
+   "HarnessFailure",
+   "jabra-duration",
+   "harness.jabra_duration"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "retry_admission",
+   "RuntimeError",
+   "Empty retry admission interval",
+   "retry.clean_witness"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "run",
+   "ValueError",
+   "Unresolved previous schedule",
+   "parts.ledger"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "run.interrupted",
+   "KeyboardInterrupt",
+   "Stop requested",
+   "operator.stop"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "run_schedule",
+   "EnvironmentalPause",
+   "Three consecutive noise/harness cells; new declaration required",
+   "caps.invalid_attempts"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "run_schedule",
+   "RuntimeError",
+   "Insufficient clean/scorable denominator",
+   "caps.invalid_attempts"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "run_soak",
+   "EnvironmentalPause",
+   "Three consecutive noise/harness soak cells",
+   "soak.block"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "run_soak",
+   "RuntimeError",
+   "Soak duration/resource coverage failed",
+   "soak.block"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "run_soak",
+   "RuntimeError",
+   "Soak export exceeded next fixed deadline",
+   "soak.block"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "run_soak",
+   "RuntimeError",
+   "Soak noise retry budget exhausted",
+   "soak.block"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "run_soak",
+   "ValueError",
+   "Unresolved hard/exhausted soak attempt",
+   "soak.block"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_campaign",
+   "ValueError",
+   "Candidate bundle not bound to declaration",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_campaign",
+   "ValueError",
+   "Cell fixture mismatch",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_campaign",
+   "ValueError",
+   "Draft specification: acquisition is not authorized",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_campaign",
+   "ValueError",
+   "Fixture hash mismatch",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_campaign",
+   "ValueError",
+   "Frozen code mismatch: ",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_campaign",
+   "ValueError",
+   "Frozen playback config changed",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_campaign",
+   "ValueError",
+   "Incomplete runner/bot/analyzer manifest",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_campaign",
+   "ValueError",
+   "Missing >=4s continuous source preflight",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_campaign",
+   "ValueError",
+   "Paired bot checkout mismatch",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_campaign",
+   "ValueError",
+   "Real-talker measurement mismatch",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_campaign",
+   "ValueError",
+   "Reviewed contract changed: ",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_campaign",
+   "ValueError",
+   "Reviewed frozen declaration and coordinator campaign authorization required",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_campaign",
+   "ValueError",
+   "Reviewed spec hash missing/mismatched",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_campaign",
+   "ValueError",
+   "Unfrozen ",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_campaign",
+   "ValueError",
+   "Unsupported pinned Flux private API",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_campaign",
+   "ValueError",
+   "Wrong normal-voice attenuation",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_review_preflight",
+   "ValueError",
+   "Campaign-02 evidence mismatch",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_review_preflight",
+   "ValueError",
+   "Campaign-02 launch log mismatch",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_review_preflight",
+   "ValueError",
+   "Campaign-02 manifest mismatch",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_review_preflight",
+   "ValueError",
+   "Coordinator decisions hash required",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_review_preflight",
+   "ValueError",
+   "Fable review approval/hash required",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_review_preflight",
+   "ValueError",
+   "Real-reply prompt changed; measured bound needs new preflight",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_review_preflight",
+   "ValueError",
+   "Supporting review/decisions hash required",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_spec",
+   "ValueError",
+   "0dB requires separately reviewed appended qualification",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_spec",
+   "ValueError",
+   "28s capture cap required",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_spec",
+   "ValueError",
+   "Candidate gain must be15",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_spec",
+   "ValueError",
+   "Control counts changed",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_spec",
+   "ValueError",
+   "Duplicate declared IDs",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_spec",
+   "ValueError",
+   "Environmental caps/recovery changed",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_spec",
+   "ValueError",
+   "Guard/volume changed",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_spec",
+   "ValueError",
+   "Hold order changed",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_spec",
+   "ValueError",
+   "Host environment policy changed",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_spec",
+   "ValueError",
+   "Invalid normal-voice block",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_spec",
+   "ValueError",
+   "Invalid offset",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_spec",
+   "ValueError",
+   "Link probe thresholds changed",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_spec",
+   "ValueError",
+   "Minimal denominator or spare budget changed",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_spec",
+   "ValueError",
+   "Need10 echo/8 captures per volume",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_spec",
+   "ValueError",
+   "Periodicity policy changed",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_spec",
+   "ValueError",
+   "Soak changed",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_spec",
+   "ValueError",
+   "Soak volume changed",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_spec",
+   "ValueError",
+   "Three reconnects required",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_spec",
+   "ValueError",
+   "Two in-window probes required",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_spec",
+   "ValueError",
+   "Unknown device-alive rule",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_spec",
+   "ValueError",
+   "Unknown probe epoch rule",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign.py",
+   "validate_timing_preflight",
+   "ValueError",
+   "Preflight timing/reply bound missing or changed",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_campaign_analysis.py",
+   "transport",
+   "ValueError",
+   "Unknown transport policy",
+   "analyzer.exception"
+  ],
+  [
+   "hil/echoear_aec_campaign_resume.py",
+   "remaining",
+   "ValueError",
+   "Lifetime retry budget exhausted: ",
+   "parts.ledger"
+  ],
+  [
+   "hil/echoear_aec_campaign_resume.py",
+   "resume_state",
+   "ValueError",
+   "Hard prior hold failure cannot be retried",
+   "parts.ledger"
+  ],
+  [
+   "hil/echoear_aec_campaign_resume.py",
+   "resume_state",
+   "ValueError",
+   "Hard/exhausted prior soak",
+   "parts.ledger"
+  ],
+  [
+   "hil/echoear_aec_campaign_resume.py",
+   "resume_state",
+   "ValueError",
+   "Prior hold has no clean completed integrity/cleanup audit",
+   "parts.ledger"
+  ],
+  [
+   "hil/echoear_aec_campaign_resume.py",
+   "resume_state",
+   "ValueError",
+   "Prior normal image restoration missing",
+   "parts.ledger"
+  ],
+  [
+   "hil/echoear_aec_campaign_resume.py",
+   "resume_state",
+   "ValueError",
+   "Regressed/reused lifetime attempt",
+   "parts.ledger"
+  ],
+  [
+   "hil/echoear_aec_campaign_resume.py",
+   "resume_state",
+   "ValueError",
+   "Soak attempt regression",
+   "parts.ledger"
+  ],
+  [
+   "hil/echoear_aec_campaign_resume.py",
+   "resume_state",
+   "ValueError",
+   "Soak pending budget mismatch",
+   "parts.ledger"
+  ],
+  [
+   "hil/echoear_aec_campaign_resume.py",
+   "run_chain",
+   "ValueError",
+   "Cyclic resume chain",
+   "parts.ledger"
+  ],
+  [
+   "hil/echoear_aec_campaign_resume.py",
+   "run_chain",
+   "ValueError",
+   "Prior declaration hash mismatch",
+   "parts.ledger"
+  ],
+  [
+   "hil/echoear_aec_campaign_resume.py",
+   "run_chain",
+   "ValueError",
+   "Prior run evidence hash mismatch",
+   "parts.ledger"
+  ],
+  [
+   "hil/echoear_aec_campaign_resume.py",
+   "run_chain",
+   "ValueError",
+   "Resume contract changed: ",
+   "parts.ledger"
+  ],
+  [
+   "hil/echoear_aec_capture.py",
+   "decode_capture",
+   "ValueError",
+   "AEC schema/channel order mismatch",
+   "capture.export"
+  ],
+  [
+   "hil/echoear_aec_capture.py",
+   "decode_capture",
+   "ValueError",
+   "Capture footer mismatch",
+   "capture.export"
+  ],
+  [
+   "hil/echoear_aec_capture.py",
+   "decode_capture",
+   "ValueError",
+   "Empty, oversized or truncated AEC capture",
+   "capture.export"
+  ],
+  [
+   "hil/echoear_aec_capture.py",
+   "decode_capture",
+   "ValueError",
+   "Incomplete AEC PCM capture",
+   "capture.export"
+  ],
+  [
+   "hil/echoear_aec_capture.py",
+   "decode_capture",
+   "ValueError",
+   "Incomplete capture timing",
+   "capture.export"
+  ],
+  [
+   "hil/echoear_aec_capture.py",
+   "decode_capture",
+   "ValueError",
+   "Invalid PCM extent",
+   "capture.export"
+  ],
+  [
+   "hil/echoear_aec_capture.py",
+   "decode_capture",
+   "ValueError",
+   "Invalid capture timing extent",
+   "capture.export"
+  ],
+  [
+   "hil/echoear_aec_capture.py",
+   "decode_capture",
+   "ValueError",
+   "Malformed capture timing row",
+   "capture.export"
+  ],
+  [
+   "hil/echoear_aec_capture.py",
+   "decode_capture",
+   "ValueError",
+   "Missing AEC capture schema",
+   "capture.export"
+  ],
+  [
+   "hil/echoear_aec_capture.py",
+   "decode_capture",
+   "ValueError",
+   "Missing capture timing blocks",
+   "capture.export"
+  ],
+  [
+   "hil/echoear_aec_capture.py",
+   "decode_capture",
+   "ValueError",
+   "Missing/reordered/duplicate AEC PCM block",
+   "capture.export"
+  ],
+  [
+   "hil/echoear_aec_echo_dropout.py",
+   "ActivityBudget.__enter__",
+   "RuntimeError",
+   "Existing process alarm; cannot own diagnostic deadline",
+   "parts.time_caps"
+  ],
+  [
+   "hil/echoear_aec_echo_dropout.py",
+   "ActivityBudget.__enter__.stop",
+   "BudgetExpired",
+   "Active budget elapsed",
+   "parts.time_caps"
+  ],
+  [
+   "hil/echoear_aec_echo_dropout.py",
+   "acquire",
+   "BudgetExpired",
+   "Insufficient remaining budget to start another cell",
+   "EXCLUDED: offline echo-dropout diagnostic runner, not on the acceptance path"
+  ],
+  [
+   "hil/echoear_aec_echo_dropout.py",
+   "acquire",
+   "RuntimeError",
+   "Final integrity audit failed",
+   "EXCLUDED: offline echo-dropout diagnostic runner, not on the acceptance path"
+  ],
+  [
+   "hil/echoear_aec_echo_dropout.py",
+   "acquire",
+   "RuntimeError",
+   "Noise-contaminated cell retained; no retry",
+   "EXCLUDED: offline echo-dropout diagnostic runner, not on the acceptance path"
+  ],
+  [
+   "hil/echoear_aec_echo_dropout.py",
+   "acquire",
+   "RuntimeError",
+   "Restoration/mixer/lock witness incomplete",
+   "EXCLUDED: offline echo-dropout diagnostic runner, not on the acceptance path"
+  ],
+  [
+   "hil/echoear_aec_echo_dropout.py",
+   "analyze_capture",
+   "RuntimeError",
+   "Analysis input changed",
+   "EXCLUDED: offline echo-dropout diagnostic runner, not on the acceptance path"
+  ],
+  [
+   "hil/echoear_aec_echo_dropout.py",
+   "diagnostic_hold.EchoHold.baseline_capture",
+   "RuntimeError",
+   "No clean settled baseline; no retry",
+   "noise.part_baseline"
+  ],
+  [
+   "hil/echoear_aec_echo_dropout.py",
+   "frame_analysis",
+   "ValueError",
+   "Incomplete or unequal PCM channels",
+   "EXCLUDED: offline echo-dropout diagnostic runner, not on the acceptance path"
+  ],
+  [
+   "hil/echoear_aec_echo_dropout.py",
+   "main",
+   "ValueError",
+   "Analysis output already exists",
+   "EXCLUDED: offline echo-dropout diagnostic runner, not on the acceptance path"
+  ],
+  [
+   "hil/echoear_aec_echo_dropout.py",
+   "plan_from",
+   "ValueError",
+   "Expected retained 61aa38d5 / 15 dB source declaration",
+   "EXCLUDED: offline echo-dropout diagnostic runner, not on the acceptance path"
+  ],
+  [
+   "hil/echoear_aec_echo_dropout.py",
+   "run",
+   "BudgetExpired",
+   "Hold exceeded 20 minute planning cap; restoration completed",
+   "EXCLUDED: offline echo-dropout diagnostic runner, not on the acceptance path"
+  ],
+  [
+   "hil/echoear_aec_echo_dropout.py",
+   "run",
+   "ValueError",
+   "Explicit reviewed plan SHA256 required",
+   "EXCLUDED: offline echo-dropout diagnostic runner, not on the acceptance path"
+  ],
+  [
+   "hil/echoear_aec_echo_dropout.py",
+   "run",
+   "ValueError",
+   "Use a fresh output under an existing parent",
+   "EXCLUDED: offline echo-dropout diagnostic runner, not on the acceptance path"
+  ],
+  [
+   "hil/echoear_aec_echo_dropout.py",
+   "validate",
+   "ValueError",
+   "Diagnostic plan differs from fixed schedule or retained configuration",
+   "EXCLUDED: offline echo-dropout diagnostic runner, not on the acceptance path"
+  ],
+  [
+   "hil/echoear_aec_echo_dropout.py",
+   "validate",
+   "ValueError",
+   "Prepared runtime changed: ",
+   "EXCLUDED: offline echo-dropout diagnostic runner, not on the acceptance path"
+  ],
+  [
+   "hil/echoear_aec_echo_dropout.py",
+   "validate",
+   "ValueError",
+   "Runtime file set changed since preparation",
+   "EXCLUDED: offline echo-dropout diagnostic runner, not on the acceptance path"
+  ],
+  [
+   "hil/echoear_aec_event_tail.py",
+   "ContextIdentity.__call__",
+   "EventStreamChanged",
+   "Missing or ambiguous requested context",
+   "observer.event_stream"
+  ],
+  [
+   "hil/echoear_aec_event_tail.py",
+   "EventCache.read",
+   "EventStreamChanged",
+   "Evaluation event backlog exceeds bounded capture poll",
+   "observer.event_stream"
+  ],
+  [
+   "hil/echoear_aec_event_tail.py",
+   "JsonlTail.poll",
+   "EventStreamChanged",
+   "JSONL path disappeared",
+   "observer.event_stream"
+  ],
+  [
+   "hil/echoear_aec_event_tail.py",
+   "JsonlTail.poll",
+   "EventStreamChanged",
+   "JSONL path disappeared",
+   "observer.event_stream"
+  ],
+  [
+   "hil/echoear_aec_event_tail.py",
+   "JsonlTail.poll",
+   "EventStreamChanged",
+   "JSONL rewritten at committed offset",
+   "observer.event_stream"
+  ],
+  [
+   "hil/echoear_aec_event_tail.py",
+   "JsonlTail.poll",
+   "EventStreamChanged",
+   "JSONL rotated or truncated",
+   "observer.event_stream"
+  ],
+  [
+   "hil/echoear_aec_event_tail.py",
+   "JsonlTail.poll",
+   "EventStreamChanged",
+   "Unbounded JSONL partial line",
+   "observer.event_stream"
+  ],
+  [
+   "hil/echoear_aec_floor_relative.py",
+   "aligned_frame_powers",
+   "ValueError",
+   "Invalid independently measured delay",
+   "analyzer.exception"
+  ],
+  [
+   "hil/echoear_aec_floor_relative.py",
+   "aligned_frame_powers",
+   "ValueError",
+   "No complete aligned frame",
+   "analyzer.exception"
+  ],
+  [
+   "hil/echoear_aec_host_gate.py",
+   "",
+   "SystemExit",
+   "passed",
+   "EXCLUDED: CLI exit status"
+  ],
+  [
+   "hil/echoear_aec_host_gate.py",
+   "HostGate.boundary",
+   "EnvironmentalPause",
+   "Cannot retain host environment witness",
+   "host.environment"
+  ],
+  [
+   "hil/echoear_aec_host_gate.py",
+   "HostGate.boundary",
+   "EnvironmentalPause",
+   "Host environment gate failed: no credit; re-examine host",
+   "host.environment"
+  ],
+  [
+   "hil/echoear_aec_host_gate.py",
+   "HostGate.periodicity",
+   "EnvironmentalPause",
+   "Periodicity socket witness unavailable; no further scoring",
+   "host.periodicity"
+  ],
+  [
+   "hil/echoear_aec_host_gate.py",
+   "HostGate.periodicity",
+   "EnvironmentalPause",
+   "reason",
+   "host.periodicity"
+  ],
+  [
+   "hil/echoear_aec_host_gate.py",
+   "lattice",
+   "ValueError",
+   "Unknown periodicity rule",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_host_interrupt.py",
+   "cell",
+   "ValueError",
+   "Invalid host interruption cell",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_host_interrupt.py",
+   "validate",
+   "ValueError",
+   "Host interruption needs a declared timer and scripted next reply, no near stimulus",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_lull.py",
+   "cancellation_witness",
+   "ValueError",
+   "Invalid interrupt-copy time",
+   "analyzer.exception"
+  ],
+  [
+   "hil/echoear_aec_lull.py",
+   "cancellation_witness",
+   "ValueError",
+   "Unmapped callback",
+   "analyzer.exception"
+  ],
+  [
+   "hil/echoear_aec_lull.py",
+   "cancellation_witness.add",
+   "ValueError",
+   "Cancellation bracket intersects unknown/gapped timing",
+   "analyzer.exception"
+  ],
+  [
+   "hil/echoear_aec_lull.py",
+   "cancellation_witness.add",
+   "ValueError",
+   "Unmapped cancellation inside capture",
+   "analyzer.exception"
+  ],
+  [
+   "hil/echoear_aec_lull.py",
+   "declared_rule",
+   "ValueError",
+   "Unknown/changed v8.4 lull declaration",
+   "analyzer.exception"
+  ],
+  [
+   "hil/echoear_aec_lull.py",
+   "eligible",
+   "ValueError",
+   "Unknown prospective lull policy",
+   "analyzer.exception"
+  ],
+  [
+   "hil/echoear_aec_metrics.py",
+   "activity",
+   "ValueError",
+   "Stimulus extent outside capture",
+   "analyzer.exception"
+  ],
+  [
+   "hil/echoear_aec_metrics.py",
+   "frame_power",
+   "ValueError",
+   "At least one complete 20 ms frame required",
+   "analyzer.exception"
+  ],
+  [
+   "hil/echoear_aec_metrics.py",
+   "interval_latency",
+   "ValueError",
+   "Invalid time interval",
+   "analyzer.exception"
+  ],
+  [
+   "hil/echoear_aec_metrics.py",
+   "near_metrics",
+   "ValueError",
+   "Near stimulus outside capture",
+   "analyzer.exception"
+  ],
+  [
+   "hil/echoear_aec_metrics.py",
+   "pcm",
+   "ValueError",
+   "Expected nonempty finite mono PCM",
+   "analyzer.exception"
+  ],
+  [
+   "hil/echoear_aec_metrics.py",
+   "reduction",
+   "ValueError",
+   "Invalid independently measured delay",
+   "analyzer.exception"
+  ],
+  [
+   "hil/echoear_aec_noise_gate.py",
+   "NoiseRetryQueue.__init__",
+   "ValueError",
+   "Starting attempt exceeds the lifetime cell retry budget",
+   "parts.ledger"
+  ],
+  [
+   "hil/echoear_aec_noise_gate.py",
+   "gate_signal",
+   "ValueError",
+   "Quiet signal must be finite mono PCM",
+   "noise.cell_quiet_windows"
+  ],
+  [
+   "hil/echoear_aec_noise_gate.py",
+   "highpass100",
+   "ValueError",
+   "Filter signal must be finite mono PCM",
+   "noise.cell_quiet_windows"
+  ],
+  [
+   "hil/echoear_aec_noise_gate.py",
+   "quiet_gate",
+   "ValueError",
+   "Incomplete quiet window or invalid settled baseline",
+   "noise.cell_quiet_windows"
+  ],
+  [
+   "hil/echoear_aec_noise_gate.py",
+   "quiet_gate",
+   "ValueError",
+   "MIC3 diagnostic must match the quiet window",
+   "noise.cell_quiet_windows"
+  ],
+  [
+   "hil/echoear_aec_noise_gate.py",
+   "validate_noise_gate",
+   "ValueError",
+   "Noise gate must match the frozen exploratory v1/v2/v3 contract",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_nova_live.py",
+   "acquire",
+   "RuntimeError",
+   "Cleanup incomplete",
+   "restore.integrity"
+  ],
+  [
+   "hil/echoear_aec_nova_live.py",
+   "acquire",
+   "RuntimeError",
+   "Final integrity audit failed",
+   "resources.part_audit"
+  ],
+  [
+   "hil/echoear_aec_nova_live.py",
+   "candidate_override",
+   "ValueError",
+   "Candidate bundle identity/config mismatch",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_nova_live.py",
+   "candidate_override",
+   "ValueError",
+   "Candidate playback implementation changed",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_nova_live.py",
+   "candidate_override",
+   "ValueError",
+   "Review build must show only the two playout keys changed",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_nova_live.py",
+   "hold_type.LiveHold.capture",
+   "BudgetExpired",
+   "Insufficient active time for next cell; restore",
+   "parts.time_caps"
+  ],
+  [
+   "hil/echoear_aec_nova_live.py",
+   "input_manifest",
+   "ValueError",
+   "Bound decision copy changed",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_nova_live.py",
+   "plan_from",
+   "ValueError",
+   "Expected e32eaff rejudged combined evidence",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_nova_live.py",
+   "plan_from",
+   "ValueError",
+   "Six usable combined acquisitions required",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_nova_live.py",
+   "prepare",
+   "FileExistsError",
+   "Fresh freeze and absent run required",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_nova_live.py",
+   "prepare",
+   "ValueError",
+   "Commit source before final freeze",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_nova_live.py",
+   "prepare",
+   "ValueError",
+   "Decision file changed; re-pin",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_nova_live.py",
+   "run",
+   "BudgetExpired",
+   "Total cap expired; no pass",
+   "parts.time_caps"
+  ],
+  [
+   "hil/echoear_aec_nova_live.py",
+   "run",
+   "RuntimeError",
+   "Host UUID/BSSID guard failed",
+   "host.environment"
+  ],
+  [
+   "hil/echoear_aec_nova_live.py",
+   "run",
+   "ValueError",
+   "Fresh declared output required",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_nova_live.py",
+   "run",
+   "ValueError",
+   "Plan is not a declared freeze bundle",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_nova_live.py",
+   "run",
+   "ValueError",
+   "Plan variant does not match its bundle",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_nova_live.py",
+   "run",
+   "ValueError",
+   "Reviewed plan SHA required",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_nova_live.py",
+   "run",
+   "ValueError",
+   "USER-GO containing the reviewed plan SHA required",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_nova_live.py",
+   "validate",
+   "ValueError",
+   "Installed packages changed",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_nova_live.py",
+   "validate",
+   "ValueError",
+   "Live runtime changed",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_nova_live.py",
+   "validate",
+   "ValueError",
+   "Profile changed",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_nova_live.py",
+   "validate",
+   "ValueError",
+   "Retained evidence changed",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_nova_live.py",
+   "validate",
+   "ValueError",
+   "Short-session frozen contract changed",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_nova_live.py",
+   "variant_of",
+   "ValueError",
+   "Undeclared freeze variant",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_nova_prestep.py",
+   "hold_type.NovaHold.capture",
+   "RuntimeError",
+   "Missing or changed Nova profile/vendor",
+   "bot.profile_binding"
+  ],
+  [
+   "hil/echoear_aec_nova_prestep.py",
+   "hold_type.NovaHold.connect",
+   "RuntimeError",
+   "Unexpected live Nova profile/vendor",
+   "bot.profile_binding"
+  ],
+  [
+   "hil/echoear_aec_nova_prestep.py",
+   "hold_type.NovaHold.export_capture",
+   "BudgetExpired",
+   "No active time left for export; restore now",
+   "parts.time_caps"
+  ],
+  [
+   "hil/echoear_aec_nova_prestep.py",
+   "hold_type.NovaHold.finish",
+   "RuntimeError",
+   "Incomplete live Nova binding",
+   "bot.profile_binding"
+  ],
+  [
+   "hil/echoear_aec_nova_prestep.py",
+   "prepare",
+   "FileExistsError",
+   "Fresh prep directory and absent run output required",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_nova_prestep.py",
+   "prepare",
+   "ValueError",
+   "Commit preparation source first",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_nova_prestep.py",
+   "prepare",
+   "ValueError",
+   "Installed package implementations changed",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_nova_prestep.py",
+   "prepare",
+   "ValueError",
+   "Only declared nova-prestep-01 output allowed",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_nova_prestep.py",
+   "prepare",
+   "ValueError",
+   "Reviewed profile settings/packages/models changed",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_nova_prestep.py",
+   "run",
+   "BudgetExpired",
+   "Total cap elapsed; restored, no pass",
+   "parts.time_caps"
+  ],
+  [
+   "hil/echoear_aec_nova_prestep.py",
+   "run",
+   "RuntimeError",
+   "Active UUID/BSSID prelaunch guard failed",
+   "host.environment"
+  ],
+  [
+   "hil/echoear_aec_nova_prestep.py",
+   "run",
+   "ValueError",
+   "Explicit reviewed plan SHA256 required",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_nova_prestep.py",
+   "run",
+   "ValueError",
+   "Fresh declared output required",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_nova_prestep.py",
+   "validate",
+   "ValueError",
+   "Frozen six-capture schedule or contract changed",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_nova_prestep.py",
+   "validate",
+   "ValueError",
+   "Undeclared output",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_nova_prestep.py",
+   "validate_bindings",
+   "ValueError",
+   "Input changed: ",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_nova_prestep.py",
+   "validate_bindings",
+   "ValueError",
+   "Installed implementation changed",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_nova_prestep.py",
+   "validate_bindings",
+   "ValueError",
+   "Profile/config/model/version changed",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_nova_prestep.py",
+   "validate_bindings",
+   "ValueError",
+   "Runtime changed: ",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_nova_prestep.py",
+   "validate_bindings",
+   "ValueError",
+   "Runtime file set changed",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_nova_prestep.py",
+   "validate_bindings",
+   "ValueError",
+   "Stimulus changed",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_playback_template.py",
+   "candidate_config",
+   "ValueError",
+   "Candidate config build ELF mismatch",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_playback_template.py",
+   "candidate_config",
+   "ValueError",
+   "Missing/ambiguous playback high-pass config",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_playback_template.py",
+   "declared_corner",
+   "ValueError",
+   "Invalid frozen candidate playback config",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_playback_template.py",
+   "declared_corner",
+   "ValueError",
+   "Unknown playback template rule",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_playback_template.py",
+   "filter_source",
+   "ValueError",
+   "Invalid playback corner",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_reconnect.py",
+   "capture_reconnect.remaining",
+   "TimeoutError",
+   "Reconnect capture cap reached",
+   "reconnect.cycle"
+  ],
+  [
+   "hil/echoear_aec_reconnect.py",
+   "capture_reconnect.worker",
+   "RuntimeError",
+   "Reconnect deadline has no active TTS",
+   "reconnect.cycle"
+  ],
+  [
+   "hil/echoear_aec_reconnect.py",
+   "capture_reconnect.worker",
+   "StimulusPreconditionFailure",
+   "reason",
+   "reconnect.cycle"
+  ],
+  [
+   "hil/echoear_aec_reconnect.py",
+   "capture_reconnect.worker",
+   "StimulusTimingFailure",
+   "Reconnect invocation timing failed; see timer.json",
+   "reconnect.cycle"
+  ],
+  [
+   "hil/echoear_aec_reconnect.py",
+   "capture_reconnect.worker.disconnect",
+   "RuntimeError",
+   "Missing/ambiguous retired-epoch PERF",
+   "reconnect.cycle"
+  ],
+  [
+   "hil/echoear_aec_reconnect.py",
+   "completed_new_reply",
+   "RuntimeError",
+   "Ambiguous new reconnect generation",
+   "reconnect.cycle"
+  ],
+  [
+   "hil/echoear_aec_reconnect.py",
+   "completed_new_reply",
+   "RuntimeError",
+   "Missing/fresh new peer identity",
+   "reconnect.cycle"
+  ],
+  [
+   "hil/echoear_aec_reconnect.py",
+   "run_reconnect",
+   "HarnessFailure",
+   "capture-deadline",
+   "reconnect.cycle"
+  ],
+  [
+   "hil/echoear_aec_reconnect.py",
+   "run_reconnect.context_identity",
+   "StimulusPreconditionFailure",
+   "Wrong requested reconnect peer",
+   "reconnect.cycle"
+  ],
+  [
+   "hil/echoear_aec_resources.py",
+   "",
+   "SystemExit",
+   "all_passed",
+   "EXCLUDED: CLI exit status"
+  ],
+  [
+   "hil/echoear_aec_resources.py",
+   "quiescent_admission_snapshot",
+   "TimeoutError",
+   "Admission queue did not drain within polling budget",
+   "admission.drain_timeout"
+  ],
+  [
+   "hil/echoear_aec_resources.py",
+   "quiescent_admission_snapshot",
+   "ValueError",
+   "Invalid admission boundary; all observations retained by reader",
+   "admission.boundary_identity"
+  ],
+  [
+   "hil/echoear_aec_stimulus.py",
+   "active_transport_witness",
+   "ValueError",
+   "Active TTS freshness must be declared within 200 ms",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_stimulus.py",
+   "schedule_active_window",
+   "ValueError",
+   "Unreviewed active-speech window",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_stimulus.py",
+   "schedule_from_tts",
+   "EventStreamChanged",
+   "Ambiguous requested context",
+   "observer.event_stream"
+  ],
+  [
+   "hil/echoear_aec_stimulus.py",
+   "schedule_from_tts",
+   "RuntimeError",
+   "No non-silent transport anchor before cancellation/deadline",
+   "barge.undelivered"
+  ],
+  [
+   "hil/echoear_aec_stimulus.py",
+   "schedule_from_tts",
+   "ValueError",
+   "Declared near-end offset must be 0..3 seconds",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_stimulus.py",
+   "set_guard_if_changed",
+   "ValueError",
+   "Guard must be integer 0..1000 ms",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_timing.py",
+   "map_interval",
+   "ValueError",
+   "Invalid/duplicate clock anchor",
+   "timing.capture_bracket"
+  ],
+  [
+   "hil/echoear_aec_timing.py",
+   "map_interval",
+   "ValueError",
+   "Nonfinite anchor",
+   "timing.capture_bracket"
+  ],
+  [
+   "hil/echoear_aec_timing.py",
+   "map_interval",
+   "ValueError",
+   "Nonfinite clock coordinate",
+   "timing.capture_bracket"
+  ],
+  [
+   "hil/echoear_aec_timing.py",
+   "map_interval",
+   "ValueError",
+   "Nonmonotonic clock mapping",
+   "timing.capture_bracket"
+  ],
+  [
+   "hil/echoear_aec_timing.py",
+   "require_bracketed_capture",
+   "ValueError",
+   "Capture block follows last anchor",
+   "timing.capture_bracket"
+  ],
+  [
+   "hil/echoear_aec_timing.py",
+   "require_bracketed_capture",
+   "ValueError",
+   "Capture block precedes first anchor",
+   "timing.capture_bracket"
+  ],
+  [
+   "hil/echoear_aec_timing.py",
+   "require_bracketed_capture",
+   "ValueError",
+   "Capture timing gap",
+   "timing.capture_bracket"
+  ],
+  [
+   "hil/echoear_aec_timing.py",
+   "require_bracketed_capture",
+   "ValueError",
+   "Missing capture timing or anchors",
+   "timing.capture_bracket"
+  ],
+  [
+   "hil/echoear_aec_timing.py",
+   "transaction_anchor",
+   "ValueError",
+   "Reversed transaction",
+   "timing.capture_bracket"
+  ],
+  [
+   "hil/echoear_aec_transport_environment.py",
+   "classify",
+   "ValueError",
+   "Unknown device-alive rule",
+   "analyzer.exception"
+  ],
+  [
+   "hil/echoear_aec_transport_environment.py",
+   "probe_epoch_scope",
+   "ValueError",
+   "Probe crosses transport epoch",
+   "analyzer.exception"
+  ],
+  [
+   "hil/echoear_aec_transport_policy.py",
+   "validate_policy",
+   "ValueError",
+   "Unknown or altered echo transport policy",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_v85.py",
+   "validate",
+   "ValueError",
+   "Candidate gain/capture/volume changed",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_v85.py",
+   "validate",
+   "ValueError",
+   "Cell hold/guard/volume changed",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_v85.py",
+   "validate",
+   "ValueError",
+   "Controls changed",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_v85.py",
+   "validate",
+   "ValueError",
+   "Duplicate IDs",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_v85.py",
+   "validate",
+   "ValueError",
+   "Echo counts changed",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_v85.py",
+   "validate",
+   "ValueError",
+   "Exact adopted lull rule required",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_v85.py",
+   "validate",
+   "ValueError",
+   "Host policy changed",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_v85.py",
+   "validate",
+   "ValueError",
+   "Reconnect contract changed",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_v85.py",
+   "validate",
+   "ValueError",
+   "Single combined hold required",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_v85.py",
+   "validate",
+   "ValueError",
+   "Soak changed",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_v85.py",
+   "validate",
+   "ValueError",
+   "v8.5 budget mismatch",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_v85.py",
+   "validate",
+   "ValueError",
+   "v8.5 policy changed",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_v85.py",
+   "validate",
+   "ValueError",
+   "v8.5 resume not authorized",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_v85.py",
+   "validate",
+   "ValueError",
+   "v8.5 voice count/spares changed",
+   "launch.integrity"
+  ],
+  [
+   "hil/echoear_aec_v85_transport.py",
+   "audit",
+   "ValueError",
+   "Overlapping scored/export windows",
+   "analyzer.exception"
+  ],
+  [
+   "hil/echoear_aec_v85_transport.py",
+   "span",
+   "ValueError",
+   "Window crosses peer epoch",
+   "analyzer.exception"
+  ],
+  [
+   "hil/echoear_aec_v85_tts.py",
+   "exclusions",
+   "ValueError",
+   "Invalid long-TTS exclusion journal",
+   "tts.generation_witness"
+  ],
+  [
+   "hil/echoear_aec_v85_tts.py",
+   "exclusions",
+   "ValueError",
+   "Long-TTS generation journal differs from retained events",
+   "tts.generation_witness"
+  ],
+  [
+   "hil/echoear_aec_v85_tts.py",
+   "exclusions",
+   "ValueError",
+   "Missing clean whole-unit long-TTS integrity evidence",
+   "tts.generation_witness"
+  ],
+  [
+   "hil/host_nic.py",
+   "gate",
+   "ValueError",
+   "Nonpositive interval",
+   "rf.cell_pre_gate"
+  ],
+  [
+   "hil/host_nic.py",
+   "gate",
+   "ValueError",
+   "Reset NIC counter",
+   "rf.cell_pre_gate"
+  ],
+  [
+   "hil/host_nic.py",
+   "gate",
+   "ValueError",
+   "Unavailable board-path counters: ",
+   "rf.cell_pre_gate"
+  ]
+ ],
+ "plan_leaves": {
+  "active_tts_max_age_s": "barge.undelivered",
+  "attempts_per_cell": "caps.invalid_attempts",
+  "boot_ref_gain_db": "launch.integrity",
+  "budget.active_s": "parts.time_caps",
+  "budget.minimum_cell_remaining_s": "parts.time_caps",
+  "budget.restore_reserve_s": "parts.time_caps",
+  "budget.total_s": "parts.time_caps",
+  "capture_cap_seconds": "capture.cap",
+  "cleanup.bench_lock": "restore.integrity",
+  "cleanup.bot_port": "restore.integrity",
+  "cleanup.normal_elf_sha256": "restore.integrity",
+  "cleanup.rule": "restore.integrity",
+  "diagnostics.highpass_residual.filter.application": "diagnostics.report",
+  "diagnostics.highpass_residual.filter.cutoff_hz": "diagnostics.report",
+  "diagnostics.highpass_residual.filter.kind": "diagnostics.report",
+  "diagnostics.highpass_residual.filter.order": "diagnostics.report",
+  "diagnostics.highpass_residual.filter.padlen": "diagnostics.report",
+  "diagnostics.highpass_residual.filter.padtype": "diagnostics.report",
+  "diagnostics.highpass_residual.filter.sample_rate_hz": "diagnostics.report",
+  "diagnostics.highpass_residual.scope": "diagnostics.report",
+  "diagnostics.highpass_residual.windows": "diagnostics.report",
+  "diagnostics.stimulus_levels.active_above_quiet_db": "diagnostics.report",
+  "diagnostics.stimulus_levels.band_hz": "diagnostics.report",
+  "diagnostics.stimulus_levels.filter": "diagnostics.report",
+  "diagnostics.stimulus_levels.frame_ms": "diagnostics.report",
+  "diagnostics.stimulus_levels.gate": "diagnostics.report",
+  "diagnostics.stimulus_levels.scope": "diagnostics.report",
+  "failure_policy.abort_immediately": "NON_GATE",
+  "failure_policy.acquisition_errors": "NON_GATE",
+  "failure_policy.all_required_gates_conjunctive": "outcome.completeness",
+  "failure_policy.allowed_missing_cells": "outcome.completeness",
+  "failure_policy.allowed_missing_required_metrics": "outcome.completeness",
+  "failure_policy.harness_retries.classes": "caps.invalid_attempts",
+  "failure_policy.harness_retries.require_clean_device_counters": "retry.clean_witness",
+  "failure_policy.harness_retries.resume": "parts.ledger",
+  "failure_policy.harness_retries.shared_noise_budget": "caps.invalid_attempts",
+  "failure_policy.harness_retry_admission.periodicity": "admission.control_loss",
+  "failure_policy.harness_retry_admission.recorder_end": "admission.control_loss",
+  "failure_policy.harness_retry_admission.recorder_start": "admission.control_loss",
+  "failure_policy.harness_retry_admission.rule": "admission.control_loss",
+  "failure_policy.harness_retry_admission.transit_allowance_ms": "admission.control_loss",
+  "failure_policy.performance_failures": "outcome.completeness",
+  "failure_policy.post_seal": "post_seal.errors",
+  "failure_policy.retakes": "caps.invalid_attempts",
+  "failure_policy.serial_host_resume": "parts.ledger",
+  "failure_policy.transport_environmental.bucket_basis": "transport.environmental_classifier",
+  "failure_policy.transport_environmental.cap": "transport.environmental_classifier",
+  "failure_policy.transport_environmental.clean_recovery_min_s": "transport.environmental_classifier",
+  "failure_policy.transport_environmental.conditions": "transport.environmental_classifier",
+  "failure_policy.transport_environmental.delay_excursion.baseline": "transport.environmental_classifier",
+  "failure_policy.transport_environmental.delay_excursion.baseline_percentile": "transport.environmental_classifier",
+  "failure_policy.transport_environmental.delay_excursion.bucket_basis": "transport.environmental_classifier",
+  "failure_policy.transport_environmental.delay_excursion.co_timing": "transport.environmental_classifier",
+  "failure_policy.transport_environmental.delay_excursion.consecutive_seconds_min": "transport.environmental_classifier",
+  "failure_policy.transport_environmental.delay_excursion.packet_delay_strict_min_ms": "transport.environmental_classifier",
+  "failure_policy.transport_environmental.delay_excursion.packets_in_span_min": "transport.environmental_classifier",
+  "failure_policy.transport_environmental.delay_excursion.rtp_clock_hz": "transport.environmental_classifier",
+  "failure_policy.transport_environmental.delay_excursion.second_max_delay_min_ms": "transport.environmental_classifier",
+  "failure_policy.transport_environmental.delay_excursion.span_seconds": "transport.environmental_classifier",
+  "failure_policy.transport_environmental.delay_excursion.stall_gap_ms_gte": "transport.environmental_classifier",
+  "failure_policy.transport_environmental.device_alive_rule": "transport.environmental_classifier",
+  "failure_policy.transport_environmental.enabled": "transport.environmental_classifier",
+  "failure_policy.transport_environmental.epoch": "transport.environmental_classifier",
+  "failure_policy.transport_environmental.exclusion": "transport.environmental_classifier",
+  "failure_policy.transport_environmental.export_diagnostic": "transport.environmental_classifier",
+  "failure_policy.transport_environmental.max_per_campaign": "transport.environmental_classifier",
+  "failure_policy.transport_environmental.max_per_hold": "transport.environmental_classifier",
+  "failure_policy.transport_environmental.reconnect_reply_basis": "transport.environmental_classifier",
+  "failure_policy.transport_environmental.recovery": "transport.environmental_classifier",
+  "failure_policy.transport_environmental.window": "transport.environmental_classifier",
+  "first_hold_periodicity.counter_diagnostic": "host.periodicity",
+  "first_hold_periodicity.hold": "host.periodicity",
+  "first_hold_periodicity.host_boot_id": "host.periodicity",
+  "first_hold_periodicity.period_s": "host.periodicity",
+  "first_hold_periodicity.phase_s": "host.periodicity",
+  "first_hold_periodicity.phase_window_s": "host.periodicity",
+  "first_hold_periodicity.required_consecutive_cycles": "host.periodicity",
+  "first_hold_periodicity.rule": "host.periodicity",
+  "gain_db": "launch.integrity",
+  "gated_volume_db": "echo.stratum_bar",
+  "gates.admission_liveness_sctp.admission_budget_delta_max": "admission.control_loss",
+  "gates.admission_liveness_sctp.boundary_drain_budget_s": "admission.drain_timeout",
+  "gates.admission_liveness_sctp.cookie_echo": "sctp.cookie_echo",
+  "gates.admission_liveness_sctp.device_timeouts_max_active": "liveness.peer",
+  "gates.admission_liveness_sctp.drain_budget_start": "admission.drain_timeout",
+  "gates.admission_liveness_sctp.interrupt_delivery": "flush.interrupt_copies",
+  "gates.admission_liveness_sctp.liveness_alarm_max_active": "liveness.peer",
+  "gates.admission_liveness_sctp.liveness_cadence_s": "liveness.peer",
+  "gates.admission_liveness_sctp.liveness_timeout_s": "liveness.peer",
+  "gates.admission_liveness_sctp.per_reply_device_received_and_dispatched_min": "admission.control_loss",
+  "gates.admission_liveness_sctp.per_reply_pongs": "liveness.peer",
+  "gates.admission_liveness_sctp.received_equals_dispatched": "admission.control_loss",
+  "gates.admission_liveness_sctp.rejection_deltas_max": "admission.control_loss",
+  "gates.admission_liveness_sctp.sctp_patch": "transport.sctp_recovery",
+  "gates.admission_liveness_sctp.wire_metrics_max": "bot.wire_metrics",
+  "gates.barge_in.basis": "NON_GATE",
+  "gates.barge_in.credited": "barge.credited",
+  "gates.barge_in.eligible_min_at_gated_volume_per_kind": "barge.group_bar",
+  "gates.barge_in.gated_voice_classes": "barge.group_bar",
+  "gates.barge_in.gated_voice_kind_pairs": "barge.group_bar",
+  "gates.barge_in.gated_volumes_db": "barge.group_bar",
+  "gates.barge_in.near_onset_to_accepted_interruption_upper_max_s_by_kind.sentence": "barge.latency",
+  "gates.barge_in.near_onset_to_accepted_interruption_upper_max_s_by_kind.stop": "barge.latency",
+  "gates.barge_in.reported_exposure_per_kind_at_0db": "report_only.exposures",
+  "gates.barge_in.reported_volumes_db": "report_only.exposures",
+  "gates.barge_in.sentence_successes_min_at_gated_volume": "barge.group_bar",
+  "gates.barge_in.sentence_wer_max": "barge.recognition",
+  "gates.barge_in.stop_recognition": "barge.recognition",
+  "gates.barge_in.stop_successes_min_at_gated_volume": "barge.group_bar",
+  "gates.barge_in.voice_class_rule": "barge.group_bar",
+  "gates.echo.afe_residual": "echo.residual_report",
+  "gates.echo.basis": "NON_GATE",
+  "gates.echo.first_500ms_reduction_min_db": "echo.first_500ms",
+  "gates.echo.first_500ms_source_min_dbfs_exclusive": "echo.first_500ms",
+  "gates.echo.integrated_reduction_min_db": "echo.whole_reply",
+  "gates.echo.median_frame_reduction": "echo.residual_report",
+  "gates.echo.post_guard_afe_residual_max_dbfs": "echo.post_guard",
+  "gates.echo.scope": "NON_GATE",
+  "gates.false_turns.accepted_max": "echo.false_turns",
+  "gates.false_turns.basis": "NON_GATE",
+  "gates.false_turns.interruptions_max": "echo.false_turns",
+  "gates.false_turns.minimum_core_echo_per_volume.-6": "echo.stratum_bar",
+  "gates.false_turns.minimum_core_echo_per_volume.0": "echo.stratum_bar",
+  "gates.false_turns.proposed": "NON_GATE",
+  "gates.false_turns.scope": "NON_GATE",
+  "gates.flush.basis": "NON_GATE",
+  "gates.flush.callback_to_last_mic3_upper_max_s": "flush.callback",
+  "gates.flush.callback_witness": "flush.callback",
+  "gates.flush.cutoff_spike": "flush.diagnostics",
+  "gates.flush.diagnostic_only": "flush.diagnostics",
+  "gates.flush.new_onset_integrity": "flush.diagnostics",
+  "gates.flush.new_prefix_loss_upper_max_ms": "flush.diagnostics",
+  "gates.flush.next_non_silent_tts_to_mic3_upper_max_s": "flush.next_reply",
+  "gates.flush.pre_callback_activity_window_ms": "flush.callback",
+  "gates.flush.server_interruption_to_last_mic3_upper_max_s": "flush.callback",
+  "gates.flush.stale_speech_frames_after_mute_max": "flush.stale_audio",
+  "gates.flush.window": "flush.callback",
+  "gates.guard.basis": "NON_GATE",
+  "gates.guard.rearm_ms": "echo.guard_closure",
+  "gates.guard.rearm_rule": "echo.guard_closure",
+  "gates.guard.report": "echo.residual_report",
+  "gates.guard.source_ms": "echo.guard_closure",
+  "gates.guard.speech_onset": "echo.guard_closure",
+  "gates.hardware.abort": "hardware.audio_io",
+  "gates.hardware.absolute_zero[aec.capture.adc_clips]": "clip.mic_room",
+  "gates.hardware.absolute_zero[aec.capture.gain_clips]": "clip.mic_room",
+  "gates.hardware.absolute_zero[aec.capture.read_errors]": "hardware.audio_io",
+  "gates.hardware.absolute_zero[aec.capture.read_timeouts]": "hardware.audio_io",
+  "gates.hardware.absolute_zero[aec.errors]": "hardware.aec_errors",
+  "gates.hardware.absolute_zero[aec.output_clips]": "clip.afe_output",
+  "gates.hardware.absolute_zero[aec.reference_clips]": "clip.reference",
+  "gates.hardware.absolute_zero[audio.drops]": "hardware.audio_io",
+  "gates.hardware.absolute_zero[audio.read_errors]": "hardware.audio_io",
+  "gates.hardware.absolute_zero[audio.write_errors]": "hardware.audio_io",
+  "gates.hardware.absolute_zero[audio.write_timeouts]": "hardware.audio_io",
+  "gates.hardware.absolute_zero[console_output.full]": "hardware.console",
+  "gates.hardware.absolute_zero[console_output.transport_drops]": "hardware.console",
+  "gates.hardware.absolute_zero[failed_allocations.total]": "resources.failed_alloc",
+  "gates.hardware.absolute_zero[i2s_underflows]": "hardware.audio_io",
+  "gates.hardware.absolute_zero[i2s_write_errors]": "hardware.audio_io",
+  "gates.hardware.absolute_zero[i2s_write_timeouts]": "hardware.audio_io",
+  "gates.hardware.absolute_zero[pcm_queue_drops]": "hardware.audio_io",
+  "gates.hardware.ledger_basis": "hardware.render_ledger",
+  "gates.hardware.live_delta_zero[aec.capture.rx_overflows]": "hardware.audio_io",
+  "gates.hardware.live_delta_zero[firmware uplink drops/send_cutoff/send-budget-cutoff]": "delivery.firmware_drops",
+  "gates.hardware.render_ledger": "hardware.render_ledger",
+  "gates.hardware.startup_rx_overflows": "hardware.startup_rx",
+  "gates.hardware.uplink_frame_ms": "hardware.uplink_frame",
+  "gates.missing_playback.anchor": "playback.missing",
+  "gates.missing_playback.basis": "NON_GATE",
+  "gates.missing_playback.coverage": "playback.missing",
+  "gates.missing_playback.diagnostic_anchor": "playback.missing",
+  "gates.missing_playback.missing_max": "playback.missing",
+  "gates.missing_playback.source_template_basis": "playback.missing",
+  "gates.missing_playback.source_template_rule": "playback.missing",
+  "gates.missing_playback.timing_unscorable_max": "timing.capture_bracket",
+  "gates.missing_playback.window_s": "playback.missing",
+  "gates.near_preservation.absolute_afe_attenuation_max_db": "near.preservation",
+  "gates.near_preservation.basis": "near.preservation",
+  "gates.near_preservation.count": "near.preservation",
+  "gates.near_preservation.measure": "near.preservation",
+  "gates.proactive_tts.after_stop": "tts.diagnostics",
+  "gates.proactive_tts.basis": "NON_GATE",
+  "gates.proactive_tts.cold_and_reconnect": "bot.pipeline_error",
+  "gates.proactive_tts.enabled_by_default": "tts.long_lead",
+  "gates.proactive_tts.failures_max": "bot.pipeline_error",
+  "gates.proactive_tts.leading_silence_s_strict_max": "tts.long_lead",
+  "gates.proactive_tts.long_generations_max": "tts.long_lead",
+  "gates.proactive_tts.metric_coverage": "tts.generation_witness",
+  "gates.proactive_tts.private_guard": "bot.pipeline_error",
+  "gates.proactive_tts.reconnect_metric_overlaps_max": "bot.pipeline_error",
+  "gates.proactive_tts.refusals_max": "bot.pipeline_error",
+  "gates.proactive_tts.request_first_write_gate": "tts.diagnostics",
+  "gates.quick_gap.classification": "echo.quick_gap",
+  "gates.quick_gap.minimum_witnessed_pairs_per_volume": "echo.quick_gap",
+  "gates.quick_gap.reply_gap_gate": "echo.quick_gap",
+  "gates.quick_gap.witness": "echo.quick_gap",
+  "gates.reconnect.active_disconnect": "reconnect.cycle",
+  "gates.reconnect.active_tts_age_max_s": "reconnect.cycle",
+  "gates.reconnect.active_tts_offset_s": "reconnect.cycle",
+  "gates.reconnect.basis": "reconnect.cycle",
+  "gates.reconnect.boundaries": "reconnect.cycle",
+  "gates.reconnect.cycles": "reconnect.cycle",
+  "gates.reconnect.faults": "reconnect.cycle",
+  "gates.reconnect.new_epoch": "reconnect.cycle",
+  "gates.reconnect.scope": "reconnect.cycle",
+  "gates.reconnect.second_reply": "reconnect.cycle",
+  "gates.reference_health.accepted_playback_power_min_lsb2": "reference.health",
+  "gates.reference_health.basis": "reference.health",
+  "gates.reference_health.calibration": "reference.probe",
+  "gates.reference_health.expected_floor_margin_db": "reference.probe",
+  "gates.reference_health.expected_normalized_ratio_ppm": "reference.probe",
+  "gates.reference_health.gain_scaling": "reference.health",
+  "gates.reference_health.low_samples": "reference.health",
+  "gates.reference_health.low_windows_delta_max": "reference.health",
+  "gates.reference_health.mask": "reference.health",
+  "gates.reference_health.ratio_floor_ppm_at_0db": "reference.health",
+  "gates.reference_health.ratio_floor_ppm_at_15db": "reference.health",
+  "gates.reference_health.window_samples": "reference.health",
+  "gates.resources.absolute_idle_min_percent_per_core": "resources.cpu",
+  "gates.resources.basis": "resources.coverage",
+  "gates.resources.cpu_rule": "resources.cpu",
+  "gates.resources.display": "resources.display",
+  "gates.resources.encode_max_us_strict_max": "resources.encode",
+  "gates.resources.encode_p95_us_strict_max": "resources.encode",
+  "gates.resources.failed_allocations_max": "resources.failed_alloc",
+  "gates.resources.internal_largest_block_bytes": "resources.heap",
+  "gates.resources.internal_minimum_free_bytes": "resources.heap",
+  "gates.resources.playback_floor_formula": "resources.stacks",
+  "gates.resources.sampling": "resources.coverage",
+  "gates.resources.soak_margin": "resources.heap",
+  "gates.resources.stack_free_floor_bytes.app-control": "resources.stacks",
+  "gates.resources.stack_free_floor_bytes.audio-capture": "resources.stacks",
+  "gates.resources.stack_free_floor_bytes.audio-playback": "resources.stacks",
+  "gates.resources.stack_free_floor_bytes.audio-tx": "resources.stacks",
+  "gates.resources.stack_free_floor_bytes.peer-loop": "resources.stacks",
+  "gates.resources.stack_free_floor_bytes.peer-rx": "resources.stacks",
+  "gates.resources.steady_idle_min_percent_per_core": "resources.cpu",
+  "gates.resources.steady_window_min_us": "resources.cpu",
+  "gates.sentence_overlap.gate": "flush.diagnostics",
+  "gates.sentence_overlap.measure": "flush.diagnostics",
+  "gates.transport.attribution": "transport.downlink_barge",
+  "gates.transport.burst_report_only": "transport.burst",
+  "gates.transport.burst_witness": "transport.burst",
+  "gates.transport.firmware_uplink_drops_max": "delivery.firmware_drops",
+  "gates.transport.ge6_ended_delta_max": "transport.downlink_barge",
+  "gates.transport.histogram_required": "transport.downlink_barge",
+  "gates.transport.loss_denominator": "transport.downlink_barge",
+  "gates.transport.loss_fraction_max": "transport.downlink_barge",
+  "gates.transport.loss_numerator_policy": "transport.downlink_barge",
+  "gates.transport.max_consecutive_playout_dropped": "transport.downlink_barge",
+  "gates.transport.observers": "observer.health",
+  "gates.transport.post_plc_zeros_delta_max": "transport.downlink_barge",
+  "gates.transport.rationale": "transport.downlink_barge",
+  "gates.transport.rule": "transport.downlink_barge",
+  "gates.transport.scope": "transport.downlink_barge",
+  "gates.transport.starvation_delta_max": "transport.downlink_barge",
+  "guard_ms": "alignment.near_witness",
+  "host_environment.bssid": "host.environment",
+  "host_environment.connection": "host.environment",
+  "host_environment.connection_uuid": "host.environment",
+  "host_environment.interface": "host.environment",
+  "host_environment.minimum_signal_dbm": "host.environment",
+  "host_environment.rule": "host.environment",
+  "host_environment.scan_diagnostic_only": "host.environment",
+  "host_environment.scan_hz": "host.environment",
+  "host_environment.supplicant_state_changes": "host.environment",
+  "link_probe.cleanup": "link_probe.part",
+  "link_probe.connect_overhead_s": "link_probe.part",
+  "link_probe.diagnostics": "link_probe.part",
+  "link_probe.duration_s": "link_probe.part",
+  "link_probe.epoch_interpretation": "link_probe.part",
+  "link_probe.epoch_transport_rule": "link_probe.part",
+  "link_probe.failure_result": "link_probe.part",
+  "link_probe.idle_budget": "link_probe.part",
+  "link_probe.idle_safety_margin_s": "link_probe.part",
+  "link_probe.interpretation": "link_probe.part",
+  "link_probe.reject_interarrival_gap_s_gte": "link_probe.part",
+  "link_probe.scope": "link_probe.part",
+  "link_probe.uplink_loss_max_fraction": "link_probe.part",
+  "measurement_contract.activity_mask": "echo.whole_reply",
+  "measurement_contract.first500_source": "echo.first_500ms",
+  "measurement_contract.reduction": "echo.whole_reply",
+  "measurement_contract.reference_onsets": "echo.guard_closure",
+  "measurement_contract.stt": "barge.recognition",
+  "noise_gate.baseline_max_attempts": "noise.part_baseline",
+  "noise_gate.baseline_max_dbfs": "noise.part_baseline",
+  "noise_gate.baseline_seconds": "noise.part_baseline",
+  "noise_gate.filter.application": "noise.cell_quiet_windows",
+  "noise_gate.filter.cutoff_hz": "noise.cell_quiet_windows",
+  "noise_gate.filter.kind": "noise.cell_quiet_windows",
+  "noise_gate.filter.order": "noise.cell_quiet_windows",
+  "noise_gate.filter.padlen": "noise.cell_quiet_windows",
+  "noise_gate.filter.padtype": "noise.cell_quiet_windows",
+  "noise_gate.filter.sample_rate_hz": "noise.cell_quiet_windows",
+  "noise_gate.frame_ms": "noise.cell_quiet_windows",
+  "noise_gate.level_max_dbfs": "noise.cell_quiet_windows",
+  "noise_gate.level_rise_max_db": "noise.cell_quiet_windows",
+  "noise_gate.max_retries": "caps.invalid_attempts",
+  "noise_gate.pause_consecutive_cells": "caps.invalid_attempts",
+  "noise_gate.policy": "noise.cell_quiet_windows",
+  "noise_gate.quiet_seconds": "noise.cell_quiet_windows",
+  "noise_gate.rise_reference_min_dbfs": "noise.cell_quiet_windows",
+  "noise_gate.settle_seconds": "noise.part_baseline",
+  "noise_gate.transient_max_dbfs": "noise.cell_quiet_windows",
+  "noise_gate.version": "noise.cell_quiet_windows",
+  "nova_live.echo_counts.-6": "echo.stratum_bar",
+  "nova_live.echo_counts.0": "echo.stratum_bar",
+  "nova_live.event_schema.echo_rule": "echo.false_turns",
+  "nova_live.event_schema.files.hil/echoear_aec_campaign_analysis.py": "echo.event_coverage",
+  "nova_live.event_schema.files.server/aec_evaluation.py": "echo.event_coverage",
+  "nova_live.event_schema.files.server/aec_session_recorder.py": "echo.event_coverage",
+  "nova_live.event_schema.files.server/demo_policy.py": "echo.event_coverage",
+  "nova_live.event_schema.required": "echo.event_coverage",
+  "nova_live.event_schema.version": "echo.event_coverage",
+  "nova_live.host_interrupt_report_only": "report_only.exposures",
+  "nova_live.implementation_ready": "launch.integrity",
+  "nova_live.installed_packages_sha256.deepgram-sdk": "launch.integrity",
+  "nova_live.installed_packages_sha256.onnxruntime": "launch.integrity",
+  "nova_live.installed_packages_sha256.pipecat-ai": "launch.integrity",
+  "nova_live.launch_authorized": "launch.integrity",
+  "nova_live.measured_bot_preflight.limits": "launch.integrity",
+  "nova_live.measured_bot_preflight.path": "launch.integrity",
+  "nova_live.measured_bot_preflight.pooled_timing_note": "launch.integrity",
+  "nova_live.measured_bot_preflight.sha256": "launch.integrity",
+  "nova_live.measured_bot_preflight.source_continuity": "launch.integrity",
+  "nova_live.measured_bot_preflight.strict_turn_timing_summary.final_segment_delay_s.count": "launch.integrity",
+  "nova_live.measured_bot_preflight.strict_turn_timing_summary.final_segment_delay_s.maximum": "launch.integrity",
+  "nova_live.measured_bot_preflight.strict_turn_timing_summary.final_segment_delay_s.median": "launch.integrity",
+  "nova_live.measured_bot_preflight.strict_turn_timing_summary.final_segment_delay_s.population_p99": "launch.integrity",
+  "nova_live.measured_bot_preflight.strict_turn_timing_summary.turn_completion_delay_s.count": "launch.integrity",
+  "nova_live.measured_bot_preflight.strict_turn_timing_summary.turn_completion_delay_s.maximum": "launch.integrity",
+  "nova_live.measured_bot_preflight.strict_turn_timing_summary.turn_completion_delay_s.median": "launch.integrity",
+  "nova_live.measured_bot_preflight.strict_turn_timing_summary.turn_completion_delay_s.population_p99": "launch.integrity",
+  "nova_live.measured_bot_preflight.summary.capture_s.count": "launch.integrity",
+  "nova_live.measured_bot_preflight.summary.capture_s.maximum": "launch.integrity",
+  "nova_live.measured_bot_preflight.summary.capture_s.median": "launch.integrity",
+  "nova_live.measured_bot_preflight.summary.capture_s.population_p99": "launch.integrity",
+  "nova_live.measured_bot_preflight.summary.end_to_end_s.count": "launch.integrity",
+  "nova_live.measured_bot_preflight.summary.end_to_end_s.maximum": "launch.integrity",
+  "nova_live.measured_bot_preflight.summary.end_to_end_s.median": "launch.integrity",
+  "nova_live.measured_bot_preflight.summary.end_to_end_s.population_p99": "launch.integrity",
+  "nova_live.measured_bot_preflight.summary.export_s.count": "launch.integrity",
+  "nova_live.measured_bot_preflight.summary.export_s.maximum": "launch.integrity",
+  "nova_live.measured_bot_preflight.summary.export_s.median": "launch.integrity",
+  "nova_live.measured_bot_preflight.summary.export_s.population_p99": "launch.integrity",
+  "nova_live.measured_bot_preflight.summary.final_segment_delay_s.count": "launch.integrity",
+  "nova_live.measured_bot_preflight.summary.final_segment_delay_s.maximum": "launch.integrity",
+  "nova_live.measured_bot_preflight.summary.final_segment_delay_s.median": "launch.integrity",
+  "nova_live.measured_bot_preflight.summary.final_segment_delay_s.population_p99": "launch.integrity",
+  "nova_live.measured_bot_preflight.summary.real_reply_lead_s.count": "launch.integrity",
+  "nova_live.measured_bot_preflight.summary.real_reply_lead_s.maximum": "launch.integrity",
+  "nova_live.measured_bot_preflight.summary.real_reply_lead_s.median": "launch.integrity",
+  "nova_live.measured_bot_preflight.summary.real_reply_lead_s.population_p99": "launch.integrity",
+  "nova_live.measured_bot_preflight.summary.real_reply_pcm_s.count": "launch.integrity",
+  "nova_live.measured_bot_preflight.summary.real_reply_pcm_s.maximum": "launch.integrity",
+  "nova_live.measured_bot_preflight.summary.real_reply_pcm_s.median": "launch.integrity",
+  "nova_live.measured_bot_preflight.summary.real_reply_pcm_s.population_p99": "launch.integrity",
+  "nova_live.measured_bot_preflight.summary.retained_acquisitions": "launch.integrity",
+  "nova_live.measured_bot_preflight.summary.strict_complete_captures": "launch.integrity",
+  "nova_live.measured_bot_preflight.summary.turn_completion_delay_s.count": "launch.integrity",
+  "nova_live.measured_bot_preflight.summary.turn_completion_delay_s.maximum": "launch.integrity",
+  "nova_live.measured_bot_preflight.summary.turn_completion_delay_s.median": "launch.integrity",
+  "nova_live.measured_bot_preflight.summary.turn_completion_delay_s.population_p99": "launch.integrity",
+  "nova_live.normal_stop_report_only": "report_only.exposures",
+  "nova_live.preservation.gate": "near.preservation",
+  "nova_live.preservation.reason": "near.preservation",
+  "nova_live.preservation.tolerances": "near.preservation",
+  "nova_live.review_required": "launch.integrity",
+  "nova_live.safety_budget.NOVA_TTFS_P99_S": "launch.integrity",
+  "nova_live.safety_budget.measured_p99": "launch.integrity",
+  "nova_live.scope": "launch.integrity",
+  "nova_live.sentence04_regression.fixture_id": "report_only.exposures",
+  "nova_live.sentence04_regression.rule": "report_only.exposures",
+  "nova_live.sentence_split_regression.counts_toward_barge_denominator": "report_only.exposures",
+  "nova_live.sentence_split_regression.expected_text": "report_only.exposures",
+  "nova_live.sentence_split_regression.fixture": "report_only.exposures",
+  "nova_live.sentence_split_regression.fixture_sha256": "report_only.exposures",
+  "nova_live.sentence_split_regression.gate": "report_only.exposures",
+  "nova_live.sentence_split_regression.id": "report_only.exposures",
+  "nova_live.sentence_split_regression.report_only": "report_only.exposures",
+  "nova_live.sentence_split_regression.rule": "report_only.exposures",
+  "nova_live.stt_profile.code_sha256.demo_bot.py": "bot.profile_binding",
+  "nova_live.stt_profile.code_sha256.demo_policy.py": "bot.profile_binding",
+  "nova_live.stt_profile.config.enable_interruptions": "bot.profile_binding",
+  "nova_live.stt_profile.config.full_duplex": "bot.profile_binding",
+  "nova_live.stt_profile.config.interim_results": "bot.profile_binding",
+  "nova_live.stt_profile.config.keyterm": "bot.profile_binding",
+  "nova_live.stt_profile.config.model": "bot.profile_binding",
+  "nova_live.stt_profile.config.profile": "bot.profile_binding",
+  "nova_live.stt_profile.config.sample_rate": "bot.profile_binding",
+  "nova_live.stt_profile.config.start": "bot.profile_binding",
+  "nova_live.stt_profile.config.stop": "bot.profile_binding",
+  "nova_live.stt_profile.config.stt": "bot.profile_binding",
+  "nova_live.stt_profile.config.transcript_boundary": "bot.profile_binding",
+  "nova_live.stt_profile.config.ttfs_p99_latency": "bot.profile_binding",
+  "nova_live.stt_profile.config.tts": "bot.profile_binding",
+  "nova_live.stt_profile.config.use_interim": "bot.profile_binding",
+  "nova_live.stt_profile.config.vad.confidence": "bot.profile_binding",
+  "nova_live.stt_profile.config.vad.min_volume": "bot.profile_binding",
+  "nova_live.stt_profile.config.vad.start_secs": "bot.profile_binding",
+  "nova_live.stt_profile.config.vad.stop_secs": "bot.profile_binding",
+  "nova_live.stt_profile.config.wait_for_transcript": "bot.profile_binding",
+  "nova_live.stt_profile.config_sha256": "bot.profile_binding",
+  "nova_live.stt_profile.local_model_sha256.audio/turn/smart_turn/data/smart-turn-v3.2-cpu.onnx": "bot.profile_binding",
+  "nova_live.stt_profile.local_model_sha256.audio/vad/data/silero_vad.onnx": "bot.profile_binding",
+  "nova_live.stt_profile.vendor_version": "bot.profile_binding",
+  "nova_live.stt_profile.versions.deepgram-sdk": "bot.profile_binding",
+  "nova_live.stt_profile.versions.onnxruntime": "bot.profile_binding",
+  "nova_live.stt_profile.versions.pipecat-ai": "bot.profile_binding",
+  "nova_live.vendor_model.model_uuid": "bot.profile_binding",
+  "nova_live.vendor_model.name": "bot.profile_binding",
+  "nova_live.vendor_model.version": "bot.profile_binding",
+  "nova_live.vendor_policy": "bot.profile_binding",
+  "ongoing_reply_lull.alignment_origin_tolerance_samples": "barge.eligibility",
+  "ongoing_reply_lull.cancelled_expected": "barge.cancelled_lull",
+  "ongoing_reply_lull.horizon_after_latest_ms": "barge.eligibility",
+  "ongoing_reply_lull.rule": "barge.eligibility",
+  "ongoing_reply_lull.span_max_frames": "barge.eligibility",
+  "opportunity.allowed_undelivered": "barge.undelivered",
+  "opportunity.allowed_unscorable": "barge.unscorable",
+  "opportunity.denominator_rule": "barge.group_bar",
+  "opportunity.eligible": "barge.eligibility",
+  "opportunity.expected_no_opportunity": "barge.no_opportunity",
+  "opportunity.expected_unscorable": "barge.unscorable",
+  "opportunity.future_failure": "barge.unscorable",
+  "opportunity.in_window": "barge.in_window",
+  "opportunity.near_match": "barge.eligibility",
+  "opportunity.no_opportunity": "barge.no_opportunity",
+  "opportunity.ongoing_reply_lull": "barge.eligibility",
+  "opportunity.required_eligible_per_volume_per_kind.-6": "barge.group_bar",
+  "opportunity.required_eligible_per_volume_per_kind.0": "barge.group_bar",
+  "opportunity.successes_required_per_volume_per_kind.-6": "barge.group_bar",
+  "opportunity.successes_required_per_volume_per_kind.0": "barge.group_bar",
+  "preflight_contract.console_export.seconds_per_capture_second": "capture.export",
+  "preflight_contract.console_export.slack_s": "capture.export",
+  "preflight_contract.console_export.source": "capture.export",
+  "preflight_contract.evaluation_ack_timeout_s": "harness.evaluation_ack",
+  "preflight_contract.real_reply.max_s": "launch.integrity",
+  "preflight_contract.real_reply.median_s": "launch.integrity",
+  "preflight_contract.real_reply.prompt_file": "launch.integrity",
+  "preflight_contract.real_reply.prompt_file_sha256": "launch.integrity",
+  "preflight_contract.real_reply.prompt_rule": "launch.integrity",
+  "preflight_contract.real_reply.retained_replies": "launch.integrity",
+  "preflight_contract.real_reply.source": "launch.integrity",
+  "preflight_contract.real_reply.source_sha256": "launch.integrity",
+  "preflight_contract.real_reply.status": "launch.integrity",
+  "rearm_ms": "alignment.near_witness",
+  "reply_window_seconds": "capture.cap",
+  "require_active_tts": "barge.undelivered",
+  "rf.accounting": "rf.cell_pre_gate",
+  "rf.blind_spot": "rf.diagnostics",
+  "rf.diagnostic_boundaries": "rf.diagnostics",
+  "rf.implementation": "rf.cell_pre_gate",
+  "rf.independent_invalidity": "rf.cell_pre_gate",
+  "rf.interface": "rf.cell_pre_gate",
+  "rf.limit_bytes_per_300s": "rf.cell_pre_gate",
+  "rf.observation_only": "rf.cell_pre_gate",
+  "rf.permissions": "rf.diagnostics",
+  "rf.pre_gate_window_s": "rf.cell_pre_gate",
+  "rf.window_total_limit_bytes": "rf.cell_pre_gate",
+  "source_preflight_contract.activity_power_lsb2": "launch.integrity",
+  "source_preflight_contract.definition": "launch.integrity",
+  "source_preflight_contract.frame_ms": "launch.integrity",
+  "source_preflight_contract.helper": "launch.integrity",
+  "source_preflight_contract.max_bridged_silence_ms": "launch.integrity",
+  "source_preflight_contract.minimum_initial_span_s": "launch.integrity",
+  "timing.afe_configuration": "alignment.near_witness",
+  "timing.afe_delay_samples": "alignment.near_witness",
+  "timing.anchor_method": "timing.capture_bracket",
+  "timing.anchor_period_s": "timing.capture_bracket",
+  "timing.capture_window": "timing.capture_bracket",
+  "timing.disconnect_bracket_max_s": "reconnect.cycle",
+  "timing.frame_ms": "NON_GATE",
+  "timing.latency_verdict": "barge.latency",
+  "timing.near_onset_uncertainty_samples": "barge.latency",
+  "timing.sample_rate_hz": "NON_GATE",
+  "timing.timer_lateness_max_s": "timing.stimulus_lateness",
+  "v85.capture_end_perf": "transport.downlink_barge",
+  "v85.host_boundary_not_reached": "transport.downlink_barge",
+  "v85.long_tts.incomplete_witness": "tts.long_lead",
+  "v85.long_tts.interpretation": "tts.long_lead",
+  "v85.long_tts.lead_s_gte": "tts.long_lead",
+  "v85.long_tts.max_campaign_retakes": "tts.long_lead",
+  "v85.long_tts.noise_streak": "tts.long_lead",
+  "v85.long_tts.rule": "tts.long_lead",
+  "v85.long_tts.shared_cell_retries": "tts.long_lead",
+  "v85.long_tts.soak_retry": "tts.long_lead",
+  "v85.long_tts.unit": "tts.long_lead",
+  "v85.no_link_retakes": "transport.downlink_barge",
+  "v85.rationale": "NON_GATE",
+  "v85.reconnect_new_reply": "reconnect.cycle",
+  "v85.reconnect_window_s": "reconnect.cycle",
+  "v85.resume_allowed": "parts.ledger",
+  "v85.rule": "launch.integrity",
+  "v85.transport.cell_ratio_max": "transport.downlink_barge",
+  "v85.transport.export_transport_delivery": "transport.export",
+  "v85.transport.interpretation": "transport.downlink_barge",
+  "v85.transport.liveness_peer_close": "liveness.peer",
+  "v85.transport.piecewise_received_floor": "transport.downlink_barge",
+  "v85.transport.rule": "transport.downlink_barge",
+  "v85.transport.terminal_short": "transport.downlink_barge",
+  "volumes_db": "echo.stratum_bar"
+ },
+ "terms": {
+  "epoch:delivery": "delivery.counters_dispatch",
+  "epoch:liveness": "liveness.peer",
+  "epoch:render_ledger": "hardware.render_ledger",
+  "epoch:transport": "transport.downlink_barge",
+  "harness:capture-deadline": "capture.cap",
+  "harness:evaluation-ack-timeout": "harness.evaluation_ack",
+  "harness:jabra-duration": "harness.jabra_duration",
+  "harness:long-tts": "tts.long_lead",
+  "harness:rf-pre-gate": "rf.cell_pre_gate",
+  "harness:single-capture-gap": "timing.single_gap",
+  "harness:stimulus-timing": "timing.stimulus_lateness",
+  "harness:transport-environmental": "transport.environmental_classifier",
+  "hold:cleanup_errors": "restore.integrity",
+  "hold:completed": "resources.part_audit",
+  "hold:error_class": "parts.block_closure",
+  "hold:harness_failures": "retry.clean_witness",
+  "hold:host_environment": "host.environment",
+  "hold:link_probe": "link_probe.part",
+  "hold:lock_released": "restore.integrity",
+  "hold:mixer_equal": "restore.integrity",
+  "hold:periodicity": "host.periodicity",
+  "hold:resources": "resources.part_audit",
+  "hold:restored_elf_sha256": "restore.integrity",
+  "hold:rf_active": "rf.hold_active",
+  "hold:sctp_recovery": "transport.sctp_recovery",
+  "integrity:admission": "admission.control_loss",
+  "integrity:capture_cap": "capture.cap",
+  "integrity:delivery_counters": "delivery.counters_dispatch",
+  "integrity:ledger": "hardware.render_ledger",
+  "integrity:reference_health": "reference.health",
+  "integrity:resources": "resources.part_audit",
+  "integrity:rf": "rf.capture_window",
+  "integrity:transport": "transport.downlink_barge",
+  "resources:aec.capture.adc_clips": "clip.mic_room",
+  "resources:aec.capture.gain_clips": "clip.mic_room",
+  "resources:aec.capture.read_errors": "hardware.audio_io",
+  "resources:aec.capture.read_timeouts": "hardware.audio_io",
+  "resources:aec.errors": "hardware.aec_errors",
+  "resources:aec.output_clips": "clip.afe_output",
+  "resources:aec.reference_clips": "clip.reference",
+  "resources:audio.drops": "hardware.audio_io",
+  "resources:audio.read_errors": "hardware.audio_io",
+  "resources:audio.write_errors": "hardware.audio_io",
+  "resources:audio.write_timeouts": "hardware.audio_io",
+  "resources:cat": "resources.display",
+  "resources:console_output.full": "hardware.console",
+  "resources:console_output.transport_drops": "hardware.console",
+  "resources:core_0_steady_idle_percent": "resources.cpu",
+  "resources:core_1_steady_idle_percent": "resources.cpu",
+  "resources:data_admission_counters_only": "admission.control_loss",
+  "resources:display": "resources.display",
+  "resources:encode_max_us": "resources.encode",
+  "resources:encode_p95_us": "resources.encode",
+  "resources:failed_allocations.total": "resources.failed_alloc",
+  "resources:i2s_underflows": "hardware.audio_io",
+  "resources:i2s_write_errors": "hardware.audio_io",
+  "resources:i2s_write_timeouts": "hardware.audio_io",
+  "resources:internal_largest": "resources.heap",
+  "resources:internal_minimum_free": "resources.heap",
+  "resources:live_rx_overflows": "hardware.audio_io",
+  "resources:liveness": "liveness.peer",
+  "resources:pcm_queue_drops": "hardware.audio_io",
+  "resources:session_snapshots_present": "resources.coverage",
+  "resources:snapshots_present": "resources.coverage",
+  "resources:stack_app-control": "resources.stacks",
+  "resources:stack_audio-capture": "resources.stacks",
+  "resources:stack_audio-playback": "resources.stacks",
+  "resources:stack_audio-tx": "resources.stacks",
+  "resources:stack_peer-loop": "resources.stacks",
+  "resources:stack_peer-rx": "resources.stacks",
+  "resources:uplink_frame_ms": "hardware.uplink_frame"
+ }
+}

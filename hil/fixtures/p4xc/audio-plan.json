@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "status": "predeclared procedure; P4 measurements pending",
+  "volume_db": -6,
+  "frequencies_hz": [
+    500,
+    800,
+    1000,
+    1500,
+    3000
+  ],
+  "amplitudes_percent": [
+    2,
+    3,
+    4,
+    6,
+    8,
+    10,
+    15,
+    20,
+    26,
+    30
+  ],
+  "repeats": 2,
+  "thd_percent_max": 5,
+  "h2_h3_dbc_max": -26,
+  "clips_max": 0,
+  "linearity_doubling_tolerance_db": 1,
+  "mic_analog_candidates_db": [
+    24,
+    30,
+    33
+  ],
+  "prompts": {
+    "france": "hil/fixtures/agent_conversation/france.wav",
+    "italy": "hil/fixtures/agent_conversation/italy.wav",
+    "speech": "hil/fixtures/prompt_speech.wav"
+  },
+  "rule": "hil/p4_audio.md (freeze before first acoustic run); no S3 acoustic level or geometry inherited",
+  "placeholder_sources": {
+    "mic_analog_db": "components/dg_board/src/p4xc/audio_hw.cpp: registers.analog_gain_db",
+    "mic_gain_percent": "boards/p4xc/sdkconfig.defaults: CONFIG_DG_MIC_GAIN_PERCENT",
+    "playback_seed_dbfs_x10": "components/pipecat_esp_peer/Kconfig: DG_PLAYBACK_SEED_DBFS_X10 P4 default",
+    "audio_tx_stack_bytes": "components/pipecat_esp_peer/Kconfig: DG_AUDIO_TX_STACK_BYTES P4 default"
+  }
+}

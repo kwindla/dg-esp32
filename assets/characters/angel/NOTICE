@@ -1,0 +1,86 @@
+Angel sprite pack — Little Voices stage renderer port
+
+Adapted from Jon Taylor's Little Voices, https://github.com/pipecat-ai/ios-little-voices,
+revision 7f5613cd9071d4668d3aab9cfe8691ff8c59b4b2. Copyright (c) 2026 Daily; BSD-2.
+
+Read/ported source: FaceRig.swift, FaceGeometry.swift, FaceExpressions.swift,
+FaceParameters.swift, RigMath.swift, DuoCharacter.swift, DuoStageView.swift,
+StageRenderer.swift, StageLayout.swift, StageColors.swift, StagePalette.swift,
+GlowSprites.swift, SeamRig.swift, LipsyncVisemes.swift. The source renderer's
+settled paths, gradient stops, stroke widths, eye clips, brow tapers, cavity,
+tongue, fang and hinged accessories are evaluated in ../little-voices.cjs.
+The single-character adaptation omits the two-character seam/captions and live
+spring simulation. A fixed full-stage crop fits the round display; no face disc.
+
+Build: node assets/characters/angel/build-sprites.cjs (from repository root).
+Dependencies: Node, Python3 with Pillow, system librsvg-2 and Cairo. The build
+uses procedural SVG only; reference images are comparison inputs, never sprite
+inputs. ../duo-raster.py uses fixed 2x sampling and straight-alpha PNG output.
+Glow shadows use two Gaussian passes; the CoreGraphics blur kernel differs.
+
+Animation v2: full-canvas gradient faceplate, seven tightly bounded eyes/brows
+frames (including true app neutral), five mouth frames. The app's neutral angel
+has bead eyes; open uses its surprised white-eye parameters to match the brief.
+Devil open uses talking eyes looking toward the other character. Side looks
+include the app's settled parallax. All combinations remain independently valid.
+
+Rest mouth is the app's neutral open smile/grin. Speaking frames small, medium,
+wide, round are exact LipSyncMapping samples at talkOpen .25, .5, .75, 1 with
+width .5 and rounding .1. The legacy round filename now stores the maximum
+opening, not an O; this keeps the devil fang in every pack mouth. Energy-based
+animation is not phoneme alignment. Halo/horns, blush and marks remain static.
+Restore dirty union from the faceplate and redraw intersecting patches in order.
+
+Previews/fidelity: python3 hil/duo_art_rev1.py --out ~/src/evidence/duo/step-1-rev-1
+Host checks: TMPDIR=$HOME/.cache/gap3-tmp PYTHONDONTWRITEBYTECODE=1 python3 -m unittest hil/test_duo_art_rev1.py -v
+The revision suite retains original determinism/transition/decoder checks and
+replaces the solid-field-only safety assertion with separate feature safety.
+User art approval and on-device validation remain pending.
+
+BSD 2-Clause License.
+
+The procedural drawing ports proportions, curves, expressions and colours from
+FaceGeometry.swift, FaceExpressions.swift, FaceParameters.swift, StageColors.swift
+and StagePalette.swift. Changes: a single round-safe 412px face, flat fills in
+place of gradients/glows, six eye/brow patches and five energy-driven mouth poses.
+The shared rasterizer is ../duo-build.cjs. No image-generation service is used.
+
+Build: node assets/characters/angel/build-sprites.cjs (from repository root).
+Export estimates and previews: python3 hil/duo_art.py --out ~/src/evidence/duo/step-1
+Preview export needs Pillow; PNG builds use only Node's standard library.
+Host acceptance: TMPDIR=$HOME/.cache/gap3-tmp PYTHONDONTWRITEBYTECODE=1 python3 -m unittest hil/test_duo_art.py -v
+
+Animation schema v2 follows the Halloween cat: faceplate plus transparent,
+union-bounded eyes-with-brows and mouth patches. Coordinates are authored at 412;
+runtime estimates use endpoint-rounded 360 coordinates. Restore dirty bounds
+from the faceplate before compositing patches, including other intersecting
+layers. Transparent RGB is zero; partial alpha is straight, not premultiplied.
+Optional accents are omitted; the halo/horns and marks are static faceplate art.
+
+User approval of the art and on-device validation remain pending. Estimates and
+preview GIFs are external evidence, not installed runtime assets.
+
+BSD 2-Clause License
+
+Copyright (c) 2026, Daily
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this
+   list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.

@@ -1,0 +1,7 @@
+[mapping:dg_opus_encoder_hot]
+archive: libesp_audio_codec.a
+entries:
+    if DG_OPUS_ENCODER_HOT_IRAM = y:
+        encode_frame_FIX: silk_encode_frame_FIX (noflash)
+        NSQ: silk_NSQ_c (noflash)
+        NSQ_del_dec: silk_NSQ_del_dec_c (noflash)

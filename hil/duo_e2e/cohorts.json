@@ -1,0 +1,67 @@
+{
+  "functional": {
+    "voice": "aura-2-orion-en", "lead_s": 10, "gap_s": 22, "tail_s": 90,
+    "phrases": [
+      {"text": "Devil, should I eat the whole cake tonight?", "expected": "devil"},
+      {"text": "And what would you put on top of it?", "expected": "none"},
+      {"text": "Can I hear from the angel now?", "expected": "angel"},
+      {"text": "Speak of the devil, I just found another cake in the fridge.", "expected": "none"}
+    ]
+  },
+  "functional2": {
+    "voice": "aura-2-orion-en", "lead_s": 10, "gap_s": 22, "tail_s": 90,
+    "phrases": [
+      {"text": "Devil, do you agree with the angel?", "expected": "devil"},
+      {"text": "Thanks, you're an angel for saying that.", "expected": "none"},
+      {"text": "What did you think of what the angel said?", "expected": "none"},
+      {"text": "Can I get the angel's view on this?", "expected": "angel"}
+    ]
+  },
+  "stay": {
+    "voice": "aura-2-orion-en", "lead_s": 10, "gap_s": 18, "tail_s": 90, "repeat": 2,
+    "phrases": [
+      {"text": "What should I have for breakfast?", "expected": "none"},
+      {"text": "Is it okay to skip the gym today?", "expected": "none"},
+      {"text": "Should I call my sister?", "expected": "none"},
+      {"text": "What do you think about naps?", "expected": "none"},
+      {"text": "Should I buy new shoes?", "expected": "none"},
+      {"text": "Is coffee a good idea right now?", "expected": "none"},
+      {"text": "What should I read next?", "expected": "none"},
+      {"text": "Should I learn the guitar?", "expected": "none"},
+      {"text": "Is it rude to leave a party early?", "expected": "none"},
+      {"text": "Should I tidy my desk?", "expected": "none"}
+    ]
+  },
+  "switch": {
+    "voice": "aura-2-orion-en", "lead_s": 10, "gap_s": 22, "tail_s": 90, "repeat": 2,
+    "phrases": [
+      {"text": "Devil, what should I have for breakfast?", "expected": "devil"},
+      {"text": "Angel, is it okay to skip the gym today?", "expected": "angel"},
+      {"text": "Devil, should I call my sister?", "expected": "devil"},
+      {"text": "Angel, what do you think about naps?", "expected": "angel"},
+      {"text": "Devil, should I buy new shoes?", "expected": "devil"},
+      {"text": "Angel, is coffee a good idea right now?", "expected": "angel"},
+      {"text": "Devil, what should I read next?", "expected": "devil"},
+      {"text": "Angel, should I learn the guitar?", "expected": "angel"},
+      {"text": "Devil, is it rude to leave a party early?", "expected": "devil"},
+      {"text": "Angel, should I tidy my desk?", "expected": "angel"}
+    ]
+  },
+  "bargein": {
+    "voice": "aura-2-orion-en", "lead_s": 8, "gap_s": 16, "tail_s": 0,
+    "phrases": [
+      {"text": "Tell me a long story about a pirate who loves cake.", "expected": "none", "gap_s": 4.5},
+      {"text": "Wait, stop, tell me something shorter.", "expected": "none"},
+      {"text": "Describe your perfect lazy Sunday in detail.", "expected": "none", "gap_s": 4.5},
+      {"text": "Hold on, never mind that.", "expected": "none"},
+      {"text": "Explain why people like rollercoasters, with lots of examples.", "expected": "none", "gap_s": 4.5},
+      {"text": "Okay stop, that's enough.", "expected": "none"},
+      {"text": "Tell me everything about how to bake bread.", "expected": "none", "gap_s": 4.5},
+      {"text": "Hang on, just give me one sentence.", "expected": "none"},
+      {"text": "Describe a trip to Paris from start to finish.", "expected": "none", "gap_s": 4.5},
+      {"text": "Stop there, thanks.", "expected": "none"},
+      {"text": "Tell me a long story about a dragon and a librarian.", "expected": "none", "gap_s": 4.5},
+      {"text": "Wait, wait, skip to the end.", "expected": "none"}
+    ]
+  }
+}

@@ -1,0 +1,186 @@
+{
+  "schema": "echoear-aec-promotion-smoke-v1",
+  "id": "aec-promotion-smoke-04",
+  "status": "predeclared; runner hil/echoear_aec_promotion_smoke.py (decision 110, restructured per the r3 direction); host review before bench use",
+  "decision": "109(a), 110, 111(a): the promotion target is the AEC ELF rebuilt at the firmware commit with the 12800 owner-stack default, on the same masked-equal basis (0 unmasked bytes vs cbabb650); 112: smoke-01 (merge-9d-r2) FAIL of record on the stale-peer liveness alarm; part 2 now uses the attributed liveness rule and smoke-02 is a fresh run of both parts; 113: alarm identity bound at emission (pc_id tag on the bot's alarm line), scorer attributes by that tag only; 114: smoke-02 (merge-9d-r3) FAIL of record on part 1's retirement liveness alarm; part 1's bot-alarm clause takes the decision-113 tagged rule and smoke-03 is a fresh run of both parts; 115: alarm line carries silent_s; last-timely witness in the shared rule, evaluation-event corroboration in part 1; 117: smoke-03 FAIL of record on stale-peer teardown rows; the post-disconnect teardown principle (shared echoear_mute_gate code) applies to part 2 and mute, and smoke-04 is a fresh run of both parts; 118: mute-01 findings (gate interval over a short reply's whole playback; runner idle budget below the bot's 300 s idle timeout) folded in; 120: short-reply mute interval needs affirmative closed coverage from playback start; teardown credit starts at the acknowledged disconnect (OK receipt) with a capped bracket; 121: long-reply mute coverage restored to r12's (verdict-equal) with r13's checks; idle activity limited to Pipecat's idle-reset frames on the current peer; 122: 0.5 s close-witness allowance in the mute gate (one rule for short and long replies)",
+  "claim": "Equivalence/promotion check of a metadata-only AEC rebuild under the inherited q1-aec-v87-01 qualification (decision 107). Not a new qualification run; freeze-03 evidence is untouched; no STT, transport or resource qualification claim.",
+  "image": {
+    "bundle": "/home/khkramer/src/evidence/echoear/aec-demo/step-9/merge-9d-r3/bundle-aec",
+    "elf_sha256": "69d5d7642d2c7650a236ada6ac5915a1ba5d3caaf88bcfc697efdab3156e4c07",
+    "firmware_commit": "22b2aa784a95effdf6812439f345855cc5dfafff",
+    "boot_ref_gain_db": 15,
+    "proof_of_record": "/home/khkramer/src/evidence/echoear/aec-demo/step-9/merge-9d-r3/masked-compare-aec-vs-cbabb650.json",
+    "proof_rule": "masked_equal true, unmasked_differing_bytes 0, flash_options_equal true, against the qualified bundle candidate-58f567e-ref15 (ELF cbabb650); any rebuild needs its own compare before this smoke"
+  },
+  "pre_bench": [
+    "verify every bundle file against manifest.json and the masked-compare JSON's recorded hashes",
+    "resolved public config of the bundle: DG_ECHOEAR_AEC=1, REF_GAIN_DB=15, GUARD_MS=400, GUARD_REARM_MS=2000, DEMO_AUTOSTART=1, WIFI_OBSERVE=1"
+  ],
+  "bot": {
+    "commit": "server/ equals the reviewed qualified pairing (aec-q 133f587, the bot that ran q1-aec-v87-01) except the decision-113 log-text delta (demo_liveness alarm line carries pc_id=<peer> via an optional label that demo_bot passes and, decision 115, silent_s=<measured silence>; no behaviour change; plus its tests); the runner commit is the launcher-pinned aec-merge HEAD",
+    "ECHOEAR_AEC_FULL_DUPLEX": "unset (capability route)",
+    "other_env": "the q1 plan bot_config verbatim (ECHOEAR_AEC_FULL_DUPLEX unset, liveness 0.5, dev STT profile, proactive TTS reconnect, local LLM, flux-kelsey-en 1.5/2, 4 x 10 ms chunks)",
+    "evaluation_hooks": "on, exactly as in q1-aec-v87-01 (the proven acquisition drives scripted replies and the timed Stop through the evaluation interface; server/ equals the q1 bot at aec-q 133f587 apart from the decision-113 alarm-line label)",
+    "bot_config": {
+      "AUDIO_OUT_10MS_CHUNKS": "4",
+      "DEEPGRAM_TTS_EXPRESSIVITY": "2",
+      "DEEPGRAM_TTS_SPEED": "1.5",
+      "DEEPGRAM_TTS_VOICE": "flux-kelsey-en",
+      "DEMO_LLM": "local",
+      "DEMO_TTS_PROACTIVE_RECONNECT": "1",
+      "DEMO_TTS_RECONNECT_EACH_GENERATION": "0",
+      "DEMO_TTS_TRIM_LEADING": "0",
+      "ECHOEAR_AEC_FULL_DUPLEX": null,
+      "ECHOEAR_LIVENESS_SECONDS": "0.5",
+      "ECHOEAR_STT_PROFILE": "dev",
+      "interrupt_repeat_ms": 100,
+      "meaning_of_null_override": "Unset: capability controls full duplex. Record resolved full-duplex=true; no experimental override for acceptance.",
+      "metrics_forwarded_to_device": false,
+      "playout_cancel_mute_ms": 150,
+      "sctp_rto_min_seconds": 1
+    },
+    "rule": "build_plan refuses unless the base plan bot_config equals this pin exactly"
+  },
+  "runtime_profile": {
+    "decision": "113 (Astra r8 blocker)",
+    "qualified_demo_bot_sha256": "c0cfd66be0ac17daa5a174e43553b0b4573d9f281ab33ef6930a9cd725126b32",
+    "qualified_config_sha256": "1d2c6dc83a3bb9fa05b604576cb3bfb969bb4b0a242456ebea619fe50d163a0d",
+    "demo_bot_sha256": "43db52965bba9ab9672ae9ae5ae593b6d01fcbb4ae1a6fc1583b0d72a72f5cad",
+    "config_sha256": "c793313e7eeba6a00a454895e8fa2dc549ecb052961f5742c21eb18920de3b4e",
+    "rule": "build_plan derives p['profile'] from the frozen q1 profile with exactly two deltas: code_sha256['demo_bot.py'] (qualified -> decision-113 bot, the alarm-line pc_id label) and the resulting config_sha256 (demo_policy.profile_manifest's aggregate), both pinned here; any other difference is an error. validate and run then require demo_policy.profile_manifest('dev', True) of the checked-out bot to equal the derived profile exactly. The inherited NovaHold.connect/capture/finish profile_witness keeps its exact equality."
+  },
+  "steps": [
+    {
+      "id": "flash",
+      "check": "nonblocking bench flock; MAC identity; flash the pinned bundle; full boot line elf_sha256=69d5d764..."
+    },
+    {
+      "id": "gain",
+      "check": "boot line MIC3_GAIN=0x15 analog_db=15 (verify_bundle/boot declared-gain rule)"
+    },
+    {
+      "id": "capability",
+      "check": "device AUDIO_CAPABILITY aec=1 ref_gain_db=15 guard_ms=400 and bot DEMO_DUPLEX aec_full_duplex=True user_mute=False source=capability-or-safe-fallback; PERF aec.enabled true"
+    },
+    {
+      "id": "cold",
+      "check": "first scripted playback cell (v9-echo-m6-t01-g1; TTSSpeakFrame, no user turn): the attempt is acquired with no error and no pending score, and none of echo.false_turns, echo.event_coverage, echo.unscorable fired; acoustic SCORE findings are retained, report-only"
+    },
+    {
+      "id": "warm",
+      "check": "second scripted playback cell (v9-echo-m6-t02-g1; TTSSpeakFrame, no user turn): the attempt is acquired with no error and no pending score, and none of echo.false_turns, echo.event_coverage, echo.unscorable fired; acoustic SCORE findings are retained, report-only"
+    },
+    {
+      "id": "stop",
+      "check": "the pinned firm Stop fixture (stop_fixture) played by the v9 cell during audible playback of a long reply. Stop accounting, scoped to attempt windows (device clock, before.json -> after.json): the Stop window holds exactly one AUDIO_CANCEL, applied=1, with cancellation.events +1 and cancellation.duplicate_notices >= 0 (redundant copies are dropped by the transport before the callback, so they print no line); every near-witness window holds exactly as many AUDIO_CANCEL lines as its cancellation.events delta, all applied=1 (attributed and bounded); any cancel in an echo window or outside every attempt window is unattributed and fails. The v9 flush gates (flush.callback, flush.interrupt_copies, flush.stale_audio) must not fire. flush.stale_audio is a SERVER-WRITE check (no old-context transport write after the 150 ms cancel mute); it is not a measurement of local DAC silence, flush latency or a strict late-RTP guarantee"
+    },
+    {
+      "id": "recovery",
+      "check": "the next prompt after the Stop gets a complete reply"
+    },
+    {
+      "id": "display",
+      "check": "part 1: display.rendered advances connected -> settled-end; display.failed/dead false; part 2: display.rendered advances over epoch A"
+    },
+    {
+      "id": "counters",
+      "check": "part audit clean (v9 part_audit over every retained observation); settled-end zero: aec.errors, aec.reference_clips, aec.output_clips, aec.capture.read_errors/read_timeouts/adc_clips/gain_clips; liveness pongs > 0, timeouts 0, no LIVENESS alarm; cancellation.* is NOT in any zero-delta list (scored only by the stop accounting rule)"
+    },
+    {
+      "id": "restore",
+      "check": "owned bot stopped; normal 9936da45 reflashed with full boot hash; mixer restored and byte-equal; port 7861 free; lock released"
+    },
+    {
+      "id": "reconnect",
+      "check": "part 2 (hil/plans/echoear-aec-reconnect-v1.json): one prompt reply in session A, a fresh prompt whose reply is cut by a disconnect sent at the retained mid-reply trigger (lag <= 0.5 s, activity re-checked at the send), a new STATE Ready generation within 10 s with a new peer id, no stale write on the new peer before its first user turn, the old session-end before the new first write, a complete reply in session B, and per-generation terminal counters, liveness and resources"
+    }
+  ],
+  "outcome": {
+    "PASS": "part 1 PASS and part 2 PASS: every step check true, execute() passed (no execution error, first cleanup clean), 9936da45 restored, lock released",
+    "FAIL": "a check false on a complete witness in either part, a part-1 candidate fault, or a part-2 gate FAIL/INVALID; blocks promotion until diagnosed",
+    "INCOMPLETE": "a witness missing for an infrastructure reason in either part (part 1: PAUSE-PART/INCONCLUSIVE with a clean restore; part 2: a pre-gate exception with a clean restore, a gate INCOMPLETE, or an execution failure / failed-then-retried cleanup after a gate PASS: the acquisition may be sound but the protected lifecycle did not complete cleanly, so it cannot be credited; the bench was restored before return); may be re-run as a fresh smoke under the same spec"
+  },
+  "budget": {
+    "estimated_minutes": [
+      30,
+      45
+    ],
+    "worst_case_s": 3300,
+    "exclusion_local_minutes": [
+      180,
+      250
+    ],
+    "rule": "part 1 smoke ceiling 1800 s (incl. its 360 s restore reserve) + part 2 acquisition deadline 900 s + 600 s cleanup reserve; refused if that interval would reach 03:00-04:10",
+    "quiet_room": "not required for part 1: in smoke mode nothing is retaken, and noise-invalidity findings (INVALID-CELL) are retained in the ledger and report-only in the promotion judge; nothing acoustic is scored. Part 2 plays prompts on the Jabra and needs an ordinary quiet bench"
+  },
+  "qualified": {
+    "elf_sha256": "cbabb650bcc218b1e993b99c5cc055f5bf8ae41e9a56568d3d60071ba205f056",
+    "run": "q1-aec-v87-01",
+    "freeze": "q1-freeze-03"
+  },
+  "normal_elf_sha256": "9936da45a8c7dd6103c72f3fd3335e270659d4af6710bdc082a5d984a3feb758",
+  "base_plan": {
+    "path": "/home/khkramer/src/evidence/echoear/aec-demo/step-9/q1-aec-v87-01/plan-effective.json",
+    "sha256": "d17fcf6154b25890cf3817f6996238d3c16b45aaf8d72fb1c8a783dbf0728707",
+    "rule": "the q1 run plan, candidate identity replaced (image, elf_sha256, candidate.*); nothing else changes except the declared smoke schedule, the reconnect cell and an empty soak block BenchHold.reconnect needs under v85"
+  },
+  "mechanism": "Part 1: one v9 smoke part (echoear_aec_v9.run_part, mode smoke, drain allowance 4.0 s as q1) on the q1 plan with ONLY the candidate identity replaced; no reconnect and no plan injection; the unmodified qualified hold (V9Hold -> NovaHold -> BenchHold) and the unmodified part_audit over its single generation; restore 9936da45 (full boot hash), mixer byte-equal, lock released. The promotion gate policy is a Runner acoustic hook (promotion_acoustic): acoustic SCORE findings are retained in the attempt record (promotion_report_only) and an acoustic miss is passed on as ineligible, so they cannot STOP or fail the smoke; candidate faults, hard false-event findings (echo.false_turns, barge.false_interruption) and the gated flush checks stay authoritative; no v9 rule module is changed. Part 2 (only after a part-1 PASS): a separate reconnect check in its own hold, run through echoear_rollback.protected_execute (SIGINT/SIGTERM/SIGALRM unwind into protected cleanup; acquisition deadline armed), echoear_rollback.AecReconnectLive with hil/plans/echoear-aec-reconnect-v1.json: the mute gate reconnect machinery on the AEC bundle, each generation audited against its own start and terminal boundaries; restore 9936da45, mixer, lock.",
+  "schedule": {
+    "part": 1,
+    "blocks": [
+      {
+        "id": "promo-b1",
+        "attempts": [
+          "v9-echo-m6-t01-g1",
+          "v9-echo-m6-t02-g1",
+          "v9-stop-firm-r01"
+        ]
+      }
+    ],
+    "roles": {
+      "cold": "v9-echo-m6-t01-g1: the first scripted playback cell after connect (the bot speaks a declared text via TTSSpeakFrame; no user turn)",
+      "warm": "v9-echo-m6-t02-g1: the second scripted playback cell",
+      "stop": "v9-stop-firm-r01: scripted long reply + the pinned firm Stop fixture at 0.9 s, real bot reply after the cancel = recovery",
+      "witnesses": "every v9 block opens and closes with near-witness attempts (a near-end sentence that interrupts the bot); their cancels are expected and attributed to their windows"
+    }
+  },
+  "output": "/home/khkramer/src/evidence/echoear/aec-demo/step-9/merge-9d-r3/aec-promotion-smoke-04",
+  "scoring": {
+    "gated": {
+      "echo cells": [
+        "echo.false_turns",
+        "echo.event_coverage",
+        "echo.unscorable"
+      ],
+      "stop cell": [
+        "barge.false_interruption",
+        "barge.cancelled_lull",
+        "flush.callback",
+        "flush.next_reply",
+        "flush.interrupt_copies",
+        "flush.stale_audio"
+      ]
+    },
+    "report_only": "every other v9 finding, all acoustic SCORE gates (a smoke proves execution and equivalence, not acoustics)",
+    "device": "stop accounting rule (steps.stop); aec.* error/clip counters 0 at settled-end; device liveness pongs > 0, timeouts 0 and no device 'LIVENESS no ping' (absolute); bot 'LIVENESS alarm' only under part1_liveness (decision 114); v9 part audit clean"
+  },
+  "launcher": "/home/khkramer/src/evidence/echoear/aec-demo/step-9/merge-9d-r3/launch-aec-promotion-smoke.sh",
+  "stop_fixture": {
+    "path": "/home/khkramer/src/evidence/echoear/aec-assess/astra/live-cat/stimuli/stop-48k.wav",
+    "sha256": "5630e546041a02b783bd921a9f2776eddab57b20e97643a918f227ce31d66587",
+    "offset_s": 0.9,
+    "cell": "v9-stop-firm-r01"
+  },
+  "reconnect_part": {
+    "plan": "hil/plans/echoear-aec-reconnect-v1.json",
+    "plan_sha256": "c7e33a7df99739438a376bf90d1c29e9a7a7d4d37e74fa7487d4777f28d18101",
+    "unproven": "BenchHold.reconnect has no passing precedent (campaign-10 reconnect-01 failed on a stimulus precondition); it is not used. Part 2 reuses the mute-01 reconnect machinery. Its one bench exercise, smoke-01 part 2, passed every leaf except liveness-logs, the absolute rule that decision 112 replaced; the tagged rule (decision 113) has not yet run live."
+  },
+  "launcher_rule": "the launcher pins the expected aec-merge HEAD and refuses another; the ledger records runtime_sha256 (v9 runtime files + promotion files)",
+  "part1_liveness": {
+    "decision": "114",
+    "rule": "part 1's bot alarm clause uses echoear_mute_gate.liveness_logs_attributed (decision 113) with the reconnect plan's declared liveness/liveness_logs block (q1 bot_config ECHOEAR_LIVENESS_SECONDS must equal its period). The part's only peer is connected.json pc_id; its only deliberate disconnect is the hold's final console 'disconnect'. An alarm is allowed only if tagged with that pc_id, after that send, inside [sent + tolerance - period - early_s, sent + tolerance + margin] (2 ms slack), at most one; untagged, another peer, outside the window, a second alarm or no witnessed disconnect FAIL. Device 'LIVENESS no ping' and the device liveness counters stay absolute. Decision 115: the shared rule's last-timely witness (alarm line silent_s) applies; in addition every evaluation 'liveness-alarm' event must be for the part's peer and pair with exactly one attributed line, silent_s agreeing within 1.5 ms (3-decimal rounding) and event t (monotonic) mapped through the final stamp's (sent_wall, sent_mono) pair within 50 ms of the line's wall time; a missing or extra event FAILs.",
+    "stamp": "the promotion wrapper (stamp_disconnects, active only during run_part) replaces the echoear_aec_campaign.command module attribute with a pass-through that brackets the 'disconnect' console board.send with time.time() (loguru's clock), as MuteLive.disconnect does, and writes <out>/part1-disconnect-stamps.json; BenchHold.finish and V9Hold.finish_peer_lost resolve that attribute at call time. No v9 or bench module is edited.",
+    "teardown": "decision 117 for part 1: the part has one peer, retired only by the hold's final disconnect after every cell; the qualified v9 scoring and part_audit are unmodified. Their bot-row consumers run before that send (per-attempt scoring tails the recorder during attempts; BenchHold.finish scans bot errors before settled-end and disconnect, campaign.py:839), the bot is stopped right after the disconnected snapshot, and the promotion judge's only consumer of post-send bot rows is this liveness rule"
+  }
+}

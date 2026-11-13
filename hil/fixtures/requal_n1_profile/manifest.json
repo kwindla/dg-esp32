@@ -1,0 +1,39 @@
+{
+ "strict-9bc2d42-attempt-2.serial.txt": {
+  "source": "B/item2-final-master-9bc2d42/strict_voice_cat/attempt-2/serial.log",
+  "source_sha256": "86f73af52af492639aceb57c18d5635edf743cf0c2d96028f7169babf49cf169",
+  "source_lines": 20484,
+  "kept_lines": 65,
+  "filter": "(elf_sha256=|startup verified|AUDIO_CAPABILITY|MIC_GAIN_PATH|MIC_PROTECTION|OUTPUT_VOLUME|demo-boot|^OK #\\d+ playback-volume$|^PERF)"
+ },
+ "mute-03.serial.txt": {
+  "source": "aec-demo/step-9/mute-03/mute-serial.log",
+  "source_sha256": "7d773e39243b73c6ff03ade7c434e8a46dd67ec0003cc542c24003ec85d90241",
+  "source_lines": 24952,
+  "kept_lines": 158,
+  "filter": "(elf_sha256=|startup verified|AUDIO_CAPABILITY|MIC_GAIN_PATH|MIC_PROTECTION|OUTPUT_VOLUME|demo-boot|^OK #\\d+ playback-volume$|^PERF)",
+  "perf_subset": "first 3, last 3 (incl. disconnect) and the first 2 PERF after each OUTPUT_VOLUME report; other PERF rows dropped for size"
+ },
+ "hot-stt-9bc2d42-native-27.serial.txt": {
+  "source": "B/item2-final-master-9bc2d42/a6_hot_stt/attempt-1/native-27/serial.log",
+  "source_sha256": "51776fb6d41a8b086968c91b9a9942f0853aa809588d7c2924feac3a6999f51f",
+  "source_lines": 2010,
+  "kept_lines": 16,
+  "filter": "(elf_sha256=|startup verified|AUDIO_CAPABILITY|MIC_GAIN_PATH|MIC_PROTECTION|OUTPUT_VOLUME|demo-boot|^OK #\\d+ playback-volume$|^PERF)"
+ },
+ "hot-stt-9bc2d42-native-39.serial.txt": {
+  "source": "B/item2-final-master-9bc2d42/a6_hot_stt/attempt-1/native-39/serial.log",
+  "source_sha256": "bd56a7b4d34c7a0eddf15dc3a519098021cdfe5d564007a988f93e48df824f39",
+  "source_lines": 2018,
+  "kept_lines": 17,
+  "filter": "(elf_sha256=|startup verified|AUDIO_CAPABILITY|MIC_GAIN_PATH|MIC_PROTECTION|OUTPUT_VOLUME|demo-boot|^OK #\\d+ playback-volume$|^PERF)"
+ },
+ "strict-9bc2d42-attempt-2.result-excerpt.json": {
+  "source": "B/item2-final-master-9bc2d42/strict_voice_cat/attempt-2/result.json",
+  "fields": "runs[].run/scored/passed, before_perf/after_perf and reply_window_transport.before/after pc_id+output_volume_db"
+ },
+ "hot-stt-9bc2d42.result-excerpt.json": {
+  "source": "B/item2-final-master-9bc2d42/a6_hot_stt/attempt-1/result.json",
+  "fields": "points[].before/after pc_id+output_volume_db"
+ }
+}

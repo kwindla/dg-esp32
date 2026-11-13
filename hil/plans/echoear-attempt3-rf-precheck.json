@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "name": "Prospective strict attempt3 with RF eligibility",
+  "declaration_only": true,
+  "authorization": "Claude: one later strict attempt3, all3 originals, unchanged thresholds; RF probe tail<0.5%,30-minute deferrals,up to4 retries; Astra approval before use",
+  "campaign": {
+    "stage": "strict_voice_cat",
+    "attempt": 3,
+    "runs": 3,
+    "required_passes": 3,
+    "retakes": 0,
+    "all_originals": true,
+    "one_peer": true,
+    "normal_elf_sha256": "9936da45a8c7dd6103c72f3fd3335e270659d4af6710bdc082a5d984a3feb758",
+    "master_commit": "9bc2d428cd3ca0abbfdaf9763d0feb88363b069d",
+    "binding_basis": "/home/khkramer/src/evidence/echoear/B/item2-geometry-rebaseline-9936da45/live-resume-binding.json",
+    "geometry_policy": "/home/khkramer/src/evidence/echoear/B/item2-geometry-rebaseline-9936da45/jabra-policy.json",
+    "scored_uplink": {"threshold_ms": 60, "rate_limit": 0.01, "extreme_threshold_ms": 150, "extreme_rate_limit": 0.0005, "hard_cap_ms": 2000},
+    "output": "/home/khkramer/src/evidence/echoear/B/item2-final-master-9bc2d42/strict_voice_cat/attempt-3",
+    "scope": "Exactly one new3-original population. All attempt1/2/item1 failures remain unchanged. Ordinary scored failures remain failures while remaining originals are collected; fatal failures stop incomplete. No scored-population restart or replacement. Existing room/NIC gates remain before every prompt."
+  },
+  "probe": {
+    "duration_s": 60,
+    "settle_s": 6,
+    "minimum_intervals": 2850,
+    "tail_threshold_ms": 60,
+    "tail_rate_exclusive": 0.005,
+    "capture": "Existing authenticated receiver rtp/rtp.jsonl, MAX_PACKETS=20000; retain complete raw data plus one-second endpoint margins, packet/status evidence, full serial bytes/audio-state ledger, bot events, before/after PERF and NIC",
+    "window": "Declare start/end before observing gaps. One continuous peer/SSRC; fixed60seconds after greeting completes, gate reopens and6seconds of settled uplink. No fitted subwindows, startup/idle/console/fault exclusions or pooled retries. Minimum2850 adjacent intervals validates continuous nominal50Hz capture, not a relaxed tail denominator.",
+    "operating_state": "Frozen normal9936da45, AECoff, same1100-byte SCTP chunks, live-test bot, cat30fps, quiet1, volume0, audio1 and mic gate open. No fixture/prompt playback, TTS, mic export, arrival export or full PERF during window. Quiet room means idle speech, never audio0. Before/after PERF only.",
+    "disallowed_events": ["vad-start", "user-turn-started", "final-transcript", "tts-start", "first-tts-byte", "first-fixture-byte", "bot-audio-start", "transport-disconnected", "session-end"],
+    "missing_evidence": "Unscored eligibility deferral; retain raw evidence/reason and consume a probe opportunity. Raw errors, spontaneous boots, DMA, memory/stack/allocation/lock faults or cleanup errors are fatal and must not be converted to RF deferrals.",
+    "health": "Existing strict byte monitor with no bot-loss exemptions, all raw PERF memory/stack/lock/failed-allocation gates, display alive, same identity and clean cleanup. Record exact failures. wlp8s0 total RX+TX<=20MB/300s scaled to interval; enp7s0 recorded only. No network/mixer/geometry changes.",
+    "admission": "Complete raw replay and health/NIC checks before any scored prompt. tail_count*200<eligible_interval_count (strictly below0.5%); report existing max/extreme statistics separately. Probe result is not a scored turn or firmware PASS.",
+    "handoff": "After admission launch attempt3 immediately within the same short bench hold, unchanged frozen image and gate definitions. Separate probe and scored RTP outputs/peer identifiers; never count probe packets/turns toward the campaign. If the hold/image/environment must change before launch, stop and record unstarted; no silently reused admission."
+  },
+  "retry": {
+    "initial_probes": 1,
+    "maximum_retries": 4,
+    "maximum_total_probes": 5,
+    "wait_seconds": 1800,
+    "release_bench": true
+  },
+  "deferrals": {
+    "root": "/home/khkramer/src/evidence/echoear/B/item2-attempt3-rf-precheck",
+    "journal": "deferrals.jsonl",
+    "entries": "Append-only explicit completed=true and exact boolean eligible/fatal/scored=false disposition; finite UTC+monotonic start/end, probe index1..5, raw paths+hashes, expected ELF+observed boot hash, window boundaries, tail numerator/denominator/rate/max/extreme, coverage/truncation/activity, raw/resource/cleanup/NIC verdicts, reason,scored=false, next UTC deadline, bench released. Each attempt directory exclusive-create; preserve crash/incomplete artifacts and stop rather than overwrite/retry a fatal run.",
+    "schedule": "Initial probe plus at most4 retries. Wait at least1800seconds after each failed eligibility probe ends, with no bench lock/board/service held. Persist deadlines across process restarts; no rapid polling probes. Stop exhausted after probe5. Stop immediately after the ONE scored campaign starts, irrespective of its result. No automatic new attempt4."
+  },
+  "review": {
+    "required_before_use": "Astra reviews derivation, complete fixed-window denominator/coverage, absence of audio-idle exclusions, strict<0.5% boundary, health fail-closed behavior, persisted deferrals and no scored retries. Freeze plan/runner/bot/fixture/budget/image/prior-failure hashes in evidence before first probe; existing historical bindings unchanged.",
+    "implementation_scope": "This commit is host-only declaration and numerical/scheduler helpers. It has no serial, process, bench or scored execution entry point. The actual acquisition/launch integration must be reviewed against this protocol before use.",
+    "interpretation": "A old/new/old1.499/2.220/3.281% and0source>60ms gaps support no measured9936 send-cadence regression. The exact RF/lwIP/AP/host lower-path cause remains unresolved. Conditional clean-RF selection is disclosed and does not erase failures or estimate uncontrolled-environment reliability. Independent raw Astra audit after any campaign."
+  }
+}

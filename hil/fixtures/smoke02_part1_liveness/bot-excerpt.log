@@ -1,0 +1,6 @@
+2026-10-25 18:46:53.017 | INFO     | __main__:_bot:197 - DEMO_DUPLEX aec_full_duplex=True user_mute=False source=capability-or-safe-fallback
+2026-10-25 18:46:54.011 | INFO     | __main__:on_client_connected:324 - Client connected; waiting for the user to speak first
+2026-10-25 18:54:44.061 | DEBUG    | pipecat.pipeline.worker:_sink_push_frame:1545 - PipelineWorker#0: received end worker frame downstream EndWorkerFrame#0(reason: None)
+2026-10-25 18:54:46.222 | ERROR    | demo_liveness:tick:62 - LIVENESS alarm: no timely pong for 2.0 s; closing peer pc_id=SmallWebRTCConnection#0-c47d6d3a35a549828f0ee83de24af6f8
+2026-10-25 18:54:46.224 | INFO     | pipecat.transports.smallwebrtc.request_handler:handle_disconnected:212 - Discarding peer connection for pc_id: SmallWebRTCConnection#0-c47d6d3a35a549828f0ee83de24af6f8
+2026-10-25 18:54:46.224 | INFO     | __main__:on_client_disconnected:330 - Client disconnected

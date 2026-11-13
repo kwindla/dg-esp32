@@ -1,0 +1,26 @@
+{
+  "greeting.wav": {
+    "text": "Hello. I am ready for your question.",
+    "model": "aura-2-thalia-en",
+    "sample_rate": 16000,
+    "channels": 1,
+    "seconds": 2.6399375,
+    "sha256": "43ec4061a6a1600e239324aee472108f8581c81487e48f8cc67c2342cbc3c252"
+  },
+  "reply_pineapple.wav": {
+    "text": "The code word is pineapple.",
+    "model": "aura-2-thalia-en",
+    "sample_rate": 16000,
+    "channels": 1,
+    "seconds": 1.5999375,
+    "sha256": "c773e9140e5ef1c4e755240e53c6e86fab23d162feb601b47fa238ee5b0606d7"
+  },
+  "prompt_france.wav": {
+    "text": "Please tell me the capital of France.",
+    "model": "aura-2-thalia-en",
+    "sample_rate": 16000,
+    "channels": 1,
+    "seconds": 2.1599375,
+    "sha256": "47f5d804297575878bde069b3c8bbda5da4ab48ed21259fc0c6cc95561227d1b"
+  }
+}

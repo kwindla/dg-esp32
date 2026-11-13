@@ -1,0 +1,382 @@
+{
+  "schema": "echoear-mute-gate-v1",
+  "id": "mute-03",
+  "status": "predeclared; host review (Astra + Fable) required before any acquisition",
+  "decision": "109(e)",
+  "claim": "Bounded functional gate of the merged AEC-off (mute) image with the current bot in half duplex. Not an acoustic barge-in, STT-accuracy, strict late-RTP fence or general reliability claim.",
+  "image": {
+    "bundle": "/home/khkramer/src/evidence/echoear/aec-demo/step-9/merge-9d-r4/bundle-mute",
+    "elf_sha256": "3eaa629a0c64fbce471477be2312101207b18389703b72bfad1a0ef26627caab",
+    "firmware_commit": "8c84e05acda366381fcb5cecad11237c2bc84fda",
+    "aec_enabled": false,
+    "autostart": false,
+    "playout_target_frames": 7,
+    "playout_max_target_frames": 10
+  },
+  "final_image": "normal 9936da45 (item2-master-9bc2d42-normal-image), full boot hash verified",
+  "mode": {
+    "bot_duplex_line": "DEMO_DUPLEX aec_full_duplex=False user_mute=True source=capability-or-safe-fallback",
+    "device_capability_line": "AUDIO_CAPABILITY aec=0 ref_gain_db=0 guard_ms=0",
+    "recorder_stt_profile_full_duplex": false,
+    "stt_profile": "demo",
+    "gate_policy": "auto",
+    "perf_aec_block": "absent",
+    "on_mismatch": "INVALID (never a pass); retained, no retake"
+  },
+  "public_env": {
+    "ECHOEAR_LIVENESS_SECONDS": "0.5",
+    "DEMO_TTS_PROACTIVE_RECONNECT": "1",
+    "DEMO_TTS_RECONNECT_EACH_GENERATION": "0",
+    "DEMO_TTS_TRIM_LEADING": "0",
+    "DEMO_LLM": "local",
+    "DEEPGRAM_TTS_VOICE": "flux-kelsey-en",
+    "DEEPGRAM_TTS_SPEED": "1.5",
+    "DEEPGRAM_TTS_EXPRESSIVITY": "2",
+    "AUDIO_OUT_10MS_CHUNKS": "4",
+    "BOT_ICE_INTERFACE": "wlp8s0",
+    "PIPECAT_SCTP_MAX_CHUNK_SIZE": "1100"
+  },
+  "public_env_absent": [
+    "ECHOEAR_AEC_FULL_DUPLEX",
+    "ECHOEAR_AEC_EVALUATION_DIR",
+    "ECHOEAR_STT_PROFILE"
+  ],
+  "stimulus": {
+    "source": "hil/fixtures/agent_conversation (git-tracked, manifest sha256 per file)",
+    "cycle": [
+      "france",
+      "sky",
+      "addition",
+      "long",
+      "italy"
+    ],
+    "keywords": {
+      "france": [
+        [
+          "capital"
+        ],
+        [
+          "france"
+        ]
+      ],
+      "sky": [
+        [
+          "sky"
+        ],
+        [
+          "clear"
+        ]
+      ],
+      "addition": [
+        [
+          "two",
+          "2"
+        ],
+        [
+          "plus"
+        ],
+        [
+          "three",
+          "3"
+        ]
+      ],
+      "long": [
+        [
+          "count"
+        ],
+        [
+          "twenty",
+          "20"
+        ]
+      ],
+      "italy": [
+        [
+          "italy"
+        ]
+      ]
+    },
+    "jabra_pcm_percent": 75,
+    "mixer": "alsactl store before, restore after, byte-compare",
+    "near_end_during_reply": "none: the Jabra is silent from the end of the prompt until the tail window closes"
+  },
+  "sequence": [
+    {
+      "id": "A",
+      "kind": "echo-block",
+      "volume_db": -6,
+      "replies": 10,
+      "spacing_s": 60,
+      "min_epoch_s": 600,
+      "snapshot_period_s": 10,
+      "cold_first": true,
+      "soak": true,
+      "cold_first_retakeable": false
+    },
+    {
+      "id": "R1",
+      "kind": "reconnect",
+      "volume_db": -6,
+      "disconnect": "mid-reply",
+      "disconnect_after_first_write_s": 1.0,
+      "reply": "its own prompt; the interrupted reply is report-only",
+      "prompt": "long"
+    },
+    {
+      "id": "B",
+      "kind": "recovery-reply",
+      "volume_db": -6,
+      "attempts": 1
+    },
+    {
+      "id": "R2",
+      "kind": "reconnect",
+      "volume_db": -6,
+      "disconnect": "after-gate-open",
+      "disconnect_after_gate_open_s": 0.5,
+      "reply": "its own prompt after B; reply report-only (the tail is cut by the disconnect)",
+      "prompt": "france"
+    },
+    {
+      "id": "C",
+      "kind": "echo-block",
+      "volume_db": 0,
+      "replies": 10,
+      "spacing_s": 0,
+      "cold_first": true,
+      "volume_set": "playback-volume 0 while disconnected, between the R2 disconnect and reconnect",
+      "cold_first_retakeable": false
+    },
+    {
+      "id": "R3",
+      "kind": "reconnect",
+      "volume_db": 0,
+      "disconnect": "idle",
+      "idle_s": 10
+    },
+    {
+      "id": "D",
+      "kind": "recovery-reply",
+      "volume_db": 0,
+      "attempts": 1
+    }
+  ],
+  "echo_cell": {
+    "window": "first non-silent tts-transport-write to the first device 'GATE open' (host receive time) after the last non-silent write, plus the tail",
+    "tail_after_gate_open_s": 2.0,
+    "reply_timeout_s": 45,
+    "user_turn_timeout_s": 15,
+    "complete_reply": "exactly one non-empty user transcript and one assistant turn on one peer; no dropped transport write in the window; per-context TTS lifecycle: each reply context has a tts-written TTSStartedFrame at or before its first write and a TTSStoppedFrame at or after its last; context sets equal; no non-silent write or new TTSStartedFrame after the first BotStoppedSpeakingFrame through the tail",
+    "gate_closed": {
+      "min_samples": 3,
+      "post_max_dbfs": -119.9,
+      "playback_lead_s": 0.5,
+      "max_gap_s": 0.3,
+      "endpoint_allowance_s": 0.5,
+      "close_witness_allowance_s": 0.5,
+      "rule": "decisions 120-122, one rule for short and long replies: among GATE transitions received at or before min(first non-silent write + close_witness_allowance_s (0.5 s = playback_lead_s), hi), the latest must be 'GATE closed' (the closed run starts at the first close after the last open: a duplicate close never moves it); FAIL on positive evidence - any MIC_GATE sample received in [first write, hi] whose device time is at or after that close's device time OR that was received at or after the close line (r15 fail-closed) and is closed=0 or above post_max_dbfs, any GATE open received in [first write, hi], or a GATE re-close after the final GATE open within the tail (flap); MIC_GATE samples received before the close line AND with device time before the close are report-only; with no close witness, open/nonzero samples received after first write + allowance FAIL and the cell is otherwise INCOMPLETE ('gate close not witnessed within the allowance'), never PASS; hi = just before the device GATE open that ends the reply (else the last write; no GATE open is INCOMPLETE); coverage over [max(first write, close receipt), hi]: at least min_samples, consecutive samples at most max_gap_s apart on the device clock, the first/last within endpoint_allowance_s of the ends (otherwise INCOMPLETE: telemetry gap); after GATE open a closed=0 sample within the tail is required (all-closed samples there FAIL as a stuck gate)",
+      "rule_history": "r11: [first write + lead, last write]; r12 (118): device close -> GATE open; r13 (120): short replies from the first write with an affirmative close at it, long replies back to r11; r14 (121/122): r12 long coverage restored and the 0.5 s close-witness allowance for both",
+      "basis_118": "mute-01 cold A-1 ('What is the capital of France?' -> 'Paris.', write span 0.44 s): the old interval [first + 0.5, last write] was empty although the device closed the gate 0.33 s before the first write and opened it 0.42 s after the last write. Retained bot logs give one-word replies to the exact fixture prompts (France -> 'Paris.' 3 of 4; addition -> 'Five.'/'Five!' 2 of 2), so the criterion, not the prompt cycle, is changed: no prompt choice can guarantee a reply longer than the lead",
+      "basis_122": "mute image closes on RTVI bot-started-speaking; retained mute-image cells (rollback-01 x7, mute-01 A-1) receive the GATE closed line 22-307 ms after BotStartedSpeaking and 2 of 8 after the first non-silent write (rollback-01 warm-2 +171 ms, talk-over +180 ms); nothing is audible before the playout prefill (target 140 ms) plus network. Cost: up to 0.5 s at the start of a reply can go unscored - the qualified pre-118 exposure (first write + 0.5 s lead)"
+    },
+    "playback_witness": {
+      "band_hz": [
+        300,
+        4000
+      ],
+      "rise_db_min": 10.0,
+      "floor": "Jabra band level over the 0.5 s before prompt playback",
+      "active": "Jabra band level over [first non-silent write + 0.3 s, BotStoppedSpeakingFrame]",
+      "clock": "sample times are bounded without any premise about ALSA timing (decision 111(b)): with D = written frames / rate, written sample k satisfies t_spawn + k/r <= t(k) <= t_reaped - D + k/r, where t_spawn is the parent clock just before Popen and t_reaped the clock after the child exited and was waited on; lost samples (a silent overrun at abort, or anywhere) only stretch the true span between written samples. A declared clock allowance of 500 ppm x D is added on each side for this fixed capture setup (Jabra crystal plus CLOCK_MONOTONIC slew; not a derived bound; drift beyond it is still contained up to about 500 ppm + startup/stop/reap slack / D). The file holds only this capture (an existing target is unlinked before Popen: arecord opens without O_TRUNC) and the -v dump's hw rate must equal 16000 (no plug resampling). Width = t_reaped - t_spawn - D + 2 x 500 ppm x D, i.e. arecord startup (spawn to first sample) + samples lost at or before abort + the child's stop and reap latency; above max_start_uncertainty_s (0.15 s) the capture is unhealthy (RawRecording.health flags it) and the cell INCOMPLETE. Readiness text, buffer and period are diagnostic only. Every window keeps only samples inside it for every admissible origin; the floor needs >= 0.3 s and the active window >= 0.2 s of such samples",
+      "max_start_uncertainty_s": 0.15,
+      "min_gap_after_prompt_s": 0.2
+    },
+    "uplink_viability": "the prompt's user transcript contains at least one keyword group of the fixture; full keyword match is report-only",
+    "accepted_false_turn": [
+      "aggregator-user-turn-started",
+      "aggregator-user-turn-stopped",
+      "UserStartedSpeakingFrame",
+      "InterruptionFrame",
+      "TranscriptionFrame with non-empty text"
+    ],
+    "unscripted_output": "any non-silent tts-transport-write after GATE open and before the tail closes",
+    "report_only": [
+      "InterimTranscriptionFrame",
+      "VADUserStartedSpeakingFrame",
+      "ProposedUserStartedSpeakingFrame"
+    ],
+    "tolerance": "zero accepted false turns and zero unscripted outputs over all 20 echo cells and every recovery reply",
+    "recording_health": "owned recorder registered at spawn and stopped/reaped in finally on every path; healthy only if stopped by SIGINT (return code 0, or 1/-2 with arecord's 'Aborted by signal Interrupt'), no early exit, no forced kill, no ALSA diagnostic line matching overrun/underrun/xrun/error/suspend/fail other than that abort message, the measured sample-time width <= 0.15 s, and every hw 'rate' in the arecord -v dump equal to 16000 with no rate conversion. Health, the interval, its width, byte count, spawn/send/reap times, stop provenance, return status and the diagnostic readiness/buffer/period are persisted beside the raw PCM",
+    "precedence": "witnessed failures are latched first from whatever evidence exists and always win; an INCOMPLETE is only possible with no latched failure; provider ErrorFrame before the first write is the only provider-related retake cause; FatalErrorFrame, pipeline error or recorder gap anywhere, or a provider error after exposure began, is a FAIL",
+    "snapshots": "periodic PERF snapshots are held from prompt start until the first reply write"
+  },
+  "interrupt_flush": {
+    "status": "N/A in mute mode",
+    "reason": "No product path produces a bot interruption while the user is muted. turn_policy installs AlwaysUserMuteStrategy and disables interruptions (Flux should_interrupt=False; dev enable_interruptions=False). The firmware never sends RTVI send-text or any other interrupting client message (only pong, display-ready, display-result). The only host stimulus, aec_evaluation script-interrupt, refuses half duplex. Exercising it would require a test-only path the product does not have.",
+    "replacement_check": "cancellation.events and cancellation.duplicate_notices stay 0 in every epoch, no AUDIO_CANCEL line, and no InterruptionFrame in any session: an unscripted interruption FAILS the gate",
+    "covered_elsewhere": "the cancel/flush code is identical in the AEC image and is exercised by the AEC promotion smoke (Stop plus recovery)"
+  },
+  "counters": {
+    "zero_delta_per_epoch": [
+      "i2s_underflows",
+      "i2s_write_errors",
+      "i2s_write_timeouts",
+      "pcm_queue_drops",
+      "failed_allocations.total",
+      "console_output.full",
+      "console_output.transport_drops",
+      "app_data_drops",
+      "queue_dropped",
+      "playout.post_plc_zeros",
+      "playout.starvation",
+      "cancellation.events",
+      "cancellation.duplicate_notices",
+      "display.dma_errors",
+      "display.send_failures",
+      "display.gate_timeouts",
+      "display.display_gate_timeouts",
+      "display.lock_failures",
+      "display.lock_timeouts",
+      "playout.rejected.capacity",
+      "playout.rejected.conflict",
+      "playout.rejected.duplicate",
+      "playout.rejected.duration",
+      "playout.rejected.malformed",
+      "playout.rejected.payload_type",
+      "playout.rejected.preconnect",
+      "playout.rejected.source",
+      "playout.rejected.window",
+      "send_budget_cutoffs"
+    ],
+    "zero_delta_prefix": [
+      "drop_reasons."
+    ],
+    "missing_invalid_or_decreasing": "FAIL",
+    "epoch": "one connected session (pc_id, generation), first snapshot to the terminal PERF that disconnect prints for the retired session; never compared across a reconnect",
+    "loss": {
+      "max_lost_fraction": 0.02,
+      "numerator": "lost",
+      "denominator": "received",
+      "report_only": [
+        "plc_frames",
+        "late",
+        "concealed",
+        "playout_dropped (sum of rejected.*, includes late)",
+        "playout.rejected.late",
+        "playout.rejected.generation",
+        "playout.missing_run_ended"
+      ]
+    }
+  },
+  "playout": {
+    "target_ms": 140,
+    "target_depth": 7,
+    "max_ready_high_water": 10,
+    "prefill_after_reconnect": "prefills > 0 in each new generation",
+    "latency": "not required to equal 140 ms end to end"
+  },
+  "admission": {
+    "quiescent_boundary": "hil/echoear_aec_resources.quiescent_admission_snapshot, 0.25 s drain allowance, at each session's first and last snapshot",
+    "integrity": "hil/echoear_aec_checks.admission_counters per epoch",
+    "reconciliation": "data_admission.received delta >= device liveness.pings delta (the bot's pings are the declared minimum incoming control messages); equal zero counters fail"
+  },
+  "liveness": {
+    "period_s": 0.5,
+    "per_epoch": "device liveness.pings delta > 0, pongs delta > 0, pongs delta >= pings delta - 1, timeouts 0, at most one outstanding pong at each boundary",
+    "absent": [
+      "bot.log 'LIVENESS alarm' except as liveness_logs allows (decisions 112/113)",
+      "device 'LIVENESS no ping'"
+    ]
+  },
+  "liveness_logs": {
+    "tolerance_s": 2.0,
+    "margin_s": 1.0,
+    "early_s": 0.25,
+    "clock_slack_s": 0.002,
+    "rule": "decisions 112/113: a bot 'LIVENESS alarm' is expected only for a peer the harness deliberately disconnected (the device disconnect does not close the bot's peer, so the watchdog reaps it). Identity: the pc_id on the alarm line itself (demo_liveness label = runner_args.webrtc_connection.pc_id); an untagged alarm or an unknown pc_id FAILs closed; no proximity pairing. Corroboration: a 'Discarding peer connection for pc_id' line for the same pc after the alarm in file order, or the pre-declared orphan signature (that pc discarded before the alarm: a tick between a graceful discard and liveness.stop()); never discarded FAILs. Expected only if that pc is a declared epoch's peer with an OK disconnect, not live at the alarm, the alarm in [sent wall + tolerance_s - period_s - early_s - clock_slack_s, sent wall + tolerance_s + margin_s + clock_slack_s], the logged tolerance equal to tolerance_s, and at most one alarm per peer. Last timely pong (decision 115): the tagged line also carries silent_s (measured silence, bot monotonic, 3 decimals); last_timely = alarm wall - silent_s must be >= disconnect send lower wall - period_s - early_s - clock_slack_s, so a failure owed while the peer was live (an overdue watchdog callback emitted inside the window) FAILs; silent_s missing, malformed or below tolerance_s FAILs closed. Any other alarm FAILs. Device 'LIVENESS no ping' anywhere FAILs.",
+    "tolerance_basis": "demo_liveness.Liveness: tolerance = max(2.0, 2 x period_s) = 2.0 s at period 0.5 s",
+    "window_basis": "the alarm fires at the first watchdog tick with now - last_timely >= tolerance. A peer that answered while live has last_timely >= send - period - RTT, so the alarm is >= send + tolerance - period - RTT; early_s 0.25 s covers RTT and scheduling (lower bound send + 1.25 s; smoke-01: send + 1.957 s). Upper: last_timely is at most one in-flight pong after the send and ticks run every period_s, so margin_s = one period (0.5 s) + 0.5 s for the in-flight pong and event-loop lag",
+    "orphan_basis": "liveness.stop() runs in demo_bot's finally after runner.run(); a tick landing in the few ms between a graceful discard and stop() logs a tagged alarm after that peer's discard. Credited only by the same identity, OK-disconnect, live-span and window rules (Fable r7 should-fix 3)",
+    "clock_basis": "bot.log stamps are loguru local wall time truncated to ms; the runner records time.time() just before and after the console disconnect send and before connect (same host clock); clock_slack_s covers the ms truncation. Record-only: a wall-clock step between the stamps is not detectable (chrony slews); the naive local parse is ambiguous in the DST fall-back hour (2026-11-01 01:00-02:00)",
+    "silent_basis": "a peer still answering on cadence when the harness sends the disconnect has its last timely pong no earlier than send - period - RTT; early_s 0.25 s covers RTT and scheduling (smoke-02 part 1: silent_s 2.433, last timely 0.26 s before the send lower bound, floor 0.75 s before)"
+  },
+  "reconnect": {
+    "count": 3,
+    "ready_timeout_s": 10,
+    "rule": "new STATE Ready generation greater than every earlier one between the before/after PERF snapshots; the recovery reply's peer id differs from every earlier turn's (rollback reconnect_witness rule, 5e555d6)",
+    "stale_replay": "no non-silent tts-transport-write on the new peer before its first user turn",
+    "old_session_cleanup": "REPORT-ONLY since decision 117 (the old peer's session-end is its post-disconnect teardown evidence): whether the previous recorder session logs session-end before the new peer's first write is retained as old_session_closed_report_only",
+    "first_reply": "the next prompt's reply is complete and passes the echo-cell checks",
+    "triggers": {
+      "R1": "mid-reply",
+      "R2": "after-gate-open"
+    },
+    "max_disconnect_lag_s": 0.5,
+    "trigger_rule": "R1: fired 1.0 s after the first non-silent write while active (last non-silent write within 0.12 s and no BotStoppedSpeakingFrame since the first write); R2: fired 0.5 s after the reply GATE open. The disconnect is the FIRST console command after the trigger, sent from inside the cell before the recorder stops or any snapshot; the lag is measured to the actual send (after board.send returns) and must be <= 0.5 s; for R1 the activity is re-checked at the send from the recorder rows. No retained trigger: the cycle is INCOMPLETE, never credited",
+    "observation": "new-peer rows are selected by pc_id from all recorder rows (connect included), so a stale write before Ready still fails",
+    "active_max_age_s": 0.12
+  },
+  "resources": {
+    "source": "hil/echoear_aec_resources.check_snapshots on all snapshots of every epoch",
+    "aec_only_checks": "aec.* N/A: required absent from every snapshot (the mode check); a present aec block is INVALID",
+    "floors": "internal minimum_free >= 81920, largest >= 32768; stacks playback max(4096, ceil(size/4)), capture/tx/peer-loop 4096, peer-rx 1024, app-control 2048; per-core steady idle >= 25 %; encode p95 < 20 ms, max < 40 ms; uplink 20 ms",
+    "display": "display.rendered strictly increases over epoch A; display.failed and display.dead false",
+    "fatal": "no Guru Meditation, panic, abort(), CORRUPT HEAP or stack canary; exactly one boot in the smoke serial log"
+  },
+  "outcomes": {
+    "PASS": "every gated check true; 20 complete echo cells (10 per volume), B and D complete; 3 reconnects; clean restore",
+    "FAIL": "any functional check false on a complete witness (false turn, unscripted output or interruption, gate leak, counter increment, liveness alarm, resource floor, reconnect rule, fatal)",
+    "INCOMPLETE": "a required witness missing for an infrastructure reason, with no functional failure; the gate cannot pass",
+    "INVALID": "mode or identity mismatch"
+  },
+  "retakes": {
+    "per_echo_block": 2,
+    "allowed_causes": [
+      "jabra playback duration invalid",
+      "ALSA recording failed",
+      "no user turn within user_turn_timeout_s",
+      "provider ErrorFrame before the first write"
+    ],
+    "rule": "only an INCOMPLETE cell with an allowed cause and no latched failure is replaced by the next prompt; a FAIL is never retaken; B and D are single attempts; the cold first attempt of A and C is not retakeable (a non-PASS cold attempt leaves the gate INCOMPLETE); every attempt is retained"
+  },
+  "budget": {
+    "estimated_minutes": [
+      26,
+      35
+    ],
+    "acquisition_deadline_s": 2700,
+    "cleanup": "owned bot stop, serial close, mixer restore and byte-compare, normal flash and full boot hash; lock retained on cleanup failure",
+    "exclusion_local_minutes": [
+      180,
+      250
+    ],
+    "cleanup_reserve_s": 600,
+    "start_rule": "refuse to start if [now, now + acquisition_deadline_s + cleanup_reserve_s] touches the local 03:00-04:10 exclusion; the acquisition alarm bounds acquisition, the reserve covers protected cleanup"
+  },
+  "volume": {
+    "rule": "PERF output_volume_db equals the declared volume_db in every snapshot of the epoch",
+    "on_mismatch": "FAIL"
+  },
+  "terminal": {
+    "rule": "each generation ends with the disconnect command, sent first with nothing interposed (audio 0 follows); an ERR reply FAILS the generation; its single retired-session PERF line is the terminal counter record (counters and liveness first->terminal); a stats snapshot right after disconnect is the terminal device/resource record: internal heap, failed allocations, I2S, PCM queue, the lifetime AUDIO line, console and display flags are gated; stack floors are gated for every task present in its census; session workers (audio-tx, peer-loop, peer-rx) that are absent because the retired session reports tasks_exited=true are gated on their exit high-water (tx_stack, owner_stack, rx_stack) when reported positive, otherwise reported; an absent worker without tasks_exited is INCOMPLETE; a measured failure is a FAIL even if the AUDIO line is missing; session-only checks are reported; admission quiescence runs first->last quiescent boundary before the disconnect",
+    "missing": "no or ambiguous terminal PERF, a foreign one, or no post-disconnect snapshot: INCOMPLETE (never replaced by a later or normal-image snapshot)",
+    "final": "the last session is disconnected, its terminal PERF read and its recorder session-end awaited (<= 10 s) before the verdict; the verdict precedes cleanup and reflash",
+    "exit_associated_report_only": [
+      "drop_reasons.send_cutoff",
+      "send_budget_cutoffs"
+    ],
+    "exit_associated_rule": "in the last-boundary->terminal interval, drop_reasons.send_cutoff and send_budget_cutoffs are report-only: a deliberate teardown (R1 mid-reply, R2, R3, final) cuts queued uplink audio by design, as v9.12 treats them as exit-associated in an exit interval (echoear_aec_v9.py exit_interval_findings). Both are zero-delta first->last quiescent boundary in every epoch (counters-X; send_budget_cutoffs is listed in zero_delta_per_epoch and drop_reasons.send_cutoff is covered by the drop_reasons.* prefix)"
+  },
+  "serial": "text checks (mode, boot count, STATE Ready, AUDIO_CANCEL, LIVENESS, fatal) read the persisted serial log, not the 20000-line capture ring; host-timed per-cell windows use the ring",
+  "recorder_integrity": "every retained recorder row of every session through the final seal is scanned; any gap, pipeline-error or FatalErrorFrame is a FAIL; positive evidence wins over missing data and retakes; decision 117: rows of a deliberately disconnected peer at/after its disconnect send are teardown evidence (report-only, retained)",
+  "teardown": "decision 117: a row is teardown evidence iff its pc_id is a peer whose console 'disconnect' was sent and answered OK and it is at or after that disconnect's OK-receipt (upper) stamp, decision 120 (host monotonic, the recorder's clock), with the bracket (send lower stamp to OK receipt) no wider than teardown_bracket_max_s; a wider bracket gets no teardown credit; teardown rows (writes, transcripts, rtvi rows, pipeline-error, FatalErrorFrame, session-end, gaps, interruption frames) are report-only, retained in the gate output, and excluded from every cell's peer set and reply checks and from recorder integrity and interrupt scans; only the decision-113/115 liveness rule applies to that peer. Before its send every rule is unchanged (pre-Ready stale writes, the R1 trigger, a live peer's pipeline error). A missing send stamp, an ERR answer or an unknown peer is never retired. Device-side evidence (counters, admission/generation rejections, playout, terminal stats, AUDIO_CANCEL) stays authoritative.",
+  "teardown_bracket_max_s": 0.5,
+  "teardown_bracket_basis": "retained disconnect brackets (send lower stamp to OK receipt; the device prints the retired session's terminal PERF before OK): smoke-01 part 2 A 0.292 s / B 0.268 s, smoke-03 part 2 A 0.269 s / B 0.259 s, mute-01 A 0.225 s; 0.5 s is 1.7x the widest. Rows before the OK receipt gate as live; a wider bracket (a delayed wire write or OK) gets no teardown credit, so an uncertain send interval is classified conservatively",
+  "display_setup": "after boot: the qualified BenchHold sequence (disp init, PSRAM arena, preload and bind the demo assets, character on); without it display.rendered cannot advance",
+  "run_ids": "mute-01 ran on 2026-10-25/26 at draft r12b (aec-merge 6a98d87) and is retained under its own id; this plan's runs write to step-9/<id>, so the post-decision-117 run is mute-02 (same gate, plan file and declaration schema; a fresh output id because outputs are written once and never overwritten); mute-02 (draft r17, aec-merge 3aef07b, image a9b61556) FAILed of record on A-4 (decision 129: the 2 s speaking self-clear opened the gate under a fading TTS tail); decisions 130/131 hold the half-duplex gate until bot-stopped (20 s fallback), image merge-9d-r4/bundle-mute 3eaa629a at firmware 8c84e05, and the next run is mute-03 (scorer unchanged)",
+  "bot_idle": {
+    "pipecat_idle_timeout_s": 300,
+    "max_runner_idle_s": 240,
+    "basis": "decision 118: pipecat PipelineWorker cancels after idle_timeout_secs=300 (IDLE_TIMEOUT_SECS; demo_bot leaves it at the default) with no BotSpeaking/InterimTranscription/Transcription/UserSpeaking/UserStartedSpeaking frame; mute-01 idled 300 s after its cold A-1 stop (block A's min_epoch_s soak) and the bot cancelled peer #0. Every planned runner wait (block spacing_s, the soak tail of a complete block, reconnect idle_s) must be <= max_runner_idle_s (validated at plan load); the soak tail runs only for a complete block; a bot idle-timeout cancel in bot.log is an explicit INCOMPLETE leaf (bot-idle-timeout)",
+    "activity_121": "cumulative account credits ONLY frames in Pipecat's installed PipelineWorker idle_timeout_frames default (BotSpeakingFrame, InterimTranscriptionFrame, TranscriptionFrame, UserSpeakingFrame, UserStartedSpeakingFrame) observed in recorder rows of the current epoch's peer, plus pre-connect for the epoch's StartFrame; bot speech proxies (writes, Bot started/stopped) and other peers are never credited, the first observation per frame (frame_id) only (r15: Pipecat's observer sees a frame's first push only); recorder timestamps are receipt times on a queue independent of Pipecat's IdleFrameObserver, so an observer backlog can stamp a credit slightly later than Pipecat's reset (retained same-frame spreads < 1 ms against the 60 s planned margin; not an absolute bound)"
+  }
+}

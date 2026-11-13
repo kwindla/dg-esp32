@@ -1,0 +1,67 @@
+{
+  "version": 2,
+  "display": {
+    "width": 360,
+    "height": 360,
+    "fps": 20
+  },
+  "base": "halloween-cat-faceplate-412.png",
+  "palette": {
+    "ink": "#10051e",
+    "cream": "#fff7d9",
+    "tongue": "#f17991"
+  },
+  "layers": {
+    "eyes": {
+      "bounds": [
+        132,
+        153,
+        88,
+        21
+      ],
+      "frames": {
+        "happy": "sprites/eyes-happy.png",
+        "open": "sprites/eyes-open.png",
+        "half": "sprites/eyes-half.png",
+        "closed": "sprites/eyes-closed.png",
+        "left": "sprites/eyes-left.png",
+        "right": "sprites/eyes-right.png"
+      }
+    },
+    "mouth": {
+      "bounds": [
+        146,
+        167,
+        56,
+        35
+      ],
+      "frames": {
+        "smile": "sprites/mouth-smile.png",
+        "closed": "sprites/mouth-closed.png",
+        "small": "sprites/mouth-small.png",
+        "medium": "sprites/mouth-medium.png",
+        "wide": "sprites/mouth-wide.png",
+        "round": "sprites/mouth-round.png"
+      }
+    },
+    "whiskers": {
+      "bounds": [
+        80,
+        157,
+        196,
+        42
+      ],
+      "frames": {
+        "rest": "sprites/whiskers-rest.png",
+        "lift": "sprites/whiskers-lift.png",
+        "drop": "sprites/whiskers-drop.png"
+      }
+    }
+  },
+  "integration": {
+    "audio": "Drive mouth openness from smoothed PCM RMS at audible playout, gated by bot speaking. No phoneme alignment is implied.",
+    "timing": "20 Hz preview target; randomized 3\u20136 second idle blinks, ~150 ms blink, ~5 second whisker twitch.",
+    "rendering": "Draw base once, restore underlying pixels in changed feature regions, then composite selected transparent patches. Store artwork in PSRAM or flash; budget LCD staging separately.",
+    "status": "Asset pack and browser simulation; LCD driver integration, memory placement, and on-device timing remain unverified."
+  }
+}

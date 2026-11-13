@@ -1,0 +1,11 @@
+# EchoEar AEC image overlay (step 9(d)). Apply last, after sdkconfig.defaults,
+# sdkconfig.local, sdkconfig.defaults.echoear and sdkconfig.defaults.demo; see
+# docs/echoear-aec.md for the build command. These are exactly the resolved
+# settings of the qualified candidate (aec-v87, source 58f567e, ELF cbabb650,
+# decision 107). Changing any of them leaves the qualified configuration.
+CONFIG_DG_ECHOEAR_AEC=y
+CONFIG_DG_ECHOEAR_AEC_REF_GAIN_DB=15
+CONFIG_DG_ECHOEAR_AEC_GUARD_MS=400
+CONFIG_DG_ECHOEAR_AEC_GUARD_REARM_MS=2000
+# Present in the qualified binary (buffered 1 Hz station telemetry, no tuning).
+CONFIG_DG_WIFI_OBSERVE=y

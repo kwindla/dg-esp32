@@ -1,0 +1,1 @@
+{"name":"duo-web-bundle","private":true,"dependencies":{"@pipecat-ai/client-js":"1.14.0","@pipecat-ai/small-webrtc-transport":"1.11.0"},"devDependencies":{"esbuild":"0.25.9"}}

@@ -1,0 +1,78 @@
+{
+  "version": 2,
+  "display": {
+    "width": 412,
+    "height": 412,
+    "fps": 20
+  },
+  "base": "devil-faceplate-412.png",
+  "palette": {
+    "ink": "#200A03",
+    "sclera": "#FFF6E2",
+    "highlight": "#FFF6E8",
+    "blush": "#FFA27A",
+    "tongue": "#EE6E4D",
+    "fang": "#FFFFFF"
+  },
+  "layers": {
+    "eyes": {
+      "bounds": [
+        95,
+        193,
+        222,
+        78
+      ],
+      "frames": {
+        "open": "sprites/eyes-open.png",
+        "half": "sprites/eyes-half.png",
+        "closed": "sprites/eyes-closed.png",
+        "look-left": "sprites/eyes-look-left.png",
+        "look-right": "sprites/eyes-look-right.png",
+        "happy": "sprites/eyes-happy.png",
+        "neutral": "sprites/eyes-neutral.png"
+      }
+    },
+    "mouth": {
+      "bounds": [
+        166,
+        259,
+        85,
+        52
+      ],
+      "frames": {
+        "rest-smile": "sprites/mouth-rest-smile.png",
+        "small": "sprites/mouth-small.png",
+        "medium": "sprites/mouth-medium.png",
+        "wide": "sprites/mouth-wide.png",
+        "round": "sprites/mouth-round.png"
+      }
+    }
+  },
+  "integration": {
+    "audio": "Rest is app neutral open smile/grin. Speaking levels use LipSyncMapping at talkOpen .25/.5/.75/1, width .5, rounding .1.",
+    "timing": "20 Hz; blink closure .5/1 uses app geometry. Energy drive is not phoneme alignment.",
+    "rendering": "Restore dirty union from gradient faceplate; redraw intersecting layers. Straight RGBA; animated patches contain no field.",
+    "status": "Settled Little Voices renderer port. Runtime estimates and user art approval pending."
+  },
+  "source": {
+    "repository": "https://github.com/pipecat-ai/ios-little-voices",
+    "commit": "7f5613cd9071d4668d3aab9cfe8691ff8c59b4b2",
+    "renderer": "../little-voices.cjs",
+    "layout": {
+      "scale": 1.03,
+      "anchor": [
+        206,
+        238
+      ],
+      "stageWidthFu": 400
+    },
+    "eyesOpen": "ExpressionLibrary.talking + CharacterDirector.speakerLookAtOther",
+    "mouthOpenLevels": [
+      0.25,
+      0.5,
+      0.75,
+      1
+    ],
+    "mouthRoundName": "Legacy round key now stores maximum talkOpen; not a rounded viseme. Devil keeps its fang."
+  }
+}

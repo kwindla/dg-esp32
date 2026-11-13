@@ -1,0 +1,6 @@
+set(AUDIO_TRACE_VENDOR_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/../../../managed_components/espressif__esp_codec_dev" CACHE PATH "Fetched esp_codec_dev for audio host tests")
+foreach(source device/es8311/es8311.c device/es7210/es7210.c esp_codec_dev_vol.c)
+ if(NOT EXISTS "${AUDIO_TRACE_VENDOR_ROOT}/${source}")
+  message(FATAL_ERROR "Audio host tests require managed_components/espressif__esp_codec_dev. Run scripts/idf.sh reconfigure from the repository root to fetch it, then rerun scripts/host-tests.sh.")
+ endif()
+endforeach()

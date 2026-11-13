@@ -1,0 +1,216 @@
+{
+  "voice": "aura-2-orpheus-en",
+  "sample_rate": 16000,
+  "turns": [
+    {
+      "id": "france",
+      "text": "What is the capital of France?",
+      "stt": [
+        [
+          "capital"
+        ],
+        [
+          "france"
+        ]
+      ],
+      "answer": [
+        [
+          "paris"
+        ]
+      ],
+      "file": "france.wav",
+      "sha256": "06b0cc00e4239a43accef6ba56354f2c82c6d996aec928d2f0eb47f4134cf80b",
+      "duration_s": 1.8799375,
+      "validation": {
+        "text": "What is the capital of France?",
+        "word_accuracy": 1.0,
+        "wer": 0
+      }
+    },
+    {
+      "id": "italy",
+      "text": "What about Italy?",
+      "stt": [
+        [
+          "italy"
+        ]
+      ],
+      "answer": [
+        [
+          "rome"
+        ]
+      ],
+      "file": "italy.wav",
+      "sha256": "cdffc54cc7fbf13551d53a20aa43a98a3a69124596fc2bd42c165ed0e7316b34",
+      "duration_s": 1.3599375,
+      "validation": {
+        "text": "What about Italy?",
+        "word_accuracy": 1.0,
+        "wer": 0
+      }
+    },
+    {
+      "id": "addition",
+      "text": "What's two plus three?",
+      "stt": [
+        [
+          "two",
+          "2"
+        ],
+        [
+          "plus"
+        ],
+        [
+          "three",
+          "3"
+        ]
+      ],
+      "answer": [
+        [
+          "five",
+          "5"
+        ]
+      ],
+      "file": "addition.wav",
+      "sha256": "d573301468f0786d6c425db3045c1cd51c7d1cfce0e7d0815b0409411eb36a76",
+      "duration_s": 1.7199375,
+      "validation": {
+        "text": "What's two plus three?",
+        "word_accuracy": 1.0,
+        "wer": 0
+      }
+    },
+    {
+      "id": "name",
+      "text": "My name is Sam.",
+      "stt": [
+        [
+          "name"
+        ],
+        [
+          "sam"
+        ]
+      ],
+      "answer": [
+        [
+          "sam"
+        ]
+      ],
+      "file": "name.wav",
+      "sha256": "e2f3f8dc71b45024097f80be24cd2449aa6a6d6fad15c8fb70f765c320e950ff",
+      "duration_s": 1.1599375,
+      "validation": {
+        "text": "My name is Sam.",
+        "word_accuracy": 1.0,
+        "wer": 0
+      }
+    },
+    {
+      "id": "sky",
+      "text": "What color is the sky on a clear day?",
+      "stt": [
+        [
+          "sky"
+        ],
+        [
+          "clear"
+        ]
+      ],
+      "answer": [
+        [
+          "blue"
+        ]
+      ],
+      "file": "sky.wav",
+      "sha256": "3a0e78ddc51a0669a6983de5e60adb4465dac0bf100a9831b787760c9dceae7d",
+      "duration_s": 2.3999375,
+      "validation": {
+        "text": "What color is the sky on a clear day?",
+        "word_accuracy": 1.0,
+        "wer": 0
+      }
+    },
+    {
+      "id": "recall",
+      "text": "What is my name?",
+      "stt": [
+        [
+          "my"
+        ],
+        [
+          "name"
+        ]
+      ],
+      "answer": [
+        [
+          "sam"
+        ]
+      ],
+      "file": "recall.wav",
+      "sha256": "6ad3a00c82aafa7161241f42139d10d9753f9a32ef194381bd7d5d13f18e2538",
+      "duration_s": 1.1999375,
+      "validation": {
+        "text": "What is my name?",
+        "word_accuracy": 1.0,
+        "wer": 0
+      }
+    },
+    {
+      "id": "long",
+      "text": "Please count from one to twenty slowly.",
+      "stt": [
+        [
+          "count"
+        ],
+        [
+          "twenty",
+          "20"
+        ]
+      ],
+      "answer": [
+        [
+          "one",
+          "1"
+        ],
+        [
+          "twenty",
+          "20"
+        ]
+      ],
+      "file": "long.wav",
+      "sha256": "1bf60ca63ec7e22c3f38304808bde1d37c8d3928ea4c7da64d39e54358923e6e",
+      "duration_s": 2.3599375,
+      "validation": {
+        "text": "Please count from one to 20 slowly.",
+        "word_accuracy": 1.0,
+        "wer": 0
+      }
+    },
+    {
+      "id": "pause",
+      "text": "What is the capital of France?",
+      "stt": [
+        [
+          "capital"
+        ],
+        [
+          "france"
+        ]
+      ],
+      "answer": [
+        [
+          "paris"
+        ]
+      ],
+      "pause_s": 0.8,
+      "file": "pause.wav",
+      "sha256": "544c3e2ef9cfba98b6d18608a78f0a6a2c099ae991037a3d3aed18378504387f",
+      "duration_s": 3.119875,
+      "validation": {
+        "text": "What is the capital of France?",
+        "word_accuracy": 1.0,
+        "wer": 0
+      }
+    }
+  ]
+}

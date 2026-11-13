@@ -1,0 +1,397 @@
+{
+  "rows": [
+    {
+      "source": "halloween-cat-faceplate-412.png",
+      "codec": 1,
+      "hash": "6186763dfb0741a1f42db68e0207df3cf5609aac1242029249a6aa0f86483295",
+      "path": "/home/khkramer/src/dg-esp32/hil/fixtures/step9a/6186763dfb0741a1f42db68e0207df3cf5609aac1242029249a6aa0f86483295.dgi",
+      "bytes": 175052,
+      "width": 412,
+      "height": 412,
+      "full_us": 955,
+      "dirty_us": 93
+    },
+    {
+      "source": "halloween-cat-faceplate-412.png",
+      "codec": 2,
+      "hash": "a1ee78787c694297b2f7586d57e0b6847ca10cf7e915e5afe54d8d004184aa3d",
+      "path": "/home/khkramer/src/dg-esp32/hil/fixtures/step9a/a1ee78787c694297b2f7586d57e0b6847ca10cf7e915e5afe54d8d004184aa3d.dgi",
+      "bytes": 98787,
+      "width": 412,
+      "height": 412,
+      "full_us": 1116,
+      "dirty_us": 102
+    },
+    {
+      "source": "sprites/eyes-closed.png",
+      "codec": 1,
+      "hash": "2edeb7222e4234c086d5dc68b84d813eaf7394c9a5d830074d07922db3bf1a2c",
+      "path": "/home/khkramer/src/dg-esp32/hil/fixtures/step9a/2edeb7222e4234c086d5dc68b84d813eaf7394c9a5d830074d07922db3bf1a2c.dgi",
+      "bytes": 316,
+      "width": 100,
+      "height": 24,
+      "full_us": 7
+    },
+    {
+      "source": "sprites/eyes-closed.png",
+      "codec": 2,
+      "hash": "791fbf596b0a07fa148b53c3b75450207ba9eff8846511944ae55d82213e8fc1",
+      "path": "/home/khkramer/src/dg-esp32/hil/fixtures/step9a/791fbf596b0a07fa148b53c3b75450207ba9eff8846511944ae55d82213e8fc1.dgi",
+      "bytes": 268,
+      "width": 100,
+      "height": 24,
+      "full_us": 8
+    },
+    {
+      "source": "sprites/eyes-half.png",
+      "codec": 1,
+      "hash": "533904e83bf6056d480564c2fb054c968c374c00785314b0187605e1b2da2716",
+      "path": "/home/khkramer/src/dg-esp32/hil/fixtures/step9a/533904e83bf6056d480564c2fb054c968c374c00785314b0187605e1b2da2716.dgi",
+      "bytes": 444,
+      "width": 100,
+      "height": 24,
+      "full_us": 8
+    },
+    {
+      "source": "sprites/eyes-half.png",
+      "codec": 2,
+      "hash": "e8b78299c22b916d7e4f0e65db6975d8cd1bf65771e30174a2895cf67601952b",
+      "path": "/home/khkramer/src/dg-esp32/hil/fixtures/step9a/e8b78299c22b916d7e4f0e65db6975d8cd1bf65771e30174a2895cf67601952b.dgi",
+      "bytes": 348,
+      "width": 100,
+      "height": 24,
+      "full_us": 8
+    },
+    {
+      "source": "sprites/eyes-happy.png",
+      "codec": 1,
+      "hash": "761119490ff4edc2ba601b2ab65afb0269aa6e009953bf26fc6244057e6d9dc2",
+      "path": "/home/khkramer/src/dg-esp32/hil/fixtures/step9a/761119490ff4edc2ba601b2ab65afb0269aa6e009953bf26fc6244057e6d9dc2.dgi",
+      "bytes": 380,
+      "width": 100,
+      "height": 24,
+      "full_us": 8
+    },
+    {
+      "source": "sprites/eyes-happy.png",
+      "codec": 2,
+      "hash": "77766c6d1aa67f3d560c2f9ba88540eff3ef8662635eafdc12f23874642a6cfe",
+      "path": "/home/khkramer/src/dg-esp32/hil/fixtures/step9a/77766c6d1aa67f3d560c2f9ba88540eff3ef8662635eafdc12f23874642a6cfe.dgi",
+      "bytes": 312,
+      "width": 100,
+      "height": 24,
+      "full_us": 8
+    },
+    {
+      "source": "sprites/eyes-left.png",
+      "codec": 1,
+      "hash": "95c643505bbf25cf69eb870989a3a6057eedf18bc6722fcab1097247fd8292d7",
+      "path": "/home/khkramer/src/dg-esp32/hil/fixtures/step9a/95c643505bbf25cf69eb870989a3a6057eedf18bc6722fcab1097247fd8292d7.dgi",
+      "bytes": 636,
+      "width": 100,
+      "height": 24,
+      "full_us": 8
+    },
+    {
+      "source": "sprites/eyes-left.png",
+      "codec": 2,
+      "hash": "76b1f7b8adfe217d6755faaefa10c9e8132d05c1c14e59b82759922c6673d482",
+      "path": "/home/khkramer/src/dg-esp32/hil/fixtures/step9a/76b1f7b8adfe217d6755faaefa10c9e8132d05c1c14e59b82759922c6673d482.dgi",
+      "bytes": 468,
+      "width": 100,
+      "height": 24,
+      "full_us": 9
+    },
+    {
+      "source": "sprites/eyes-open.png",
+      "codec": 1,
+      "hash": "8cced02d5bd71389e55b5cf60904c4b886125c32a91f05fd6c5a9ed6f3668148",
+      "path": "/home/khkramer/src/dg-esp32/hil/fixtures/step9a/8cced02d5bd71389e55b5cf60904c4b886125c32a91f05fd6c5a9ed6f3668148.dgi",
+      "bytes": 636,
+      "width": 100,
+      "height": 24,
+      "full_us": 8
+    },
+    {
+      "source": "sprites/eyes-open.png",
+      "codec": 2,
+      "hash": "3aa89adf7ecfdf0f674b0fac091576d42061386e10b0a09ffadc6851a9b13124",
+      "path": "/home/khkramer/src/dg-esp32/hil/fixtures/step9a/3aa89adf7ecfdf0f674b0fac091576d42061386e10b0a09ffadc6851a9b13124.dgi",
+      "bytes": 468,
+      "width": 100,
+      "height": 24,
+      "full_us": 9
+    },
+    {
+      "source": "sprites/eyes-right.png",
+      "codec": 1,
+      "hash": "8f32b4d5021cbed7e8f1c052bbf9b580f823e1f323a143b0351e030ef8b029bf",
+      "path": "/home/khkramer/src/dg-esp32/hil/fixtures/step9a/8f32b4d5021cbed7e8f1c052bbf9b580f823e1f323a143b0351e030ef8b029bf.dgi",
+      "bytes": 636,
+      "width": 100,
+      "height": 24,
+      "full_us": 8
+    },
+    {
+      "source": "sprites/eyes-right.png",
+      "codec": 2,
+      "hash": "65fa787270c43bddb0fb8e9a03eecdd1a63ba8df7698f8e756a8d2f34b804cac",
+      "path": "/home/khkramer/src/dg-esp32/hil/fixtures/step9a/65fa787270c43bddb0fb8e9a03eecdd1a63ba8df7698f8e756a8d2f34b804cac.dgi",
+      "bytes": 468,
+      "width": 100,
+      "height": 24,
+      "full_us": 8
+    },
+    {
+      "source": "sprites/mouth-closed.png",
+      "codec": 1,
+      "hash": "43749a297666082d026e46d9cca3efac14a490c98a753d56e7ef4cea1eaae8b8",
+      "path": "/home/khkramer/src/dg-esp32/hil/fixtures/step9a/43749a297666082d026e46d9cca3efac14a490c98a753d56e7ef4cea1eaae8b8.dgi",
+      "bytes": 716,
+      "width": 64,
+      "height": 40,
+      "full_us": 9
+    },
+    {
+      "source": "sprites/mouth-closed.png",
+      "codec": 2,
+      "hash": "46b1d7b205a559b94ad9016a43d34d3228330bcd7ec6eec8cb144af013470f92",
+      "path": "/home/khkramer/src/dg-esp32/hil/fixtures/step9a/46b1d7b205a559b94ad9016a43d34d3228330bcd7ec6eec8cb144af013470f92.dgi",
+      "bytes": 548,
+      "width": 64,
+      "height": 40,
+      "full_us": 9
+    },
+    {
+      "source": "sprites/mouth-medium.png",
+      "codec": 1,
+      "hash": "b8c5f426b81d68429c3909f6fd0b291e05577d14cd40041fdafd649083947e4e",
+      "path": "/home/khkramer/src/dg-esp32/hil/fixtures/step9a/b8c5f426b81d68429c3909f6fd0b291e05577d14cd40041fdafd649083947e4e.dgi",
+      "bytes": 780,
+      "width": 64,
+      "height": 40,
+      "full_us": 9
+    },
+    {
+      "source": "sprites/mouth-medium.png",
+      "codec": 2,
+      "hash": "8d89f1092fa017136a9c15aea3b35337682b9e67120d0ac59f0eb089829c3b69",
+      "path": "/home/khkramer/src/dg-esp32/hil/fixtures/step9a/8d89f1092fa017136a9c15aea3b35337682b9e67120d0ac59f0eb089829c3b69.dgi",
+      "bytes": 612,
+      "width": 64,
+      "height": 40,
+      "full_us": 10
+    },
+    {
+      "source": "sprites/mouth-round.png",
+      "codec": 1,
+      "hash": "3a1efeb3730182df332ff1f538c299e36a43f6d8693639dc560a0e1d10ad3361",
+      "path": "/home/khkramer/src/dg-esp32/hil/fixtures/step9a/3a1efeb3730182df332ff1f538c299e36a43f6d8693639dc560a0e1d10ad3361.dgi",
+      "bytes": 620,
+      "width": 64,
+      "height": 40,
+      "full_us": 9
+    },
+    {
+      "source": "sprites/mouth-round.png",
+      "codec": 2,
+      "hash": "8ae3314d0e2f64b9b4eed1230788cd59bddfcb9975da6412d18f05a8316258d9",
+      "path": "/home/khkramer/src/dg-esp32/hil/fixtures/step9a/8ae3314d0e2f64b9b4eed1230788cd59bddfcb9975da6412d18f05a8316258d9.dgi",
+      "bytes": 524,
+      "width": 64,
+      "height": 40,
+      "full_us": 9
+    },
+    {
+      "source": "sprites/mouth-small.png",
+      "codec": 1,
+      "hash": "5f2a99b7ff18b73bf194bb642cda9d22798fdd253badca5ae76308a416e79f2c",
+      "path": "/home/khkramer/src/dg-esp32/hil/fixtures/step9a/5f2a99b7ff18b73bf194bb642cda9d22798fdd253badca5ae76308a416e79f2c.dgi",
+      "bytes": 684,
+      "width": 64,
+      "height": 40,
+      "full_us": 9
+    },
+    {
+      "source": "sprites/mouth-small.png",
+      "codec": 2,
+      "hash": "2d989a7f4014bd4c653c98fa7678ae7ca8591035c9e7dd038dd0b429d6a5b46d",
+      "path": "/home/khkramer/src/dg-esp32/hil/fixtures/step9a/2d989a7f4014bd4c653c98fa7678ae7ca8591035c9e7dd038dd0b429d6a5b46d.dgi",
+      "bytes": 540,
+      "width": 64,
+      "height": 40,
+      "full_us": 10
+    },
+    {
+      "source": "sprites/mouth-smile.png",
+      "codec": 1,
+      "hash": "43749a297666082d026e46d9cca3efac14a490c98a753d56e7ef4cea1eaae8b8",
+      "path": "/home/khkramer/src/dg-esp32/hil/fixtures/step9a/43749a297666082d026e46d9cca3efac14a490c98a753d56e7ef4cea1eaae8b8.dgi",
+      "bytes": 716,
+      "width": 64,
+      "height": 40,
+      "full_us": 9
+    },
+    {
+      "source": "sprites/mouth-smile.png",
+      "codec": 2,
+      "hash": "46b1d7b205a559b94ad9016a43d34d3228330bcd7ec6eec8cb144af013470f92",
+      "path": "/home/khkramer/src/dg-esp32/hil/fixtures/step9a/46b1d7b205a559b94ad9016a43d34d3228330bcd7ec6eec8cb144af013470f92.dgi",
+      "bytes": 548,
+      "width": 64,
+      "height": 40,
+      "full_us": 10
+    },
+    {
+      "source": "sprites/mouth-wide.png",
+      "codec": 1,
+      "hash": "36fe6caab6c334b0466c1a66bfa56e514465219238f44292d26ffbf1d90bb06f",
+      "path": "/home/khkramer/src/dg-esp32/hil/fixtures/step9a/36fe6caab6c334b0466c1a66bfa56e514465219238f44292d26ffbf1d90bb06f.dgi",
+      "bytes": 844,
+      "width": 64,
+      "height": 40,
+      "full_us": 9
+    },
+    {
+      "source": "sprites/mouth-wide.png",
+      "codec": 2,
+      "hash": "c1980c7055d256702abe4aa139ed8a192ee266f55689d4b2e57ce2273ab190e2",
+      "path": "/home/khkramer/src/dg-esp32/hil/fixtures/step9a/c1980c7055d256702abe4aa139ed8a192ee266f55689d4b2e57ce2273ab190e2.dgi",
+      "bytes": 660,
+      "width": 64,
+      "height": 40,
+      "full_us": 10
+    },
+    {
+      "source": "sprites/whiskers-drop.png",
+      "codec": 1,
+      "hash": "4253b3fe003dff1109507186b4260c1bc71fdea870c41ba4dad1baa2a2c95f3f",
+      "path": "/home/khkramer/src/dg-esp32/hil/fixtures/step9a/4253b3fe003dff1109507186b4260c1bc71fdea870c41ba4dad1baa2a2c95f3f.dgi",
+      "bytes": 916,
+      "width": 224,
+      "height": 48,
+      "full_us": 32
+    },
+    {
+      "source": "sprites/whiskers-drop.png",
+      "codec": 2,
+      "hash": "f02ceaa7a702d1c4999978c33330c9e278b01cf929df99b3c4657d1c4fd69aad",
+      "path": "/home/khkramer/src/dg-esp32/hil/fixtures/step9a/f02ceaa7a702d1c4999978c33330c9e278b01cf929df99b3c4657d1c4fd69aad.dgi",
+      "bytes": 784,
+      "width": 224,
+      "height": 48,
+      "full_us": 33
+    },
+    {
+      "source": "sprites/whiskers-lift.png",
+      "codec": 1,
+      "hash": "95a39d97a4d0b20179686c74754af3f3ff9e16faa00a9ef50e2be61363c2004c",
+      "path": "/home/khkramer/src/dg-esp32/hil/fixtures/step9a/95a39d97a4d0b20179686c74754af3f3ff9e16faa00a9ef50e2be61363c2004c.dgi",
+      "bytes": 916,
+      "width": 224,
+      "height": 48,
+      "full_us": 34
+    },
+    {
+      "source": "sprites/whiskers-lift.png",
+      "codec": 2,
+      "hash": "b5350570ee9a032e9ff9be5f895e15dd5e395d216bbdb465caa13e23803860de",
+      "path": "/home/khkramer/src/dg-esp32/hil/fixtures/step9a/b5350570ee9a032e9ff9be5f895e15dd5e395d216bbdb465caa13e23803860de.dgi",
+      "bytes": 776,
+      "width": 224,
+      "height": 48,
+      "full_us": 34
+    },
+    {
+      "source": "sprites/whiskers-rest.png",
+      "codec": 1,
+      "hash": "c4af013abe9c2acf3ccc289ae183c4e5f4e34014eec8f3aae362ba89597b9282",
+      "path": "/home/khkramer/src/dg-esp32/hil/fixtures/step9a/c4af013abe9c2acf3ccc289ae183c4e5f4e34014eec8f3aae362ba89597b9282.dgi",
+      "bytes": 916,
+      "width": 224,
+      "height": 48,
+      "full_us": 35
+    },
+    {
+      "source": "sprites/whiskers-rest.png",
+      "codec": 2,
+      "hash": "1ce69033d43a832dcda01fe5c1fef097a6843cc0bff004a8b2c8519f003c4e52",
+      "path": "/home/khkramer/src/dg-esp32/hil/fixtures/step9a/1ce69033d43a832dcda01fe5c1fef097a6843cc0bff004a8b2c8519f003c4e52.dgi",
+      "bytes": 784,
+      "width": 224,
+      "height": 48,
+      "full_us": 34
+    },
+    {
+      "source": "synthetic-photo",
+      "codec": 1,
+      "hash": "6b1ea094e70ba3da8101068b4f7033976e05818583668bf80f0930e989ec6066",
+      "path": "/home/khkramer/src/dg-esp32/hil/fixtures/step9a/6b1ea094e70ba3da8101068b4f7033976e05818583668bf80f0930e989ec6066.dgi",
+      "bytes": 341584,
+      "width": 412,
+      "height": 412,
+      "full_us": 940,
+      "dirty_us": 69
+    },
+    {
+      "source": "synthetic-photo",
+      "codec": 2,
+      "hash": "04fdce2b9052f59ca7b954d3a6e382a4625195dfc6b104ec17ca7c15183538bb",
+      "path": "/home/khkramer/src/dg-esp32/hil/fixtures/step9a/04fdce2b9052f59ca7b954d3a6e382a4625195dfc6b104ec17ca7c15183538bb.dgi",
+      "bytes": 338877,
+      "width": 412,
+      "height": 412,
+      "full_us": 1079,
+      "dirty_us": 80
+    },
+    {
+      "source": "synthetic-noise",
+      "codec": 1,
+      "hash": "c645edfcdc39203c6fb25bfdad34ed4757fdc5d2dfaf5bbd33ab2e10171e60f4",
+      "path": "/home/khkramer/src/dg-esp32/hil/fixtures/step9a/c645edfcdc39203c6fb25bfdad34ed4757fdc5d2dfaf5bbd33ab2e10171e60f4.dgi",
+      "bytes": 341584,
+      "width": 412,
+      "height": 412,
+      "full_us": 946,
+      "dirty_us": 70
+    },
+    {
+      "source": "synthetic-noise",
+      "codec": 2,
+      "hash": "d9e9c1345bd9d57d2109f323d7bdc5983c800430272af58dc8b52f0ad3a36861",
+      "path": "/home/khkramer/src/dg-esp32/hil/fixtures/step9a/d9e9c1345bd9d57d2109f323d7bdc5983c800430272af58dc8b52f0ad3a36861.dgi",
+      "bytes": 341584,
+      "width": 412,
+      "height": 412,
+      "full_us": 959,
+      "dirty_us": 69
+    },
+    {
+      "source": "synthetic-a8",
+      "codec": 1,
+      "hash": "6aa1008cfc072b527d514c7bd7afc2cacf7f14392429e8cd64e81d2949c959cd",
+      "path": "/home/khkramer/src/dg-esp32/hil/fixtures/step9a/6aa1008cfc072b527d514c7bd7afc2cacf7f14392429e8cd64e81d2949c959cd.dgi",
+      "bytes": 511328,
+      "width": 412,
+      "height": 412,
+      "full_us": 920,
+      "dirty_us": 68
+    },
+    {
+      "source": "synthetic-a8",
+      "codec": 2,
+      "hash": "64df9ed45c086ec012a05167d9d147d28b7ee4d8023f76223caffac9f6262a72",
+      "path": "/home/khkramer/src/dg-esp32/hil/fixtures/step9a/64df9ed45c086ec012a05167d9d147d28b7ee4d8023f76223caffac9f6262a72.dgi",
+      "bytes": 511328,
+      "width": 412,
+      "height": 412,
+      "full_us": 933,
+      "dirty_us": 67
+    }
+  ],
+  "cat_totals": {
+    "1": 185208,
+    "2": 106895
+  },
+  "basis": "100 production decoder repetitions; host steady clock; raw-row escape enabled; dirty patch decodes row prefixes for compressed backgrounds"
+}

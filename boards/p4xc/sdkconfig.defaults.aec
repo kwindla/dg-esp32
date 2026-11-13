@@ -1,0 +1,7 @@
+# Step 15b settings applied; single-trial gain selection, provisional guard; not qualified.
+# AFE delay 1024 remains explicitly decision-backed, not a measured pass.
+# Keep the legacy AEC keys authoritative; fresh-build R6 checks every key here.
+CONFIG_DG_ECHOEAR_AEC=y
+CONFIG_DG_ECHOEAR_AEC_REF_GAIN_DB=30
+CONFIG_DG_ECHOEAR_AEC_GUARD_MS=400
+CONFIG_DG_ECHOEAR_AEC_GUARD_REARM_MS=2000

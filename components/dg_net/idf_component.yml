@@ -1,0 +1,8 @@
+dependencies:
+  idf: ">=6.1,<7"
+  # IDF 6.1 supplies esp_wifi's remote API. No managed shim is needed
+  # (docs/p4xc.md, facts A; spikes/p4_net).
+  espressif/esp_hosted:
+    version: "2.12.4"
+    rules:
+      - if: "target == esp32p4"

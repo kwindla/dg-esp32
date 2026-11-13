@@ -1,0 +1,2 @@
+# Public (off-site) demo overlay: apply after the board/demo/duo defaults.
+CONFIG_DG_DEMO_COMPILED_URL=y

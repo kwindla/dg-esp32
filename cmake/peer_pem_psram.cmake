@@ -1,0 +1,32 @@
+# Selective alternative to extram_bss: enabling that scheme on S3 implicitly
+# moves WiFi/lwIP BSS, outside phase 1 scope. Compile a generated copy of just
+# the DTLS translation unit with two process-lifetime PSRAM array pointers.
+# managed_components is never modified. Array lvalues preserve sizeof semantics.
+if(CONFIG_DG_PEER_PEM_PSRAM)
+    idf_component_get_property(peer_dir espressif__esp_peer COMPONENT_DIR)
+    idf_component_get_property(peer_lib espressif__esp_peer COMPONENT_LIB)
+    set(pem_dir "${CMAKE_BINARY_DIR}/peer-pem-psram")
+    file(MAKE_DIRECTORY "${pem_dir}")
+    set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS
+        "${peer_dir}/src/dtls_common.h" "${peer_dir}/src/dtls_srtp_v6.c")
+    file(READ "${peer_dir}/src/dtls_common.h" pem_header)
+    set(old_cache "static unsigned char s_cached_cert_pem[DTLS_CERT_PEM_BUF_SIZE];\nstatic unsigned char s_cached_key_pem[DTLS_CERT_PEM_BUF_SIZE];")
+    string(FIND "${pem_header}" "${old_cache}" cache_offset)
+    if(cache_offset EQUAL -1)
+        message(FATAL_ERROR "esp_peer PEM declarations changed; review selective PSRAM adapter")
+    endif()
+    set(new_cache "#include \"esp_heap_caps.h\"\nstatic unsigned char (*s_cached_pem_storage)[DTLS_CERT_PEM_BUF_SIZE];\n#define s_cached_cert_pem (s_cached_pem_storage[0])\n#define s_cached_key_pem (s_cached_pem_storage[1])\nstatic int ensure_cached_pem_storage(void) {\n    if (!s_cached_pem_storage) s_cached_pem_storage = heap_caps_calloc(2, DTLS_CERT_PEM_BUF_SIZE, MALLOC_CAP_SPIRAM | MALLOC_CAP_8BIT);\n    return s_cached_pem_storage ? 0 : -1;\n}")
+    string(REPLACE "${old_cache}" "${new_cache}" pem_header "${pem_header}")
+    file(WRITE "${pem_dir}/dtls_common.h" "${pem_header}")
+    file(READ "${peer_dir}/src/dtls_srtp_v6.c" pem_source)
+    set(cert_entry "static int dtls_srtp_selfsign_cert(dtls_srtp_t *dtls_srtp, bool export_for_cache)\n{")
+    string(FIND "${pem_source}" "${cert_entry}" cert_offset)
+    if(cert_offset EQUAL -1)
+        message(FATAL_ERROR "esp_peer certificate entry changed; review PSRAM adapter")
+    endif()
+    string(REPLACE "${cert_entry}" "${cert_entry}\n    if (ensure_cached_pem_storage() != 0) return -1;" pem_source "${pem_source}")
+    file(WRITE "${pem_dir}/dtls_srtp_v6.c" "${pem_source}")
+    get_target_property(peer_sources ${peer_lib} SOURCES)
+    list(FILTER peer_sources EXCLUDE REGEX "dtls_srtp_v6\\.c$")
+    set_property(TARGET ${peer_lib} PROPERTY SOURCES "${peer_sources};${pem_dir}/dtls_srtp_v6.c")
+endif()

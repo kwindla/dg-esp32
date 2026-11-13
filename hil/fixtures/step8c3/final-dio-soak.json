@@ -1,0 +1,2420 @@
+{
+  "source": "/home/khkramer/src/evidence/step8c2/final-dio-soak/test/result.json",
+  "source_sha256": "95491843652785631ff302c153eaff13ec4e76f6c7363789187d14a30ea38494",
+  "observations": [
+    {
+      "elapsed_s": 0.43509120075032115,
+      "ready_elapsed_s": -13.968944950029254,
+      "observed_monotonic_s": 3251601.859388806,
+      "host_uplink_max_gap_ms": 0,
+      "perf": {
+        "generation": 1,
+        "heap": {
+          "dma": {
+            "free": 117855,
+            "largest": 69632,
+            "minimum_free": 99844,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 126043,
+            "largest": 69632,
+            "minimum_free": 107632,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4524432,
+            "largest": 4456448,
+            "minimum_free": 4478280,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#0-757b8e266d384c53ba66aaddc1140e08"
+      }
+    },
+    {
+      "elapsed_s": 30.540860790759325,
+      "ready_elapsed_s": -13.968944950029254,
+      "observed_monotonic_s": 3251631.965162995,
+      "host_uplink_max_gap_ms": 55,
+      "perf": {
+        "generation": 1,
+        "heap": {
+          "dma": {
+            "free": 117139,
+            "largest": 65536,
+            "minimum_free": 99844,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 124983,
+            "largest": 65536,
+            "minimum_free": 107632,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4524432,
+            "largest": 4456448,
+            "minimum_free": 4478280,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#0-757b8e266d384c53ba66aaddc1140e08"
+      }
+    },
+    {
+      "elapsed_s": 60.42224245890975,
+      "ready_elapsed_s": -13.968944950029254,
+      "observed_monotonic_s": 3251661.846545785,
+      "host_uplink_max_gap_ms": 76,
+      "perf": {
+        "generation": 1,
+        "heap": {
+          "dma": {
+            "free": 118291,
+            "largest": 69632,
+            "minimum_free": 99844,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 126135,
+            "largest": 69632,
+            "minimum_free": 107632,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4524432,
+            "largest": 4456448,
+            "minimum_free": 4478280,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#0-757b8e266d384c53ba66aaddc1140e08"
+      }
+    },
+    {
+      "elapsed_s": 91.8157606376335,
+      "ready_elapsed_s": -13.968944950029254,
+      "observed_monotonic_s": 3251693.039989702,
+      "host_uplink_max_gap_ms": 99,
+      "perf": {
+        "generation": 1,
+        "heap": {
+          "dma": {
+            "free": 118243,
+            "largest": 69632,
+            "minimum_free": 99812,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 126087,
+            "largest": 69632,
+            "minimum_free": 107600,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4524432,
+            "largest": 4456448,
+            "minimum_free": 4478280,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#0-757b8e266d384c53ba66aaddc1140e08"
+      }
+    },
+    {
+      "elapsed_s": 120.61176461772993,
+      "ready_elapsed_s": -13.968944950029254,
+      "observed_monotonic_s": 3251722.036066141,
+      "host_uplink_max_gap_ms": 107,
+      "perf": {
+        "generation": 1,
+        "heap": {
+          "dma": {
+            "free": 118243,
+            "largest": 65536,
+            "minimum_free": 99812,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 126087,
+            "largest": 65536,
+            "minimum_free": 107600,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4524892,
+            "largest": 4456448,
+            "minimum_free": 4478280,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#0-757b8e266d384c53ba66aaddc1140e08"
+      }
+    },
+    {
+      "elapsed_s": 150.61218330962583,
+      "ready_elapsed_s": -13.968944950029254,
+      "observed_monotonic_s": 3251752.0364834,
+      "host_uplink_max_gap_ms": 58,
+      "perf": {
+        "generation": 1,
+        "heap": {
+          "dma": {
+            "free": 118243,
+            "largest": 65536,
+            "minimum_free": 99812,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 126087,
+            "largest": 65536,
+            "minimum_free": 107600,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4524892,
+            "largest": 4456448,
+            "minimum_free": 4478280,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#0-757b8e266d384c53ba66aaddc1140e08"
+      }
+    },
+    {
+      "elapsed_s": 180.43627357762307,
+      "ready_elapsed_s": -13.968944950029254,
+      "observed_monotonic_s": 3251781.860573598,
+      "host_uplink_max_gap_ms": 91,
+      "perf": {
+        "generation": 1,
+        "heap": {
+          "dma": {
+            "free": 118255,
+            "largest": 65536,
+            "minimum_free": 99812,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 126099,
+            "largest": 65536,
+            "minimum_free": 107600,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4524892,
+            "largest": 4456448,
+            "minimum_free": 4478280,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#0-757b8e266d384c53ba66aaddc1140e08"
+      }
+    },
+    {
+      "elapsed_s": 211.81807383988053,
+      "ready_elapsed_s": -13.968944950029254,
+      "observed_monotonic_s": 3251813.042319499,
+      "host_uplink_max_gap_ms": 129,
+      "perf": {
+        "generation": 1,
+        "heap": {
+          "dma": {
+            "free": 118243,
+            "largest": 65536,
+            "minimum_free": 99812,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 126087,
+            "largest": 65536,
+            "minimum_free": 107600,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4524892,
+            "largest": 4456448,
+            "minimum_free": 4478280,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#0-757b8e266d384c53ba66aaddc1140e08"
+      }
+    },
+    {
+      "elapsed_s": 240.5833688969724,
+      "ready_elapsed_s": -13.968944950029254,
+      "observed_monotonic_s": 3251842.007669448,
+      "host_uplink_max_gap_ms": 82,
+      "perf": {
+        "generation": 1,
+        "heap": {
+          "dma": {
+            "free": 118231,
+            "largest": 69632,
+            "minimum_free": 99812,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 126075,
+            "largest": 69632,
+            "minimum_free": 107600,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4524892,
+            "largest": 4456448,
+            "minimum_free": 4478280,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#0-757b8e266d384c53ba66aaddc1140e08"
+      }
+    },
+    {
+      "elapsed_s": 270.48141542170197,
+      "ready_elapsed_s": -13.968944950029254,
+      "observed_monotonic_s": 3251871.905714029,
+      "host_uplink_max_gap_ms": 78,
+      "perf": {
+        "generation": 1,
+        "heap": {
+          "dma": {
+            "free": 118243,
+            "largest": 65536,
+            "minimum_free": 99812,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 126087,
+            "largest": 65536,
+            "minimum_free": 107600,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4524892,
+            "largest": 4456448,
+            "minimum_free": 4478280,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#0-757b8e266d384c53ba66aaddc1140e08"
+      }
+    },
+    {
+      "elapsed_s": 301.1557938857004,
+      "ready_elapsed_s": -13.968944950029254,
+      "observed_monotonic_s": 3251902.580094988,
+      "host_uplink_max_gap_ms": 66,
+      "perf": {
+        "generation": 1,
+        "heap": {
+          "dma": {
+            "free": 118291,
+            "largest": 69632,
+            "minimum_free": 99812,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 126135,
+            "largest": 69632,
+            "minimum_free": 107600,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4524892,
+            "largest": 4456448,
+            "minimum_free": 4478280,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#0-757b8e266d384c53ba66aaddc1140e08"
+      }
+    },
+    {
+      "elapsed_s": 330.5481870495714,
+      "ready_elapsed_s": -13.968944950029254,
+      "observed_monotonic_s": 3251931.972485948,
+      "host_uplink_max_gap_ms": 134,
+      "perf": {
+        "generation": 1,
+        "heap": {
+          "dma": {
+            "free": 118239,
+            "largest": 69632,
+            "minimum_free": 99812,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 126083,
+            "largest": 69632,
+            "minimum_free": 107600,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4524892,
+            "largest": 4456448,
+            "minimum_free": 4478280,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#0-757b8e266d384c53ba66aaddc1140e08"
+      }
+    },
+    {
+      "elapsed_s": 360.5726716639474,
+      "ready_elapsed_s": -13.968944950029254,
+      "observed_monotonic_s": 3251961.996971473,
+      "host_uplink_max_gap_ms": 71,
+      "perf": {
+        "generation": 1,
+        "heap": {
+          "dma": {
+            "free": 118243,
+            "largest": 69632,
+            "minimum_free": 99812,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 126087,
+            "largest": 69632,
+            "minimum_free": 107600,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4524892,
+            "largest": 4456448,
+            "minimum_free": 4478280,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#0-757b8e266d384c53ba66aaddc1140e08"
+      }
+    },
+    {
+      "elapsed_s": 390.6015329458751,
+      "ready_elapsed_s": -13.968944950029254,
+      "observed_monotonic_s": 3251992.025832836,
+      "host_uplink_max_gap_ms": 90,
+      "perf": {
+        "generation": 1,
+        "heap": {
+          "dma": {
+            "free": 117843,
+            "largest": 65536,
+            "minimum_free": 99812,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125687,
+            "largest": 65536,
+            "minimum_free": 107600,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4524892,
+            "largest": 4456448,
+            "minimum_free": 4478280,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#0-757b8e266d384c53ba66aaddc1140e08"
+      }
+    },
+    {
+      "elapsed_s": 420.5112814079039,
+      "ready_elapsed_s": -13.968944950029254,
+      "observed_monotonic_s": 3252021.935584263,
+      "host_uplink_max_gap_ms": 141,
+      "perf": {
+        "generation": 1,
+        "heap": {
+          "dma": {
+            "free": 118243,
+            "largest": 65536,
+            "minimum_free": 98852,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 126087,
+            "largest": 65536,
+            "minimum_free": 106640,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4524892,
+            "largest": 4456448,
+            "minimum_free": 4478280,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 3,
+        "pc_id": "SmallWebRTCConnection#0-757b8e266d384c53ba66aaddc1140e08"
+      }
+    },
+    {
+      "elapsed_s": 451.1239166967571,
+      "ready_elapsed_s": -13.968944950029254,
+      "observed_monotonic_s": 3252052.548217097,
+      "host_uplink_max_gap_ms": 90,
+      "perf": {
+        "generation": 1,
+        "heap": {
+          "dma": {
+            "free": 118243,
+            "largest": 69632,
+            "minimum_free": 98852,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 126087,
+            "largest": 69632,
+            "minimum_free": 106640,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4524892,
+            "largest": 4456448,
+            "minimum_free": 4478280,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 3,
+        "pc_id": "SmallWebRTCConnection#0-757b8e266d384c53ba66aaddc1140e08"
+      }
+    },
+    {
+      "elapsed_s": 480.4410234107636,
+      "ready_elapsed_s": -13.968944950029254,
+      "observed_monotonic_s": 3252081.865323832,
+      "host_uplink_max_gap_ms": 135,
+      "perf": {
+        "generation": 1,
+        "heap": {
+          "dma": {
+            "free": 117647,
+            "largest": 65536,
+            "minimum_free": 98852,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125491,
+            "largest": 65536,
+            "minimum_free": 106640,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4524892,
+            "largest": 4456448,
+            "minimum_free": 4478280,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 4,
+        "pc_id": "SmallWebRTCConnection#0-757b8e266d384c53ba66aaddc1140e08"
+      }
+    },
+    {
+      "elapsed_s": 485.2416067295708,
+      "ready_elapsed_s": 483.68992463173345,
+      "observed_monotonic_s": 3252086.665905117,
+      "host_uplink_max_gap_ms": 0,
+      "perf": {
+        "generation": 3,
+        "heap": {
+          "dma": {
+            "free": 118227,
+            "largest": 69632,
+            "minimum_free": 98852,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 126071,
+            "largest": 69632,
+            "minimum_free": 106640,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525528,
+            "largest": 4456448,
+            "minimum_free": 4469456,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#1-f082c7aa5970451dba86900daa2e941c"
+      }
+    },
+    {
+      "elapsed_s": 485.8357161236927,
+      "ready_elapsed_s": 483.68992463173345,
+      "observed_monotonic_s": 3252087.260012978,
+      "host_uplink_max_gap_ms": 59,
+      "perf": {
+        "generation": 3,
+        "heap": {
+          "dma": {
+            "free": 118227,
+            "largest": 69632,
+            "minimum_free": 98852,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 126071,
+            "largest": 69632,
+            "minimum_free": 106640,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525528,
+            "largest": 4456448,
+            "minimum_free": 4469456,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#1-f082c7aa5970451dba86900daa2e941c"
+      }
+    },
+    {
+      "elapsed_s": 511.58371817180887,
+      "ready_elapsed_s": 483.68992463173345,
+      "observed_monotonic_s": 3252113.008018864,
+      "host_uplink_max_gap_ms": 59,
+      "perf": {
+        "generation": 3,
+        "heap": {
+          "dma": {
+            "free": 118231,
+            "largest": 69632,
+            "minimum_free": 98852,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 126075,
+            "largest": 69632,
+            "minimum_free": 106640,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525536,
+            "largest": 4456448,
+            "minimum_free": 4469456,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#1-f082c7aa5970451dba86900daa2e941c"
+      }
+    },
+    {
+      "elapsed_s": 540.5334830847569,
+      "ready_elapsed_s": 483.68992463173345,
+      "observed_monotonic_s": 3252141.957785199,
+      "host_uplink_max_gap_ms": 86,
+      "perf": {
+        "generation": 3,
+        "heap": {
+          "dma": {
+            "free": 118211,
+            "largest": 69632,
+            "minimum_free": 98852,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 126055,
+            "largest": 69632,
+            "minimum_free": 106640,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525536,
+            "largest": 4456448,
+            "minimum_free": 4469456,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#1-f082c7aa5970451dba86900daa2e941c"
+      }
+    },
+    {
+      "elapsed_s": 570.5297359977849,
+      "ready_elapsed_s": 483.68992463173345,
+      "observed_monotonic_s": 3252171.954036169,
+      "host_uplink_max_gap_ms": 109,
+      "perf": {
+        "generation": 3,
+        "heap": {
+          "dma": {
+            "free": 117119,
+            "largest": 65536,
+            "minimum_free": 98852,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 124963,
+            "largest": 65536,
+            "minimum_free": 106640,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525536,
+            "largest": 4456448,
+            "minimum_free": 4469456,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#1-f082c7aa5970451dba86900daa2e941c"
+      }
+    },
+    {
+      "elapsed_s": 601.0229430049658,
+      "ready_elapsed_s": 483.68992463173345,
+      "observed_monotonic_s": 3252202.447244207,
+      "host_uplink_max_gap_ms": 9059,
+      "perf": {
+        "generation": 3,
+        "heap": {
+          "dma": {
+            "free": 118211,
+            "largest": 69632,
+            "minimum_free": 98844,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 126055,
+            "largest": 69632,
+            "minimum_free": 106632,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4519776,
+            "largest": 4456448,
+            "minimum_free": 4469456,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 2,
+        "plc_frames": 11,
+        "pc_id": "SmallWebRTCConnection#1-f082c7aa5970451dba86900daa2e941c"
+      }
+    },
+    {
+      "elapsed_s": 630.6256600515917,
+      "ready_elapsed_s": 483.68992463173345,
+      "observed_monotonic_s": 3252232.049962326,
+      "host_uplink_max_gap_ms": 93,
+      "perf": {
+        "generation": 3,
+        "heap": {
+          "dma": {
+            "free": 117339,
+            "largest": 65536,
+            "minimum_free": 98844,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125183,
+            "largest": 65536,
+            "minimum_free": 106632,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4523004,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 17,
+        "plc_frames": 192,
+        "pc_id": "SmallWebRTCConnection#1-f082c7aa5970451dba86900daa2e941c"
+      }
+    },
+    {
+      "elapsed_s": 660.4571007816121,
+      "ready_elapsed_s": 483.68992463173345,
+      "observed_monotonic_s": 3252261.881401383,
+      "host_uplink_max_gap_ms": 89,
+      "perf": {
+        "generation": 3,
+        "heap": {
+          "dma": {
+            "free": 118027,
+            "largest": 65536,
+            "minimum_free": 98844,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125871,
+            "largest": 65536,
+            "minimum_free": 106632,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4523004,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 17,
+        "plc_frames": 192,
+        "pc_id": "SmallWebRTCConnection#1-f082c7aa5970451dba86900daa2e941c"
+      }
+    },
+    {
+      "elapsed_s": 690.5776189635508,
+      "ready_elapsed_s": 483.68992463173345,
+      "observed_monotonic_s": 3252292.001919945,
+      "host_uplink_max_gap_ms": 71,
+      "perf": {
+        "generation": 3,
+        "heap": {
+          "dma": {
+            "free": 118019,
+            "largest": 65536,
+            "minimum_free": 98844,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125863,
+            "largest": 65536,
+            "minimum_free": 106632,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4523004,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 17,
+        "plc_frames": 192,
+        "pc_id": "SmallWebRTCConnection#1-f082c7aa5970451dba86900daa2e941c"
+      }
+    },
+    {
+      "elapsed_s": 720.4972445196472,
+      "ready_elapsed_s": 483.68992463173345,
+      "observed_monotonic_s": 3252321.92154436,
+      "host_uplink_max_gap_ms": 83,
+      "perf": {
+        "generation": 3,
+        "heap": {
+          "dma": {
+            "free": 118027,
+            "largest": 69632,
+            "minimum_free": 98844,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125871,
+            "largest": 69632,
+            "minimum_free": 106632,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4523000,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 17,
+        "plc_frames": 192,
+        "pc_id": "SmallWebRTCConnection#1-f082c7aa5970451dba86900daa2e941c"
+      }
+    },
+    {
+      "elapsed_s": 750.4763471088372,
+      "ready_elapsed_s": 483.68992463173345,
+      "observed_monotonic_s": 3252351.900645075,
+      "host_uplink_max_gap_ms": 64,
+      "perf": {
+        "generation": 3,
+        "heap": {
+          "dma": {
+            "free": 118027,
+            "largest": 69632,
+            "minimum_free": 98844,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125871,
+            "largest": 69632,
+            "minimum_free": 106632,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4522996,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 17,
+        "plc_frames": 192,
+        "pc_id": "SmallWebRTCConnection#1-f082c7aa5970451dba86900daa2e941c"
+      }
+    },
+    {
+      "elapsed_s": 781.5712636788376,
+      "ready_elapsed_s": 483.68992463173345,
+      "observed_monotonic_s": 3252382.995565132,
+      "host_uplink_max_gap_ms": 88,
+      "perf": {
+        "generation": 3,
+        "heap": {
+          "dma": {
+            "free": 118023,
+            "largest": 69632,
+            "minimum_free": 98844,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125867,
+            "largest": 69632,
+            "minimum_free": 106632,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4522996,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 17,
+        "plc_frames": 192,
+        "pc_id": "SmallWebRTCConnection#1-f082c7aa5970451dba86900daa2e941c"
+      }
+    },
+    {
+      "elapsed_s": 810.5512641919777,
+      "ready_elapsed_s": 483.68992463173345,
+      "observed_monotonic_s": 3252411.975564423,
+      "host_uplink_max_gap_ms": 69,
+      "perf": {
+        "generation": 3,
+        "heap": {
+          "dma": {
+            "free": 118019,
+            "largest": 65536,
+            "minimum_free": 98844,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125863,
+            "largest": 65536,
+            "minimum_free": 106632,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4522996,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 17,
+        "plc_frames": 192,
+        "pc_id": "SmallWebRTCConnection#1-f082c7aa5970451dba86900daa2e941c"
+      }
+    },
+    {
+      "elapsed_s": 840.4249172308482,
+      "ready_elapsed_s": 483.68992463173345,
+      "observed_monotonic_s": 3252441.849217281,
+      "host_uplink_max_gap_ms": 110,
+      "perf": {
+        "generation": 3,
+        "heap": {
+          "dma": {
+            "free": 118023,
+            "largest": 69632,
+            "minimum_free": 98844,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125867,
+            "largest": 69632,
+            "minimum_free": 106632,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4522996,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 17,
+        "plc_frames": 192,
+        "pc_id": "SmallWebRTCConnection#1-f082c7aa5970451dba86900daa2e941c"
+      }
+    },
+    {
+      "elapsed_s": 870.6327326996252,
+      "ready_elapsed_s": 483.68992463173345,
+      "observed_monotonic_s": 3252472.057033131,
+      "host_uplink_max_gap_ms": 88,
+      "perf": {
+        "generation": 3,
+        "heap": {
+          "dma": {
+            "free": 117991,
+            "largest": 65536,
+            "minimum_free": 98844,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125835,
+            "largest": 65536,
+            "minimum_free": 106632,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4522996,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 17,
+        "plc_frames": 192,
+        "pc_id": "SmallWebRTCConnection#1-f082c7aa5970451dba86900daa2e941c"
+      }
+    },
+    {
+      "elapsed_s": 900.5425662696362,
+      "ready_elapsed_s": 483.68992463173345,
+      "observed_monotonic_s": 3252501.966867071,
+      "host_uplink_max_gap_ms": 120,
+      "perf": {
+        "generation": 3,
+        "heap": {
+          "dma": {
+            "free": 118011,
+            "largest": 69632,
+            "minimum_free": 98844,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125855,
+            "largest": 69632,
+            "minimum_free": 106632,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4522996,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 17,
+        "plc_frames": 192,
+        "pc_id": "SmallWebRTCConnection#1-f082c7aa5970451dba86900daa2e941c"
+      }
+    },
+    {
+      "elapsed_s": 930.4778244188055,
+      "ready_elapsed_s": 483.68992463173345,
+      "observed_monotonic_s": 3252531.90212481,
+      "host_uplink_max_gap_ms": 138,
+      "perf": {
+        "generation": 3,
+        "heap": {
+          "dma": {
+            "free": 118035,
+            "largest": 65536,
+            "minimum_free": 98844,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125879,
+            "largest": 65536,
+            "minimum_free": 106632,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4522996,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 17,
+        "plc_frames": 192,
+        "pc_id": "SmallWebRTCConnection#1-f082c7aa5970451dba86900daa2e941c"
+      }
+    },
+    {
+      "elapsed_s": 960.5516833676957,
+      "ready_elapsed_s": 483.68992463173345,
+      "observed_monotonic_s": 3252561.975984099,
+      "host_uplink_max_gap_ms": 94,
+      "perf": {
+        "generation": 3,
+        "heap": {
+          "dma": {
+            "free": 118023,
+            "largest": 69632,
+            "minimum_free": 98844,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125867,
+            "largest": 69632,
+            "minimum_free": 106632,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4522996,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 17,
+        "plc_frames": 192,
+        "pc_id": "SmallWebRTCConnection#1-f082c7aa5970451dba86900daa2e941c"
+      }
+    },
+    {
+      "elapsed_s": 992.6866693086922,
+      "ready_elapsed_s": 990.5646289805882,
+      "observed_monotonic_s": 3252594.110970341,
+      "host_uplink_max_gap_ms": 0,
+      "perf": {
+        "generation": 5,
+        "heap": {
+          "dma": {
+            "free": 118135,
+            "largest": 69632,
+            "minimum_free": 98844,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125979,
+            "largest": 69632,
+            "minimum_free": 106632,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525476,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#0-1373f705c3104c3da0a10c00e18ac23a"
+      }
+    },
+    {
+      "elapsed_s": 993.764058323577,
+      "ready_elapsed_s": 990.5646289805882,
+      "observed_monotonic_s": 3252595.188359186,
+      "host_uplink_max_gap_ms": 59,
+      "perf": {
+        "generation": 5,
+        "heap": {
+          "dma": {
+            "free": 118135,
+            "largest": 69632,
+            "minimum_free": 98844,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125979,
+            "largest": 69632,
+            "minimum_free": 106632,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525476,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#0-1373f705c3104c3da0a10c00e18ac23a"
+      }
+    },
+    {
+      "elapsed_s": 996.6264891745523,
+      "ready_elapsed_s": 990.5646289805882,
+      "observed_monotonic_s": 3252598.050792671,
+      "host_uplink_max_gap_ms": 48,
+      "perf": {
+        "generation": 5,
+        "heap": {
+          "dma": {
+            "free": 117135,
+            "largest": 65536,
+            "minimum_free": 98844,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 124979,
+            "largest": 65536,
+            "minimum_free": 106632,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525476,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#0-1373f705c3104c3da0a10c00e18ac23a"
+      }
+    },
+    {
+      "elapsed_s": 1020.4937144308351,
+      "ready_elapsed_s": 990.5646289805882,
+      "observed_monotonic_s": 3252621.918002498,
+      "host_uplink_max_gap_ms": 110,
+      "perf": {
+        "generation": 5,
+        "heap": {
+          "dma": {
+            "free": 118143,
+            "largest": 69632,
+            "minimum_free": 98132,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125987,
+            "largest": 69632,
+            "minimum_free": 105920,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525464,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#0-1373f705c3104c3da0a10c00e18ac23a"
+      }
+    },
+    {
+      "elapsed_s": 1051.7310737785883,
+      "ready_elapsed_s": 990.5646289805882,
+      "observed_monotonic_s": 3252653.155375182,
+      "host_uplink_max_gap_ms": 80,
+      "perf": {
+        "generation": 5,
+        "heap": {
+          "dma": {
+            "free": 118131,
+            "largest": 69632,
+            "minimum_free": 98132,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125975,
+            "largest": 69632,
+            "minimum_free": 105920,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525464,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#0-1373f705c3104c3da0a10c00e18ac23a"
+      }
+    },
+    {
+      "elapsed_s": 1080.453296864871,
+      "ready_elapsed_s": 990.5646289805882,
+      "observed_monotonic_s": 3252681.877598147,
+      "host_uplink_max_gap_ms": 113,
+      "perf": {
+        "generation": 5,
+        "heap": {
+          "dma": {
+            "free": 118155,
+            "largest": 69632,
+            "minimum_free": 98132,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125999,
+            "largest": 69632,
+            "minimum_free": 105920,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525464,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#0-1373f705c3104c3da0a10c00e18ac23a"
+      }
+    },
+    {
+      "elapsed_s": 1110.5039068558253,
+      "ready_elapsed_s": 990.5646289805882,
+      "observed_monotonic_s": 3252711.928206566,
+      "host_uplink_max_gap_ms": 69,
+      "perf": {
+        "generation": 5,
+        "heap": {
+          "dma": {
+            "free": 117775,
+            "largest": 65536,
+            "minimum_free": 98132,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125063,
+            "largest": 65536,
+            "minimum_free": 105920,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525920,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#0-1373f705c3104c3da0a10c00e18ac23a"
+      }
+    },
+    {
+      "elapsed_s": 1140.4293739297427,
+      "ready_elapsed_s": 990.5646289805882,
+      "observed_monotonic_s": 3252741.853674411,
+      "host_uplink_max_gap_ms": 54,
+      "perf": {
+        "generation": 5,
+        "heap": {
+          "dma": {
+            "free": 118087,
+            "largest": 69632,
+            "minimum_free": 98132,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125931,
+            "largest": 69632,
+            "minimum_free": 105920,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525920,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#0-1373f705c3104c3da0a10c00e18ac23a"
+      }
+    },
+    {
+      "elapsed_s": 1170.5209185178392,
+      "ready_elapsed_s": 990.5646289805882,
+      "observed_monotonic_s": 3252771.945218658,
+      "host_uplink_max_gap_ms": 72,
+      "perf": {
+        "generation": 5,
+        "heap": {
+          "dma": {
+            "free": 118103,
+            "largest": 69632,
+            "minimum_free": 98132,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125947,
+            "largest": 69632,
+            "minimum_free": 105920,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525924,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#0-1373f705c3104c3da0a10c00e18ac23a"
+      }
+    },
+    {
+      "elapsed_s": 1201.0398259148933,
+      "ready_elapsed_s": 990.5646289805882,
+      "observed_monotonic_s": 3252802.464126025,
+      "host_uplink_max_gap_ms": 81,
+      "perf": {
+        "generation": 5,
+        "heap": {
+          "dma": {
+            "free": 118131,
+            "largest": 69632,
+            "minimum_free": 98132,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125975,
+            "largest": 69632,
+            "minimum_free": 105920,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525920,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#0-1373f705c3104c3da0a10c00e18ac23a"
+      }
+    },
+    {
+      "elapsed_s": 1230.5126837156713,
+      "ready_elapsed_s": 990.5646289805882,
+      "observed_monotonic_s": 3252831.936985239,
+      "host_uplink_max_gap_ms": 57,
+      "perf": {
+        "generation": 5,
+        "heap": {
+          "dma": {
+            "free": 117623,
+            "largest": 65536,
+            "minimum_free": 98132,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125479,
+            "largest": 65536,
+            "minimum_free": 105920,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525920,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#0-1373f705c3104c3da0a10c00e18ac23a"
+      }
+    },
+    {
+      "elapsed_s": 1261.9882357986644,
+      "ready_elapsed_s": 990.5646289805882,
+      "observed_monotonic_s": 3252863.2124716,
+      "host_uplink_max_gap_ms": 64,
+      "perf": {
+        "generation": 5,
+        "heap": {
+          "dma": {
+            "free": 118131,
+            "largest": 69632,
+            "minimum_free": 98132,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125975,
+            "largest": 69632,
+            "minimum_free": 105920,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525920,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#0-1373f705c3104c3da0a10c00e18ac23a"
+      }
+    },
+    {
+      "elapsed_s": 1291.8492364659905,
+      "ready_elapsed_s": 990.5646289805882,
+      "observed_monotonic_s": 3252893.073464068,
+      "host_uplink_max_gap_ms": 60,
+      "perf": {
+        "generation": 5,
+        "heap": {
+          "dma": {
+            "free": 118131,
+            "largest": 69632,
+            "minimum_free": 98132,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125975,
+            "largest": 69632,
+            "minimum_free": 105920,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525920,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#0-1373f705c3104c3da0a10c00e18ac23a"
+      }
+    },
+    {
+      "elapsed_s": 1320.5175229357556,
+      "ready_elapsed_s": 990.5646289805882,
+      "observed_monotonic_s": 3252921.941822786,
+      "host_uplink_max_gap_ms": 101,
+      "perf": {
+        "generation": 5,
+        "heap": {
+          "dma": {
+            "free": 118143,
+            "largest": 69632,
+            "minimum_free": 98132,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125987,
+            "largest": 69632,
+            "minimum_free": 105920,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525920,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#0-1373f705c3104c3da0a10c00e18ac23a"
+      }
+    },
+    {
+      "elapsed_s": 1351.706878868863,
+      "ready_elapsed_s": 990.5646289805882,
+      "observed_monotonic_s": 3252953.131180863,
+      "host_uplink_max_gap_ms": 57,
+      "perf": {
+        "generation": 5,
+        "heap": {
+          "dma": {
+            "free": 118155,
+            "largest": 65536,
+            "minimum_free": 98132,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125999,
+            "largest": 65536,
+            "minimum_free": 105920,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525920,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#0-1373f705c3104c3da0a10c00e18ac23a"
+      }
+    },
+    {
+      "elapsed_s": 1380.4458019887097,
+      "ready_elapsed_s": 990.5646289805882,
+      "observed_monotonic_s": 3252981.870103402,
+      "host_uplink_max_gap_ms": 76,
+      "perf": {
+        "generation": 5,
+        "heap": {
+          "dma": {
+            "free": 118131,
+            "largest": 69632,
+            "minimum_free": 98132,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125975,
+            "largest": 69632,
+            "minimum_free": 105920,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525920,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#0-1373f705c3104c3da0a10c00e18ac23a"
+      }
+    },
+    {
+      "elapsed_s": 1410.4511050977744,
+      "ready_elapsed_s": 990.5646289805882,
+      "observed_monotonic_s": 3253011.875405308,
+      "host_uplink_max_gap_ms": 76,
+      "perf": {
+        "generation": 5,
+        "heap": {
+          "dma": {
+            "free": 118155,
+            "largest": 65536,
+            "minimum_free": 98132,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125999,
+            "largest": 65536,
+            "minimum_free": 105920,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525912,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#0-1373f705c3104c3da0a10c00e18ac23a"
+      }
+    },
+    {
+      "elapsed_s": 1440.56161831785,
+      "ready_elapsed_s": 990.5646289805882,
+      "observed_monotonic_s": 3253041.985918007,
+      "host_uplink_max_gap_ms": 75,
+      "perf": {
+        "generation": 5,
+        "heap": {
+          "dma": {
+            "free": 117131,
+            "largest": 65536,
+            "minimum_free": 98132,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 124975,
+            "largest": 65536,
+            "minimum_free": 105920,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525916,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#0-1373f705c3104c3da0a10c00e18ac23a"
+      }
+    },
+    {
+      "elapsed_s": 1445.4725935310125,
+      "ready_elapsed_s": 1443.9114185678773,
+      "observed_monotonic_s": 3253046.896893622,
+      "host_uplink_max_gap_ms": 0,
+      "perf": {
+        "generation": 7,
+        "heap": {
+          "dma": {
+            "free": 118079,
+            "largest": 69632,
+            "minimum_free": 98132,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125923,
+            "largest": 69632,
+            "minimum_free": 105920,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525480,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#1-ec0f60e89aae4ae8a710d79eed52e974"
+      }
+    },
+    {
+      "elapsed_s": 1447.159245934803,
+      "ready_elapsed_s": 1443.9114185678773,
+      "observed_monotonic_s": 3253048.583545885,
+      "host_uplink_max_gap_ms": 55,
+      "perf": {
+        "generation": 7,
+        "heap": {
+          "dma": {
+            "free": 118079,
+            "largest": 69632,
+            "minimum_free": 98132,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125923,
+            "largest": 69632,
+            "minimum_free": 105920,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525480,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#1-ec0f60e89aae4ae8a710d79eed52e974"
+      }
+    },
+    {
+      "elapsed_s": 1471.0519936718047,
+      "ready_elapsed_s": 1443.9114185678773,
+      "observed_monotonic_s": 3253072.476293171,
+      "host_uplink_max_gap_ms": 90,
+      "perf": {
+        "generation": 7,
+        "heap": {
+          "dma": {
+            "free": 118043,
+            "largest": 69632,
+            "minimum_free": 98132,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125887,
+            "largest": 69632,
+            "minimum_free": 105920,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525480,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#1-ec0f60e89aae4ae8a710d79eed52e974"
+      }
+    },
+    {
+      "elapsed_s": 1500.5720911538228,
+      "ready_elapsed_s": 1443.9114185678773,
+      "observed_monotonic_s": 3253101.996391094,
+      "host_uplink_max_gap_ms": 100,
+      "perf": {
+        "generation": 7,
+        "heap": {
+          "dma": {
+            "free": 118103,
+            "largest": 69632,
+            "minimum_free": 98132,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125947,
+            "largest": 69632,
+            "minimum_free": 105920,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525480,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#1-ec0f60e89aae4ae8a710d79eed52e974"
+      }
+    },
+    {
+      "elapsed_s": 1530.4771144827828,
+      "ready_elapsed_s": 1443.9114185678773,
+      "observed_monotonic_s": 3253131.901415375,
+      "host_uplink_max_gap_ms": 77,
+      "perf": {
+        "generation": 7,
+        "heap": {
+          "dma": {
+            "free": 118091,
+            "largest": 65536,
+            "minimum_free": 98132,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125935,
+            "largest": 65536,
+            "minimum_free": 105920,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525480,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#1-ec0f60e89aae4ae8a710d79eed52e974"
+      }
+    },
+    {
+      "elapsed_s": 1560.5582132386044,
+      "ready_elapsed_s": 1443.9114185678773,
+      "observed_monotonic_s": 3253161.982513229,
+      "host_uplink_max_gap_ms": 86,
+      "perf": {
+        "generation": 7,
+        "heap": {
+          "dma": {
+            "free": 118075,
+            "largest": 69632,
+            "minimum_free": 98132,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125919,
+            "largest": 69632,
+            "minimum_free": 105920,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525480,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#1-ec0f60e89aae4ae8a710d79eed52e974"
+      }
+    },
+    {
+      "elapsed_s": 1590.430728350766,
+      "ready_elapsed_s": 1443.9114185678773,
+      "observed_monotonic_s": 3253191.855031177,
+      "host_uplink_max_gap_ms": 61,
+      "perf": {
+        "generation": 7,
+        "heap": {
+          "dma": {
+            "free": 118087,
+            "largest": 69632,
+            "minimum_free": 98132,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125931,
+            "largest": 69632,
+            "minimum_free": 105920,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525928,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 0,
+        "pc_id": "SmallWebRTCConnection#1-ec0f60e89aae4ae8a710d79eed52e974"
+      }
+    },
+    {
+      "elapsed_s": 1621.1079686246812,
+      "ready_elapsed_s": 1443.9114185678773,
+      "observed_monotonic_s": 3253222.532268385,
+      "host_uplink_max_gap_ms": 128,
+      "perf": {
+        "generation": 7,
+        "heap": {
+          "dma": {
+            "free": 118103,
+            "largest": 69632,
+            "minimum_free": 98132,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125947,
+            "largest": 69632,
+            "minimum_free": 105920,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525920,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 2,
+        "pc_id": "SmallWebRTCConnection#1-ec0f60e89aae4ae8a710d79eed52e974"
+      }
+    },
+    {
+      "elapsed_s": 1650.4801302948035,
+      "ready_elapsed_s": 1443.9114185678773,
+      "observed_monotonic_s": 3253251.904433401,
+      "host_uplink_max_gap_ms": 75,
+      "perf": {
+        "generation": 7,
+        "heap": {
+          "dma": {
+            "free": 118055,
+            "largest": 65536,
+            "minimum_free": 98132,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125899,
+            "largest": 65536,
+            "minimum_free": 105920,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525920,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 2,
+        "pc_id": "SmallWebRTCConnection#1-ec0f60e89aae4ae8a710d79eed52e974"
+      }
+    },
+    {
+      "elapsed_s": 1681.8368928949349,
+      "ready_elapsed_s": 1443.9114185678773,
+      "observed_monotonic_s": 3253283.261194388,
+      "host_uplink_max_gap_ms": 53,
+      "perf": {
+        "generation": 7,
+        "heap": {
+          "dma": {
+            "free": 118075,
+            "largest": 69632,
+            "minimum_free": 98132,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125919,
+            "largest": 69632,
+            "minimum_free": 105920,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525920,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 0,
+        "plc_frames": 2,
+        "pc_id": "SmallWebRTCConnection#1-ec0f60e89aae4ae8a710d79eed52e974"
+      }
+    },
+    {
+      "elapsed_s": 1710.4581831526011,
+      "ready_elapsed_s": 1443.9114185678773,
+      "observed_monotonic_s": 3253311.882484325,
+      "host_uplink_max_gap_ms": 379,
+      "perf": {
+        "generation": 7,
+        "heap": {
+          "dma": {
+            "free": 118091,
+            "largest": 65536,
+            "minimum_free": 98132,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125935,
+            "largest": 65536,
+            "minimum_free": 105920,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525916,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 1,
+        "plc_frames": 7,
+        "pc_id": "SmallWebRTCConnection#1-ec0f60e89aae4ae8a710d79eed52e974"
+      }
+    },
+    {
+      "elapsed_s": 1740.599954659585,
+      "ready_elapsed_s": 1443.9114185678773,
+      "observed_monotonic_s": 3253342.024255511,
+      "host_uplink_max_gap_ms": 90,
+      "perf": {
+        "generation": 7,
+        "heap": {
+          "dma": {
+            "free": 118075,
+            "largest": 69632,
+            "minimum_free": 98132,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125919,
+            "largest": 69632,
+            "minimum_free": 105920,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525916,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 1,
+        "plc_frames": 7,
+        "pc_id": "SmallWebRTCConnection#1-ec0f60e89aae4ae8a710d79eed52e974"
+      }
+    },
+    {
+      "elapsed_s": 1771.0189364417456,
+      "ready_elapsed_s": 1443.9114185678773,
+      "observed_monotonic_s": 3253372.443239508,
+      "host_uplink_max_gap_ms": 69,
+      "perf": {
+        "generation": 7,
+        "heap": {
+          "dma": {
+            "free": 118075,
+            "largest": 65536,
+            "minimum_free": 98132,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125919,
+            "largest": 65536,
+            "minimum_free": 105920,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525916,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 1,
+        "plc_frames": 7,
+        "pc_id": "SmallWebRTCConnection#1-ec0f60e89aae4ae8a710d79eed52e974"
+      }
+    },
+    {
+      "elapsed_s": 1801.2310832277872,
+      "ready_elapsed_s": 1443.9114185678773,
+      "observed_monotonic_s": 3253402.655385302,
+      "host_uplink_max_gap_ms": 71,
+      "perf": {
+        "generation": 7,
+        "heap": {
+          "dma": {
+            "free": 118075,
+            "largest": 65536,
+            "minimum_free": 98132,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 124727,
+            "largest": 65536,
+            "minimum_free": 105920,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525916,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 1,
+        "plc_frames": 7,
+        "pc_id": "SmallWebRTCConnection#1-ec0f60e89aae4ae8a710d79eed52e974"
+      }
+    },
+    {
+      "elapsed_s": 1830.3964635338634,
+      "ready_elapsed_s": 1443.9114185678773,
+      "observed_monotonic_s": 3253431.820763554,
+      "host_uplink_max_gap_ms": 129,
+      "perf": {
+        "generation": 7,
+        "heap": {
+          "dma": {
+            "free": 118087,
+            "largest": 69632,
+            "minimum_free": 98132,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125931,
+            "largest": 69632,
+            "minimum_free": 105920,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525916,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 1,
+        "plc_frames": 7,
+        "pc_id": "SmallWebRTCConnection#1-ec0f60e89aae4ae8a710d79eed52e974"
+      }
+    },
+    {
+      "elapsed_s": 1860.5749055095948,
+      "ready_elapsed_s": 1443.9114185678773,
+      "observed_monotonic_s": 3253461.999204598,
+      "host_uplink_max_gap_ms": 55,
+      "perf": {
+        "generation": 7,
+        "heap": {
+          "dma": {
+            "free": 118087,
+            "largest": 69632,
+            "minimum_free": 98132,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125931,
+            "largest": 69632,
+            "minimum_free": 105920,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525916,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 1,
+        "plc_frames": 7,
+        "pc_id": "SmallWebRTCConnection#1-ec0f60e89aae4ae8a710d79eed52e974"
+      }
+    },
+    {
+      "elapsed_s": 1891.0750364679843,
+      "ready_elapsed_s": 1443.9114185678773,
+      "observed_monotonic_s": 3253492.499336638,
+      "host_uplink_max_gap_ms": 65,
+      "perf": {
+        "generation": 7,
+        "heap": {
+          "dma": {
+            "free": 118075,
+            "largest": 69632,
+            "minimum_free": 98132,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125919,
+            "largest": 69632,
+            "minimum_free": 105920,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525916,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 1,
+        "plc_frames": 7,
+        "pc_id": "SmallWebRTCConnection#1-ec0f60e89aae4ae8a710d79eed52e974"
+      }
+    },
+    {
+      "elapsed_s": 1920.396378511563,
+      "ready_elapsed_s": 1443.9114185678773,
+      "observed_monotonic_s": 3253521.820678842,
+      "host_uplink_max_gap_ms": 61,
+      "perf": {
+        "generation": 7,
+        "heap": {
+          "dma": {
+            "free": 118075,
+            "largest": 69632,
+            "minimum_free": 98132,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125919,
+            "largest": 69632,
+            "minimum_free": 105920,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525916,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 1,
+        "plc_frames": 7,
+        "pc_id": "SmallWebRTCConnection#1-ec0f60e89aae4ae8a710d79eed52e974"
+      }
+    },
+    {
+      "elapsed_s": 1950.5096447919495,
+      "ready_elapsed_s": 1443.9114185678773,
+      "observed_monotonic_s": 3253551.933945323,
+      "host_uplink_max_gap_ms": 65,
+      "perf": {
+        "generation": 7,
+        "heap": {
+          "dma": {
+            "free": 118075,
+            "largest": 69632,
+            "minimum_free": 98132,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125919,
+            "largest": 69632,
+            "minimum_free": 105920,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525916,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 1,
+        "plc_frames": 7,
+        "pc_id": "SmallWebRTCConnection#1-ec0f60e89aae4ae8a710d79eed52e974"
+      }
+    },
+    {
+      "elapsed_s": 1980.4962605028413,
+      "ready_elapsed_s": 1443.9114185678773,
+      "observed_monotonic_s": 3253581.920561675,
+      "host_uplink_max_gap_ms": 67,
+      "perf": {
+        "generation": 7,
+        "heap": {
+          "dma": {
+            "free": 118087,
+            "largest": 69632,
+            "minimum_free": 98132,
+            "sampled_largest_minimum": 65536
+          },
+          "internal": {
+            "free": 125931,
+            "largest": 69632,
+            "minimum_free": 105920,
+            "sampled_largest_minimum": 65536
+          },
+          "psram": {
+            "free": 4525916,
+            "largest": 4456448,
+            "minimum_free": 4464668,
+            "sampled_largest_minimum": 4456448
+          }
+        },
+        "rebuffers": 1,
+        "plc_frames": 7,
+        "pc_id": "SmallWebRTCConnection#1-ec0f60e89aae4ae8a710d79eed52e974"
+      }
+    }
+  ],
+  "closed": {
+    "generation": 7,
+    "heap": {
+      "dma": {
+        "free": 180851,
+        "largest": 69632,
+        "minimum_free": 98132,
+        "sampled_largest_minimum": 65536
+      },
+      "internal": {
+        "free": 188695,
+        "largest": 69632,
+        "minimum_free": 105920,
+        "sampled_largest_minimum": 65536
+      },
+      "psram": {
+        "free": 6651584,
+        "largest": 4456448,
+        "minimum_free": 4464668,
+        "sampled_largest_minimum": 4456448
+      }
+    },
+    "rebuffers": 1,
+    "plc_frames": 7,
+    "pc_id": "SmallWebRTCConnection#1-ec0f60e89aae4ae8a710d79eed52e974"
+  },
+  "faults": [
+    {
+      "kind": "reconnect",
+      "scheduled_s": 480,
+      "started_s": 481.7493048966862,
+      "recovered_s": 484.8101493846625,
+      "duration_s": 3.0608446882106364,
+      "minimum_free_step_bytes": {
+        "internal": 0,
+        "psram": 8824,
+        "dma": 0
+      },
+      "minimum_free_step_basis": "Last pre-fault / first recovered observation; boot-cumulative high-water mark"
+    },
+    {
+      "kind": "server-restart",
+      "scheduled_s": 960,
+      "started_s": 961.8917520386167,
+      "recovered_s": 991.7124559786171,
+      "duration_s": 29.82070412999019,
+      "minimum_free_step_bytes": {
+        "internal": 0,
+        "psram": 0,
+        "dma": 0
+      },
+      "minimum_free_step_basis": "Last pre-fault / first recovered observation; boot-cumulative high-water mark"
+    },
+    {
+      "kind": "reconnect",
+      "scheduled_s": 1440,
+      "started_s": 1441.9643304175697,
+      "recovered_s": 1445.0539899505675,
+      "duration_s": 3.0896597341634333,
+      "minimum_free_step_bytes": {
+        "internal": 0,
+        "psram": 0,
+        "dma": 0
+      },
+      "minimum_free_step_basis": "Last pre-fault / first recovered observation; boot-cumulative high-water mark"
+    }
+  ],
+  "original_checks": {
+    "duration": true,
+    "heap_transient_depth": true,
+    "reconnect_transient_budget": true,
+    "heap_growth_rate": true,
+    "stack_margins": true,
+    "decode_errors": true,
+    "i2s_underflows": true,
+    "faults": true,
+    "turns": true
+  }
+}

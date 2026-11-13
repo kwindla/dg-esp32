@@ -1,0 +1,21 @@
+# IDF v6.1 has no buffer-caps field. Keep IDF sources untouched and fail
+# configuration if its two allocation sites change. All other HTTP clients
+# keep their existing allocation policy.
+idf_component_get_property(http_dir esp_http_client COMPONENT_DIR)
+idf_component_get_property(http_lib esp_http_client COMPONENT_LIB)
+file(READ "${http_dir}/esp_http_client.c" http_source)
+foreach(buffer tx rx)
+    set(old "malloc(client->buffer_size_${buffer})")
+    string(FIND "${http_source}" "${old}" found)
+    if(found EQUAL -1)
+        message(FATAL_ERROR "Review display HTTP PSRAM adapter against this IDF")
+    endif()
+    string(REPLACE "${old}" "display_http_buffer_alloc(client->buffer_size_${buffer})" http_source "${http_source}")
+endforeach()
+set(prefix "#include <string.h>\n#include <stdlib.h>\n#include \"esp_heap_caps.h\"\n#include \"freertos/FreeRTOS.h\"\n#include \"freertos/task.h\"\nstatic void* display_http_buffer_alloc(size_t n) {\n return strcmp(pcTaskGetName(NULL), \"display-store\") == 0 ? heap_caps_malloc(n, MALLOC_CAP_SPIRAM | MALLOC_CAP_8BIT) : malloc(n);\n}\n")
+file(MAKE_DIRECTORY "${CMAKE_BINARY_DIR}/display-http-psram")
+file(WRITE "${CMAKE_BINARY_DIR}/display-http-psram/esp_http_client.c" "${prefix}${http_source}")
+get_target_property(http_sources ${http_lib} SOURCES)
+list(FILTER http_sources EXCLUDE REGEX "esp_http_client\\.c$")
+set_property(TARGET ${http_lib} PROPERTY SOURCES "${http_sources};${CMAKE_BINARY_DIR}/display-http-psram/esp_http_client.c")
+set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS "${http_dir}/esp_http_client.c")

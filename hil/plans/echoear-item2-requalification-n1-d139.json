@@ -1,0 +1,340 @@
+{
+  "schema": 1,
+  "name": "EchoEar step-10 requal-n1: item1 combined + item2 six stages on the merged AEC-off line (decisions 138-139 revision)",
+  "status": "predeclared-requal-n1-decision-139",
+  "execution_authorized": false,
+  "final_master_commit": null,
+  "final_elf_sha256": null,
+  "release_requirements": [
+    "One coordinator-frozen normal ELF (binding normal_elf_sha256) for every item2 stage; AEC off verified at boot",
+    "The demo (autostart) variant of the same commit is the item1 image; both from master 16c45a3 (no firmware change since 8c84e05)",
+    "Normal ELF masked-equal to merge-9d-r4/bundle-mute 3eaa629a (.flash.appdesc only), so mute-03 PASS carries over (decision 134 D2)",
+    "fixture/budget/bot/harness hashes frozen in the binding before the first scored prompt",
+    "validate embedded ESP app descriptor version, descriptor presence in ELF and bin embedded ELF SHA256; project_description metadata alone is insufficient",
+    "heap minimum includes cold boot and task census/PERF allocations; no reset/exclusion or substitution of current free for historical minimum",
+    "Smoke runs are never counted; acceptance needs the user's quiet-room go after the smoke, N-1 pause test and pre-mortem",
+    "Every item1/item2 hold restores and boot-verifies the 9936da45 restore-of-record bundle before releasing the lock (Astra r1 #2, Fable F3)",
+    "Device-reported public profile gated in item1 and every item2 stage: AUDIO_CAPABILITY aec=0, PERF aec block absent, MIC_GAIN_PATH 30 dB/0x1a/125 %, MIC_PROTECTION 1/8192/16384, autostart demo true / normal false, and device-reported setup/cleanup volume state (hil/echoear_image_profile.py; generated config never read). Scored measurement records at output_volume_db 0 in item1 and every item2 stage EXCEPT a6_hot_stt, which is uplink-only and exempt: its volume is recorded, not gated, at the firmware default -6 dB (decision 136)."
+  ],
+  "owners": {
+    "strict_voice_cat": "B",
+    "a6_limiter": "A",
+    "quiet_acoustic": "A coordinated with B",
+    "raw_audit": "Astra read-only"
+  },
+  "order": [
+    {
+      "id": "strict_voice_cat",
+      "owner": "B",
+      "mode": "live",
+      "runs": 3,
+      "warm": true,
+      "required_passes": 3,
+      "retakes": 0,
+      "cat_fps_target": 30
+    },
+    {
+      "id": "a6_echo_stress",
+      "owner": "A",
+      "harness": "hil/echoear_echo_stress.py",
+      "gate": "existing unchanged stress gates on frozen bank"
+    },
+    {
+      "id": "a6_hot_stt",
+      "owner": "A",
+      "harness": "hil/echoear_hot_stt.py",
+      "targets_dbfs": [
+        -39,
+        -27
+      ],
+      "limiter_engaged_at_hot": true,
+      "gate": "existing pair_gate including no WER regression",
+      "volume_expectation": "Decision 136 named exception: uplink-only (Jabra prompt into the board mic, retained uplink scored, no board playback); the harness never commands playback volume, so the device stays at its -6 dB default as its 9bc2d42 PASS of record did. Recorded, not gated. No prior run is rescored."
+    },
+    {
+      "id": "a6_analog_probe",
+      "owner": "A",
+      "harness": "hil/echoear_analog_probe.py",
+      "gate": "existing measurement validity and nonlinear-growth gates; retain investigation_required; REPORT-ONLY (decision 134 D6)",
+      "report_only": true
+    },
+    {
+      "id": "quiet_offline",
+      "owner": "A",
+      "mode": "offline",
+      "runs": 5,
+      "warm": true,
+      "required_passes": 5,
+      "retakes": 0
+    },
+    {
+      "id": "quiet_live",
+      "owner": "A",
+      "mode": "live",
+      "runs": 5,
+      "warm": true,
+      "required_passes": 5,
+      "retakes": 0,
+      "setup_failure": "A quiet_live setup failure is unscored and filled by a continuation (decision 134 D6)"
+    }
+  ],
+  "environment": {
+    "room_limit_dbfs": -55,
+    "room_sensors": [
+      "jabra",
+      "board"
+    ],
+    "measure_before_each_run": true,
+    "missing_or_nonfinite": "defer",
+    "nic": {
+      "gated_interface": "wlp8s0",
+      "observation_only_interfaces": [
+        "enp7s0"
+      ],
+      "limit_bytes_per_300s": 20000000,
+      "sum_directions": true,
+      "subtract_board_traffic": false,
+      "preflight_seconds": 30,
+      "per_arm": true
+    },
+    "deferrals": {
+      "log": "deferrals.jsonl",
+      "record": [
+        "host UTC and monotonic time",
+        "stage and next original slot",
+        "both measured floors and WAV paths",
+        "NIC before/after/deltas/policy",
+        "reasons",
+        "scored=false"
+      ],
+      "wait_seconds": 30,
+      "release_bench": true,
+      "pre_prompt_only": true,
+      "consume_scored_slot": false,
+      "policy": "Wait and retry eligibility later; never replay a scored original. If interrupted after scored originals, preserve the incomplete population; a restart is not a new clean cohort. Resume requires proven original peer continuity.",
+      "policy_d138": "Decision 138b: a clean eligibility/RF deferral after scored originals is a continuation point (execute --continue-from): same binding and root, continued_from path+sha256, scored originals kept, the remaining originals/arms run in a new session (cold start). Clean = clean_deferral() envelope with scored originals (item2.resumable_deferral). Scored originals are never repeated or replaced. A deferral with no scored original is retried as before."
+    }
+  },
+  "firmware": {
+    "aec_enabled": false,
+    "analog_gain_db": 30,
+    "mic_digital_percent": 125,
+    "limiter": {
+      "schema": 1,
+      "knee": 8192,
+      "ceiling": 16384
+    },
+    "volume_relative_db": 0,
+    "volume_scope": "volume_relative_db applies to the scored playback measurement records only: e2e before_perf/after_perf and reply_window_transport.before/after of every scored original, echo-stress/analog point before/after; item1 samples. Setup (0) and harness cleanup (-6) volumes are validated separately as device-reported state (OUTPUT_VOLUME vs session PERF). Astra r2 #1, Fable B1. a6_hot_stt is exempt (decision 136; order[2].volume_expectation)."
+  },
+  "strict_gates": {
+    "originals_only": true,
+    "no_retakes": true,
+    "one_peer": true,
+    "cat_fps_floor": 24,
+    "full_reply_min_seconds": 5,
+    "wire_show_mid_reply_each_turn": true,
+    "minimum_internal_bytes": 81920,
+    "largest_internal_bytes": 32768,
+    "failed_allocations": 0,
+    "app_control_free_bytes": 2048,
+    "dma_errors": 0,
+    "display_recoveries": 0,
+    "display_dead": false,
+    "engine_lock_timeouts": 0,
+    "engine_lock_failures": 0,
+    "raw_errors": 0,
+    "bot_loss_exceptions": false,
+    "playback_write_errors_delta": 0,
+    "transport_counter_deltas": "all zero; lost/concealed/PLC/drift drops+inserts/trim/underflows unchanged",
+    "gate_open_clips_delta": 0,
+    "gate_closed_clips_delta": 0,
+    "minimum_unprotected_echo_headroom_db": 3,
+    "report_peaks": [
+      "native_peak",
+      "unprotected_peak",
+      "peak_before_clamp",
+      "unprotected_headroom_db",
+      "headroom_db",
+      "limited_samples",
+      "adc_clips"
+    ],
+    "jabra_reply_target_dbfs": -29.845806865819114,
+    "jabra_reply_tolerance_db": 3,
+    "jabra_reply_room_rise_db": 10,
+    "quiet_console": 1,
+    "full_perf_queries_during_prompt_reply": 0,
+    "compact_frame_clocks": true,
+    "uplink_gate": "decision 138a: device send cadence (decision_138.source_cadence) gates; uplink_continuity.link_tail (>60ms rate<=1%, >150ms rate<=0.05%, hard max<=2000ms, coverage, reset guard) is computed and recorded, report-only",
+    "source_gates": [
+      "step9a_merge_checks.merge_gate",
+      "echoear_acoustic_qualification.gate",
+      "playback_quality.transport_gate",
+      "mic_headroom.microphone_headroom"
+    ]
+  },
+  "bot": {
+    "mode": "live-test for strict and quiet-live; offline-test for quiet-offline",
+    "sctp_chunk_bytes": 1100,
+    "strict_reply": "existing long Pineapple/France reply; do not shorten",
+    "credentials_missing": "unqualified skip, never pass"
+  },
+  "evidence": {
+    "root": "/home/khkramer/src/evidence/echoear/aec-demo/step-10/requal-n1",
+    "raw_required": [
+      "serial bytes and monitor verdict",
+      "bot events and transcripts",
+      "RTP arrival trace/continuity",
+      "original WAVs and fixture hashes",
+      "before/after PERF and no-mid-turn-PERF windows",
+      "full-reply frame clock bracket and wire render proof",
+      "protected and unprotected mic peaks",
+      "Jabra and board room floors before each run",
+      "per-arm NIC counters and deferral log"
+    ],
+    "no_evidence_in_git": true,
+    "prior_runs_counted": false,
+    "no_unplug_tests": true,
+    "no_soak": true,
+    "short_bench_holds": true,
+    "no_partial_proof_stitching": true,
+    "hardware_binding_pending": true
+  },
+  "dry_run": {
+    "host_only": true,
+    "qualifies_hardware": false,
+    "execute_option_available": false,
+    "commands": "hil/echoear_requalification.py --plan hil/plans/echoear-item2-requalification-n1.json --dry-run --out <fresh step-10 evidence directory>"
+  },
+  "geometry_rebaseline_policy": "/home/khkramer/src/evidence/echoear/aec-demo/step-10/requal-n1/jabra-policy.json",
+  "all_originals_policy": "Execute all3strict and5perquiet originals with no retakes; ordinary scored failures remainFAIL and continue. Fatal raw/device/setup/cleanup error stops incomplete; onepeer/warm coverage still required. Eligibility deferrals release bench; zero-scored deferrals alone may retry after30s.",
+  "derived_from": {
+    "path": "/home/khkramer/src/dg-esp32-requal-n1-r7/hil/plans/echoear-item2-requalification-n1-d138.json",
+    "sha256": "95a95f4dbea6ad150554a312fceaad112f55d70c36ddc23776c40bee0a6ea278",
+    "note": "The decision-138 revision (bound by smoke-r16, unchanged). Only decision_138 fields, decision_139 and the metadata differ."
+  },
+  "decision_134": {
+    "source": "proj-2026-10-15-0645/codex-jobs/step-9-user-decisions-2026-10-19-b.md, decision 134 (user 2026-10-26)",
+    "D3_scope": "\"All six stages\": item1 combined proof plus item2 strict_voice_cat 3/3, a6_echo_stress, a6_hot_stt, a6_analog_probe, quiet_offline 5 and quiet_live 5.",
+    "D4_geometry": "\"Not moved: re-bind\". The user states the bench has not moved since 10-14/15; the \u221229.85 dBFS \u00b13 / rise \u226510 dB policy is re-bound to the new normal ELF with no geometry A/B. Cost accepted: an unnoticed move would fail the level gate in acceptance.",
+    "D5_item1_transport": "\"Allow \u22641 lost frame\". At most 1 lost/concealed/PLC/playout-dropped downlink frame per session, with the RF pre-gate recorded. This reverses the all-zero rule for item1 only; the item2 strict stage's own transport gates are unchanged.",
+    "D5_implementation": "r2 (Astra r1 #3, Fable F1; adopted by decision 135): hil/echoear_item1_combined.py distinct_frame_gate: one distinct affected downlink frame per session, conservative because no retained frame identity proves a late-rejection overlap: concealed == plc_frames <= lost and max(lost, concealed, plc_frames) + playout_dropped <= 1, on the absolute counters of every fresh Session and on the cycle/restart within-session deltas; every other transport counter and mic clip counter 0; 30 s wlp8s0 RF pre-gate before flash recorded as rf-pre-gate.json. The combined-4 1/1/1/1 shape fails this rule (combined-4 stays FAIL of record, not rescored). strict_gates.transport_counter_deltas below is unchanged.",
+    "D6_defaults": [
+      "a6_analog_probe is report-only",
+      "a quiet_live setup failure is unscored and filled by a continuation"
+    ],
+    "D1_D2_defaults": [
+      "the restore image is AEC-off without autostart",
+      "fresh build from master, with a masked compare against 3eaa629a; if only .flash.appdesc differs, mute-03 PASS carries over"
+    ],
+    "acceptance": "Acceptance still needs a quiet-room go after the smoke, N-1 pause test and pre-mortem.",
+    "D6_implementation": {
+      "analog_probe": "hil/echoear_item2_campaign.py: a6_analog_probe (report_only) keeps its measurement passed/investigation verdict unchanged; the stage exits 0 when the acquisition is valid (points, resources, device profile, NIC, restore), and echoear_requalification.acceptance_verdict excludes its measurement verdict from the acceptance pass.",
+      "quiet_live": "hil/echoear_item2_campaign.py aggregate_quiet_live and --continue-from: only the final unscored setup-failure slot of a segment is filled by a continuation in the same stage root; scored originals (including FAILs) are never replaced; no reruns; each segment one peer and warm after its first run; at most 3 segments; the stage passes only when slots 1..5 are all scored and passed and every segment observation gate (except its per-segment exact-original count) passes."
+    },
+    "D5_decision_135": "Decision 135 (user 2026-10-26 ~14:15) refines D5 for item1: \"Conservative one-event\": concealed == plc_frames <= lost and max(lost, concealed, plc_frames) + playout_dropped <= 1, with every other transport and clip counter at 0, on fresh-session totals and injected/restart deltas. A single late packet (the combined-4 1/1/1/1 shape) still FAILS item1; combined-4 stays FAIL of record and is not rescored. The item2 strict gates are unchanged (all-zero).",
+    "D_volume_decision_136": "Decision 136 (user 2026-10-26): a6_hot_stt volume exempt (recorded, not gated); every other item2 stage and item1 keep 0 dB on scored records. The frozen A6 plan file carries a top-level volume_relative_db 0 written by echoear_acoustic_qualification.prepare(); hot_stt never consumed it. The r5 A6 plan copy adds volume_relative_db_exceptions naming a6_hot_stt (decision 136)."
+  },
+  "previous_derived_from": [
+    {
+      "path": "/home/khkramer/src/dg-esp32-requal-n1-r7/hil/plans/echoear-item2-requalification-n1.json",
+      "sha256": "37e252dd11fbd59fb31f8f83650ba52bae67c8c19077a442c5dafe32d797605f",
+      "note": "The frozen decision-134..137 requal-n1 plan. Only strict_gates.uplink_gate, environment.deferrals.policy_d138 and the decision_138 block differ."
+    },
+    {
+      "path": "/home/khkramer/src/evidence/echoear/B/item2-geometry-rebaseline-9936da45/campaign-plan.json",
+      "sha256": "5db69bd807921cf270d25b37aef48b40477467a548a9d4eac278b1827a743a0c",
+      "note": "The 10-15 attempt-2 campaign plan (geometry-rebased strict/quiet). Only the fields listed in decision_134 and the image/evidence pins differ."
+    }
+  ],
+  "decision_138": {
+    "decided": "user 2026-10-27 ~19:25 (step-9-user-decisions-2026-10-19-b.md, decision 138 a and b)",
+    "uplink_gate": "source-cadence",
+    "source_cadence": {
+      "applies_to": [
+        "strict_voice_cat",
+        "quiet_offline",
+        "quiet_live"
+      ],
+      "limit_ms": 60,
+      "rule": "0 eligible device send intervals > 60 ms over every scored original window (prompt start -> reply end)",
+      "signal": "firmware per-packet send trace (peer-option arrival-trace 1; kind 12 uplink_wire rows, device clock), the measure of the 2026-10-15 RF diagnosis (docs/echoear-uplink.md, Timing boundary)",
+      "readout": "dump-arrivals only outside scored windows: three drains per original (after the pre-prompt PERF, after the reply-end PERF, after the turn)",
+      "excluded": "CONSOLE_WINDOW stats/wifi-stats +/-120 ms informational; acknowledged audio-idle intervals by containment; no link-backpressure excusal",
+      "completeness": "trace enabled at both PERF endpoints; one session brackets the window; overwritten unchanged from the pre-prompt PERF to the post-reply readout; a send at/before the start and at/after the end; every RTP sequence step 1. Otherwise the original fails closed and the record is labelled harness_failure.",
+      "rationale": "Retained AEC-off traces 2026-10-14/15 (17 runs, 35,520 eligible intervals, including the bad-RF nights with 1.2-4.9 % arrival tails): 0 intervals > 60 ms, maximum 52.724 ms (7.3 ms margin), per-run p99 32.0-44.5 ms. The same traced AEC-on step-9 images show 0.37 % of intervals at 60-74 ms (32 ms AEC chunking), so this limit is specific to the AEC-off line.",
+      "configuration_cost": "S1 adds the arrival trace (an 8192 x 32-byte external-RAM ring, a critical section per record; ~300 rows/s seen with both directions streaming, ~376 rows/s on later step-9 images) and three drains plus three trace-counter PERF reads per original to the configuration being qualified. Recorded per original in source_cadence.trace_cost (record rate, max pending, overwrite delta, every drain duration).",
+      "ring_capacity_note": "Not a hard bound: the readout interval is lead (~1 s) + prompt (~2.2 s) + reply up to the 20 s deadline after prompt END + endpoint/export work; at 300-376 rows/s the 8192-row ring holds ~22-27 s. Strict windows 15.5-16.7 s and quiet_offline 5.7-5.9 s in the smokes; quiet_live is unmeasured. An overwrite fails closed (harness_failure).",
+      "excuse_firmware_backpressure": false,
+      "excuse_firmware_backpressure_decision": "decision 139b: every > 60 ms send gap fails S1 whatever the cause, including firmware send-budget stale-frame skips under Wi-Fi back-pressure"
+    },
+    "link_tail": "computed and recorded for every e2e stage; report-only",
+    "s2": {
+      "item1": "gate (decision 139a); see item1_s2",
+      "item2": "report-only",
+      "zero_counters": [
+        "send_errors",
+        "send_budget_cutoffs",
+        "stale_audio_skipped",
+        "pcm_queue_drops",
+        "drop_reasons.encoded_queue",
+        "drop_reasons.uplink_gap",
+        "drop_reasons.send_cutoff"
+      ],
+      "in_flight": "0 <= encode_frames - sent - encoded_queue <= 2 at each snapshot",
+      "enqueue_send_max_us": 40000,
+      "bound_rationale": "A frame waiting W after encoding gives a post-encode send gap <= 20 ms + W, so W <= 40 ms bounds it at 60 ms. Retained item1 smokes: session maxima 13.9-23.1 ms; all retained PERF: p99 32.2 ms.",
+      "limit": "S2 counters cannot see a stall before encoding (PCM frames waiting in the framer or a stalled TX task)."
+    },
+    "downlink": "unchanged: zero downlink loss (item2), decision-134 D5 budget (item1); every other gate unchanged",
+    "rf_precheck": "report-only diagnostic (hil/echoear_rf_stream_precheck.py); not a precondition for the go",
+    "resume_after_clean_deferral": true,
+    "resume": {
+      "stages": [
+        "strict_voice_cat",
+        "quiet_offline",
+        "quiet_live",
+        "a6_echo_stress",
+        "a6_hot_stt"
+      ],
+      "not_applicable": {
+        "a6_analog_probe": "one arm: nothing to continue",
+        "item1": "no mid-run deferral point (its only eligibility check is the in-hold RF pre-gate before flashing)"
+      },
+      "rule": "item2.resumable_deferral + aggregate_quiet_live(resume=True) / aggregate_a6; at most runs (or arms) segments"
+    },
+    "sigint": "an interrupted acquisition is a final, collectible interrupted FAIL (exit_code 1), never a deferral",
+    "item1_s2": {
+      "gate": true,
+      "ratified": "decision 139a",
+      "pcm_queue_drops_max": 1,
+      "pcm_queue_drops_decision": "decision 139c: at most 1 per item1 session, declared before data; every other S2 counter stays 0",
+      "claim": "item1 claims no uplink frame dropped or held more than 40 ms after encoding; it does not claim the device send cadence and cannot see pre-encode stalls"
+    },
+    "trace_comparison": {
+      "function": "echoear_source_cadence.trace_configuration_comparison",
+      "baseline_trace_off": [
+        "/home/khkramer/src/evidence/echoear/aec-demo/step-10/requal-n1/smoke/strict_voice_cat/attempt-1",
+        "/home/khkramer/src/evidence/echoear/aec-demo/step-10/requal-n1/smoke/quiet_offline/attempt-1",
+        "/home/khkramer/src/evidence/echoear/aec-demo/step-10/requal-n1/smoke-r7/strict_voice_cat/attempt-1",
+        "/home/khkramer/src/evidence/echoear/aec-demo/step-10/requal-n1/smoke-r7/quiet_offline/attempt-1",
+        "/home/khkramer/src/evidence/echoear/aec-demo/step-10/requal-n1/smoke-r9/strict_voice_cat/attempt-1",
+        "/home/khkramer/src/evidence/echoear/aec-demo/step-10/requal-n1/smoke-r9/quiet_offline/attempt-1",
+        "/home/khkramer/src/evidence/echoear/aec-demo/step-10/requal-n1/smoke-r15/quiet_offline/attempt-2"
+      ],
+      "rule": "per stage, per counter, per-window deltas; complete matched inputs or insufficient_evidence; a negative result is \"not detected in these samples\"",
+      "declared": "before any r16/r17 trace-on data"
+    },
+    "supersedes": {
+      "zero_scored_only_deferrals": "Older prose (collector/plan/scope: \"only a deferral with no scored run or point is clean\"; \"a mid-population deferral is terminal\") is superseded: a clean deferral after scored originals is a continuation point (decision 138b).",
+      "d6_three_segment_limit": "The decision-134 D6 \"at most 3 segments\" limit is superseded: at most `runs` (or arms) segments, of which at most 2 end in a quiet_live setup failure.",
+      "link_tail_gate": "strict_gates.uplink_gate of the frozen r1 plan (link_tail gating) is superseded by S1/S2; link_tail is report-only."
+    }
+  },
+  "decision_139": {
+    "decided": "user 2026-10-27 ~21:55 (step-9-user-decisions-2026-10-19-b.md, decision 139 a, b and c)",
+    "a": "item1 S2 ratified as implemented (narrower claim; limitation stated in the record)",
+    "b": "excuse_firmware_backpressure=false",
+    "c": "item1_s2.pcm_queue_drops_max=1 per item1 session; every other S2 counter 0"
+  }
+}

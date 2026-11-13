@@ -1,0 +1,43 @@
+{
+ "source": "evidence/echoear/aec-demo/step-9/merge-9d-r2/aec-promotion-smoke-01/part-2 (excerpt: gate.json epochs, aec-serial.log STATE Ready/LIVENESS lines)",
+ "epochs": [
+  {
+   "id": "A",
+   "pre_connect_ns": 4438236989023004,
+   "first": {
+    "pc_id": "SmallWebRTCConnection#0-0fac7ccbe12140bca907af26dc18547d"
+   },
+   "disconnect": {
+    "send_lower_s": 4438253.226731411,
+    "sent_s": 4438253.22718392,
+    "done_s": 4438253.51904145,
+    "ok": true
+   }
+  },
+  {
+   "id": "B",
+   "pre_connect_ns": 4438253717201868,
+   "first": {
+    "pc_id": "SmallWebRTCConnection#1-0adb6529f53145bf94db78b57931f171"
+   },
+   "disconnect": {
+    "send_lower_s": 4438262.889305016,
+    "sent_s": 4438262.889408944,
+    "done_s": 4438263.157278343,
+    "ok": true
+   }
+  }
+ ],
+ "device_lines": [
+  "I (12452) dg-app: STATE Ready gen=1 desired=1 t=11108506",
+  "I (28826) dg-app: STATE Ready gen=3 desired=1 t=27482678"
+ ],
+ "of_record": {
+  "gate_outcome": "FAIL",
+  "liveness_logs": {
+   "passed": false,
+   "bot_alarm": true,
+   "device_missing_ping": false
+  }
+ }
+}

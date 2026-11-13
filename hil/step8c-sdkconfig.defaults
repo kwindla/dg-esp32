@@ -1,0 +1,2 @@
+# Diagnostic bench only; production does not collect full lwIP statistics.
+CONFIG_LWIP_STATS=y

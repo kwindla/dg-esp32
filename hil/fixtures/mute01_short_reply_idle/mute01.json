@@ -1,0 +1,1425 @@
+{
+"source": "evidence/echoear/aec-demo/step-9/mute-01 (excerpt): gate.json A-1 cell params, recorder rows of the A-1 window (rtvi/audio rows dropped), A-1 serial MIC_GATE/GATE lines, bot.log idle-cancel/discard/connect/assistant lines (project-id header lines excluded); the room recording is synthesized in the test",
+"cell": {
+"prompt": "france",
+"prompt_start_s": 4467046.212467804,
+"prompt_end_s": 4467048.258257146,
+"end_s": 4467052.067551726,
+"first_write_s": 4467048.839652187,
+"last_write_s": 4467049.280020441,
+"bot_stopped_s": 4467049.59958457,
+"start_interval_s": [
+4467045.588722995,
+4467045.639104665
+]
+},
+"of_record": {
+"outcome": "FAIL",
+"a1_status": "INCOMPLETE",
+"a1_cause": "reply shorter than the gate lead",
+"gate": {
+"interval_s": [
+4467049.339652187,
+4467049.280020441
+],
+"samples": 0
+}
+},
+"rows": [
+{
+"kind": "server-frame",
+"monotonic_ns": 4467047217447529,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "ProposedUserStartedSpeakingFrame",
+"frame_id": 181,
+"boundary": "flux",
+"direction": "DOWNSTREAM",
+"context_id": null
+},
+{
+"kind": "flux-frame",
+"monotonic_ns": 4467047217464531,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "ProposedUserStartedSpeakingFrame",
+"frame_id": 181,
+"direction": "DOWNSTREAM",
+"text": null,
+"vendor_result": null
+},
+{
+"kind": "server-frame",
+"monotonic_ns": 4467047217493426,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "ProposedUserStartedSpeakingFrame",
+"frame_id": 182,
+"boundary": "uplink",
+"direction": "UPSTREAM",
+"context_id": null
+},
+{
+"kind": "frame",
+"monotonic_ns": 4467047217515738,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "ProposedUserStartedSpeakingFrame",
+"frame_id": 181,
+"source": "DeepgramFluxSTTService",
+"direction": "DOWNSTREAM",
+"bot_active": false,
+"vad_start": false,
+"accepted_turn": false,
+"interruption": false,
+"observer_timestamp": 2812260745,
+"text": null,
+"message": null,
+"timing": "observer receipt; not source event time"
+},
+{
+"kind": "frame",
+"monotonic_ns": 4467047217527390,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "ProposedUserStartedSpeakingFrame",
+"frame_id": 182,
+"source": "DeepgramFluxSTTService",
+"direction": "UPSTREAM",
+"bot_active": false,
+"vad_start": false,
+"accepted_turn": false,
+"interruption": false,
+"observer_timestamp": 2812321410,
+"text": null,
+"message": null,
+"timing": "observer receipt; not source event time"
+},
+{
+"kind": "server-frame",
+"monotonic_ns": 4467047217666063,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "UserStartedSpeakingFrame",
+"frame_id": 184,
+"boundary": "flux",
+"direction": "UPSTREAM",
+"context_id": null
+},
+{
+"kind": "flux-frame",
+"monotonic_ns": 4467047217675711,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "UserStartedSpeakingFrame",
+"frame_id": 184,
+"direction": "UPSTREAM",
+"text": null,
+"vendor_result": null
+},
+{
+"kind": "frame",
+"monotonic_ns": 4467047217732148,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "UserStartedSpeakingFrame",
+"frame_id": 183,
+"source": "LLMUserAggregator",
+"direction": "DOWNSTREAM",
+"bot_active": false,
+"vad_start": false,
+"accepted_turn": true,
+"interruption": false,
+"observer_timestamp": 2812479981,
+"text": null,
+"message": null,
+"timing": "observer receipt; not source event time"
+},
+{
+"kind": "frame",
+"monotonic_ns": 4467047217739762,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "UserStartedSpeakingFrame",
+"frame_id": 184,
+"source": "LLMUserAggregator",
+"direction": "UPSTREAM",
+"bot_active": false,
+"vad_start": false,
+"accepted_turn": true,
+"interruption": false,
+"observer_timestamp": 2812492505,
+"text": null,
+"message": null,
+"timing": "observer receipt; not source event time"
+},
+{
+"kind": "server-frame",
+"monotonic_ns": 4467047217859710,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "UserStartedSpeakingFrame",
+"frame_id": 184,
+"boundary": "uplink",
+"direction": "UPSTREAM",
+"context_id": null
+},
+{
+"kind": "aggregator-user-turn-started",
+"monotonic_ns": 4467047217875099,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"strategy": "ExternalUserTurnStartStrategy"
+},
+{
+"kind": "server-frame",
+"monotonic_ns": 4467047217982643,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "UserStartedSpeakingFrame",
+"frame_id": 183,
+"boundary": "tts",
+"direction": "DOWNSTREAM",
+"context_id": null
+},
+{
+"kind": "server-frame",
+"monotonic_ns": 4467047218065029,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "UserStartedSpeakingFrame",
+"frame_id": 183,
+"boundary": "tts-written",
+"direction": "DOWNSTREAM",
+"context_id": null
+},
+{
+"kind": "server-frame",
+"monotonic_ns": 4467048264429449,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "TranscriptionFrame",
+"frame_id": 248,
+"boundary": "flux",
+"direction": "DOWNSTREAM",
+"context_id": null
+},
+{
+"kind": "flux-frame",
+"monotonic_ns": 4467048264443586,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "TranscriptionFrame",
+"frame_id": 248,
+"direction": "DOWNSTREAM",
+"text": "What is the capital of France?",
+"vendor_result": null
+},
+{
+"kind": "server-frame",
+"monotonic_ns": 4467048264470667,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "ProposedUserStoppedSpeakingFrame",
+"frame_id": 249,
+"boundary": "flux",
+"direction": "DOWNSTREAM",
+"context_id": null
+},
+{
+"kind": "flux-frame",
+"monotonic_ns": 4467048264475526,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "ProposedUserStoppedSpeakingFrame",
+"frame_id": 249,
+"direction": "DOWNSTREAM",
+"text": null,
+"vendor_result": null
+},
+{
+"kind": "server-frame",
+"monotonic_ns": 4467048264491517,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "ProposedUserStoppedSpeakingFrame",
+"frame_id": 250,
+"boundary": "uplink",
+"direction": "UPSTREAM",
+"context_id": null
+},
+{
+"kind": "frame",
+"monotonic_ns": 4467048264513849,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "TranscriptionFrame",
+"frame_id": 248,
+"source": "DeepgramFluxSTTService",
+"direction": "DOWNSTREAM",
+"bot_active": false,
+"vad_start": false,
+"accepted_turn": false,
+"interruption": false,
+"observer_timestamp": 3859253386,
+"text": "What is the capital of France?",
+"message": null,
+"timing": "observer receipt; not source event time"
+},
+{
+"kind": "frame",
+"monotonic_ns": 4467048264527525,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "ProposedUserStoppedSpeakingFrame",
+"frame_id": 249,
+"source": "DeepgramFluxSTTService",
+"direction": "DOWNSTREAM",
+"bot_active": false,
+"vad_start": false,
+"accepted_turn": false,
+"interruption": false,
+"observer_timestamp": 3859300365,
+"text": null,
+"message": null,
+"timing": "observer receipt; not source event time"
+},
+{
+"kind": "frame",
+"monotonic_ns": 4467048264537814,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "ProposedUserStoppedSpeakingFrame",
+"frame_id": 250,
+"source": "DeepgramFluxSTTService",
+"direction": "UPSTREAM",
+"bot_active": false,
+"vad_start": false,
+"accepted_turn": false,
+"interruption": false,
+"observer_timestamp": 3859321054,
+"text": null,
+"message": null,
+"timing": "observer receipt; not source event time"
+},
+{
+"kind": "server-frame",
+"monotonic_ns": 4467048264873911,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "UserStoppedSpeakingFrame",
+"frame_id": 254,
+"boundary": "flux",
+"direction": "UPSTREAM",
+"context_id": null
+},
+{
+"kind": "flux-frame",
+"monotonic_ns": 4467048264880744,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "UserStoppedSpeakingFrame",
+"frame_id": 254,
+"direction": "UPSTREAM",
+"text": null,
+"vendor_result": null
+},
+{
+"kind": "server-frame",
+"monotonic_ns": 4467048264931660,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "UserStoppedSpeakingFrame",
+"frame_id": 254,
+"boundary": "uplink",
+"direction": "UPSTREAM",
+"context_id": null
+},
+{
+"kind": "frame",
+"monotonic_ns": 4467048264964593,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "UserStoppedSpeakingFrame",
+"frame_id": 253,
+"source": "LLMUserAggregator",
+"direction": "DOWNSTREAM",
+"bot_active": false,
+"vad_start": false,
+"accepted_turn": false,
+"interruption": false,
+"observer_timestamp": 3859698640,
+"text": null,
+"message": null,
+"timing": "observer receipt; not source event time"
+},
+{
+"kind": "frame",
+"monotonic_ns": 4467048264971095,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "UserStoppedSpeakingFrame",
+"frame_id": 254,
+"source": "LLMUserAggregator",
+"direction": "UPSTREAM",
+"bot_active": false,
+"vad_start": false,
+"accepted_turn": false,
+"interruption": false,
+"observer_timestamp": 3859704390,
+"text": null,
+"message": null,
+"timing": "observer receipt; not source event time"
+},
+{
+"kind": "aggregator-user-turn-stopped",
+"monotonic_ns": 4467048265146107,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"text": "What is the capital of France?",
+"strategy": "ExternalUserTurnStopStrategy"
+},
+{
+"kind": "server-frame",
+"monotonic_ns": 4467048265293927,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "UserStoppedSpeakingFrame",
+"frame_id": 253,
+"boundary": "tts",
+"direction": "DOWNSTREAM",
+"context_id": null
+},
+{
+"kind": "frame",
+"monotonic_ns": 4467048285177276,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "LLMFullResponseStartFrame",
+"frame_id": 258,
+"source": "OpenAILLMService",
+"direction": "DOWNSTREAM",
+"bot_active": false,
+"vad_start": false,
+"accepted_turn": false,
+"interruption": false,
+"observer_timestamp": 3860179961,
+"text": null,
+"message": null,
+"timing": "observer receipt; not source event time"
+},
+{
+"kind": "server-frame",
+"monotonic_ns": 4467048285329454,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "UserStoppedSpeakingFrame",
+"frame_id": 253,
+"boundary": "tts-written",
+"direction": "DOWNSTREAM",
+"context_id": null
+},
+{
+"kind": "server-frame",
+"monotonic_ns": 4467048286776696,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "LLMFullResponseStartFrame",
+"frame_id": 258,
+"boundary": "tts",
+"direction": "DOWNSTREAM",
+"context_id": null
+},
+{
+"kind": "server-frame",
+"monotonic_ns": 4467048287655090,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "LLMFullResponseStartFrame",
+"frame_id": 258,
+"boundary": "tts-written",
+"direction": "DOWNSTREAM",
+"context_id": null
+},
+{
+"kind": "frame",
+"monotonic_ns": 4467048361537642,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "LLMTextFrame",
+"frame_id": 272,
+"source": "OpenAILLMService",
+"direction": "DOWNSTREAM",
+"bot_active": false,
+"vad_start": false,
+"accepted_turn": false,
+"interruption": false,
+"observer_timestamp": 3956249386,
+"text": "Paris",
+"message": null,
+"timing": "observer receipt; not source event time"
+},
+{
+"kind": "frame",
+"monotonic_ns": 4467048361562549,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "LLMTextFrame",
+"frame_id": 273,
+"source": "OpenAILLMService",
+"direction": "DOWNSTREAM",
+"bot_active": false,
+"vad_start": false,
+"accepted_turn": false,
+"interruption": false,
+"observer_timestamp": 3956336371,
+"text": ".",
+"message": null,
+"timing": "observer receipt; not source event time"
+},
+{
+"kind": "frame",
+"monotonic_ns": 4467048364309012,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "LLMFullResponseEndFrame",
+"frame_id": 279,
+"source": "OpenAILLMService",
+"direction": "DOWNSTREAM",
+"bot_active": false,
+"vad_start": false,
+"accepted_turn": false,
+"interruption": false,
+"observer_timestamp": 3959119894,
+"text": null,
+"message": null,
+"timing": "observer receipt; not source event time"
+},
+{
+"kind": "server-frame",
+"monotonic_ns": 4467048365075805,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "TTSStartedFrame",
+"frame_id": 283,
+"boundary": "tts",
+"direction": "DOWNSTREAM",
+"context_id": "3156b1d5-e7ef-4a59-8b70-231a94b10171"
+},
+{
+"kind": "tts-leading-trim-start",
+"monotonic_ns": 4467048365095833,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"enabled": false,
+"context_id": "3156b1d5-e7ef-4a59-8b70-231a94b10171"
+},
+{
+"kind": "frame",
+"monotonic_ns": 4467048365148132,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "TTSStartedFrame",
+"frame_id": 283,
+"source": "ProactiveConnectionTTS",
+"direction": "DOWNSTREAM",
+"bot_active": false,
+"vad_start": false,
+"accepted_turn": false,
+"interruption": false,
+"observer_timestamp": 3959906665,
+"text": null,
+"message": null,
+"timing": "observer receipt; not source event time"
+},
+{
+"kind": "server-frame",
+"monotonic_ns": 4467048365448150,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "TTSStartedFrame",
+"frame_id": 283,
+"boundary": "tts-written",
+"direction": "DOWNSTREAM",
+"context_id": "3156b1d5-e7ef-4a59-8b70-231a94b10171"
+},
+{
+"kind": "server-frame",
+"monotonic_ns": 4467048474988857,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "BotStartedSpeakingFrame",
+"frame_id": 295,
+"boundary": "tts-written",
+"direction": "DOWNSTREAM",
+"context_id": null
+},
+{
+"kind": "server-frame",
+"monotonic_ns": 4467048475052938,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "BotStartedSpeakingFrame",
+"frame_id": 296,
+"boundary": "tts",
+"direction": "UPSTREAM",
+"context_id": null
+},
+{
+"kind": "frame",
+"monotonic_ns": 4467048475151014,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "BotStartedSpeakingFrame",
+"frame_id": 295,
+"source": "SmallWebRTCOutputTransport",
+"direction": "DOWNSTREAM",
+"bot_active": true,
+"vad_start": false,
+"accepted_turn": false,
+"interruption": false,
+"observer_timestamp": 4069816170,
+"text": null,
+"message": null,
+"timing": "observer receipt; not source event time"
+},
+{
+"kind": "frame",
+"monotonic_ns": 4467048475164189,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "BotStartedSpeakingFrame",
+"frame_id": 296,
+"source": "SmallWebRTCOutputTransport",
+"direction": "UPSTREAM",
+"bot_active": true,
+"vad_start": false,
+"accepted_turn": false,
+"interruption": false,
+"observer_timestamp": 4069863530,
+"text": null,
+"message": null,
+"timing": "observer receipt; not source event time"
+},
+{
+"kind": "server-frame",
+"monotonic_ns": 4467048475774275,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "BotStartedSpeakingFrame",
+"frame_id": 296,
+"boundary": "flux",
+"direction": "UPSTREAM",
+"context_id": null
+},
+{
+"kind": "flux-frame",
+"monotonic_ns": 4467048475782440,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "BotStartedSpeakingFrame",
+"frame_id": 296,
+"direction": "UPSTREAM",
+"text": null,
+"vendor_result": null
+},
+{
+"kind": "server-frame",
+"monotonic_ns": 4467048475975356,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "BotStartedSpeakingFrame",
+"frame_id": 296,
+"boundary": "uplink",
+"direction": "UPSTREAM",
+"context_id": null
+},
+{
+"kind": "tts-transport-write",
+"monotonic_ns": 4467048509633030,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame_id": 294,
+"non_silent": false,
+"context_id": "3156b1d5-e7ef-4a59-8b70-231a94b10171",
+"samples": 640,
+"drop": false,
+"anchor_boundary": "successful transport write observation",
+"rule": "20ms PCM mean-square > 1024 LSB^2"
+},
+{
+"kind": "tts-transport-write",
+"monotonic_ns": 4467048559411506,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame_id": 311,
+"non_silent": false,
+"context_id": "3156b1d5-e7ef-4a59-8b70-231a94b10171",
+"samples": 640,
+"drop": false,
+"anchor_boundary": "successful transport write observation",
+"rule": "20ms PCM mean-square > 1024 LSB^2"
+},
+{
+"kind": "tts-transport-write",
+"monotonic_ns": 4467048600151649,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame_id": 312,
+"non_silent": false,
+"context_id": "3156b1d5-e7ef-4a59-8b70-231a94b10171",
+"samples": 640,
+"drop": false,
+"anchor_boundary": "successful transport write observation",
+"rule": "20ms PCM mean-square > 1024 LSB^2"
+},
+{
+"kind": "tts-transport-write",
+"monotonic_ns": 4467048639759848,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame_id": 315,
+"non_silent": false,
+"context_id": "3156b1d5-e7ef-4a59-8b70-231a94b10171",
+"samples": 640,
+"drop": false,
+"anchor_boundary": "successful transport write observation",
+"rule": "20ms PCM mean-square > 1024 LSB^2"
+},
+{
+"kind": "tts-transport-write",
+"monotonic_ns": 4467048679998300,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame_id": 316,
+"non_silent": false,
+"context_id": "3156b1d5-e7ef-4a59-8b70-231a94b10171",
+"samples": 640,
+"drop": false,
+"anchor_boundary": "successful transport write observation",
+"rule": "20ms PCM mean-square > 1024 LSB^2"
+},
+{
+"kind": "tts-transport-write",
+"monotonic_ns": 4467048718414109,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame_id": 321,
+"non_silent": false,
+"context_id": "3156b1d5-e7ef-4a59-8b70-231a94b10171",
+"samples": 640,
+"drop": false,
+"anchor_boundary": "successful transport write observation",
+"rule": "20ms PCM mean-square > 1024 LSB^2"
+},
+{
+"kind": "tts-transport-write",
+"monotonic_ns": 4467048760174916,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame_id": 322,
+"non_silent": false,
+"context_id": "3156b1d5-e7ef-4a59-8b70-231a94b10171",
+"samples": 640,
+"drop": false,
+"anchor_boundary": "successful transport write observation",
+"rule": "20ms PCM mean-square > 1024 LSB^2"
+},
+{
+"kind": "tts-transport-write",
+"monotonic_ns": 4467048800092089,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame_id": 326,
+"non_silent": false,
+"context_id": "3156b1d5-e7ef-4a59-8b70-231a94b10171",
+"samples": 640,
+"drop": false,
+"anchor_boundary": "successful transport write observation",
+"rule": "20ms PCM mean-square > 1024 LSB^2"
+},
+{
+"kind": "tts-transport-write",
+"monotonic_ns": 4467048839652187,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame_id": 327,
+"non_silent": true,
+"context_id": "3156b1d5-e7ef-4a59-8b70-231a94b10171",
+"samples": 640,
+"drop": false,
+"anchor_boundary": "successful transport write observation",
+"rule": "20ms PCM mean-square > 1024 LSB^2"
+},
+{
+"kind": "tts-transport-write",
+"monotonic_ns": 4467048878261442,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame_id": 335,
+"non_silent": true,
+"context_id": "3156b1d5-e7ef-4a59-8b70-231a94b10171",
+"samples": 640,
+"drop": false,
+"anchor_boundary": "successful transport write observation",
+"rule": "20ms PCM mean-square > 1024 LSB^2"
+},
+{
+"kind": "tts-transport-write",
+"monotonic_ns": 4467048920063086,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame_id": 336,
+"non_silent": true,
+"context_id": "3156b1d5-e7ef-4a59-8b70-231a94b10171",
+"samples": 640,
+"drop": false,
+"anchor_boundary": "successful transport write observation",
+"rule": "20ms PCM mean-square > 1024 LSB^2"
+},
+{
+"kind": "tts-transport-write",
+"monotonic_ns": 4467048959243334,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame_id": 341,
+"non_silent": true,
+"context_id": "3156b1d5-e7ef-4a59-8b70-231a94b10171",
+"samples": 640,
+"drop": false,
+"anchor_boundary": "successful transport write observation",
+"rule": "20ms PCM mean-square > 1024 LSB^2"
+},
+{
+"kind": "tts-transport-write",
+"monotonic_ns": 4467048999358082,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame_id": 342,
+"non_silent": true,
+"context_id": "3156b1d5-e7ef-4a59-8b70-231a94b10171",
+"samples": 640,
+"drop": false,
+"anchor_boundary": "successful transport write observation",
+"rule": "20ms PCM mean-square > 1024 LSB^2"
+},
+{
+"kind": "tts-transport-write",
+"monotonic_ns": 4467049039331201,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame_id": 346,
+"non_silent": true,
+"context_id": "3156b1d5-e7ef-4a59-8b70-231a94b10171",
+"samples": 640,
+"drop": false,
+"anchor_boundary": "successful transport write observation",
+"rule": "20ms PCM mean-square > 1024 LSB^2"
+},
+{
+"kind": "tts-transport-write",
+"monotonic_ns": 4467049079313318,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame_id": 347,
+"non_silent": true,
+"context_id": "3156b1d5-e7ef-4a59-8b70-231a94b10171",
+"samples": 640,
+"drop": false,
+"anchor_boundary": "successful transport write observation",
+"rule": "20ms PCM mean-square > 1024 LSB^2"
+},
+{
+"kind": "tts-transport-write",
+"monotonic_ns": 4467049120074290,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame_id": 355,
+"non_silent": true,
+"context_id": "3156b1d5-e7ef-4a59-8b70-231a94b10171",
+"samples": 640,
+"drop": false,
+"anchor_boundary": "successful transport write observation",
+"rule": "20ms PCM mean-square > 1024 LSB^2"
+},
+{
+"kind": "server-frame",
+"monotonic_ns": 4467049132603687,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "TTSStoppedFrame",
+"frame_id": 388,
+"boundary": "tts",
+"direction": "DOWNSTREAM",
+"context_id": "3156b1d5-e7ef-4a59-8b70-231a94b10171"
+},
+{
+"kind": "server-frame",
+"monotonic_ns": 4467049132681605,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "LLMFullResponseEndFrame",
+"frame_id": 279,
+"boundary": "tts",
+"direction": "DOWNSTREAM",
+"context_id": null
+},
+{
+"kind": "frame",
+"monotonic_ns": 4467049132707424,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "TTSStoppedFrame",
+"frame_id": 388,
+"source": "ProactiveConnectionTTS",
+"direction": "DOWNSTREAM",
+"bot_active": true,
+"vad_start": false,
+"accepted_turn": false,
+"interruption": false,
+"observer_timestamp": 4727429288,
+"text": null,
+"message": null,
+"timing": "observer receipt; not source event time"
+},
+{
+"kind": "tts-transport-write",
+"monotonic_ns": 4467049158890368,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame_id": 356,
+"non_silent": true,
+"context_id": "3156b1d5-e7ef-4a59-8b70-231a94b10171",
+"samples": 640,
+"drop": false,
+"anchor_boundary": "successful transport write observation",
+"rule": "20ms PCM mean-square > 1024 LSB^2"
+},
+{
+"kind": "tts-transport-write",
+"monotonic_ns": 4467049199871728,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame_id": 360,
+"non_silent": true,
+"context_id": "3156b1d5-e7ef-4a59-8b70-231a94b10171",
+"samples": 640,
+"drop": false,
+"anchor_boundary": "successful transport write observation",
+"rule": "20ms PCM mean-square > 1024 LSB^2"
+},
+{
+"kind": "tts-transport-write",
+"monotonic_ns": 4467049239608099,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame_id": 361,
+"non_silent": true,
+"context_id": "3156b1d5-e7ef-4a59-8b70-231a94b10171",
+"samples": 640,
+"drop": false,
+"anchor_boundary": "successful transport write observation",
+"rule": "20ms PCM mean-square > 1024 LSB^2"
+},
+{
+"kind": "tts-transport-write",
+"monotonic_ns": 4467049280020441,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame_id": 368,
+"non_silent": true,
+"context_id": "3156b1d5-e7ef-4a59-8b70-231a94b10171",
+"samples": 640,
+"drop": false,
+"anchor_boundary": "successful transport write observation",
+"rule": "20ms PCM mean-square > 1024 LSB^2"
+},
+{
+"kind": "tts-transport-write",
+"monotonic_ns": 4467049319568785,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame_id": 369,
+"non_silent": false,
+"context_id": "3156b1d5-e7ef-4a59-8b70-231a94b10171",
+"samples": 640,
+"drop": false,
+"anchor_boundary": "successful transport write observation",
+"rule": "20ms PCM mean-square > 1024 LSB^2"
+},
+{
+"kind": "tts-transport-write",
+"monotonic_ns": 4467049359767943,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame_id": 372,
+"non_silent": false,
+"context_id": "3156b1d5-e7ef-4a59-8b70-231a94b10171",
+"samples": 640,
+"drop": false,
+"anchor_boundary": "successful transport write observation",
+"rule": "20ms PCM mean-square > 1024 LSB^2"
+},
+{
+"kind": "tts-transport-write",
+"monotonic_ns": 4467049400132244,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame_id": 373,
+"non_silent": false,
+"context_id": "3156b1d5-e7ef-4a59-8b70-231a94b10171",
+"samples": 640,
+"drop": false,
+"anchor_boundary": "successful transport write observation",
+"rule": "20ms PCM mean-square > 1024 LSB^2"
+},
+{
+"kind": "tts-transport-write",
+"monotonic_ns": 4467049439362446,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame_id": 378,
+"non_silent": false,
+"context_id": "3156b1d5-e7ef-4a59-8b70-231a94b10171",
+"samples": 640,
+"drop": false,
+"anchor_boundary": "successful transport write observation",
+"rule": "20ms PCM mean-square > 1024 LSB^2"
+},
+{
+"kind": "tts-transport-write",
+"monotonic_ns": 4467049480079365,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame_id": 379,
+"non_silent": false,
+"context_id": "3156b1d5-e7ef-4a59-8b70-231a94b10171",
+"samples": 640,
+"drop": false,
+"anchor_boundary": "successful transport write observation",
+"rule": "20ms PCM mean-square > 1024 LSB^2"
+},
+{
+"kind": "tts-transport-write",
+"monotonic_ns": 4467049519295040,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame_id": 384,
+"non_silent": false,
+"context_id": "3156b1d5-e7ef-4a59-8b70-231a94b10171",
+"samples": 640,
+"drop": false,
+"anchor_boundary": "successful transport write observation",
+"rule": "20ms PCM mean-square > 1024 LSB^2"
+},
+{
+"kind": "tts-transport-write",
+"monotonic_ns": 4467049559888354,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame_id": 385,
+"non_silent": false,
+"context_id": "3156b1d5-e7ef-4a59-8b70-231a94b10171",
+"samples": 640,
+"drop": false,
+"anchor_boundary": "successful transport write observation",
+"rule": "20ms PCM mean-square > 1024 LSB^2"
+},
+{
+"kind": "tts-transport-write",
+"monotonic_ns": 4467049599407895,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame_id": 389,
+"non_silent": false,
+"context_id": "3156b1d5-e7ef-4a59-8b70-231a94b10171",
+"samples": 640,
+"drop": false,
+"anchor_boundary": "successful transport write observation",
+"rule": "20ms PCM mean-square > 1024 LSB^2"
+},
+{
+"kind": "server-frame",
+"monotonic_ns": 4467049599584570,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "BotStoppedSpeakingFrame",
+"frame_id": 426,
+"boundary": "tts-written",
+"direction": "DOWNSTREAM",
+"context_id": null
+},
+{
+"kind": "server-frame",
+"monotonic_ns": 4467049599619125,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "BotStoppedSpeakingFrame",
+"frame_id": 427,
+"boundary": "tts",
+"direction": "UPSTREAM",
+"context_id": null
+},
+{
+"kind": "server-frame",
+"monotonic_ns": 4467049599643732,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "TTSStoppedFrame",
+"frame_id": 388,
+"boundary": "tts-written",
+"direction": "DOWNSTREAM",
+"context_id": "3156b1d5-e7ef-4a59-8b70-231a94b10171"
+},
+{
+"kind": "server-frame",
+"monotonic_ns": 4467049599668188,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "LLMFullResponseEndFrame",
+"frame_id": 279,
+"boundary": "tts-written",
+"direction": "DOWNSTREAM",
+"context_id": null
+},
+{
+"kind": "frame",
+"monotonic_ns": 4467049599691312,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "BotStoppedSpeakingFrame",
+"frame_id": 426,
+"source": "SmallWebRTCOutputTransport",
+"direction": "DOWNSTREAM",
+"bot_active": false,
+"vad_start": false,
+"accepted_turn": false,
+"interruption": false,
+"observer_timestamp": 5194409008,
+"text": null,
+"message": null,
+"timing": "observer receipt; not source event time"
+},
+{
+"kind": "frame",
+"monotonic_ns": 4467049599701451,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "BotStoppedSpeakingFrame",
+"frame_id": 427,
+"source": "SmallWebRTCOutputTransport",
+"direction": "UPSTREAM",
+"bot_active": false,
+"vad_start": false,
+"accepted_turn": false,
+"interruption": false,
+"observer_timestamp": 5194438874,
+"text": null,
+"message": null,
+"timing": "observer receipt; not source event time"
+},
+{
+"kind": "aggregator-assistant-turn-stopped",
+"monotonic_ns": 4467049600224322,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"text": "Paris."
+},
+{
+"kind": "server-frame",
+"monotonic_ns": 4467049600289926,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "BotStoppedSpeakingFrame",
+"frame_id": 427,
+"boundary": "flux",
+"direction": "UPSTREAM",
+"context_id": null
+},
+{
+"kind": "flux-frame",
+"monotonic_ns": 4467049600295677,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "BotStoppedSpeakingFrame",
+"frame_id": 427,
+"direction": "UPSTREAM",
+"text": null,
+"vendor_result": null
+},
+{
+"kind": "server-frame",
+"monotonic_ns": 4467049600433809,
+"pc_id": "SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"frame": "BotStoppedSpeakingFrame",
+"frame_id": 427,
+"boundary": "uplink",
+"direction": "UPSTREAM",
+"context_id": null
+}
+],
+"serial_lines": [
+[
+758,
+4467045.677197118,
+"MIC_GATE t=10714158 closed=0 pre=-58.8 post=-58.8"
+],
+[
+761,
+4467045.787833399,
+"MIC_GATE t=10827980 closed=0 pre=-59.7 post=-59.7"
+],
+[
+763,
+4467045.868733245,
+"MIC_GATE t=10909068 closed=0 pre=-60.4 post=-60.4"
+],
+[
+766,
+4467045.983242754,
+"MIC_GATE t=11023567 closed=0 pre=-59.9 post=-59.9"
+],
+[
+768,
+4467046.081776307,
+"MIC_GATE t=11119072 closed=0 pre=-60.2 post=-60.2"
+],
+[
+771,
+4467046.175274991,
+"MIC_GATE t=11215621 closed=0 pre=-60.4 post=-60.4"
+],
+[
+773,
+4467046.278223418,
+"MIC_GATE t=11314065 closed=0 pre=-59.2 post=-59.2"
+],
+[
+776,
+4467046.381835512,
+"MIC_GATE t=11419078 closed=0 pre=-59.1 post=-59.1"
+],
+[
+778,
+4467046.468830575,
+"MIC_GATE t=11509065 closed=0 pre=-60.4 post=-60.4"
+],
+[
+781,
+4467046.576796057,
+"MIC_GATE t=11617013 closed=0 pre=-59.2 post=-59.2"
+],
+[
+784,
+4467046.687859999,
+"MIC_GATE t=11727992 closed=0 pre=-60.6 post=-60.6"
+],
+[
+786,
+4467046.76882083,
+"MIC_GATE t=11809073 closed=0 pre=-29.2 post=-29.2"
+],
+[
+789,
+4467046.883770584,
+"MIC_GATE t=11923635 closed=0 pre=-48.0 post=-48.0"
+],
+[
+791,
+4467046.982258671,
+"MIC_GATE t=12019103 closed=0 pre=-32.9 post=-32.9"
+],
+[
+794,
+4467047.068797109,
+"MIC_GATE t=12109073 closed=0 pre=-45.6 post=-45.6"
+],
+[
+796,
+4467047.17684155,
+"MIC_GATE t=12214064 closed=0 pre=-33.2 post=-33.2"
+],
+[
+800,
+4467047.281814613,
+"MIC_GATE t=12319072 closed=0 pre=-35.9 post=-35.9"
+],
+[
+803,
+4467047.375294321,
+"MIC_GATE t=12415535 closed=0 pre=-33.4 post=-33.4"
+],
+[
+805,
+4467047.476840091,
+"MIC_GATE t=12514090 closed=0 pre=-54.5 post=-54.5"
+],
+[
+808,
+4467047.58788106,
+"MIC_GATE t=12627956 closed=0 pre=-57.4 post=-57.4"
+],
+[
+810,
+4467047.669244594,
+"MIC_GATE t=12709159 closed=0 pre=-41.3 post=-41.3"
+],
+[
+813,
+4467047.78286544,
+"MIC_GATE t=12823257 closed=0 pre=-44.8 post=-44.8"
+],
+[
+815,
+4467047.881871208,
+"MIC_GATE t=12919081 closed=0 pre=-52.5 post=-52.5"
+],
+[
+818,
+4467047.96882355,
+"MIC_GATE t=13009081 closed=0 pre=-50.2 post=-50.2"
+],
+[
+820,
+4467048.07684622,
+"MIC_GATE t=13116924 closed=0 pre=-59.2 post=-59.2"
+],
+[
+823,
+4467048.181883184,
+"MIC_GATE t=13221800 closed=0 pre=-61.6 post=-61.6"
+],
+[
+826,
+4467048.27485497,
+"MIC_GATE t=13315243 closed=0 pre=-58.9 post=-58.9"
+],
+[
+835,
+4467048.380914762,
+"MIC_GATE t=13414139 closed=0 pre=-60.2 post=-60.2"
+],
+[
+841,
+4467048.494915288,
+"MIC_GATE t=13528837 closed=0 pre=-62.7 post=-62.7"
+],
+[
+843,
+4467048.508794181,
+"GATE closed t=13549088 source_lower_us=0 source_valid=0"
+],
+[
+850,
+4467048.568879935,
+"MIC_GATE t=13609073 closed=1 pre=-61.2 post=-120.0"
+],
+[
+853,
+4467048.678858,
+"MIC_GATE t=13718538 closed=1 pre=-59.5 post=-120.0"
+],
+[
+855,
+4467048.782864952,
+"MIC_GATE t=13819069 closed=1 pre=-58.5 post=-120.0"
+],
+[
+858,
+4467048.868796541,
+"MIC_GATE t=13909067 closed=1 pre=-59.2 post=-120.0"
+],
+[
+861,
+4467048.98390749,
+"MIC_GATE t=14024340 closed=1 pre=-60.2 post=-120.0"
+],
+[
+863,
+4467049.08284558,
+"MIC_GATE t=14119074 closed=1 pre=-51.5 post=-120.0"
+],
+[
+867,
+4467049.175802067,
+"MIC_GATE t=14215621 closed=1 pre=-26.5 post=-120.0"
+],
+[
+869,
+4467049.278302616,
+"MIC_GATE t=14318352 closed=1 pre=-28.3 post=-120.0"
+],
+[
+872,
+4467049.388342568,
+"MIC_GATE t=14428582 closed=1 pre=-55.3 post=-120.0"
+],
+[
+874,
+4467049.468855912,
+"MIC_GATE t=14509070 closed=1 pre=-58.9 post=-120.0"
+],
+[
+877,
+4467049.577846857,
+"MIC_GATE t=14614143 closed=1 pre=-59.9 post=-120.0"
+],
+[
+881,
+4467049.682302991,
+"MIC_GATE t=14719155 closed=1 pre=-60.2 post=-120.0"
+],
+[
+883,
+4467049.703313356,
+"GATE open t=14743911 source_lower_us=0 source_valid=0"
+],
+[
+885,
+4467049.768818015,
+"MIC_GATE t=14809059 closed=0 pre=-62.4 post=-62.4"
+],
+[
+888,
+4467049.882937045,
+"MIC_GATE t=14923055 closed=0 pre=-60.5 post=-60.5"
+],
+[
+890,
+4467049.981905342,
+"MIC_GATE t=15019073 closed=0 pre=-60.5 post=-60.5"
+],
+[
+893,
+4467050.075241619,
+"MIC_GATE t=15115521 closed=0 pre=-60.5 post=-60.5"
+],
+[
+895,
+4467050.176895084,
+"MIC_GATE t=15216922 closed=0 pre=-59.6 post=-59.6"
+],
+[
+898,
+4467050.281918332,
+"MIC_GATE t=15319074 closed=0 pre=-57.9 post=-57.9"
+],
+[
+900,
+4467050.368841118,
+"MIC_GATE t=15409079 closed=0 pre=-56.4 post=-56.4"
+],
+[
+903,
+4467050.477310415,
+"MIC_GATE t=15514144 closed=0 pre=-58.3 post=-58.3"
+],
+[
+906,
+4467050.587405763,
+"MIC_GATE t=15627883 closed=0 pre=-58.7 post=-58.7"
+],
+[
+908,
+4467050.668858517,
+"MIC_GATE t=15709170 closed=0 pre=-58.2 post=-58.2"
+],
+[
+911,
+4467050.783361254,
+"MIC_GATE t=15823700 closed=0 pre=-59.9 post=-59.9"
+],
+[
+913,
+4467050.881913954,
+"MIC_GATE t=15919072 closed=0 pre=-61.5 post=-61.5"
+],
+[
+916,
+4467050.976933049,
+"MIC_GATE t=16015378 closed=0 pre=-61.5 post=-61.5"
+],
+[
+918,
+4467051.076918513,
+"MIC_GATE t=16117071 closed=0 pre=-61.6 post=-61.6"
+],
+[
+921,
+4467051.181920231,
+"MIC_GATE t=16219066 closed=0 pre=-60.7 post=-60.7"
+],
+[
+923,
+4467051.268902791,
+"MIC_GATE t=16309075 closed=0 pre=-60.5 post=-60.5"
+],
+[
+926,
+4467051.38005485,
+"MIC_GATE t=16414066 closed=0 pre=-60.1 post=-60.1"
+],
+[
+929,
+4467051.48741177,
+"MIC_GATE t=16527924 closed=0 pre=-58.6 post=-58.6"
+],
+[
+931,
+4467051.568888439,
+"MIC_GATE t=16609065 closed=0 pre=-59.3 post=-59.3"
+],
+[
+934,
+4467051.682955031,
+"MIC_GATE t=16723066 closed=0 pre=-61.8 post=-61.8"
+],
+[
+936,
+4467051.781941693,
+"MIC_GATE t=16821712 closed=0 pre=-61.1 post=-61.1"
+],
+[
+939,
+4467051.868889607,
+"MIC_GATE t=16909144 closed=0 pre=-60.2 post=-60.2"
+],
+[
+941,
+4467051.977927772,
+"MIC_GATE t=17014065 closed=0 pre=-59.5 post=-59.5"
+],
+[
+944,
+4467052.081918084,
+"MIC_GATE t=17119072 closed=0 pre=-61.1 post=-61.1"
+]
+],
+"bot_lines": [
+"2026-10-25 23:02:34.798 | INFO     | __main__:on_client_connected:324 - Client connected; waiting for the user to speak first",
+"2026-10-25 23:02:39.188 | INFO     | __main__:on_assistant_turn_stopped:345 - Transcript: assistant: Paris.",
+"2026-10-25 23:07:39.149 | WARNING  | pipecat.pipeline.worker:_idle_timeout_detected:1615 - Idle timeout detected.",
+"2026-10-25 23:07:39.149 | WARNING  | pipecat.pipeline.worker:_idle_timeout_detected:1620 - Idle pipeline detected, cancelling pipeline worker...",
+"2026-10-25 23:07:39.149 | WARNING  | pipecat.pipeline.worker:_idle_timeout_detected:1623 - ...and cancelling the runner.",
+"2026-10-25 23:07:39.149 | DEBUG    | pipecat.pipeline.worker:_wait_for_pipeline_end:1228 - PipelineWorker#0: Closing. Waiting for CancelFrame#0(reason: idle timeout) to reach the end of the pipeline...",
+"2026-10-25 23:07:39.149 | DEBUG    | pipecat.workers.runner:cancel:360 - WorkerRunner 'runner-566c24c7': cancelling (reason=idle timeout)",
+"2026-10-25 23:07:39.165 | INFO     | pipecat.transports.smallwebrtc.request_handler:handle_disconnected:212 - Discarding peer connection for pc_id: SmallWebRTCConnection#0-a0a617ce844443f4afc9f569b506b3b9",
+"2026-10-25 23:07:39.165 | DEBUG    | pipecat.pipeline.worker:wait_for_cancel:1219 - PipelineWorker#0: CancelFrame#0(reason: idle timeout) reached the end of the pipeline.",
+"2026-10-25 23:07:41.274 | INFO     | __main__:on_client_connected:324 - Client connected; waiting for the user to speak first",
+"2026-10-25 23:12:37.855 | INFO     | pipecat.transports.smallwebrtc.request_handler:handle_disconnected:212 - Discarding peer connection for pc_id: SmallWebRTCConnection#1-2cbe0ea539f246ed9cd66c69c21dd214"
+]
+}

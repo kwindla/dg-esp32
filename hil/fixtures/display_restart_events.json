@@ -1,0 +1,50 @@
+{
+  "source": "step-13b/contention/bot/events.jsonl",
+  "zero_based_indices": [
+    1499,
+    1519,
+    1520,
+    1523
+  ],
+  "events": [
+    {
+      "event": "display-sent",
+      "pc_id": "SmallWebRTCConnection#0-50acc06bdaab4e1096020d2938f0466f",
+      "packet": {
+        "d": {
+          "epoch": 422078877468683,
+          "seq": 92,
+          "id": "p4-contention-load"
+        }
+      }
+    },
+    {
+      "event": "display-ready",
+      "pc_id": "SmallWebRTCConnection#1-42450662da9e4a22a41ecb010a187223",
+      "epoch": 422078877468684,
+      "next_seq": 1
+    },
+    {
+      "event": "display-sent",
+      "pc_id": "SmallWebRTCConnection#1-42450662da9e4a22a41ecb010a187223",
+      "packet": {
+        "d": {
+          "epoch": 422078877468684,
+          "seq": 1,
+          "id": "p4-contention-load"
+        }
+      }
+    },
+    {
+      "event": "display-result",
+      "pc_id": "SmallWebRTCConnection#1-42450662da9e4a22a41ecb010a187223",
+      "result": {
+        "epoch": 422078877468684,
+        "seq": 1,
+        "id": "p4-contention-load",
+        "accepted": true,
+        "parse_failed": false
+      }
+    }
+  ]
+}

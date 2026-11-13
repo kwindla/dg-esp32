@@ -1,0 +1,67 @@
+{
+  "source": "bench-2026-10-31/runs/smokeA-demo/turn-05.json",
+  "source_sha256": "a556523f4b63c6af6e4c0758360082ca24f4f5f0f58d08bd8e3f54cb44a2d495",
+  "sanitization": "Relevant turn and shutdown rows only; peer ID replaced; monotonic times rebased preserving deltas.",
+  "events": [
+    {
+      "kind": "frame",
+      "frame": "UserStartedSpeakingFrame",
+      "direction": "DOWNSTREAM",
+      "bot_active": false,
+      "text": null,
+      "pc_id": "peer-turn-five",
+      "monotonic_ns": 1
+    },
+    {
+      "kind": "aggregator-user-turn-stopped",
+      "text": "Please count from one to twenty slowly.",
+      "pc_id": "peer-turn-five",
+      "monotonic_ns": 2260423006
+    },
+    {
+      "kind": "frame",
+      "frame": "BotStartedSpeakingFrame",
+      "direction": "DOWNSTREAM",
+      "bot_active": true,
+      "text": null,
+      "pc_id": "peer-turn-five",
+      "monotonic_ns": 2515588794
+    },
+    {
+      "kind": "frame",
+      "frame": "BotStoppedSpeakingFrame",
+      "direction": "DOWNSTREAM",
+      "bot_active": false,
+      "text": null,
+      "pc_id": "peer-turn-five",
+      "monotonic_ns": 12370536113
+    },
+    {
+      "kind": "aggregator-assistant-turn-stopped",
+      "text": "One, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen, eighteen, nineteen, twenty.",
+      "pc_id": "peer-turn-five",
+      "monotonic_ns": 12370998000
+    },
+    {
+      "kind": "frame",
+      "frame": "CancelFrame",
+      "direction": "DOWNSTREAM",
+      "bot_active": false,
+      "text": null,
+      "pc_id": "peer-turn-five",
+      "monotonic_ns": 13620430250
+    },
+    {
+      "kind": "server-frame",
+      "frame": "CancelFrame",
+      "direction": "DOWNSTREAM",
+      "pc_id": "peer-turn-five",
+      "monotonic_ns": 13620657832
+    },
+    {
+      "kind": "session-end",
+      "pc_id": "peer-turn-five",
+      "monotonic_ns": 13638557016
+    }
+  ]
+}

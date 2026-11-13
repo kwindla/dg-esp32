@@ -1,0 +1,12 @@
+cmake_minimum_required(VERSION 3.22)
+if(EXISTS "${CMAKE_CURRENT_LIST_DIR}/sdkconfig")
+    message(FATAL_ERROR "Stale root sdkconfig exists; only -DSDKCONFIG=<build>/sdkconfig is supported")
+endif()
+if(NOT DEFINED SDKCONFIG OR NOT "${SDKCONFIG}" STREQUAL "${CMAKE_BINARY_DIR}/sdkconfig")
+    message(FATAL_ERROR "Only -DSDKCONFIG=<build>/sdkconfig builds are supported")
+endif()
+# Local credentials are consumed by Kconfig, never inspected by probe tooling.
+set(SDKCONFIG_DEFAULTS "${CMAKE_CURRENT_LIST_DIR}/sdkconfig.defaults;${CMAKE_CURRENT_LIST_DIR}/../../sdkconfig.local")
+include($ENV{IDF_PATH}/tools/cmake/project.cmake)
+idf_build_set_property(MINIMAL_BUILD ON)
+project(p4_net)

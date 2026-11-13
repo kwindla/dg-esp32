@@ -1,0 +1,204 @@
+{
+  "schema": 1,
+  "name": "EchoEar overnight item2 requalification",
+  "status": "predeclared-awaiting-final-master-ELF",
+  "execution_authorized": false,
+  "final_master_commit": null,
+  "final_elf_sha256": null,
+  "release_requirements": [
+    "Claude explicitly announces final master commit and ELF",
+    "restart merge review accepted",
+    "A drift/late-frame diagnosis outcome recorded; no exemptions inferred",
+    "one coordinator-frozen ELF for every stage; AEC off verified",
+    "fixture/budget/bot/harness hashes frozen before first scored prompt",
+    "one exact A INTEGRATION CANDIDATE SHA completes combined persisted boot + 3 no-console turns + 3 injected reconnects including ignored Connecting tap + bounded restart, with strict transport/heap gates",
+    "corrected exact source candidate builds and links normal EchoEar, demo, and legacy; frozen old ELFs do not certify it",
+    "validate embedded ESP app descriptor version, descriptor presence in ELF and bin embedded ELF SHA256; project_description metadata alone is insufficient",
+    "heap minimum includes cold boot and task census/PERF allocations; no reset/exclusion or substitution of current free for historical minimum"
+  ],
+  "owners": {
+    "strict_voice_cat": "B",
+    "a6_limiter": "A",
+    "quiet_acoustic": "A coordinated with B",
+    "raw_audit": "Astra read-only"
+  },
+  "order": [
+    {
+      "id": "strict_voice_cat",
+      "owner": "B",
+      "mode": "live",
+      "runs": 3,
+      "warm": true,
+      "required_passes": 3,
+      "retakes": 0,
+      "cat_fps_target": 30
+    },
+    {
+      "id": "a6_echo_stress",
+      "owner": "A",
+      "harness": "hil/echoear_echo_stress.py",
+      "gate": "existing unchanged stress gates on frozen bank"
+    },
+    {
+      "id": "a6_hot_stt",
+      "owner": "A",
+      "harness": "hil/echoear_hot_stt.py",
+      "targets_dbfs": [
+        -39,
+        -27
+      ],
+      "limiter_engaged_at_hot": true,
+      "gate": "existing pair_gate including no WER regression"
+    },
+    {
+      "id": "a6_analog_probe",
+      "owner": "A",
+      "harness": "hil/echoear_analog_probe.py",
+      "gate": "existing measurement validity and nonlinear-growth gates; retain investigation_required"
+    },
+    {
+      "id": "quiet_offline",
+      "owner": "A",
+      "mode": "offline",
+      "runs": 5,
+      "warm": true,
+      "required_passes": 5,
+      "retakes": 0
+    },
+    {
+      "id": "quiet_live",
+      "owner": "A",
+      "mode": "live",
+      "runs": 5,
+      "warm": true,
+      "required_passes": 5,
+      "retakes": 0
+    }
+  ],
+  "environment": {
+    "room_limit_dbfs": -55,
+    "room_sensors": [
+      "jabra",
+      "board"
+    ],
+    "measure_before_each_run": true,
+    "missing_or_nonfinite": "defer",
+    "nic": {
+      "gated_interface": "wlp8s0",
+      "observation_only_interfaces": [
+        "enp7s0"
+      ],
+      "limit_bytes_per_300s": 20000000,
+      "sum_directions": true,
+      "subtract_board_traffic": false,
+      "preflight_seconds": 30,
+      "per_arm": true
+    },
+    "deferrals": {
+      "log": "deferrals.jsonl",
+      "record": [
+        "host UTC and monotonic time",
+        "stage and next original slot",
+        "both measured floors and WAV paths",
+        "NIC before/after/deltas/policy",
+        "reasons",
+        "scored=false"
+      ],
+      "wait_seconds": 30,
+      "release_bench": true,
+      "pre_prompt_only": true,
+      "consume_scored_slot": false,
+      "policy": "Wait and retry eligibility later; never replay a scored original. If interrupted after scored originals, preserve the incomplete population; a restart is not a new clean cohort. Resume requires proven original peer continuity."
+    }
+  },
+  "firmware": {
+    "aec_enabled": false,
+    "analog_gain_db": 30,
+    "mic_digital_percent": 125,
+    "limiter": {
+      "schema": 1,
+      "knee": 8192,
+      "ceiling": 16384
+    },
+    "volume_relative_db": 0
+  },
+  "strict_gates": {
+    "originals_only": true,
+    "no_retakes": true,
+    "one_peer": true,
+    "cat_fps_floor": 24,
+    "full_reply_min_seconds": 5,
+    "wire_show_mid_reply_each_turn": true,
+    "minimum_internal_bytes": 81920,
+    "largest_internal_bytes": 32768,
+    "failed_allocations": 0,
+    "app_control_free_bytes": 2048,
+    "dma_errors": 0,
+    "display_recoveries": 0,
+    "display_dead": false,
+    "engine_lock_timeouts": 0,
+    "engine_lock_failures": 0,
+    "raw_errors": 0,
+    "bot_loss_exceptions": false,
+    "playback_write_errors_delta": 0,
+    "transport_counter_deltas": "all zero; lost/concealed/PLC/drift drops+inserts/trim/underflows unchanged",
+    "gate_open_clips_delta": 0,
+    "gate_closed_clips_delta": 0,
+    "minimum_unprotected_echo_headroom_db": 3,
+    "report_peaks": [
+      "native_peak",
+      "unprotected_peak",
+      "peak_before_clamp",
+      "unprotected_headroom_db",
+      "headroom_db",
+      "limited_samples",
+      "adc_clips"
+    ],
+    "jabra_reply_target_dbfs": -22,
+    "jabra_reply_tolerance_db": 3,
+    "jabra_reply_room_rise_db": 10,
+    "quiet_console": 1,
+    "full_perf_queries_during_prompt_reply": 0,
+    "compact_frame_clocks": true,
+    "uplink_gate": "existing uplink_continuity.link_tail defaults unchanged: >60ms rate<=1%, >150ms rate<=0.05%, hard max<=2000ms; coverage required",
+    "source_gates": [
+      "step9a_merge_checks.merge_gate",
+      "echoear_acoustic_qualification.gate",
+      "playback_quality.transport_gate",
+      "mic_headroom.microphone_headroom"
+    ]
+  },
+  "bot": {
+    "mode": "live-test for strict and quiet-live; offline-test for quiet-offline",
+    "sctp_chunk_bytes": 1100,
+    "strict_reply": "existing long Pineapple/France reply; do not shorten",
+    "credentials_missing": "unqualified skip, never pass"
+  },
+  "evidence": {
+    "root": "/home/khkramer/src/evidence/echoear/B",
+    "raw_required": [
+      "serial bytes and monitor verdict",
+      "bot events and transcripts",
+      "RTP arrival trace/continuity",
+      "original WAVs and fixture hashes",
+      "before/after PERF and no-mid-turn-PERF windows",
+      "full-reply frame clock bracket and wire render proof",
+      "protected and unprotected mic peaks",
+      "Jabra and board room floors before each run",
+      "per-arm NIC counters and deferral log"
+    ],
+    "no_evidence_in_git": true,
+    "prior_runs_counted": false,
+    "no_unplug_tests": true,
+    "no_soak": true,
+    "short_bench_holds": true,
+    "no_partial_proof_stitching": true,
+    "hardware_binding_pending": true
+  },
+  "dry_run": {
+    "host_only": true,
+    "qualifies_hardware": false,
+    "execute_option_available": false,
+    "commands": "hil/echoear_requalification.py --plan hil/plans/echoear-item2-requalification.json --dry-run --out <fresh B evidence directory>"
+  }
+}

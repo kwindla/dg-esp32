@@ -1,0 +1,145 @@
+menu "ESP peer memory lifecycle"
+config DG_REUSE_TRANSPORT_WORKERS
+    bool "Allocate transport workers once and reuse their stacks"
+    default y if DG_ECHOEAR_AEC
+    default n
+config DG_PEER_PEM_PSRAM
+    bool "Allocate just the two cached PEM arrays in PSRAM"
+    default n
+config DG_PEER_RX_STACK_PSRAM
+    bool "Place the JSON dispatcher stack in PSRAM"
+    depends on FREERTOS_TASK_CREATE_ALLOW_EXT_MEM
+    default n
+config DG_PEER_OWNER_STACK_BYTES
+    int "Peer owner stack bytes"
+    range 10240 32768
+    default 12800
+    help
+        Peer-loop (owner) task stack. Measured peak use is 6780-7004 bytes on
+        both the AEC and the AEC-off images (q1-aec-v87-01, rollback-01), so
+        12800 keeps the 4096-byte free-stack floor in both production modes
+        (decision 111(a)). The previous AEC-off default of 10752 left about
+        3.8 KB free, under that floor.
+config DG_PEER_RX_STACK_BYTES
+    int "JSON dispatcher stack bytes"
+    range 4096 16384
+    default 8192
+config DG_AUDIO_TX_STACK_BYTES
+    int "Opus encoder stack bytes (internal RAM)"
+    range 32768 49152 if DG_OPUS_UPLINK_FRAME40
+    range 16384 49152 if !DG_OPUS_UPLINK_FRAME40
+    default 26624 if DG_ECHOEAR_AEC && !DG_OPUS_UPLINK_FRAME40
+    default 28672 if DG_BOARD_ECHOEAR && !DG_OPUS_UPLINK_FRAME40
+    # Three P4 sessions: ceil((28672 - 6196 + 4096)/1024)*1024.
+    default 26624 if DG_BOARD_P4XC && !DG_OPUS_UPLINK_FRAME40
+    default 32768
+config DG_AUDIO_TX_CORE
+    int "Opus encoder CPU core"
+    range 0 1
+    # AEC/capture and playback remain on core 1. The AEC live resource trial
+    # found encoder starvation there despite adequate average idle time.
+    default 0 if DG_ECHOEAR_AEC
+    default 1
+endmenu
+
+menu "Measured peer performance options"
+config DG_PLAYBACK_SEED_DBFS_X10
+    int "Effective startup source RMS (tenths of dBFS)"
+    range -600 -100
+    # Placeholder = EchoEar; re-derive from P4 live playback source.
+    default -289 if DG_BOARD_P4XC
+    default -289
+    help
+        -28.9 dBFS is the effective post-compression RMS seed: typical
+        -26 dBFS post-HPF Thalia TTS has post-compression source RMS about
+        3 dB lower, giving a -28.9 dBFS seed.
+        Initial gain is target RMS / seed RMS. Tune for a different voice.
+
+config DG_PEER_LOOP_DELAY_MS
+    int "Extra peer-loop delay (0 uses native socket wait)"
+    range 0 20
+    default 1
+config DG_PEER_RECV_TIMEOUT_MS
+    int "Native socket wait timeout"
+    range 1 100
+    default 20
+config DG_PEER_JITTER_TIMEOUT_MS
+    int "Native RTP jitter cache timeout"
+    range 60 300
+    default 200
+config DG_OPUS_BITRATE
+    int "Uplink Opus bitrate"
+    range 16000 32000
+    default 24000
+config DG_OPUS_FEC
+    bool "Include uplink Opus in-band FEC"
+    default n
+    help
+        The ASR receiver decodes individual packets without LBRR recovery.
+        The qualified ASR uplink defaults to off; enable for a receiver
+        that explicitly performs in-band FEC recovery.
+config DG_OPUS_UPLINK_FRAME40
+    bool "Use 40 ms uplink Opus frames"
+    default n
+    help
+        Combines two 20 ms PCM frames before encoding (10 ms mean additional
+        assembly wait). aiortc prefetch=4 adds about 80 ms extra receive
+        buffering at this packet duration. Bench VAD-stop shifted 80-93 ms
+        and audible reply 61-74 ms. Requires a 32768-byte audio TX stack.
+config DG_PEER_DIRECT_SOCKET_SELECT
+    bool "Use lwIP directly for peer-only socket descriptor sets"
+    default y
+config DG_PEER_FULL_CALL_TIMING
+    bool "Collect detailed nested peer-call timings"
+    default n
+    help
+        Loop iteration timing, frame timings and task PERF
+        remain active when disabled. Enable detailed calls for investigation.
+config DG_PEER_ARRIVAL_TRACE
+    bool "Record diagnostic packet arrivals and playout events"
+    default n
+    help
+        Enable for dropout attribution; disabled by default to avoid packet
+        parsing, timestamps and PSRAM ring writes in normal media paths.
+config DG_PEER_OWNER_PRIORITY
+    int "Peer-loop task priority"
+    range 6 14
+    default 6
+config DG_CODEC_EAGER_INITIALIZATION
+    bool "Prepare codecs before publishing the session"
+    default y
+    help
+        Allocate decoder and encoder in a fixed order before native peer setup
+        and worker launch. This makes startup allocation timing deterministic.
+config DG_CODEC_LAYOUT_TRACE
+    bool "Bench: log native codec allocation addresses at construction"
+    default n
+    help
+        Retain allocation sizes and addresses to diagnose boot-dependent
+        PSRAM placement. No memory contents are logged; production is off.
+config DG_OPUS_ENCODER_HOT_IRAM
+    bool "Place SILK frame encoder and NSQ routines in IRAM"
+    default n
+    help
+        Moves selected prebuilt Opus encoder functions and their literals
+        into internal RAM. Remaining codec code stays in flash. The CPU
+        benefit was within measurement noise in step 8c2; production is off.
+endmenu
+
+menu "Consumer-paced bot playout"
+config DG_PLAYOUT_TARGET_FRAMES
+    int "Fixed jitter reserve in 20 ms frames"
+    range 7 7
+    default 7
+config DG_PLAYOUT_MAX_TARGET_FRAMES
+    int "Contiguous ready backlog cap in 20 ms frames"
+    range 10 10
+    default 10
+endmenu
+
+config DG_PEER_DTLS_RX_TRACE
+    bool "Trace DTLS application datagrams at recvfrom (diagnostic only)"
+    default n
+    help
+        Record size, device time and public record identity in the arrival ring.
+        Requires runtime arrival-trace; never records encrypted payload or keys.

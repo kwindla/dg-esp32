@@ -1,0 +1,71 @@
+cmake_minimum_required(VERSION 3.22)
+project(board_contract_tests LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+include(FetchContent)
+FetchContent_Declare(googletest
+ URL https://github.com/google/googletest/archive/refs/tags/v1.18.0.tar.gz
+ URL_HASH SHA256=6e3191c1455468b3fc35a417fb565c1c5071aee1b7e7f85e30cf48a98d37d8b5)
+set(INSTALL_GTEST OFF)
+set(BUILD_GMOCK OFF)
+FetchContent_MakeAvailable(googletest)
+enable_testing()
+include(GoogleTest)
+foreach(board echoear waveshare146 p4xc)
+ if(board STREQUAL echoear)
+  set(selector 1)
+ elseif(board STREQUAL waveshare146)
+  set(selector 2)
+ else()
+  set(selector 3)
+ endif()
+ add_executable(board_${board}_tables tables_test.cpp ../src/${board}/info.cpp ../src/${board}/audio_hw.cpp)
+ add_executable(board_${board}_sequence sequence_test.cpp ../src/${board}/board.cpp ../src/${board}/audio_hw.cpp)
+ foreach(kind tables sequence)
+  target_include_directories(board_${board}_${kind} PRIVATE fakes include ../include)
+  target_compile_definitions(board_${board}_${kind} PRIVATE DG_TEST_BOARD=${selector})
+  target_compile_options(board_${board}_${kind} PRIVATE -Wall -Wextra -Werror)
+  target_link_libraries(board_${board}_${kind} PRIVATE GTest::gtest_main)
+  gtest_discover_tests(board_${board}_${kind} TEST_PREFIX ${board}.)
+ endforeach()
+endforeach()
+# Waveshare's actual unsupported touch backend must stay inert, including
+# synthetic gesture injection; no GPIO/I2C implementations are linked here.
+add_executable(board_no_touch no_touch_test.cpp ../src/common/touch.cpp ../src/waveshare146/touch.cpp ../src/waveshare146/info.cpp)
+target_include_directories(board_no_touch PRIVATE fakes include ../include)
+target_compile_definitions(board_no_touch PRIVATE DG_TEST_BOARD=2)
+target_compile_options(board_no_touch PRIVATE -Wall -Wextra -Werror)
+target_link_libraries(board_no_touch PRIVATE GTest::gtest_main)
+gtest_discover_tests(board_no_touch TEST_PREFIX waveshare146.)
+
+FetchContent_Declare(nlohmann_json
+ URL https://github.com/nlohmann/json/releases/download/v3.12.0/json.tar.xz
+ URL_HASH SHA256=42f6e95cad6ec532fd372391373363b62a14af6d771056dbfc86160e6dfff7aa
+ DOWNLOAD_EXTRACT_TIMESTAMP TRUE)
+FetchContent_MakeAvailable(nlohmann_json)
+add_executable(board_cache cache_test.cpp ../src/common/cache_s3.cpp ../../../main/cache_metrics.cpp)
+target_include_directories(board_cache PRIVATE cache_fakes ../include ../../pipecat_esp_peer/include)
+target_link_libraries(board_cache PRIVATE nlohmann_json::nlohmann_json GTest::gtest_main)
+target_compile_options(board_cache PRIVATE -Wall -Wextra -Werror)
+gtest_discover_tests(board_cache)
+
+add_executable(board_cache_null cache_null_test.cpp ../src/common/cache_null.cpp ../../../main/cache_metrics.cpp)
+target_include_directories(board_cache_null PRIVATE ../include ../../pipecat_esp_peer/include)
+target_link_libraries(board_cache_null PRIVATE nlohmann_json::nlohmann_json GTest::gtest_main)
+target_compile_options(board_cache_null PRIVATE -Wall -Wextra -Werror)
+gtest_discover_tests(board_cache_null)
+
+add_executable(p4_audio_profile audio_profile.cpp ../src/p4xc/audio_hw.cpp)
+target_include_directories(p4_audio_profile PRIVATE fakes include ../include)
+target_compile_definitions(p4_audio_profile PRIVATE DG_TEST_BOARD=3)
+target_compile_options(p4_audio_profile PRIVATE -Wall -Wextra -Werror)
+
+add_executable(board_gt911 gt911_test.cpp ../src/p4xc/info.cpp)
+target_include_directories(board_gt911 PRIVATE fakes include ../include)
+target_compile_definitions(board_gt911 PRIVATE DG_TEST_BOARD=3 CONFIG_DG_BOARD_P4XC=1)
+target_compile_options(board_gt911 PRIVATE -Wall -Wextra -Werror)
+target_link_libraries(board_gt911 PRIVATE GTest::gtest_main)
+gtest_discover_tests(board_gt911)
+
+# Also exercise fixture isolation with every case in the same process.
+add_test(NAME gt911.all_in_one COMMAND board_gt911)

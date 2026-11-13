@@ -1,0 +1,9 @@
+# Bench diagnosis only; never part of the normal/demo shipping defaults chain.
+CONFIG_HEAP_TRACING_STANDALONE=y
+CONFIG_ESP_SYSTEM_USE_FRAME_POINTER=y
+CONFIG_HEAP_TRACING_STACK_DEPTH=8
+CONFIG_DG_HEAP_ATTRIBUTION=y
+# Keep the instrumented image inside the unchanged pre-main retention gate.
+CONFIG_COMPILER_OPTIMIZATION_SIZE=y
+# Frame-pointer code otherwise exceeds the unchanged 0x2000..0x8000 boot slot.
+CONFIG_BOOTLOADER_LOG_LEVEL_WARN=y

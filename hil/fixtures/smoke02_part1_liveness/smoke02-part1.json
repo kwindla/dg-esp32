@@ -1,0 +1,38 @@
+{
+ "source": "evidence/echoear/aec-demo/step-9/merge-9d-r3/aec-promotion-smoke-02/part-1 (excerpt): connected.json pc_id, the evidence-derived disconnect bracket (echoear_liveness_rejudge.part1_disconnect_bounds), device OK/STATE lines; evaluation/events.jsonl liveness-alarm row",
+ "pc_id": "SmallWebRTCConnection#0-c47d6d3a35a549828f0ee83de24af6f8",
+ "disconnect": {
+  "command": "disconnect",
+  "ok": true,
+  "lower_wall": 1792979684.04532,
+  "sent_wall": 1792979684.5357246,
+  "basis": "lower: last audio-0 record mapped to wall (anchor offset, minus spread + 1 ms); upper: disconnected.json mtime (written after the disconnect OK)"
+ },
+ "clock": {
+  "offset_s": 1788527509.5877428,
+  "spread_s": 0.0012226104736328125,
+  "anchors": {
+   "aggregator-user-turn-started": 3,
+   "aggregator-user-turn-stopped": 3,
+   "aggregator-assistant-turn-stopped": 4
+  },
+  "n": 10
+ },
+ "device_lines": [
+  "I (36562) dg-app: STATE Ready gen=1 desired=1 t=35217977",
+  "OK #1116 disconnect"
+ ],
+ "of_record": {
+  "outcome": "FAIL",
+  "part1": "FAIL",
+  "counters_passed": false
+ },
+ "liveness_alarm_event": {
+  "t": 4452176.634417018,
+  "event": "liveness-alarm",
+  "pc_id": "SmallWebRTCConnection#0-c47d6d3a35a549828f0ee83de24af6f8",
+  "silent_s": 2.433467185124755,
+  "alarms": 1,
+  "failed": true
+ }
+}

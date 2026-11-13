@@ -1,0 +1,23 @@
+// 32-bit Itanium ABI spellings. Forward exactly to the real standard operators,
+// preserving new-handler, exception, alignment, array and nothrow behaviour.
+// The wrapper's own return PC crosses the non-frame-pointer libstdc++ boundary.
+HEAP_NEW(_Znwj,(std::size_t n),(n))
+HEAP_NEW(_Znaj,(std::size_t n),(n))
+HEAP_NEW(_ZnwjRKSt9nothrow_t,(std::size_t n,const std::nothrow_t& t),(n,t))
+HEAP_NEW(_ZnajRKSt9nothrow_t,(std::size_t n,const std::nothrow_t& t),(n,t))
+HEAP_NEW(_ZnwjSt11align_val_t,(std::size_t n,std::align_val_t a),(n,a))
+HEAP_NEW(_ZnajSt11align_val_t,(std::size_t n,std::align_val_t a),(n,a))
+HEAP_NEW(_ZnwjSt11align_val_tRKSt9nothrow_t,(std::size_t n,std::align_val_t a,const std::nothrow_t& t),(n,a,t))
+HEAP_NEW(_ZnajSt11align_val_tRKSt9nothrow_t,(std::size_t n,std::align_val_t a,const std::nothrow_t& t),(n,a,t))
+HEAP_DELETE(_ZdlPv,(void* p),(p))
+HEAP_DELETE(_ZdaPv,(void* p),(p))
+HEAP_DELETE(_ZdlPvj,(void* p,std::size_t n),(p,n))
+HEAP_DELETE(_ZdaPvj,(void* p,std::size_t n),(p,n))
+HEAP_DELETE(_ZdlPvRKSt9nothrow_t,(void* p,const std::nothrow_t& t),(p,t))
+HEAP_DELETE(_ZdaPvRKSt9nothrow_t,(void* p,const std::nothrow_t& t),(p,t))
+HEAP_DELETE(_ZdlPvSt11align_val_t,(void* p,std::align_val_t a),(p,a))
+HEAP_DELETE(_ZdaPvSt11align_val_t,(void* p,std::align_val_t a),(p,a))
+HEAP_DELETE(_ZdlPvjSt11align_val_t,(void* p,std::size_t n,std::align_val_t a),(p,n,a))
+HEAP_DELETE(_ZdaPvjSt11align_val_t,(void* p,std::size_t n,std::align_val_t a),(p,n,a))
+HEAP_DELETE(_ZdlPvSt11align_val_tRKSt9nothrow_t,(void* p,std::align_val_t a,const std::nothrow_t& t),(p,a,t))
+HEAP_DELETE(_ZdaPvSt11align_val_tRKSt9nothrow_t,(void* p,std::align_val_t a,const std::nothrow_t& t),(p,a,t))

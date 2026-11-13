@@ -1,0 +1,549 @@
+{
+  "schema": 1,
+  "basis": "Opus step-14 review 66 cases; source anchors adapted without changing the tested predicate",
+  "cases": [
+    {
+      "id": 1,
+      "file": "hil/p4_liveness.py",
+      "original_old": "require(worst<=4096 and values[0]-values[-1]<=4096",
+      "original_new": "require(worst<=4096",
+      "old": "require(worst<=LIMITS['monotonic_decline_bytes'] and values[0]-values[-1]<=LIMITS['monotonic_decline_bytes']",
+      "new": "require(worst<=LIMITS['monotonic_decline_bytes']",
+      "adaptation": "same predicate after bound deduplication, formatting or cleanup refactor"
+    },
+    {
+      "id": 2,
+      "file": "hil/p4_liveness.py",
+      "original_old": "require(worst<=4096 and values[0]-values[-1]<=4096",
+      "original_new": "require(values[0]-values[-1]<=4096",
+      "old": "require(worst<=LIMITS['monotonic_decline_bytes'] and values[0]-values[-1]<=LIMITS['monotonic_decline_bytes']",
+      "new": "require(values[0]-values[-1]<=LIMITS['monotonic_decline_bytes']",
+      "adaptation": "same predicate after bound deduplication, formatting or cleanup refactor"
+    },
+    {
+      "id": 3,
+      "file": "hil/p4_liveness.py",
+      "original_old": "worst<=4096",
+      "original_new": "worst<=8192",
+      "old": "worst<=LIMITS['monotonic_decline_bytes']",
+      "new": "worst<=2*LIMITS['monotonic_decline_bytes']",
+      "adaptation": "same predicate after bound deduplication, formatting or cleanup refactor"
+    },
+    {
+      "id": 4,
+      "file": "hil/p4_liveness.py",
+      "original_old": "if current>previous:peak=current",
+      "original_new": "if current>peak:peak=current",
+      "old": "if current>previous:peak=current",
+      "new": "if current>peak:peak=current"
+    },
+    {
+      "id": 5,
+      "file": "hil/p4_liveness.py",
+      "original_old": "require(len(values)==21",
+      "original_new": "require(len(values)>=1",
+      "old": "require(len(values)==LIMITS['cycles']+1",
+      "new": "require(len(values)>=1",
+      "adaptation": "same predicate after bound deduplication, formatting or cleanup refactor"
+    },
+    {
+      "id": 6,
+      "file": "hil/p4_liveness.py",
+      "original_old": ">=81920 and",
+      "original_new": ">=0 and",
+      "old": ">=LIMITS['minimum_internal'] and",
+      "new": ">=0 and",
+      "adaptation": "same predicate after bound deduplication, formatting or cleanup refactor"
+    },
+    {
+      "id": 7,
+      "file": "hil/p4_liveness.py",
+      "original_old": "finite(heap['largest'],'largest block')>=32768",
+      "original_new": "finite(heap['largest'],'largest block')>=0",
+      "old": "finite(heap['largest'],'largest block')>=LIMITS['largest_internal']",
+      "new": "finite(heap['largest'],'largest block')>=0",
+      "adaptation": "same predicate after bound deduplication, formatting or cleanup refactor"
+    },
+    {
+      "id": 8,
+      "file": "hil/p4_liveness.py",
+      "original_old": "for k in ('total','internal')",
+      "original_new": "for k in ('internal',)",
+      "old": "for k in ('total','internal')",
+      "new": "for k in ('internal',)"
+    },
+    {
+      "id": 9,
+      "file": "hil/p4_liveness.py",
+      "original_old": "require(session['generation']>previous,",
+      "original_new": "require(True,",
+      "old": "require(session['generation']>previous,",
+      "new": "require(True,"
+    },
+    {
+      "id": 10,
+      "file": "hil/p4_liveness.py",
+      "original_old": "require(channel not in by_channel,",
+      "original_new": "require(True,",
+      "old": "require(channel not in by_channel,",
+      "new": "require(True,"
+    },
+    {
+      "id": 11,
+      "file": "hil/p4_liveness.py",
+      "original_old": "require(seq>state['last_ping'],",
+      "original_new": "require(True,",
+      "old": "require(seq>state['last_ping'],",
+      "new": "require(True,"
+    },
+    {
+      "id": 12,
+      "file": "hil/p4_liveness.py",
+      "original_old": "require(event.get('direction')=='received',",
+      "original_new": "require(True,",
+      "old": "require(event.get('direction')=='received',",
+      "new": "require(True,"
+    },
+    {
+      "id": 13,
+      "file": "hil/p4_liveness.py",
+      "original_old": "seq>state['last_pong'] and seq in state['pings']",
+      "original_new": "seq in state['pings']",
+      "old": "seq>state['last_pong'] and seq in state['pings']",
+      "new": "seq in state['pings']"
+    },
+    {
+      "id": 14,
+      "file": "hil/p4_liveness.py",
+      "original_old": "seq>state['last_pong'] and seq in state['pings']",
+      "original_new": "seq>state['last_pong']",
+      "old": "seq>state['last_pong'] and seq in state['pings']",
+      "new": "seq>state['last_pong']"
+    },
+    {
+      "id": 15,
+      "file": "hil/p4_liveness.py",
+      "original_old": "s['ready_ns']<=now and s['ready_ns']>session['ready_ns']",
+      "original_new": "False",
+      "old": "s['ready_ns']<=now and s['ready_ns']>session['ready_ns']",
+      "new": "False"
+    },
+    {
+      "id": 16,
+      "file": "hil/p4_liveness.py",
+      "original_old": "require(session['ready_ns']>previous_session['ended_ns'],",
+      "original_new": "require(True,",
+      "old": "require(session['ready_ns']>previous_session['ended_ns'],",
+      "new": "require(True,"
+    },
+    {
+      "id": 17,
+      "file": "hil/p4_liveness.py",
+      "original_old": "event['epoch']!=session['epoch'] and event['current_epoch']==session['epoch']",
+      "original_new": "True",
+      "old": "event['epoch']!=session['epoch'] and event['current_epoch']==session['epoch']",
+      "new": "True"
+    },
+    {
+      "id": 18,
+      "file": "hil/p4_liveness.py",
+      "original_old": "event.get('accepted') is False and ",
+      "original_new": "",
+      "old": "event.get('accepted') is False and ",
+      "new": ""
+    },
+    {
+      "id": 19,
+      "file": "hil/p4_liveness.py",
+      "original_old": "and event.get('error')=='stale-epoch'",
+      "original_new": "",
+      "old": "event.get('error')=='stale-epoch'",
+      "new": "True",
+      "adaptation": "same predicate after bound deduplication, formatting or cleanup refactor"
+    },
+    {
+      "id": 20,
+      "file": "hil/p4_liveness.py",
+      "original_old": "require(event['id'] in state['probes'],",
+      "original_new": "require(True,",
+      "old": "require(event['id'] in state['probes'],",
+      "new": "require(True,"
+    },
+    {
+      "id": 21,
+      "file": "hil/p4_liveness.py",
+      "original_old": "all(s['pongs']>0 for s in observed.values())",
+      "original_new": "True",
+      "old": "all(s['pongs']>0 for s in observed.values())",
+      "new": "True"
+    },
+    {
+      "id": 22,
+      "file": "hil/p4_liveness.py",
+      "original_old": "probes>0 and ",
+      "original_new": "",
+      "old": "probes>0 and ",
+      "new": ""
+    },
+    {
+      "id": 23,
+      "file": "hil/p4_liveness.py",
+      "original_old": "and all(set(s['probes'])==s['acks'] for s in observed.values())",
+      "original_new": "",
+      "old": "and all(set(s['probes'])==s['acks'] for s in observed.values())",
+      "new": ""
+    },
+    {
+      "id": 24,
+      "file": "hil/p4_liveness.py",
+      "original_old": "require(a['limits']==LIMITS,",
+      "original_new": "require(True,",
+      "old": "require(a['limits']==LIMITS,",
+      "new": "require(True,"
+    },
+    {
+      "id": 25,
+      "file": "hil/p4_liveness.py",
+      "original_old": "require(a['elf_sha256']==REFERENCE and a['reference_only'] is True,",
+      "original_new": "require(True,",
+      "old": "require(a['elf_sha256']==REFERENCE and a['reference_only'] is True,",
+      "new": "require(True,"
+    },
+    {
+      "id": 26,
+      "file": "hil/p4_liveness.py",
+      "original_old": "all(c['connected'] is True and c['disconnected'] is True for c in a['cycles'])",
+      "original_new": "True",
+      "old": "all(c['connected'] is True and c['disconnected'] is True for c in a['cycles'])",
+      "new": "True"
+    },
+    {
+      "id": 27,
+      "file": "hil/p4_liveness.py",
+      "original_old": "['cycle-'+str(i) for i in range(1,21)]+['idle'],",
+      "original_new": "['cycle-'+str(i) for i in range(1,21)]+['idle'] or True,",
+      "old": "['cycle-'+str(i) for i in range(1,LIMITS['cycles']+1)]+['idle'],",
+      "new": "['cycle-'+str(i) for i in range(1,LIMITS['cycles']+1)]+['idle'] or True,",
+      "adaptation": "same predicate after bound deduplication, formatting or cleanup refactor"
+    },
+    {
+      "id": 28,
+      "file": "hil/p4_liveness.py",
+      "original_old": "finite(a['recovery'][key],key)<=bound",
+      "original_new": "True",
+      "old": "finite(a['recovery'][key],key)<=LIMITS[key]",
+      "new": "True",
+      "adaptation": "same predicate after bound deduplication, formatting or cleanup refactor"
+    },
+    {
+      "id": 29,
+      "file": "hil/p4_liveness.py",
+      "original_old": "('wifi_rejoin_s',30),",
+      "original_new": "('wifi_rejoin_s',31),",
+      "old": "wifi_rejoin_s=30",
+      "new": "wifi_rejoin_s=31",
+      "adaptation": "same predicate after bound deduplication, formatting or cleanup refactor"
+    },
+    {
+      "id": 30,
+      "file": "hil/p4_liveness.py",
+      "original_old": "('idle_ready_s',60)",
+      "original_new": "('idle_ready_s',61)",
+      "old": "idle_s=360, idle_ready_s=60",
+      "new": "idle_s=360, idle_ready_s=61",
+      "adaptation": "same predicate after bound deduplication, formatting or cleanup refactor"
+    },
+    {
+      "id": 31,
+      "file": "hil/p4_liveness.py",
+      "original_old": ">=360,'six-minute",
+      "original_new": "''==''or 1,'six-minute",
+      "old": ">=LIMITS['idle_s'],'six-minute",
+      "new": ">=0,'six-minute",
+      "adaptation": "same predicate after bound deduplication, formatting or cleanup refactor"
+    },
+    {
+      "id": 32,
+      "file": "hil/p4_liveness.py",
+      "original_old": "a['f20']['assets'].get('passed') is True",
+      "original_new": "True",
+      "old": "a['f20']['assets'].get('passed') is True",
+      "new": "True"
+    },
+    {
+      "id": 33,
+      "file": "hil/p4_liveness.py",
+      "original_old": "a['f20']['cold'] is True and",
+      "original_new": "True and",
+      "old": "a['f20']['cold'] is True and",
+      "new": "True and"
+    },
+    {
+      "id": 34,
+      "file": "hil/p4_liveness.py",
+      "original_old": "a['f20']['held']['held'] is True and",
+      "original_new": "True and",
+      "old": "a['f20']['held']['held'] is True and",
+      "new": "True and"
+    },
+    {
+      "id": 35,
+      "file": "hil/p4_liveness.py",
+      "original_old": "require(digest(directory/'control.jsonl')==a['control_sha256'],",
+      "original_new": "require(True,",
+      "old": "require(digest(directory/'control.jsonl')==a['control_sha256'],",
+      "new": "require(True,"
+    },
+    {
+      "id": 36,
+      "file": "hil/p4_liveness.py",
+      "original_old": "a.get('restore',{}).get('clean') is True",
+      "original_new": "True",
+      "old": "a.get('acquisition_passed') is True and not a.get('error') and a.get('restore',{}).get('clean') is True",
+      "new": "a.get('acquisition_passed') is True and not a.get('error')",
+      "adaptation": "target the normal acquisition restore gate; the new inconclusive-report branch has its own restore gate"
+    },
+    {
+      "id": 37,
+      "file": "hil/p4_liveness.py",
+      "original_old": "require(all(s.get('wire_verified') is True for s in a['sessions']) if a['board']=='p4xc' else True,",
+      "original_new": "require(True,",
+      "old": "require(all(s.get('wire_verified') is True for s in a['sessions']) if a['board']=='p4xc' else True,",
+      "new": "require(True,"
+    },
+    {
+      "id": 38,
+      "file": "hil/p4_liveness.py",
+      "original_old": "require(digest(path)==session['wire_sha256'],",
+      "original_new": "require(True,",
+      "old": "require(digest(path)==session['wire_sha256'],",
+      "new": "require(True,"
+    },
+    {
+      "id": 39,
+      "file": "hil/p4_liveness.py",
+      "original_old": "require(digest(a['bounds_path'])==a['bounds_sha256'],",
+      "original_new": "require(True,",
+      "old": "require(digest(a['bounds_path'])==a['bounds_sha256'],",
+      "new": "require(True,"
+    },
+    {
+      "id": 40,
+      "file": "hil/p4_liveness.py",
+      "original_old": "require(re.fullmatch(r'step14-stale-\\d+',rid),",
+      "original_new": "require(True,",
+      "old": "require(re.fullmatch(r'step14-stale-\\d+',rid),",
+      "new": "require(True,"
+    },
+    {
+      "id": 41,
+      "file": "hil/p4_liveness.py",
+      "original_old": "validate_capture(bench,profile='bench-display'",
+      "original_new": "0 and validate_capture(bench,profile='bench-display'",
+      "old": "validate_capture(bench,profile='bench-display'",
+      "new": "0 and validate_capture(bench,profile='bench-display'"
+    },
+    {
+      "id": 42,
+      "file": "hil/p4_liveness.py",
+      "original_old": "assessment=score(args.out,acquisition=dict(result,restore=dict(clean=True)));guard.success=True",
+      "original_new": "guard.success=True;assessment=score(args.out,acquisition=dict(result,restore=dict(clean=True)))",
+      "old": "assessment=score(args.out,acquisition=dict(result,restore=dict(clean=True)));guard.success=True",
+      "new": "guard.success=True;assessment=score(args.out,acquisition=dict(result,restore=dict(clean=True)))"
+    },
+    {
+      "id": 43,
+      "file": "hil/p4_liveness.py",
+      "original_old": "require(sample['power'].get('available')==0",
+      "original_new": "require(True or sample['power'].get('available')==0",
+      "old": "require(sample['power'].get('available')==0",
+      "new": "require(True or sample['power'].get('available')==0"
+    },
+    {
+      "id": 44,
+      "file": "hil/p4_step14.py",
+      "original_old": "require(manifest['profile']=='normal' and not manifest['aec_enabled'] and not manifest['autostart'],",
+      "original_new": "require(True,",
+      "old": "require(manifest['profile']=='normal' and not manifest['aec_enabled'] and not manifest['autostart'],",
+      "new": "require(True,"
+    },
+    {
+      "id": 45,
+      "file": "hil/p4_step14.py",
+      "original_old": "manifest['dependencies_lock_sha256']==manifest['target_dependencies_lock_sha256'],",
+      "original_new": "True,",
+      "old": "manifest['dependencies_lock_sha256']==manifest['target_dependencies_lock_sha256'],",
+      "new": "True,"
+    },
+    {
+      "id": 46,
+      "file": "hil/p4_step14.py",
+      "original_old": "require(report.get('passed') is True,",
+      "original_new": "require(True,",
+      "old": "require(report.get('passed') is True,",
+      "new": "require(True,"
+    },
+    {
+      "id": 47,
+      "file": "hil/p4_step14.py",
+      "original_old": "require(report.get('elf_sha256')==manifest['elf_sha256'],",
+      "original_new": "require(True,",
+      "old": "require(report.get('elf_sha256')==manifest['elf_sha256'],",
+      "new": "require(True,"
+    },
+    {
+      "id": 48,
+      "file": "hil/p4_step14.py",
+      "original_old": "digest(path)==expected,",
+      "original_new": "True,",
+      "old": "digest(path)==expected,",
+      "new": "True,"
+    },
+    {
+      "id": 49,
+      "file": "hil/p4_step14.py",
+      "original_old": "record.get('storage')=='erase named storage before boot'",
+      "original_new": "True",
+      "old": "record.get('storage')=='erase named storage before boot'",
+      "new": "True"
+    },
+    {
+      "id": 50,
+      "file": "hil/p4_step14.py",
+      "original_old": "manifest['elf_sha256']==record['elf_sha256'] and\n            digest(bundle/'manifest.json')==record['manifest_sha256']",
+      "original_new": "True",
+      "old": "manifest['elf_sha256']==record['elf_sha256'] and\n            digest(bundle/'manifest.json')==record['manifest_sha256']",
+      "new": "True"
+    },
+    {
+      "id": 51,
+      "file": "hil/p4_step14.py",
+      "original_old": "require(manifest.get('target_dependencies_lock_sha256')==record['target_dependencies_lock_sha256'],",
+      "original_new": "require(True,",
+      "old": "require(manifest.get('target_dependencies_lock_sha256')==record['target_dependencies_lock_sha256'],",
+      "new": "require(True,"
+    },
+    {
+      "id": 52,
+      "file": "hil/p4_step14.py",
+      "original_old": "require(digest(record['headroom'])==record['headroom_sha256'],",
+      "original_new": "require(True,",
+      "old": "require(digest(record['headroom'])==record['headroom_sha256'],",
+      "new": "require(True,"
+    },
+    {
+      "id": 53,
+      "file": "hil/p4_step14.py",
+      "original_old": "require(storage_plan(bundle)['partition_table_sha256']==record['partition_table_sha256'],",
+      "original_new": "require(True,",
+      "old": "require(storage_plan(bundle)['partition_table_sha256']==record['partition_table_sha256'],",
+      "new": "require(True,"
+    },
+    {
+      "id": 54,
+      "file": "hil/p4_step14.py",
+      "original_old": "require(record is not None,",
+      "original_new": "require(True,",
+      "old": "require(record is not None,",
+      "new": "require(True,"
+    },
+    {
+      "id": 55,
+      "file": "hil/p4_step14.py",
+      "original_old": "            restore_record(path,expected)\n            io.args",
+      "original_new": "            io.args",
+      "old": "            restore_record(path,expected)\n            # The frozen product preflight",
+      "new": "            # The frozen product preflight",
+      "adaptation": "same product-record preflight reauthentication, now preceding mandatory factory-backup verification"
+    },
+    {
+      "id": 56,
+      "file": "hil/p4_step14.py",
+      "original_old": "require(Path(bundle).resolve()==Path(checked['bundle']).resolve() and manifest['elf_sha256']==checked['elf_sha256'],",
+      "original_new": "require(True,",
+      "old": "require(Path(bundle).resolve()==Path(checked['bundle']).resolve() and manifest['elf_sha256']==checked['elf_sha256'],",
+      "new": "require(True,"
+    },
+    {
+      "id": 57,
+      "file": "hil/p4_step14.py",
+      "original_old": "            prepare_storage(bundle,out)\n",
+      "original_new": "            pass\n",
+      "old": "            prepare_storage(bundle,out)\n",
+      "new": "            pass\n"
+    },
+    {
+      "id": 58,
+      "file": "hil/p4_step14.py",
+      "original_old": "if io.args.board=='p4xc' and label=='restore':\n            from",
+      "original_new": "if io.args.board=='p4xc' and label=='candidate':\n            from",
+      "old": "if io.args.board=='p4xc' and label=='restore':\n            from",
+      "new": "if io.args.board=='p4xc' and label=='candidate':\n            from"
+    },
+    {
+      "id": 59,
+      "file": "hil/p4_step14.py",
+      "original_old": "while (io.out/f'restore-storage-{number:03d}').exists():number+=1",
+      "original_new": "pass",
+      "old": "while (io.out/f'restore-storage-{number:03d}').exists():number+=1",
+      "new": "pass"
+    },
+    {
+      "id": 60,
+      "file": "hil/p4_step14.py",
+      "original_old": "finally:smoke.LiveIO.preflight_restore,smoke.LiveIO.flash=previous_preflight,previous_flash",
+      "original_new": "finally:pass",
+      "old": "        smoke.LiveIO.preflight_restore,smoke.LiveIO.flash=previous_preflight,previous_flash",
+      "new": "        pass",
+      "adaptation": "same predicate after bound deduplication, formatting or cleanup refactor"
+    },
+    {
+      "id": 61,
+      "file": "hil/p4_step14.py",
+      "original_old": "if not calibration and (kind=='france'",
+      "original_new": "if (kind=='france'",
+      "old": "if not calibration and (kind=='france'",
+      "new": "if (kind=='france'"
+    },
+    {
+      "id": 62,
+      "file": "hil/p4_step14.py",
+      "original_old": "kind=='talkover' and aec",
+      "original_new": "kind=='talkover'",
+      "old": "kind=='talkover' and aec",
+      "new": "kind=='talkover'"
+    },
+    {
+      "id": 63,
+      "file": "hil/p4_step14.py",
+      "original_old": "!='measured' for row in report['generations']",
+      "original_new": "=='never' for row in report['generations']",
+      "old": "!='measured' for row in report['generations']",
+      "new": "=='never' for row in report['generations']"
+    },
+    {
+      "id": 64,
+      "file": "hil/p4_step14.py",
+      "original_old": "!='measured' for board in",
+      "original_new": "=='never' for board in",
+      "old": "!='measured' for board in",
+      "new": "=='never' for board in"
+    },
+    {
+      "id": 65,
+      "file": "hil/p4_liveness_bot.py",
+      "original_old": "if stale_probes and type(old) is int and old!=epoch:",
+      "original_new": "if stale_probes and type(old) is int:",
+      "old": "if stale_probes and type(old) is int and old!=epoch:",
+      "new": "if stale_probes and type(old) is int:"
+    },
+    {
+      "id": 66,
+      "file": "hil/p4_liveness_bot.py",
+      "original_old": "if event=='message' and args:observe(channel,'received',args[0])",
+      "original_new": "pass",
+      "old": "if event=='message' and args:observe(channel,'received',args[0])",
+      "new": "pass"
+    }
+  ]
+}

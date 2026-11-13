@@ -1,0 +1,583 @@
+{
+  "version": 1,
+  "canvas": [
+    360,
+    360
+  ],
+  "source_commit": "69d391d3858dc554f904cddf3bd67df1f86a2eb2",
+  "conversion": "floor endpoints 412 to 360; nearest neighbor; smaller codec, ties use RLE",
+  "pack_identity": "SHA-256 of canonical sorted-key compact JSON character object excluding hash",
+  "characters": [
+    {
+      "name": "angel",
+      "faceplate": {
+        "name": "faceplate",
+        "hash": "24e217f4bd98076e28c3cd522ef7645fa338c28326107c1f61606028a73c6ceb",
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 360,
+        "bytes": 19991,
+        "path": "hil/fixtures/echoear360/24e217f4bd98076e28c3cd522ef7645fa338c28326107c1f61606028a73c6ceb.dgi",
+        "codec": 2,
+        "alpha": 0,
+        "codec_bytes": {
+          "1": 30021,
+          "2": 19991
+        },
+        "source": "angel-faceplate-412.png",
+        "source_sha256": "8ee51e5f18dea709ff0d39e9afd69bc75e3a2f630ff453e925c4bcbee7acd585"
+      },
+      "layers": [
+        {
+          "name": "eyes",
+          "frames": [
+            {
+              "name": "open",
+              "hash": "cffaac07b420cbd7f38801b5febbf1e0b0d3df89205a5483f16af2a83e460588",
+              "x": 91,
+              "y": 143,
+              "w": 177,
+              "h": 104,
+              "bytes": 10109,
+              "path": "hil/fixtures/echoear360/cffaac07b420cbd7f38801b5febbf1e0b0d3df89205a5483f16af2a83e460588.dgi",
+              "codec": 2,
+              "alpha": 2,
+              "codec_bytes": {
+                "1": 17472,
+                "2": 10109
+              },
+              "source": "sprites/eyes-open.png",
+              "source_sha256": "1b315032ed84e855a4dc709b538c017afa7ca7c02d6f7e846db0e46668ebd2b4"
+            },
+            {
+              "name": "half",
+              "hash": "798a04accca52c74b81d4d45cd00cf41acf37d82220f2ab7f56e2e2cb33b2442",
+              "x": 91,
+              "y": 143,
+              "w": 177,
+              "h": 104,
+              "bytes": 7653,
+              "path": "hil/fixtures/echoear360/798a04accca52c74b81d4d45cd00cf41acf37d82220f2ab7f56e2e2cb33b2442.dgi",
+              "codec": 2,
+              "alpha": 2,
+              "codec_bytes": {
+                "1": 13196,
+                "2": 7653
+              },
+              "source": "sprites/eyes-half.png",
+              "source_sha256": "9ccbfe26cb0bc1d8879c3a130d22d9fd164f757af43d8ce7c62b06ef271a3bee"
+            },
+            {
+              "name": "closed",
+              "hash": "9435e915c46cb850de24775a7b5ecbdff2e674424f09fae13c98835d03679f43",
+              "x": 91,
+              "y": 143,
+              "w": 177,
+              "h": 104,
+              "bytes": 4671,
+              "path": "hil/fixtures/echoear360/9435e915c46cb850de24775a7b5ecbdff2e674424f09fae13c98835d03679f43.dgi",
+              "codec": 2,
+              "alpha": 2,
+              "codec_bytes": {
+                "1": 7296,
+                "2": 4671
+              },
+              "source": "sprites/eyes-closed.png",
+              "source_sha256": "769c85a25df59ef8de91f9abe6fae3e1e00bc1753e02fa645652191f030f40e8"
+            },
+            {
+              "name": "look-left",
+              "hash": "f5fe6e4611e3950e0f2b8c795a271df04f0bbcef6361b6152ea4ba427f5b572c",
+              "x": 91,
+              "y": 143,
+              "w": 177,
+              "h": 104,
+              "bytes": 11312,
+              "path": "hil/fixtures/echoear360/f5fe6e4611e3950e0f2b8c795a271df04f0bbcef6361b6152ea4ba427f5b572c.dgi",
+              "codec": 2,
+              "alpha": 2,
+              "codec_bytes": {
+                "1": 17272,
+                "2": 11312
+              },
+              "source": "sprites/eyes-look-left.png",
+              "source_sha256": "c44445d0c157dc2263c68f443f88338597ed513654377589e3a121c0d09a9fb5"
+            },
+            {
+              "name": "look-right",
+              "hash": "ed49769ffe1d01808196df39d5e4352ffb90d80b0913e707bb8cb6ea4458db44",
+              "x": 91,
+              "y": 143,
+              "w": 177,
+              "h": 104,
+              "bytes": 11124,
+              "path": "hil/fixtures/echoear360/ed49769ffe1d01808196df39d5e4352ffb90d80b0913e707bb8cb6ea4458db44.dgi",
+              "codec": 2,
+              "alpha": 2,
+              "codec_bytes": {
+                "1": 17136,
+                "2": 11124
+              },
+              "source": "sprites/eyes-look-right.png",
+              "source_sha256": "3636fc61bbd86d803bb96598b672c180c8ed2f506b22b854ef14a208d7c0b1ea"
+            },
+            {
+              "name": "happy",
+              "hash": "d86379782b30ef53676d8dc554e758c36e7c62887a0f31d4aabb942f24018365",
+              "x": 91,
+              "y": 143,
+              "w": 177,
+              "h": 104,
+              "bytes": 4520,
+              "path": "hil/fixtures/echoear360/d86379782b30ef53676d8dc554e758c36e7c62887a0f31d4aabb942f24018365.dgi",
+              "codec": 2,
+              "alpha": 2,
+              "codec_bytes": {
+                "1": 7076,
+                "2": 4520
+              },
+              "source": "sprites/eyes-happy.png",
+              "source_sha256": "6fe4d4b813f52c4e6577268941c5ae7ff9beb20cc9bc3aac36257a0cca415f3a"
+            },
+            {
+              "name": "neutral",
+              "hash": "001d2a6623d86dbca2482b7855c7f9f2d55964b63af775b1a8d19451c3f15f49",
+              "x": 91,
+              "y": 143,
+              "w": 177,
+              "h": 104,
+              "bytes": 7002,
+              "path": "hil/fixtures/echoear360/001d2a6623d86dbca2482b7855c7f9f2d55964b63af775b1a8d19451c3f15f49.dgi",
+              "codec": 2,
+              "alpha": 2,
+              "codec_bytes": {
+                "1": 11300,
+                "2": 7002
+              },
+              "source": "sprites/eyes-neutral.png",
+              "source_sha256": "51886ee746b0c376fc3d9b48c1ebfe89287bf05f8fe048607442b7803c4b484c"
+            }
+          ]
+        },
+        {
+          "name": "mouth",
+          "frames": [
+            {
+              "name": "rest-smile",
+              "hash": "faa4ac97248c224e3d1da60ecfc816499c265472abac439488bdbf87262b20c3",
+              "x": 151,
+              "y": 222,
+              "w": 57,
+              "h": 43,
+              "bytes": 2086,
+              "path": "hil/fixtures/echoear360/faa4ac97248c224e3d1da60ecfc816499c265472abac439488bdbf87262b20c3.dgi",
+              "codec": 2,
+              "alpha": 2,
+              "codec_bytes": {
+                "1": 3206,
+                "2": 2086
+              },
+              "source": "sprites/mouth-rest-smile.png",
+              "source_sha256": "6e031c7e7a81b329fa77fc78904ead9faa1eb00b114f793e99baac9140213ea2"
+            },
+            {
+              "name": "small",
+              "hash": "0c9d0e188e0d32c4f8260f4467b2013baf7a5e538858cb54789bbc2e5ba1da45",
+              "x": 151,
+              "y": 222,
+              "w": 57,
+              "h": 43,
+              "bytes": 1498,
+              "path": "hil/fixtures/echoear360/0c9d0e188e0d32c4f8260f4467b2013baf7a5e538858cb54789bbc2e5ba1da45.dgi",
+              "codec": 2,
+              "alpha": 2,
+              "codec_bytes": {
+                "1": 2162,
+                "2": 1498
+              },
+              "source": "sprites/mouth-small.png",
+              "source_sha256": "8f645f67781fd6af44f4b255572c853c6f680261f17a59062e3157d1f679b184"
+            },
+            {
+              "name": "medium",
+              "hash": "2d7ae202506f8a2f55eeea409d918cf840b83e433ac5e4c42faf53918e339934",
+              "x": 151,
+              "y": 222,
+              "w": 57,
+              "h": 43,
+              "bytes": 1919,
+              "path": "hil/fixtures/echoear360/2d7ae202506f8a2f55eeea409d918cf840b83e433ac5e4c42faf53918e339934.dgi",
+              "codec": 2,
+              "alpha": 2,
+              "codec_bytes": {
+                "1": 2983,
+                "2": 1919
+              },
+              "source": "sprites/mouth-medium.png",
+              "source_sha256": "00e17be8189e016701439c760b50006fddbb5f40512e34fdeb54717bcafb68d9"
+            },
+            {
+              "name": "wide",
+              "hash": "106fe0e336b52b4428e5fe2611f9217fb7abad0c92e97f5e069979ac19526137",
+              "x": 151,
+              "y": 222,
+              "w": 57,
+              "h": 43,
+              "bytes": 2075,
+              "path": "hil/fixtures/echoear360/106fe0e336b52b4428e5fe2611f9217fb7abad0c92e97f5e069979ac19526137.dgi",
+              "codec": 2,
+              "alpha": 2,
+              "codec_bytes": {
+                "1": 3162,
+                "2": 2075
+              },
+              "source": "sprites/mouth-wide.png",
+              "source_sha256": "112590b10128b75f9ebd632fa016f6078ebf628f77966fd3220a85e628dfe99b"
+            },
+            {
+              "name": "round",
+              "hash": "e0b70c7ae06c12c40c544e445bdf95fa22658e83b8991def1d7d3fc57834aceb",
+              "x": 151,
+              "y": 222,
+              "w": 57,
+              "h": 43,
+              "bytes": 2172,
+              "path": "hil/fixtures/echoear360/e0b70c7ae06c12c40c544e445bdf95fa22658e83b8991def1d7d3fc57834aceb.dgi",
+              "codec": 2,
+              "alpha": 2,
+              "codec_bytes": {
+                "1": 3342,
+                "2": 2172
+              },
+              "source": "sprites/mouth-round.png",
+              "source_sha256": "283eddd5422feb09efc6a07c5dd8fc1a4ac19ad84664e988fd9b7203cb869376"
+            }
+          ]
+        }
+      ],
+      "layer_order": [
+        "faceplate",
+        "eyes",
+        "mouth"
+      ],
+      "animator": {
+        "eyes": {
+          "neutral": "neutral",
+          "open": "open",
+          "half": "half",
+          "blink": "closed",
+          "look_left": "look-left",
+          "look_right": "look-right",
+          "happy": "happy"
+        },
+        "mouth": {
+          "rest": "rest-smile",
+          "energy_1": "small",
+          "energy_2": "medium",
+          "energy_3": "wide",
+          "energy_4": "round"
+        }
+      },
+      "manifest_sha256": "8a98e60566cc37451ac88a293852307838b27d45842f7c601390b60345674639",
+      "hash": "fc1c5250c350feafbe6bc3e66ac7085568c95931259067c890aa4c95f9398cff"
+    },
+    {
+      "name": "devil",
+      "faceplate": {
+        "name": "faceplate",
+        "hash": "25719e035882643934c6ab723a40c15c60dfcbc5fd44fefac81525d8fca3c850",
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 360,
+        "bytes": 23494,
+        "path": "hil/fixtures/echoear360/25719e035882643934c6ab723a40c15c60dfcbc5fd44fefac81525d8fca3c850.dgi",
+        "codec": 2,
+        "alpha": 0,
+        "codec_bytes": {
+          "1": 34728,
+          "2": 23494
+        },
+        "source": "devil-faceplate-412.png",
+        "source_sha256": "5b64a60b6663893aee8061f46b93235e2cbfbfde9bb2d9068370897fad64ad0d"
+      },
+      "layers": [
+        {
+          "name": "eyes",
+          "frames": [
+            {
+              "name": "open",
+              "hash": "b06af60cfc01117e47ed8cc617d7f698feb013a4914b713ffd598e9d332f64a9",
+              "x": 83,
+              "y": 168,
+              "w": 193,
+              "h": 68,
+              "bytes": 7988,
+              "path": "hil/fixtures/echoear360/b06af60cfc01117e47ed8cc617d7f698feb013a4914b713ffd598e9d332f64a9.dgi",
+              "codec": 2,
+              "alpha": 2,
+              "codec_bytes": {
+                "1": 12160,
+                "2": 7988
+              },
+              "source": "sprites/eyes-open.png",
+              "source_sha256": "9c0132cf616d20a485ac11c1c54cbec284803a8a1cc71456f8d9afd1cf3c3ba3"
+            },
+            {
+              "name": "half",
+              "hash": "56fd1110438b9c177033d6033253009bb80f3594980106212ed02e29fd2d2377",
+              "x": 83,
+              "y": 168,
+              "w": 193,
+              "h": 68,
+              "bytes": 7564,
+              "path": "hil/fixtures/echoear360/56fd1110438b9c177033d6033253009bb80f3594980106212ed02e29fd2d2377.dgi",
+              "codec": 2,
+              "alpha": 2,
+              "codec_bytes": {
+                "1": 10968,
+                "2": 7564
+              },
+              "source": "sprites/eyes-half.png",
+              "source_sha256": "e222d440fce4aaa5272419cbba078275dad4761ecb7fbde85092b7b6889a8f8c"
+            },
+            {
+              "name": "closed",
+              "hash": "9ad69bbfc92bffb52493ed7f5f4702fc6f37eaf25c0d7d5f673e887c0cf5d584",
+              "x": 83,
+              "y": 168,
+              "w": 193,
+              "h": 68,
+              "bytes": 5887,
+              "path": "hil/fixtures/echoear360/9ad69bbfc92bffb52493ed7f5f4702fc6f37eaf25c0d7d5f673e887c0cf5d584.dgi",
+              "codec": 2,
+              "alpha": 2,
+              "codec_bytes": {
+                "1": 7920,
+                "2": 5887
+              },
+              "source": "sprites/eyes-closed.png",
+              "source_sha256": "a142583debb9058de7ecfb31687153fcb77092a2f8eb62f06c95e4bf113c6c14"
+            },
+            {
+              "name": "look-left",
+              "hash": "71dd74d0061d30f878bad21858afdacda44473d5f616453290494d2e669cc76f",
+              "x": 83,
+              "y": 168,
+              "w": 193,
+              "h": 68,
+              "bytes": 8086,
+              "path": "hil/fixtures/echoear360/71dd74d0061d30f878bad21858afdacda44473d5f616453290494d2e669cc76f.dgi",
+              "codec": 2,
+              "alpha": 2,
+              "codec_bytes": {
+                "1": 12104,
+                "2": 8086
+              },
+              "source": "sprites/eyes-look-left.png",
+              "source_sha256": "2eae7b9778127ab73bbf980e6e9310e5583cc4b7d79284e5aa0b40a686bc1742"
+            },
+            {
+              "name": "look-right",
+              "hash": "ad3a823e394082af83d7290cab1b5cc3129ca6d461b39d83850883f1a1c17550",
+              "x": 83,
+              "y": 168,
+              "w": 193,
+              "h": 68,
+              "bytes": 8102,
+              "path": "hil/fixtures/echoear360/ad3a823e394082af83d7290cab1b5cc3129ca6d461b39d83850883f1a1c17550.dgi",
+              "codec": 2,
+              "alpha": 2,
+              "codec_bytes": {
+                "1": 12084,
+                "2": 8102
+              },
+              "source": "sprites/eyes-look-right.png",
+              "source_sha256": "5725efbbbd0ba337742d385ec62052c69232623dac79231f7bdebdb1c3800415"
+            },
+            {
+              "name": "happy",
+              "hash": "d0becacdd2181a56d672d7954af5c1daad9a4c717c6b83110b20103188ce9a55",
+              "x": 83,
+              "y": 168,
+              "w": 193,
+              "h": 68,
+              "bytes": 5267,
+              "path": "hil/fixtures/echoear360/d0becacdd2181a56d672d7954af5c1daad9a4c717c6b83110b20103188ce9a55.dgi",
+              "codec": 2,
+              "alpha": 2,
+              "codec_bytes": {
+                "1": 8044,
+                "2": 5267
+              },
+              "source": "sprites/eyes-happy.png",
+              "source_sha256": "25a0c4c8ac11412976fedbce54c2045722e8eeed7c0e664dc205a0573296ebba"
+            },
+            {
+              "name": "neutral",
+              "hash": "79eb8d3d8704ff3d47b9434ee542d831e24e5ba4e45f929d44ad8eff74e2721b",
+              "x": 83,
+              "y": 168,
+              "w": 193,
+              "h": 68,
+              "bytes": 8292,
+              "path": "hil/fixtures/echoear360/79eb8d3d8704ff3d47b9434ee542d831e24e5ba4e45f929d44ad8eff74e2721b.dgi",
+              "codec": 2,
+              "alpha": 2,
+              "codec_bytes": {
+                "1": 14164,
+                "2": 8292
+              },
+              "source": "sprites/eyes-neutral.png",
+              "source_sha256": "302818fb979df98d3cb4fa2b85e4f59e20acb477fe24704d30f5b3521ac0114e"
+            }
+          ]
+        },
+        {
+          "name": "mouth",
+          "frames": [
+            {
+              "name": "rest-smile",
+              "hash": "da2fab787266cfca6b3ecaaf59d301481391504a9b9b6af2d7b07a2617b6da91",
+              "x": 145,
+              "y": 226,
+              "w": 74,
+              "h": 45,
+              "bytes": 3039,
+              "path": "hil/fixtures/echoear360/da2fab787266cfca6b3ecaaf59d301481391504a9b9b6af2d7b07a2617b6da91.dgi",
+              "codec": 2,
+              "alpha": 2,
+              "codec_bytes": {
+                "1": 4021,
+                "2": 3039
+              },
+              "source": "sprites/mouth-rest-smile.png",
+              "source_sha256": "b624be3cc3247d91068f2e3b5aebbdacc8754c519a8b9d51aa9167dc868a1f1b"
+            },
+            {
+              "name": "small",
+              "hash": "ee9380d3b94f1c2c5c7a5fc2744620193722c405cfdc9673606835225324b75a",
+              "x": 145,
+              "y": 226,
+              "w": 74,
+              "h": 45,
+              "bytes": 1985,
+              "path": "hil/fixtures/echoear360/ee9380d3b94f1c2c5c7a5fc2744620193722c405cfdc9673606835225324b75a.dgi",
+              "codec": 2,
+              "alpha": 2,
+              "codec_bytes": {
+                "1": 2525,
+                "2": 1985
+              },
+              "source": "sprites/mouth-small.png",
+              "source_sha256": "8d43acfb8388ce349b9c346276d3844fd7a5e43685df25415aa030e2719153d3"
+            },
+            {
+              "name": "medium",
+              "hash": "94bbeed0db900f0d9a6e79c062df0c007c9c1eef7939022c88b5cdd6bef1fc28",
+              "x": 145,
+              "y": 226,
+              "w": 74,
+              "h": 45,
+              "bytes": 2666,
+              "path": "hil/fixtures/echoear360/94bbeed0db900f0d9a6e79c062df0c007c9c1eef7939022c88b5cdd6bef1fc28.dgi",
+              "codec": 2,
+              "alpha": 2,
+              "codec_bytes": {
+                "1": 3541,
+                "2": 2666
+              },
+              "source": "sprites/mouth-medium.png",
+              "source_sha256": "70bb78ad7b44c1ee3818ba1eececa7cef2fa61827291e2a993eaf348aabd038a"
+            },
+            {
+              "name": "wide",
+              "hash": "537afe4e626ded2433b8c715798453e55b1b6d53b6edd578e9a0ba385dca05f5",
+              "x": 145,
+              "y": 226,
+              "w": 74,
+              "h": 45,
+              "bytes": 2880,
+              "path": "hil/fixtures/echoear360/537afe4e626ded2433b8c715798453e55b1b6d53b6edd578e9a0ba385dca05f5.dgi",
+              "codec": 2,
+              "alpha": 2,
+              "codec_bytes": {
+                "1": 3817,
+                "2": 2880
+              },
+              "source": "sprites/mouth-wide.png",
+              "source_sha256": "6b28560aba9e679aeca8978abe903b79f05f64be03efcc845b1a29c80e252b82"
+            },
+            {
+              "name": "round",
+              "hash": "9f110aa46578afe9fd6c1f309401d7dbb3313691ba687d17f6ca9444116094a9",
+              "x": 145,
+              "y": 226,
+              "w": 74,
+              "h": 45,
+              "bytes": 3018,
+              "path": "hil/fixtures/echoear360/9f110aa46578afe9fd6c1f309401d7dbb3313691ba687d17f6ca9444116094a9.dgi",
+              "codec": 2,
+              "alpha": 2,
+              "codec_bytes": {
+                "1": 4033,
+                "2": 3018
+              },
+              "source": "sprites/mouth-round.png",
+              "source_sha256": "f09ab5e4319abedfca79e7fc5df5cc265987570ca01cb26d4445a96fff38c55d"
+            }
+          ]
+        }
+      ],
+      "layer_order": [
+        "faceplate",
+        "eyes",
+        "mouth"
+      ],
+      "animator": {
+        "eyes": {
+          "neutral": "neutral",
+          "open": "open",
+          "half": "half",
+          "blink": "closed",
+          "look_left": "look-left",
+          "look_right": "look-right",
+          "happy": "happy"
+        },
+        "mouth": {
+          "rest": "rest-smile",
+          "energy_1": "small",
+          "energy_2": "medium",
+          "energy_3": "wide",
+          "energy_4": "round"
+        }
+      },
+      "manifest_sha256": "6dda8e7fbca74e87c47b6131b38f8d7ef51db5197eacca5b0a012e76f9918171",
+      "hash": "665122475c9d160ad0ce31beff169b74cdc26135e7063543fc9de9650c2f11a1"
+    }
+  ],
+  "budget": {
+    "arena_bytes": 491520,
+    "arena_limit": 368640,
+    "status_charged": 135952,
+    "packs_charged": 174992,
+    "per_pack_charged": {
+      "angel": 86416,
+      "devil": 88576
+    },
+    "resident_charged": 310944,
+    "extra_install_reservation": 23520,
+    "peak_charged": 334464,
+    "headroom": 34176,
+    "unique_duo_hashes": 26,
+    "unique_resident_hashes": 31,
+    "unique_flash_hashes": 46,
+    "existing_payload": 220770,
+    "duo_payload": 174400,
+    "largest_install_temp": 23494,
+    "flash_payload_plus_temp": 418664,
+    "minimum_flash_usable": 558219,
+    "hardware_gate": "Step 4a: measure used and largest free block in the arena, and per-board LittleFS inventory/usable/free; payload plus temp <= floor(0.75 * usable) and runtime physical-free reserves must pass."
+  }
+}

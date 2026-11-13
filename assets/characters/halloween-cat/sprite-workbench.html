@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="data:,">
+<title>Halloween Cat — animation preview</title>
+<style>
+  *{box-sizing:border-box} body{margin:0;background:#100b18;color:#f6e7d4;font:16px system-ui,sans-serif;min-height:100vh;display:grid;place-items:center;padding:24px}
+  main{width:min(920px,100%)} .layout{display:flex;gap:48px;align-items:center;flex-wrap:wrap} h1{font-size:28px;margin:0 0 8px} p{color:#b9aaca;line-height:1.6;margin:0 0 24px}
+  canvas{width:min(412px,100%);height:auto;aspect-ratio:1;border-radius:50%;image-rendering:pixelated;display:block;box-shadow:0 0 0 8px #282032,0 16px 70px #0008}
+  .display{width:412px;max-width:100%;flex-shrink:0}.controls{flex:1;min-width:220px} label{display:block;margin:18px 0 6px;font-size:14px} select,button{font:inherit;background:#25192f;color:#fff0df;border:1px solid #51405f;border-radius:8px;padding:9px 12px} select{width:100%} button{cursor:pointer} button[aria-pressed=true]{background:#824318;border-color:#e79b5c}
+  .modes{display:flex;gap:8px;flex-wrap:wrap} input[type=range]{width:100%;accent-color:#ef943e} .note{font-size:13px;margin-top:28px} .status{font:12px ui-monospace,monospace;color:#b5a3c7;margin-top:20px;min-height:32px} .pause{display:flex;gap:9px;align-items:center}
+  :focus-visible{outline:2px solid #ffb964;outline-offset:3px}
+</style>
+<main>
+  <h1>Halloween Cat</h1>
+  <p>Independent eyes, mouth, and whiskers. Preview at the round display’s 412 × 412 resolution.</p>
+  <div class="layout">
+    <div class="display"><canvas width="412" height="412" aria-label="Animated Halloween cat on a round screen"></canvas><div class="status" id="status" aria-live="off">Loading artwork…</div></div>
+    <div class="controls">
+      <div class="modes" aria-label="Character state"><button data-mode="idle" aria-pressed="true">Idle</button><button data-mode="listening" aria-pressed="false">Listening</button><button data-mode="speaking" aria-pressed="false">Speaking</button></div>
+      <label for="eyes">Eyes</label><select id="eyes"><option value="auto">Automatic</option><option>happy</option><option>open</option><option>half</option><option>closed</option><option>left</option><option>right</option></select>
+      <label for="mouth">Mouth</label><select id="mouth"><option value="auto">Automatic</option><option>smile</option><option>closed</option><option>small</option><option>medium</option><option>wide</option><option>round</option></select>
+      <label for="whiskers">Whiskers</label><select id="whiskers"><option value="auto">Automatic</option><option>rest</option><option>lift</option><option>drop</option></select>
+      <label for="level">Speech energy <output id="level-value">65%</output></label><input id="level" type="range" min="0" max="100" value="65">
+      <label class="pause"><input id="paused" type="checkbox">Pause automatic motion</label>
+      <button id="blink" type="button">Blink</button>
+    </div>
+  </div>
+  <p class="note">Speech energy is simulated here. On the device, mouth motion should follow audio actually playing through the speaker. Manual selections let you inspect each layer. Firmware and physical display validation are pending.</p>
+</main>
+<script src="sprites.js?v=rounded-mouth-2"></script>
+<script src="preview.js"></script>
+</html>

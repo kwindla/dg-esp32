@@ -1,0 +1,54 @@
+Halloween Cat animation asset pack
+
+Open index.html or preview.html for the interactive app. It automatically shows
+a silent listening-and-talking demo. Listen to me measures live microphone audio
+locally and uses its energy to drive eye attention and whisker movement. Hear the
+cat speaks the typed line with the browser's speech voice; utterance start/end
+events gate mouth motion, with word boundaries nudging an approximate rhythm.
+This is not phoneme alignment or analysis of synthesized speech PCM. No Pipecat
+conversation service is connected. Open the HTTPS ngrok URL for microphone use.
+The microphone is stopped on exit, cancel, switching modes, or hiding the app.
+No microphone recording or upload is performed by this app.
+sprite-workbench.html retains the original manual layer controls.
+halloween-cat-animated-preview.gif is a 412x412, 20 fps, 4-second demonstration.
+
+halloween-cat-faceplate-412.png is the blank underlying face with the nose retained.
+sprites/ contains 15 transparent feature patches. animation.json defines their
+absolute top-left placement and shared bounds in the 412x412 display coordinate
+system. PNG transparency is real alpha. The original static cat is preserved.
+sprites.js defines editable pixel rectangles; rerun node build-sprites.cjs after
+editing it to regenerate the PNGs and manifest. No package installation is needed.
+
+Eyes: happy, open, half, closed, left, right.
+Mouth: smile, closed, small, medium, wide, round.
+Whiskers: rest, lift, drop. The features move independently of the hat and body.
+Mouth revision 2 keeps the original cat-smile corners and nose stem while the
+openings taper into rounded bowls. The O shape is a stepped circular opening;
+closed speech frames retain the resting smile. Tongues have curved pixel edges.
+The nose stays static. Feature geometry uses a 103x103 logical grid at 4x scale.
+
+Firmware integration: restore the clean face plate underneath each changed layer
+before compositing its next sprite. Queue expression changes onto the display
+task. Gate mouth animation by bot speaking and select opening from smoothed
+audio energy at speaker playout, accounting for the playback buffer. This is
+speech-reactive motion, not phoneme-accurate lip synchronization. Use independent
+blink and whisker timers. Keep large image data out of internal DMA staging.
+
+Validation: browser rendering matched fresh full composites for all 108 combinations
+of eyes, mouth, and whiskers, with no stale pixels. Automatic simulated speech
+produced closed, small, medium, wide, and round mouth frames. The GIF was checked
+for 412x412 dimensions, 80 frames, and 4000ms total duration. JavaScript syntax and
+sprite export bounds passed. Firmware integration, LCD optical verification,
+performance, and RAM budgets remain pending. Interactive app was checked through
+the public HTTPS tunnel at desktop and 390px phone widths, with no horizontal
+overflow. Generated audio through a MediaStream exercised microphone energy,
+eye/whisker reactions, and stopped tracks. Permission denial and cancellation
+of a pending microphone request fall back or stop cleanly. Simulated speech
+start/end/stop events verified mouth motion and cleanup. The automated browser
+had no real speech voices installed: its speech failure fallback was checked;
+audible speech on a physical phone remains unverified.
+
+Face plate edited with the built-in image_gen tool (faceplate-prompt.txt).
+Feature patches are deterministic code-native pixel shapes. Exports use Node and
+FFmpeg. The GIF contains simulated motion and is a review artifact, not a firmware
+animation format.

@@ -1,0 +1,24 @@
+menu "Bench diagnostics"
+config DG_PHASE1_DIAGNOSTICS
+    bool "Phase 1 memory and timing instrumentation"
+    default y
+config DG_PLAYBACK_BREAKDOWN
+    bool "Bench: measure playback decode, PLC, policy and I2S wall time"
+    default n
+    help
+        Additional per-stage counters, shared by the transport consumer and
+        playback pipeline. Wall time includes preemption and I2S blocking;
+        task runtime remains the CPU measurement. Disabled in production.
+config DG_PLAYBACK_DSP_IRAM
+    bool "Bench: move playback DSP code and literals into IRAM"
+    default n
+    help
+        Placement experiment. Report internal SRAM cost and qualify before
+        adoption. Audio processing, target and ceiling are unchanged.
+config DG_CACHE_COUNTERS
+    bool "Bench: cache counter instrumentation and console control"
+    default n
+    help
+        Compile cache metrics and expose cache-counters and the PERF field.
+        Disabled in production.
+endmenu

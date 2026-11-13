@@ -1,0 +1,11 @@
+menu "P4 network probe credentials"
+    config DG_WIFI_SSID
+        string "WiFi SSID"
+        default ""
+    config DG_WIFI_PASSWORD
+        string "WiFi password"
+        default ""
+    config DG_SERVER_URL
+        string "Server URL (unused by this probe)"
+        default ""
+endmenu

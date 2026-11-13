@@ -1,0 +1,139 @@
+{
+  "schema": 1,
+  "basis": "Fix round 2 regressions plus pin-round coordinator factory selector",
+  "cases": [
+    {
+      "id": 67,
+      "file": "hil/p4_step14.py",
+      "old": "restore_io.guard.success=False",
+      "new": "pass",
+      "purpose": "force the actual hold onto factory from success=True"
+    },
+    {
+      "id": 68,
+      "file": "hil/p4_step14.py",
+      "old": "try:previous_preflight(io)",
+      "new": "try:pass",
+      "purpose": "factory backup preflight cannot be skipped"
+    },
+    {
+      "id": 69,
+      "file": "hil/p4_liveness.py",
+      "old": "    run.add_argument('--factory-backup',dest='p4_factory_backup',type=Path,default=smoke.FACTORY_BACKUP)\n",
+      "new": "",
+      "purpose": "liveness factory backup parser field"
+    },
+    {
+      "id": 70,
+      "file": "hil/p4_liveness.py",
+      "old": "start_ns<=row['host_ns']<=failure_ns",
+      "new": "row['host_ns']<=failure_ns",
+      "purpose": "reset must be inside current window"
+    },
+    {
+      "id": 71,
+      "file": "hil/p4_liveness.py",
+      "old": "start_ns<=row['host_ns']<=failure_ns",
+      "new": "start_ns<=row['host_ns']",
+      "purpose": "reset must precede the failure"
+    },
+    {
+      "id": 72,
+      "file": "hil/p4_liveness.py",
+      "old": "start_cursor<=row['cursor']<=failure_cursor",
+      "new": "row['cursor']<=failure_cursor",
+      "purpose": "reset cursor cannot precede window"
+    },
+    {
+      "id": 73,
+      "file": "hil/p4_liveness.py",
+      "old": "start_cursor<=row['cursor']<=failure_cursor",
+      "new": "start_cursor<=row['cursor']",
+      "purpose": "reset cursor cannot follow failure at equal timestamp"
+    },
+    {
+      "id": 74,
+      "file": "hil/p4_liveness.py",
+      "old": "if re.search(r'Reset slave using GPIO\\[\\d+\\]',line,re.I):return not boot",
+      "new": "if re.search(r'Reset slave using GPIO\\[\\d+\\]',line,re.I):return False",
+      "purpose": "mid-run GPIO reset is evidence"
+    },
+    {
+      "id": 75,
+      "file": "hil/p4_liveness.py",
+      "old": "and not result.get('cleanup_error'):return 2",
+      "new": "and not result.get('cleanup_error'):return 0",
+      "purpose": "inconclusive has distinct exit 2"
+    },
+    {
+      "id": 76,
+      "file": "hil/p4_liveness.py",
+      "old": "if resets:\n            result.update(inconclusive=True",
+      "new": "if resets:\n            result.pop('error',None)\n            result.update(inconclusive=True",
+      "purpose": "original error is retained"
+    },
+    {
+      "id": 77,
+      "file": "hil/p4_step14.py",
+      "old": "try:smoke.write(out/'restore-boot-proof.json',result)",
+      "new": "try:pass",
+      "purpose": "proof record written on early failure"
+    },
+    {
+      "id": 78,
+      "file": "hil/p4_liveness.py",
+      "old": "converged=evidence[i].get('converged')",
+      "new": "converged=True",
+      "purpose": "unconverged reference points identified"
+    },
+    {
+      "id": 79,
+      "file": "hil/p4_step14.py",
+      "old": "smoke.write(io.out/'restore.json',result)",
+      "new": "pass",
+      "purpose": "publish actual restore path proof"
+    },
+    {
+      "id": 80,
+      "file": "hil/p4_step14.py",
+      "old": "guard.record.get('clean') is True and guard.record.get('action')=='p4-product-of-record'",
+      "new": "True",
+      "purpose": "settle precheck requires product restore"
+    },
+    {
+      "id": 81,
+      "file": "hil/p4_step14.py",
+      "old": "if (io.out/'select-factory').exists():",
+      "new": "if False:",
+      "purpose": "coordinator sentinel must be honored"
+    },
+    {
+      "id": 82,
+      "file": "hil/p4_step14.py",
+      "old": "                io.args.p4_restore_bundle=None;io.args.p4_restore_elf=None",
+      "new": "                io.args.p4_restore_elf=None",
+      "purpose": "sentinel clears product restore selection"
+    },
+    {
+      "id": 83,
+      "file": "hil/p4_step14.py",
+      "old": "                io.args.p4_restore_bundle=None;io.args.p4_restore_elf=None",
+      "new": "                io.args.p4_restore_bundle=None",
+      "purpose": "sentinel clears pinned ELF"
+    },
+    {
+      "id": 84,
+      "file": "hil/p4_step14.py",
+      "old": "                io.guard.success=False",
+      "new": "                pass",
+      "purpose": "sentinel forces factory even after successful acquisition"
+    },
+    {
+      "id": 85,
+      "file": "hil/p4_step14.py",
+      "old": "                raise RuntimeError('factory selected by coordinator')",
+      "new": "                pass",
+      "purpose": "sentinel re-waits before factory and prevents another pin write"
+    }
+  ]
+}

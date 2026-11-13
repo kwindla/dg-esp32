@@ -1,0 +1,20 @@
+new_channel 0 role=1 dma=3/256 clear=0 tx=0 rx=1
+std RX rate=16000 mclk=256 data=32 mode=2 slot=0 ws=32 pins=-1,15,2,-1,39
+enable RX
+new_channel 1 role=1 dma=4/240 clear=1 tx=1 rx=0
+std TX rate=16000 mclk=256 data=16 mode=2 slot=0 ws=16 pins=-1,48,38,47,-1
+callbacks TX sent=1 overflow=1 recv=0 overflow=0
+capture RX 24 timeout=10
+sample 21781 raw=17767
+sample -420 raw=-1
+sample -411 raw=0
+clips 0 limited=0 adc=0
+preload TX 1280
+preload TX 1280
+preload TX 1280
+enable TX
+pcm TX 12 timeout=10 21781 21781 -420 -420 -411 -411
+disable TX
+delete TX
+disable RX
+delete RX

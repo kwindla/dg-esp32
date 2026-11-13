@@ -1,0 +1,81 @@
+# P4-XC platform. IDF paths below are relative to ESP-IDF v6.1.
+# Spike defaults are configuration carry-overs, not separate hardware benchmarks.
+# Core, hosted remote and display keys; AEC calibration arrives in step 15.
+
+# docs/p4xc.md, facts A "P4 eFuse MAC, chip revision and flash ID": ESP32-P4.
+CONFIG_IDF_TARGET="esp32p4"
+# Same facts-A revision row; components/esp_hw_support/port/esp32p4/Kconfig.hw_support:4.
+CONFIG_ESP32P4_SELECTS_REV_LESS_V3=y
+# Same facts-A revision row; components/esp_hw_support/port/esp32p4/Kconfig.hw_support:30.
+CONFIG_ESP32P4_REV_MIN_100=y
+# Same facts-A "P4 eFuse MAC, chip revision and flash ID" row (32 MB).
+# Prompted choice: components/esptool_py/Kconfig.projbuild:139.
+CONFIG_ESPTOOLPY_FLASHSIZE_32MB=y
+# Carry-over: spikes/p4_probe/sdkconfig.defaults; components/esptool_py/Kconfig.projbuild:47.
+CONFIG_ESPTOOLPY_FLASHMODE_QIO=y
+# Same spike defaults: deselect legacy DIO when selecting QIO.
+CONFIG_ESPTOOLPY_FLASHMODE_DIO=n
+# Carry-over: spikes/p4_probe/sdkconfig.defaults; components/esp_psram/esp32p4/Kconfig.spiram:1.
+CONFIG_SPIRAM=y
+# Only P4 PSRAM choice: components/esp_psram/esp32p4/Kconfig.spiram:11-16 (default HEX).
+CONFIG_SPIRAM_MODE_HEX=y
+# Spike defaults; components/esp_psram/esp32p4/Kconfig.spiram:29-38 (250M excludes rev<3).
+CONFIG_SPIRAM_SPEED_200M=y
+# Spike defaults; prompted XIP option components/esp_psram/esp32p4/Kconfig.spiram:67-75.
+CONFIG_SPIRAM_XIP_FROM_PSRAM=y
+# Plan step 3 selects custom UART; components/esp_stdio/Kconfig:150-160 enables custom baud.
+CONFIG_ESP_CONSOLE_UART_CUSTOM=y
+# Prompted UART0 choice: components/esp_stdio/Kconfig:68-82; P4 pins derive at :115/:136.
+CONFIG_ESP_CONSOLE_UART_CUSTOM_NUM_0=y
+# Facts-A "Highest passing baud" measured a runtime switch, NOT a boot at 2M.
+# components/esp_stdio/Kconfig:159-160 applies this to bootloader + app; check boot in step 12a.
+CONFIG_ESP_CONSOLE_UART_BAUDRATE=2000000
+# components/esp_stdio/Kconfig:156-165: 2 Mbaud requires PM off (PM caps baud at 1M).
+CONFIG_PM_ENABLE=n
+# Facts-A "Sleep-clock ICG boot-loop fix"; components/esp_pm/Kconfig:314-317.
+CONFIG_PM_SLEEP_CLK_ICG_ENABLE=n
+# Rev<3 default, not a facts-A measurement: components/esp_system/port/soc/esp32p4/Kconfig.cpu:4,12-14.
+CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ_360=y
+# IDF default: components/esp_system/port/soc/esp32p4/Kconfig.cache:3-10.
+CONFIG_CACHE_L2_CACHE_128KB=y
+# IDF default: components/esp_system/port/soc/esp32p4/Kconfig.cache:23-33.
+CONFIG_CACHE_L2_CACHE_LINE_64B=y
+
+# Facts A / spikes/p4_net: IDF in-tree remote + hosted 2.12.4, factory C6.
+CONFIG_ESP_WIFI_REMOTE_ENABLED=y
+CONFIG_SLAVE_IDF_TARGET_ESP32C6=y
+CONFIG_ESP_WIFI_REMOTE_LIBRARY_HOSTED=y
+CONFIG_ESP_HOSTED_ENABLED=y
+CONFIG_ESP_HOSTED_CP_TARGET_ESP32C6=y
+CONFIG_ESP_HOSTED_SDIO_HOST_INTERFACE=y
+CONFIG_ESP_HOSTED_SDIO_SLOT_1=y
+CONFIG_ESP_HOSTED_SDIO_4_BIT_BUS=y
+CONFIG_ESP_HOSTED_SDIO_CLOCK_FREQ_KHZ=40000
+CONFIG_ESP_HOSTED_PRIV_SDIO_PIN_CMD_SLOT_1=19
+CONFIG_ESP_HOSTED_PRIV_SDIO_PIN_CLK_SLOT_1=18
+CONFIG_ESP_HOSTED_PRIV_SDIO_PIN_D0_SLOT_1=14
+CONFIG_ESP_HOSTED_PRIV_SDIO_PIN_D1_4BIT_BUS_SLOT_1=15
+CONFIG_ESP_HOSTED_PRIV_SDIO_PIN_D2_4BIT_BUS_SLOT_1=16
+CONFIG_ESP_HOSTED_PRIV_SDIO_PIN_D3_4BIT_BUS_SLOT_1=17
+CONFIG_ESP_HOSTED_SDIO_GPIO_RESET_SLAVE=54
+# Remote equivalents of the S3 buffers; present in esp_wifi's remote Kconfig.
+CONFIG_WIFI_RMT_STATIC_RX_BUFFER_NUM=16
+CONFIG_WIFI_RMT_DYNAMIC_RX_BUFFER_NUM=32
+CONFIG_WIFI_RMT_DYNAMIC_TX_BUFFER_NUM=32
+
+# Digital mic placeholder = EchoEar; authoritative P4 value (hil/p4_audio.md).
+# This overrides the common overlay. Seed/encoder stack belong to peer Kconfig;
+# never pin them here, since AEC/frame40 have different stack defaults.
+CONFIG_DG_MIC_GAIN_PERCENT=125
+
+# IDF components/esp_lcd/Kconfig:26-44, reachable through dg_display -> esp_lcd.
+# Keep the IDF/spike IRAM placement for DMA re-arm. CACHE_SAFE stays off, so
+# user callbacks may remain cached and flash operations still mask the ISR.
+# MINIMAL_BUILD proof:
+# sdkconfig_keydiff.py build-p4xc/sdkconfig --expect-keys LCD_DSI_ISR_HANDLER_IN_IRAM,LCD_DSI_ISR_CACHE_SAFE
+CONFIG_LCD_DSI_ISR_HANDLER_IN_IRAM=y
+CONFIG_LCD_DSI_ISR_CACHE_SAFE=n
+
+# The panel/history and command-table backing store must not consume the
+# retention heap used before FreeRTOS reclaims the startup-stack regions.
+CONFIG_SPIRAM_ALLOW_BSS_SEG_EXTERNAL_MEMORY=y

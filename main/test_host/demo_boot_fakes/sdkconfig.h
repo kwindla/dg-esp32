@@ -1,0 +1,1 @@
+#define CONFIG_DG_DEMO_AUTOSTART 1

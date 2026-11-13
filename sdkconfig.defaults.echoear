@@ -1,0 +1,16 @@
+# EchoEar measured 16 MB flash / 16 MB embedded AP 1.8 V octal PSRAM.
+CONFIG_DG_BOARD_ECHOEAR=y
+CONFIG_ESPTOOLPY_FLASHMODE_DIO=n
+CONFIG_ESPTOOLPY_FLASHMODE_QIO=y
+CONFIG_ESPTOOLPY_FLASHSIZE_16MB=y
+CONFIG_ESPTOOLPY_FLASHSIZE="16MB"
+CONFIG_SPIRAM=y
+CONFIG_SPIRAM_MODE_OCT=y
+CONFIG_SPIRAM_TYPE_AUTO=y
+CONFIG_SPIRAM_SPEED_80M=y
+CONFIG_SPIRAM_XIP_FROM_PSRAM=y
+# Voltage is already forced to 1.8 V by eFuse; no eFuse writes required.
+# ES7210 supplies 24 dB analog gain; measured voice tests use +12 dB digital.
+CONFIG_DG_MIC_GAIN_PERCENT=125
+
+# Board/AEC-specific encoder stack defaults live in peer Kconfig.

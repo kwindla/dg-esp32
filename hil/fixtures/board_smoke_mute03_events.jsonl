@@ -1,0 +1,10 @@
+{"kind": "peer-binding", "monotonic_ns": 0, "pc_id": "sanitized-peer"}
+{"kind": "stt-profile", "monotonic_ns": 2435079, "pc_id": "sanitized-peer"}
+{"kind": "frame", "monotonic_ns": 3190629094, "frame": "UserStartedSpeakingFrame", "frame_id": 38983, "source": "LLMUserAggregator", "direction": "DOWNSTREAM", "bot_active": false, "text": null, "pc_id": "sanitized-peer"}
+{"kind": "frame", "monotonic_ns": 3190637580, "frame": "UserStartedSpeakingFrame", "frame_id": 38984, "source": "LLMUserAggregator", "direction": "UPSTREAM", "bot_active": false, "text": null, "pc_id": "sanitized-peer"}
+{"kind": "aggregator-user-turn-stopped", "monotonic_ns": 5474598494, "text": "Please count from one to twenty slowly.", "pc_id": "sanitized-peer"}
+{"kind": "frame", "monotonic_ns": 5760456276, "frame": "BotStartedSpeakingFrame", "frame_id": 39246, "source": "SmallWebRTCOutputTransport", "direction": "DOWNSTREAM", "bot_active": true, "text": null, "pc_id": "sanitized-peer"}
+{"kind": "frame", "monotonic_ns": 5760464742, "frame": "BotStartedSpeakingFrame", "frame_id": 39247, "source": "SmallWebRTCOutputTransport", "direction": "UPSTREAM", "bot_active": true, "text": null, "pc_id": "sanitized-peer"}
+{"kind": "frame", "monotonic_ns": 13677101792, "frame": "BotStoppedSpeakingFrame", "frame_id": 40082, "source": "SmallWebRTCOutputTransport", "direction": "DOWNSTREAM", "bot_active": false, "text": null, "pc_id": "sanitized-peer"}
+{"kind": "frame", "monotonic_ns": 13677111020, "frame": "BotStoppedSpeakingFrame", "frame_id": 40083, "source": "SmallWebRTCOutputTransport", "direction": "UPSTREAM", "bot_active": false, "text": null, "pc_id": "sanitized-peer"}
+{"kind": "aggregator-assistant-turn-stopped", "monotonic_ns": 13677486883, "text": "One, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen, eighteen, nineteen, twenty.", "pc_id": "sanitized-peer"}

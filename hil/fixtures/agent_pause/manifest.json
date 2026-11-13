@@ -1,0 +1,221 @@
+{
+  "voice": "aura-2-orpheus-en",
+  "turns": [
+    {
+      "id": "stressed-0.8",
+      "text": "What is the capital of France?",
+      "stt": [
+        [
+          "capital"
+        ],
+        [
+          "france"
+        ]
+      ],
+      "answer": [
+        [
+          "paris"
+        ]
+      ],
+      "pause_s": 0.8,
+      "stress": "stressed",
+      "file": "stressed-0.8.wav",
+      "sha256": "58bbad0a4f603c18b4b0f189abb880f104c7b85ec741b36bef849fab9415ad76",
+      "wer": 0.0,
+      "transcript": "What is the capital of France?",
+      "continuation_offset_s": 2.4099375,
+      "continuation_duration_s": 0.735625,
+      "continuation_active_rms": 1372.1642005948872,
+      "digital_silence_samples": 12800
+    },
+    {
+      "id": "stressed-1.3",
+      "text": "What is the capital of France?",
+      "stt": [
+        [
+          "capital"
+        ],
+        [
+          "france"
+        ]
+      ],
+      "answer": [
+        [
+          "paris"
+        ]
+      ],
+      "pause_s": 1.3,
+      "stress": "stressed",
+      "file": "stressed-1.3.wav",
+      "sha256": "cc1fcb035b48da8de69751e73f03dce6eca9a00329934f8a3e1a3ad66021b261",
+      "wer": 0.0,
+      "transcript": "What is the capital of France?",
+      "continuation_offset_s": 2.9099375,
+      "continuation_duration_s": 0.735625,
+      "continuation_active_rms": 1372.1642005948872,
+      "digital_silence_samples": 20800
+    },
+    {
+      "id": "stressed-1.8",
+      "text": "What is the capital of France?",
+      "stt": [
+        [
+          "capital"
+        ],
+        [
+          "france"
+        ]
+      ],
+      "answer": [
+        [
+          "paris"
+        ]
+      ],
+      "pause_s": 1.8,
+      "stress": "stressed",
+      "file": "stressed-1.8.wav",
+      "sha256": "ee766370e605cb70b047da4ad4e0c12ba188749100779d23bdde8e50d0dec584",
+      "wer": 0.0,
+      "transcript": "What is the capital of France?",
+      "continuation_offset_s": 3.4099375,
+      "continuation_duration_s": 0.735625,
+      "continuation_active_rms": 1372.1642005948872,
+      "digital_silence_samples": 28800
+    },
+    {
+      "id": "stressed-2.5",
+      "text": "What is the capital of France?",
+      "stt": [
+        [
+          "capital"
+        ],
+        [
+          "france"
+        ]
+      ],
+      "answer": [
+        [
+          "paris"
+        ]
+      ],
+      "pause_s": 2.5,
+      "stress": "stressed",
+      "file": "stressed-2.5.wav",
+      "sha256": "18d8f8af7a0b9bd58342b9a7c296c15d3f809c607ee8d568a4d0621ceb2a2ef0",
+      "wer": 0.0,
+      "transcript": "What is the capital of France?",
+      "continuation_offset_s": 4.1099375,
+      "continuation_duration_s": 0.735625,
+      "continuation_active_rms": 1372.1642005948872,
+      "digital_silence_samples": 40000
+    },
+    {
+      "id": "unstressed-0.8",
+      "text": "What is the capital of France?",
+      "stt": [
+        [
+          "capital"
+        ],
+        [
+          "france"
+        ]
+      ],
+      "answer": [
+        [
+          "paris"
+        ]
+      ],
+      "pause_s": 0.8,
+      "stress": "unstressed",
+      "file": "unstressed-0.8.wav",
+      "sha256": "c148d9de73f0a8ad4c23c7a72256b33664a524006262a87e01abf3456a141b68",
+      "wer": 0.0,
+      "transcript": "What is the capital of France?",
+      "continuation_offset_s": 2.4099375,
+      "continuation_duration_s": 0.739125,
+      "continuation_active_rms": 1696.631576719104,
+      "digital_silence_samples": 12800
+    },
+    {
+      "id": "unstressed-1.3",
+      "text": "What is the capital of France?",
+      "stt": [
+        [
+          "capital"
+        ],
+        [
+          "france"
+        ]
+      ],
+      "answer": [
+        [
+          "paris"
+        ]
+      ],
+      "pause_s": 1.3,
+      "stress": "unstressed",
+      "file": "unstressed-1.3.wav",
+      "sha256": "1c3bfad78f4fbcf55b9dc673266e5593a54844b53fc26abff3572559fc695119",
+      "wer": 0.0,
+      "transcript": "What is the capital of France?",
+      "continuation_offset_s": 2.9099375,
+      "continuation_duration_s": 0.739125,
+      "continuation_active_rms": 1696.631576719104,
+      "digital_silence_samples": 20800
+    },
+    {
+      "id": "unstressed-1.8",
+      "text": "What is the capital of France?",
+      "stt": [
+        [
+          "capital"
+        ],
+        [
+          "france"
+        ]
+      ],
+      "answer": [
+        [
+          "paris"
+        ]
+      ],
+      "pause_s": 1.8,
+      "stress": "unstressed",
+      "file": "unstressed-1.8.wav",
+      "sha256": "a78509ae326f64d927f0869be8928f6fcffda75adb88c1c56dbff9c9b2b49689",
+      "wer": 0.0,
+      "transcript": "What is the capital of France?",
+      "continuation_offset_s": 3.4099375,
+      "continuation_duration_s": 0.739125,
+      "continuation_active_rms": 1696.631576719104,
+      "digital_silence_samples": 28800
+    },
+    {
+      "id": "unstressed-2.5",
+      "text": "What is the capital of France?",
+      "stt": [
+        [
+          "capital"
+        ],
+        [
+          "france"
+        ]
+      ],
+      "answer": [
+        [
+          "paris"
+        ]
+      ],
+      "pause_s": 2.5,
+      "stress": "unstressed",
+      "file": "unstressed-2.5.wav",
+      "sha256": "db3475b4e4d15ad31d6fb2d32ea1c64352dee2a714c33393dfa437ef01ca04a1",
+      "wer": 0.0,
+      "transcript": "What is the capital of France?",
+      "continuation_offset_s": 4.1099375,
+      "continuation_duration_s": 0.739125,
+      "continuation_active_rms": 1696.631576719104,
+      "digital_silence_samples": 40000
+    }
+  ]
+}

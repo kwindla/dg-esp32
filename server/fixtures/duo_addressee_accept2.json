@@ -1,0 +1,3386 @@
+{
+  "schema_version": 1,
+  "set": "accept2",
+  "cases": [
+    {
+      "id": "accept2-named_direct-1",
+      "class": "named_direct",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, may I keep the borrowed drill for one more job?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] One extra project with it would be tempting."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It is about what you owe your neighbour."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Ask permission and arrange to return it promptly."
+        }
+      ],
+      "current": "angel",
+      "latest": "Devil, settle a bet for me: is sneaking into the empty first-class seat worth a try?",
+      "expected": "devil"
+    },
+    {
+      "id": "accept2-named_direct-2",
+      "class": "named_direct",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, should I take a shortcut on my way to the station?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Choose a route that respects the people who live there."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Saving those minutes might feel rather good."
+        }
+      ],
+      "current": "devil",
+      "latest": "Angel, help me write a fair apology before I make this argument worse.",
+      "expected": "angel"
+    },
+    {
+      "id": "accept2-named_direct-3",
+      "class": "named_direct",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, how much should I spend on the thank-you gift?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Something extravagant could make a memorable impression."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It depends on what you want the gesture to mean."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] A thoughtful modest gift can say enough."
+        }
+      ],
+      "current": "angel",
+      "latest": "Here is your challenge, Devil: persuade me to take the scenic route.",
+      "expected": "devil"
+    },
+    {
+      "id": "accept2-named_direct-4",
+      "class": "named_direct",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, how should I plan the work before my deadline?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Finish the important task before taking a long break."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little procrastination is an appealing possibility."
+        }
+      ],
+      "current": "devil",
+      "latest": "Angel, rank honesty and tact for this awkward conversation.",
+      "expected": "angel"
+    },
+    {
+      "id": "accept2-named_direct-5",
+      "class": "named_direct",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, should I accept another invitation this weekend?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A spontaneous yes could lead to a great evening."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] There is room to weigh excitement against the commitment."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Leave enough space to keep your earlier promises."
+        }
+      ],
+      "current": "angel",
+      "latest": "Devil, give me a daring suggestion for my free afternoon.",
+      "expected": "devil"
+    },
+    {
+      "id": "accept2-hear_from-1",
+      "class": "hear_from",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, may I keep the borrowed drill for one more job?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Ask permission and arrange to return it promptly."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] It is about what you owe your neighbour."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] One extra project with it would be tempting."
+        }
+      ],
+      "current": "devil",
+      "latest": "Before I send that message, I need to hear from the Angel about how it might land.",
+      "expected": "angel"
+    },
+    {
+      "id": "accept2-hear_from-2",
+      "class": "hear_from",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, should I take a shortcut on my way to the station?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Saving those minutes might feel rather good."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Choose a route that respects the people who live there."
+        }
+      ],
+      "current": "angel",
+      "latest": "We have covered restraint; now I am ready to hear from the Devil on celebrating.",
+      "expected": "devil"
+    },
+    {
+      "id": "accept2-hear_from-3",
+      "class": "hear_from",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, how much should I spend on the thank-you gift?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] A thoughtful modest gift can say enough."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] It depends on what you want the gesture to mean."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Something extravagant could make a memorable impression."
+        }
+      ],
+      "current": "devil",
+      "latest": "There is a moral wrinkle here, so I would rather hear from Angel before choosing.",
+      "expected": "angel"
+    },
+    {
+      "id": "accept2-hear_from-4",
+      "class": "hear_from",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, how should I plan the work before my deadline?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little procrastination is an appealing possibility."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Finish the important task before taking a long break."
+        }
+      ],
+      "current": "angel",
+      "latest": "For the adventurous side of this decision, I ought to hear from Devil next.",
+      "expected": "devil"
+    },
+    {
+      "id": "accept2-hear_from-5",
+      "class": "hear_from",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, should I accept another invitation this weekend?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Leave enough space to keep your earlier promises."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] There is room to weigh excitement against the commitment."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A spontaneous yes could lead to a great evening."
+        }
+      ],
+      "current": "devil",
+      "latest": "At this stage the perspective I want to hear from is the Angel, on being forgiving.",
+      "expected": "angel"
+    },
+    {
+      "id": "accept2-epithets-1",
+      "class": "epithets",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, may I keep the borrowed drill for one more job?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] One extra project with it would be tempting."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It is about what you owe your neighbour."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Ask permission and arrange to return it promptly."
+        }
+      ],
+      "current": "angel",
+      "latest": "Horned counsellor, give me your most audacious suggestion.",
+      "expected": "devil"
+    },
+    {
+      "id": "accept2-epithets-2",
+      "class": "epithets",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, should I take a shortcut on my way to the station?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Choose a route that respects the people who live there."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Saving those minutes might feel rather good."
+        }
+      ],
+      "current": "devil",
+      "latest": "Halo-wearer, help me find a considerate way out.",
+      "expected": "angel"
+    },
+    {
+      "id": "accept2-epithets-3",
+      "class": "epithets",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, how much should I spend on the thank-you gift?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Something extravagant could make a memorable impression."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It depends on what you want the gesture to mean."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] A thoughtful modest gift can say enough."
+        }
+      ],
+      "current": "angel",
+      "latest": "Little red troublemaker, weigh in on this opportunity.",
+      "expected": "devil"
+    },
+    {
+      "id": "accept2-epithets-4",
+      "class": "epithets",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, how should I plan the work before my deadline?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Finish the important task before taking a long break."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little procrastination is an appealing possibility."
+        }
+      ],
+      "current": "devil",
+      "latest": "My better judgment, tell me which choice is fair.",
+      "expected": "angel"
+    },
+    {
+      "id": "accept2-epithets-5",
+      "class": "epithets",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, should I accept another invitation this weekend?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A spontaneous yes could lead to a great evening."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] There is room to weigh excitement against the commitment."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Leave enough space to keep your earlier promises."
+        }
+      ],
+      "current": "angel",
+      "latest": "Shoulder imp, talk me through the exciting alternative.",
+      "expected": "devil"
+    },
+    {
+      "id": "accept2-misheard_names-1",
+      "class": "misheard_names",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, may I keep the borrowed drill for one more job?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Ask permission and arrange to return it promptly."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] It is about what you owe your neighbour."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] One extra project with it would be tempting."
+        }
+      ],
+      "current": "devil",
+      "latest": "Anjuhl, could you suggest a merciful response?",
+      "expected": "angel"
+    },
+    {
+      "id": "accept2-misheard_names-2",
+      "class": "misheard_names",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, should I take a shortcut on my way to the station?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Saving those minutes might feel rather good."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Choose a route that respects the people who live there."
+        }
+      ],
+      "current": "angel",
+      "latest": "D vell, talk me into enjoying my day off.",
+      "expected": "devil"
+    },
+    {
+      "id": "accept2-misheard_names-3",
+      "class": "misheard_names",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, how much should I spend on the thank-you gift?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] A thoughtful modest gift can say enough."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] It depends on what you want the gesture to mean."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Something extravagant could make a memorable impression."
+        }
+      ],
+      "current": "devil",
+      "latest": "Ain gel, tell me how to make amends.",
+      "expected": "angel"
+    },
+    {
+      "id": "accept2-misheard_names-4",
+      "class": "misheard_names",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, how should I plan the work before my deadline?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little procrastination is an appealing possibility."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Finish the important task before taking a long break."
+        }
+      ],
+      "current": "angel",
+      "latest": "De vol, devise a harmless bit of mischief for me.",
+      "expected": "devil"
+    },
+    {
+      "id": "accept2-misheard_names-5",
+      "class": "misheard_names",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, should I accept another invitation this weekend?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Leave enough space to keep your earlier promises."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] There is room to weigh excitement against the commitment."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A spontaneous yes could lead to a great evening."
+        }
+      ],
+      "current": "devil",
+      "latest": "Aynjell, how do I make this fair to everyone?",
+      "expected": "angel"
+    },
+    {
+      "id": "accept2-corrections-1",
+      "class": "corrections",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, may I keep the borrowed drill for one more job?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] One extra project with it would be tempting."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It is about what you owe your neighbour."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Ask permission and arrange to return it promptly."
+        }
+      ],
+      "current": "angel",
+      "latest": "Wrong adviser—I was after Devil for the adventurous perspective.",
+      "expected": "devil"
+    },
+    {
+      "id": "accept2-corrections-2",
+      "class": "corrections",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, should I take a shortcut on my way to the station?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Choose a route that respects the people who live there."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Saving those minutes might feel rather good."
+        }
+      ],
+      "current": "devil",
+      "latest": "My question landed with the wrong one. Angel is who I wanted to consult.",
+      "expected": "angel"
+    },
+    {
+      "id": "accept2-corrections-3",
+      "class": "corrections",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, how much should I spend on the thank-you gift?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Something extravagant could make a memorable impression."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It depends on what you want the gesture to mean."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] A thoughtful modest gift can say enough."
+        }
+      ],
+      "current": "angel",
+      "latest": "Scratch that handoff; put Devil in charge of answering my dilemma.",
+      "expected": "devil"
+    },
+    {
+      "id": "accept2-corrections-4",
+      "class": "corrections",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, how should I plan the work before my deadline?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Finish the important task before taking a long break."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little procrastination is an appealing possibility."
+        }
+      ],
+      "current": "devil",
+      "latest": "We crossed wires there: I intended that request for Angel instead.",
+      "expected": "angel"
+    },
+    {
+      "id": "accept2-corrections-5",
+      "class": "corrections",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, should I accept another invitation this weekend?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A spontaneous yes could lead to a great evening."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] There is room to weigh excitement against the commitment."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Leave enough space to keep your earlier promises."
+        }
+      ],
+      "current": "angel",
+      "latest": "That response came from the cautious side; my intended respondent was Devil.",
+      "expected": "devil"
+    },
+    {
+      "id": "accept2-idioms-1",
+      "class": "idioms",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, may I keep the borrowed drill for one more job?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Ask permission and arrange to return it promptly."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] It is about what you owe your neighbour."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] One extra project with it would be tempting."
+        }
+      ],
+      "current": "devil",
+      "latest": "Between the devil and the deep blue sea is exactly how this choice feels to me.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-idioms-2",
+      "class": "idioms",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, should I take a shortcut on my way to the station?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Saving those minutes might feel rather good."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Choose a route that respects the people who live there."
+        }
+      ],
+      "current": "angel",
+      "latest": "They say fools rush in where angels fear to tread. Does patience help here?",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-idioms-3",
+      "class": "idioms",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, how much should I spend on the thank-you gift?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] A thoughtful modest gift can say enough."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] It depends on what you want the gesture to mean."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Something extravagant could make a memorable impression."
+        }
+      ],
+      "current": "devil",
+      "latest": "I have had a devil of a week; could a quiet evening help me reset?",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-idioms-4",
+      "class": "idioms",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, how should I plan the work before my deadline?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little procrastination is an appealing possibility."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Finish the important task before taking a long break."
+        }
+      ],
+      "current": "angel",
+      "latest": "My brother has a devil-may-care attitude, and I wish I could relax like that.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-idioms-5",
+      "class": "idioms",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, should I accept another invitation this weekend?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Leave enough space to keep your earlier promises."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] There is room to weigh excitement against the commitment."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A spontaneous yes could lead to a great evening."
+        }
+      ],
+      "current": "devil",
+      "latest": "The visiting nurse seemed like an angel of mercy to our family. Why was that so comforting?",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-talking_about-1",
+      "class": "talking_about",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, may I keep the borrowed drill for one more job?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] One extra project with it would be tempting."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It is about what you owe your neighbour."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Ask permission and arrange to return it promptly."
+        }
+      ],
+      "current": "angel",
+      "latest": "The Devil put a bold spin on borrowing things earlier; how do you interpret that?",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-talking_about-2",
+      "class": "talking_about",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, should I take a shortcut on my way to the station?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Choose a route that respects the people who live there."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Saving those minutes might feel rather good."
+        }
+      ],
+      "current": "devil",
+      "latest": "I am still puzzling over the Angel and that advice about the longer route. Can you unpack it?",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-talking_about-3",
+      "class": "talking_about",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, how much should I spend on the thank-you gift?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Something extravagant could make a memorable impression."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It depends on what you want the gesture to mean."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] A thoughtful modest gift can say enough."
+        }
+      ],
+      "current": "angel",
+      "latest": "What assumption was behind the Devil recommending a bigger present?",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-talking_about-4",
+      "class": "talking_about",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, how should I plan the work before my deadline?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Finish the important task before taking a long break."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little procrastination is an appealing possibility."
+        }
+      ],
+      "current": "devil",
+      "latest": "The Angel seemed concerned about my deadline. Was that concern justified?",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-talking_about-5",
+      "class": "talking_about",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, should I accept another invitation this weekend?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A spontaneous yes could lead to a great evening."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] There is room to weigh excitement against the commitment."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Leave enough space to keep your earlier promises."
+        }
+      ],
+      "current": "angel",
+      "latest": "Is the Devil being consistent with the earlier suggestion about my friend?",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-followups-1",
+      "class": "followups",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, may I keep the borrowed drill for one more job?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Ask permission and arrange to return it promptly."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] It is about what you owe your neighbour."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] One extra project with it would be tempting."
+        }
+      ],
+      "current": "devil",
+      "latest": "Which part of your reasoning should I try first?",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-followups-2",
+      "class": "followups",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, should I take a shortcut on my way to the station?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Saving those minutes might feel rather good."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Choose a route that respects the people who live there."
+        }
+      ],
+      "current": "angel",
+      "latest": "Would your answer change if I had only an hour?",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-followups-3",
+      "class": "followups",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, how much should I spend on the thank-you gift?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] A thoughtful modest gift can say enough."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] It depends on what you want the gesture to mean."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Something extravagant could make a memorable impression."
+        }
+      ],
+      "current": "devil",
+      "latest": "Is that meant to be practical advice or just a possibility?",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-followups-4",
+      "class": "followups",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, how should I plan the work before my deadline?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little procrastination is an appealing possibility."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Finish the important task before taking a long break."
+        }
+      ],
+      "current": "angel",
+      "latest": "Where does the risk in your suggestion actually come from?",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-followups-5",
+      "class": "followups",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, should I accept another invitation this weekend?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Leave enough space to keep your earlier promises."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] There is room to weigh excitement against the commitment."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A spontaneous yes could lead to a great evening."
+        }
+      ],
+      "current": "devil",
+      "latest": "Please turn that explanation into one concrete step.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-greetings_thanks-1",
+      "class": "greetings_thanks",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, may I keep the borrowed drill for one more job?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] One extra project with it would be tempting."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It is about what you owe your neighbour."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Ask permission and arrange to return it promptly."
+        }
+      ],
+      "current": "angel",
+      "latest": "A very good afternoon to you.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-greetings_thanks-2",
+      "class": "greetings_thanks",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, should I take a shortcut on my way to the station?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Choose a route that respects the people who live there."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Saving those minutes might feel rather good."
+        }
+      ],
+      "current": "devil",
+      "latest": "Much obliged for walking me through it.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-greetings_thanks-3",
+      "class": "greetings_thanks",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, how much should I spend on the thank-you gift?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Something extravagant could make a memorable impression."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It depends on what you want the gesture to mean."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] A thoughtful modest gift can say enough."
+        }
+      ],
+      "current": "angel",
+      "latest": "I am glad we got a chance to chat today.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-greetings_thanks-4",
+      "class": "greetings_thanks",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, how should I plan the work before my deadline?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Finish the important task before taking a long break."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little procrastination is an appealing possibility."
+        }
+      ],
+      "current": "devil",
+      "latest": "Take care until our next conversation.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-greetings_thanks-5",
+      "class": "greetings_thanks",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, should I accept another invitation this weekend?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A spontaneous yes could lead to a great evening."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] There is room to weigh excitement against the commitment."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Leave enough space to keep your earlier promises."
+        }
+      ],
+      "current": "angel",
+      "latest": "You have cleared that up beautifully; many thanks.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-one_word_empty-1",
+      "class": "one_word_empty",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, may I keep the borrowed drill for one more job?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Ask permission and arrange to return it promptly."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] It is about what you owe your neighbour."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] One extra project with it would be tempting."
+        }
+      ],
+      "current": "devil",
+      "latest": "Agreed.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-one_word_empty-2",
+      "class": "one_word_empty",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, should I take a shortcut on my way to the station?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Saving those minutes might feel rather good."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Choose a route that respects the people who live there."
+        }
+      ],
+      "current": "angel",
+      "latest": "Yikes.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-one_word_empty-3",
+      "class": "one_word_empty",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, how much should I spend on the thank-you gift?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] A thoughtful modest gift can say enough."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] It depends on what you want the gesture to mean."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Something extravagant could make a memorable impression."
+        }
+      ],
+      "current": "devil",
+      "latest": "Oof.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-one_word_empty-4",
+      "class": "one_word_empty",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, how should I plan the work before my deadline?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little procrastination is an appealing possibility."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Finish the important task before taking a long break."
+        }
+      ],
+      "current": "angel",
+      "latest": "Right.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-one_word_empty-5",
+      "class": "one_word_empty",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, should I accept another invitation this weekend?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Leave enough space to keep your earlier promises."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] There is room to weigh excitement against the commitment."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A spontaneous yes could lead to a great evening."
+        }
+      ],
+      "current": "devil",
+      "latest": "Mhm.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-other_address_mentions_current-1",
+      "class": "other_address_mentions_current",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, may I keep the borrowed drill for one more job?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] One extra project with it would be tempting."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It is about what you owe your neighbour."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Ask permission and arrange to return it promptly."
+        }
+      ],
+      "current": "angel",
+      "latest": "Devil, test the Angel's logic about returning the borrowed tool.",
+      "expected": "devil"
+    },
+    {
+      "id": "accept2-other_address_mentions_current-2",
+      "class": "other_address_mentions_current",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, should I take a shortcut on my way to the station?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Choose a route that respects the people who live there."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Saving those minutes might feel rather good."
+        }
+      ],
+      "current": "devil",
+      "latest": "Angel, find the flaw in what the Devil just proposed about this route.",
+      "expected": "angel"
+    },
+    {
+      "id": "accept2-other_address_mentions_current-3",
+      "class": "other_address_mentions_current",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, how much should I spend on the thank-you gift?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Something extravagant could make a memorable impression."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It depends on what you want the gesture to mean."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] A thoughtful modest gift can say enough."
+        }
+      ],
+      "current": "angel",
+      "latest": "Since the Angel has made her case, Devil, defend the more extravagant gift.",
+      "expected": "devil"
+    },
+    {
+      "id": "accept2-other_address_mentions_current-4",
+      "class": "other_address_mentions_current",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, how should I plan the work before my deadline?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Finish the important task before taking a long break."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little procrastination is an appealing possibility."
+        }
+      ],
+      "current": "devil",
+      "latest": "Tell the Devil where his reasoning breaks down, Angel.",
+      "expected": "angel"
+    },
+    {
+      "id": "accept2-other_address_mentions_current-5",
+      "class": "other_address_mentions_current",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, should I accept another invitation this weekend?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A spontaneous yes could lead to a great evening."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] There is room to weigh excitement against the commitment."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Leave enough space to keep your earlier promises."
+        }
+      ],
+      "current": "angel",
+      "latest": "Devil, give the counterargument to the Angel on keeping that promise.",
+      "expected": "devil"
+    },
+    {
+      "id": "accept2-both_addressed-1",
+      "class": "both_addressed",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, may I keep the borrowed drill for one more job?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Ask permission and arrange to return it promptly."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] It is about what you owe your neighbour."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] One extra project with it would be tempting."
+        }
+      ],
+      "current": "devil",
+      "latest": "Angel plus Devil: please give a joint verdict on borrowing the drill.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-both_addressed-2",
+      "class": "both_addressed",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, should I take a shortcut on my way to the station?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Saving those minutes might feel rather good."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Choose a route that respects the people who live there."
+        }
+      ],
+      "current": "angel",
+      "latest": "I am opening this question to both Angel and Devil together: which route wins?",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-both_addressed-3",
+      "class": "both_addressed",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, how much should I spend on the thank-you gift?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] A thoughtful modest gift can say enough."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] It depends on what you want the gesture to mean."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Something extravagant could make a memorable impression."
+        }
+      ],
+      "current": "devil",
+      "latest": "Angel, Devil, each add one reason to the gift debate.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-both_addressed-4",
+      "class": "both_addressed",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, how should I plan the work before my deadline?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little procrastination is an appealing possibility."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Finish the important task before taking a long break."
+        }
+      ],
+      "current": "angel",
+      "latest": "Can the two of you, Devil alongside Angel, agree on a compromise for my schedule?",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-both_addressed-5",
+      "class": "both_addressed",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, should I accept another invitation this weekend?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Leave enough space to keep your earlier promises."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] There is room to weigh excitement against the commitment."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A spontaneous yes could lead to a great evening."
+        }
+      ],
+      "current": "devil",
+      "latest": "Consider yourselves a panel, Angel and Devil; how shall we handle the invitation?",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-negated_address-1",
+      "class": "negated_address",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, may I keep the borrowed drill for one more job?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] One extra project with it would be tempting."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It is about what you owe your neighbour."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Ask permission and arrange to return it promptly."
+        }
+      ],
+      "current": "angel",
+      "latest": "Leave Devil out of the reply; I want the careful explanation to continue.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-negated_address-2",
+      "class": "negated_address",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, should I take a shortcut on my way to the station?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Choose a route that respects the people who live there."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Saving those minutes might feel rather good."
+        }
+      ],
+      "current": "devil",
+      "latest": "Spare me a response from Angel for this question.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-negated_address-3",
+      "class": "negated_address",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, how much should I spend on the thank-you gift?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Something extravagant could make a memorable impression."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It depends on what you want the gesture to mean."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] A thoughtful modest gift can say enough."
+        }
+      ],
+      "current": "angel",
+      "latest": "I do not want Devil weighing in on my spending today.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-negated_address-4",
+      "class": "negated_address",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, how should I plan the work before my deadline?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Finish the important task before taking a long break."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little procrastination is an appealing possibility."
+        }
+      ],
+      "current": "devil",
+      "latest": "Keep Angel on the sidelines while we work through your idea.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-negated_address-5",
+      "class": "negated_address",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, should I accept another invitation this weekend?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A spontaneous yes could lead to a great evening."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] There is room to weigh excitement against the commitment."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Leave enough space to keep your earlier promises."
+        }
+      ],
+      "current": "angel",
+      "latest": "There is no need to summon Devil; finish the thought you started.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-compliments_thanks-1",
+      "class": "compliments_thanks",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, may I keep the borrowed drill for one more job?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] One extra project with it would be tempting."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It is about what you owe your neighbour."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Ask permission and arrange to return it promptly."
+        }
+      ],
+      "current": "angel",
+      "latest": "You sly devil, that is an inspired solution.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-compliments_thanks-2",
+      "class": "compliments_thanks",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, should I take a shortcut on my way to the station?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Choose a route that respects the people who live there."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Saving those minutes might feel rather good."
+        }
+      ],
+      "current": "devil",
+      "latest": "That was unexpectedly angelic of you; much appreciated.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-compliments_thanks-3",
+      "class": "compliments_thanks",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, how much should I spend on the thank-you gift?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] A thoughtful modest gift can say enough."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] It depends on what you want the gesture to mean."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Something extravagant could make a memorable impression."
+        }
+      ],
+      "current": "devil",
+      "latest": "Bless you, angel-face, my worries have melted away.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-compliments_thanks-4",
+      "class": "compliments_thanks",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, how should I plan the work before my deadline?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little procrastination is an appealing possibility."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Finish the important task before taking a long break."
+        }
+      ],
+      "current": "angel",
+      "latest": "Well played, you impish devil. You rescued my afternoon.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-compliments_thanks-5",
+      "class": "compliments_thanks",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, should I accept another invitation this weekend?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Leave enough space to keep your earlier promises."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] There is room to weigh excitement against the commitment."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A spontaneous yes could lead to a great evening."
+        }
+      ],
+      "current": "devil",
+      "latest": "An angel in disguise, aren't you? I needed that reassurance.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-post_handover_talking_about-1",
+      "class": "post_handover_talking_about",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, may I keep the borrowed drill for one more job?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Ask permission and arrange to return it promptly."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] It is about what you owe your neighbour."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] One extra project with it would be tempting."
+        }
+      ],
+      "current": "devil",
+      "latest": "Now that we have compared answers, what lay behind the Angel's warning about asking permission?",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-post_handover_talking_about-2",
+      "class": "post_handover_talking_about",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, should I take a shortcut on my way to the station?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Saving those minutes might feel rather good."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Choose a route that respects the people who live there."
+        }
+      ],
+      "current": "angel",
+      "latest": "Looking back at the Devil's shortcut idea, do the risks outweigh the time saved?",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-post_handover_talking_about-3",
+      "class": "post_handover_talking_about",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, how much should I spend on the thank-you gift?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] A thoughtful modest gift can say enough."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] It depends on what you want the gesture to mean."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Something extravagant could make a memorable impression."
+        }
+      ],
+      "current": "devil",
+      "latest": "Was the Angel's suggestion about a modest gift based on generosity or thrift?",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-post_handover_talking_about-4",
+      "class": "post_handover_talking_about",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, how should I plan the work before my deadline?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little procrastination is an appealing possibility."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Finish the important task before taking a long break."
+        }
+      ],
+      "current": "angel",
+      "latest": "When the Devil recommended leaving the task until later, was that realistic?",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-post_handover_talking_about-5",
+      "class": "post_handover_talking_about",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, should I accept another invitation this weekend?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Leave enough space to keep your earlier promises."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] There is room to weigh excitement against the commitment."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A spontaneous yes could lead to a great evening."
+        }
+      ],
+      "current": "devil",
+      "latest": "How does the Angel's invitation advice fit with what you just told me?",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-indirect_get_view-1",
+      "class": "indirect_get_view",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, may I keep the borrowed drill for one more job?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] One extra project with it would be tempting."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It is about what you owe your neighbour."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Ask permission and arrange to return it promptly."
+        }
+      ],
+      "current": "angel",
+      "latest": "Could you put me through to Devil for the unconventional answer?",
+      "expected": "devil"
+    },
+    {
+      "id": "accept2-indirect_get_view-2",
+      "class": "indirect_get_view",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, should I take a shortcut on my way to the station?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Choose a route that respects the people who live there."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Saving those minutes might feel rather good."
+        }
+      ],
+      "current": "devil",
+      "latest": "I am ready for Angel's verdict on which route treats everyone fairly.",
+      "expected": "angel"
+    },
+    {
+      "id": "accept2-indirect_get_view-3",
+      "class": "indirect_get_view",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, how much should I spend on the thank-you gift?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Something extravagant could make a memorable impression."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It depends on what you want the gesture to mean."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] A thoughtful modest gift can say enough."
+        }
+      ],
+      "current": "angel",
+      "latest": "The perspective missing from this gift discussion is Devil's; let him contribute it.",
+      "expected": "devil"
+    },
+    {
+      "id": "accept2-indirect_get_view-4",
+      "class": "indirect_get_view",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, how should I plan the work before my deadline?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Finish the important task before taking a long break."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little procrastination is an appealing possibility."
+        }
+      ],
+      "current": "devil",
+      "latest": "Pass the microphone to Angel for the responsibility side of my dilemma.",
+      "expected": "angel"
+    },
+    {
+      "id": "accept2-indirect_get_view-5",
+      "class": "indirect_get_view",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, should I accept another invitation this weekend?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A spontaneous yes could lead to a great evening."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] There is room to weigh excitement against the commitment."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Leave enough space to keep your earlier promises."
+        }
+      ],
+      "current": "angel",
+      "latest": "I would value Devil taking the next speaking turn and assessing this invitation.",
+      "expected": "devil"
+    },
+    {
+      "id": "accept2-disfluent_stt-1",
+      "class": "disfluent_stt",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, may I keep the borrowed drill for one more job?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Ask permission and arrange to return it promptly."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] It is about what you owe your neighbour."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] One extra project with it would be tempting."
+        }
+      ],
+      "current": "devil",
+      "latest": "ah right angel um how do i make this less selfish",
+      "expected": "angel"
+    },
+    {
+      "id": "accept2-disfluent_stt-2",
+      "class": "disfluent_stt",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, should I take a shortcut on my way to the station?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Saving those minutes might feel rather good."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Choose a route that respects the people who live there."
+        }
+      ],
+      "current": "angel",
+      "latest": "ok devil err sell me on the risky route then",
+      "expected": "devil"
+    },
+    {
+      "id": "accept2-disfluent_stt-3",
+      "class": "disfluent_stt",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, how much should I spend on the thank-you gift?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] A thoughtful modest gift can say enough."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] It depends on what you want the gesture to mean."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Something extravagant could make a memorable impression."
+        }
+      ],
+      "current": "devil",
+      "latest": "so yeah angel i need your um kind of sensible answer",
+      "expected": "angel"
+    },
+    {
+      "id": "accept2-disfluent_stt-4",
+      "class": "disfluent_stt",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, how should I plan the work before my deadline?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little procrastination is an appealing possibility."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Finish the important task before taking a long break."
+        }
+      ],
+      "current": "angel",
+      "latest": "well devil what uh what is the cheekier option here",
+      "expected": "devil"
+    },
+    {
+      "id": "accept2-disfluent_stt-5",
+      "class": "disfluent_stt",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, should I accept another invitation this weekend?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Leave enough space to keep your earlier promises."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] There is room to weigh excitement against the commitment."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A spontaneous yes could lead to a great evening."
+        }
+      ],
+      "current": "devil",
+      "latest": "mmm angel go on tell me how you would handle it",
+      "expected": "angel"
+    },
+    {
+      "id": "accept2-long_turns-1",
+      "class": "long_turns",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, may I keep the borrowed drill for one more job?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] One extra project with it would be tempting."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It is about what you owe your neighbour."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Ask permission and arrange to return it promptly."
+        }
+      ],
+      "current": "angel",
+      "latest": "My neighbour lent me a drill last month and I have kept forgetting to return it because another job always comes up; Devil, invent a cheeky way to justify keeping it longer.",
+      "expected": "devil"
+    },
+    {
+      "id": "accept2-long_turns-2",
+      "class": "long_turns",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, should I take a shortcut on my way to the station?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Choose a route that respects the people who live there."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Saving those minutes might feel rather good."
+        }
+      ],
+      "current": "devil",
+      "latest": "I can reach the station sooner by crossing a closed footpath, although the signs are clear and people live nearby; Angel, explain what a responsible traveller should do instead.",
+      "expected": "angel"
+    },
+    {
+      "id": "accept2-long_turns-3",
+      "class": "long_turns",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, how much should I spend on the thank-you gift?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Something extravagant could make a memorable impression."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It depends on what you want the gesture to mean."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] A thoughtful modest gift can say enough."
+        }
+      ],
+      "current": "angel",
+      "latest": "The invitation sounds delightful and several friends will be there, but I promised myself a quiet weekend after a tiring month; Devil, make the strongest case for accepting it anyway.",
+      "expected": "devil"
+    },
+    {
+      "id": "accept2-long_turns-4",
+      "class": "long_turns",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, how should I plan the work before my deadline?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Finish the important task before taking a long break."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little procrastination is an appealing possibility."
+        }
+      ],
+      "current": "devil",
+      "latest": "I have three small tasks left and I keep hopping between them whenever one gets dull, which means nothing is finished; could you help me apply the approach you just described?",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-long_turns-5",
+      "class": "long_turns",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, should I accept another invitation this weekend?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A spontaneous yes could lead to a great evening."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] There is room to weigh excitement against the commitment."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Leave enough space to keep your earlier promises."
+        }
+      ],
+      "current": "angel",
+      "latest": "My friend might interpret a short message as unfriendly even though I simply have very little time today, so I would appreciate another concrete example of the wording you suggested.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-mid_turn_correction-1",
+      "class": "mid_turn_correction",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, may I keep the borrowed drill for one more job?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Ask permission and arrange to return it promptly."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] It is about what you owe your neighbour."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] One extra project with it would be tempting."
+        }
+      ],
+      "current": "devil",
+      "latest": "Angel, suggest a route—hold on, Devil, make it the fun route.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-mid_turn_correction-2",
+      "class": "mid_turn_correction",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, should I take a shortcut on my way to the station?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Saving those minutes might feel rather good."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Choose a route that respects the people who live there."
+        }
+      ],
+      "current": "angel",
+      "latest": "Devil, price the gift—wait, Angel, help me choose the considerate amount.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-mid_turn_correction-3",
+      "class": "mid_turn_correction",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, how much should I spend on the thank-you gift?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] A thoughtful modest gift can say enough."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] It depends on what you want the gesture to mean."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Something extravagant could make a memorable impression."
+        }
+      ],
+      "current": "devil",
+      "latest": "Start with Devil—on second thought, Angel, take the deadline question.",
+      "expected": "angel"
+    },
+    {
+      "id": "accept2-mid_turn_correction-4",
+      "class": "mid_turn_correction",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, how should I plan the work before my deadline?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little procrastination is an appealing possibility."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Finish the important task before taking a long break."
+        }
+      ],
+      "current": "angel",
+      "latest": "Angel, assess the invitation—change of plan, Devil, argue for saying yes.",
+      "expected": "devil"
+    },
+    {
+      "id": "accept2-mid_turn_correction-5",
+      "class": "mid_turn_correction",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, should I accept another invitation this weekend?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Leave enough space to keep your earlier promises."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] There is room to weigh excitement against the commitment."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A spontaneous yes could lead to a great evening."
+        }
+      ],
+      "current": "devil",
+      "latest": "I was going to ask Devil; I have changed my mind: Angel, guide me through it.",
+      "expected": "angel"
+    },
+    {
+      "id": "accept2-non_substring_misheard-1",
+      "class": "non_substring_misheard",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, may I keep the borrowed drill for one more job?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] One extra project with it would be tempting."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It is about what you owe your neighbour."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Ask permission and arrange to return it promptly."
+        }
+      ],
+      "current": "angel",
+      "latest": "Dabble, I want the mischievous voice to advise me about borrowing that drill.",
+      "expected": "devil"
+    },
+    {
+      "id": "accept2-non_substring_misheard-2",
+      "class": "non_substring_misheard",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, should I take a shortcut on my way to the station?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Choose a route that respects the people who live there."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Saving those minutes might feel rather good."
+        }
+      ],
+      "current": "devil",
+      "latest": "Ankle, the gentle adviser, could you choose the fairer route for me?",
+      "expected": "angel"
+    },
+    {
+      "id": "accept2-non_substring_misheard-3",
+      "class": "non_substring_misheard",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, how much should I spend on the thank-you gift?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Something extravagant could make a memorable impression."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It depends on what you want the gesture to mean."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] A thoughtful modest gift can say enough."
+        }
+      ],
+      "current": "angel",
+      "latest": "Double, the horned one, I am handing this gift question to you.",
+      "expected": "devil"
+    },
+    {
+      "id": "accept2-non_substring_misheard-4",
+      "class": "non_substring_misheard",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, how should I plan the work before my deadline?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Finish the important task before taking a long break."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little procrastination is an appealing possibility."
+        }
+      ],
+      "current": "devil",
+      "latest": "My ankle hurts after that walk; is resting part of your suggestion?",
+      "expected": "stay"
+    },
+    {
+      "id": "accept2-non_substring_misheard-5",
+      "class": "non_substring_misheard",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, should I accept another invitation this weekend?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A spontaneous yes could lead to a great evening."
+        },
+        {
+          "role": "user",
+          "content": "What is the main reason for that, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] There is room to weigh excitement against the commitment."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, give me your assessment of that choice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Leave enough space to keep your earlier promises."
+        }
+      ],
+      "current": "angel",
+      "latest": "That is double my usual workload. Can your plan still fit it into one day?",
+      "expected": "stay"
+    }
+  ]
+}

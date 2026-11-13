@@ -1,0 +1,5 @@
+[mapping:dg_playback_dsp_hot]
+archive: libdg_audio.a
+entries:
+    if DG_PLAYBACK_DSP_IRAM = y:
+        playback_dsp (noflash)

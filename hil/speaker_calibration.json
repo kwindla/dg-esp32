@@ -1,0 +1,64 @@
+{
+  "source": "step7 simultaneous native board-mic/Jabra chain-corrected sweeps, two repeats",
+  "tone_amplitude_percent": 20,
+  "h2_limit_dbc": -26,
+  "h3_limit_dbc": -26,
+  "thd_limit_percent": 5,
+  "greeting_rms_rise_db": 3,
+  "playback_gain_percent": 33,
+  "playback_ceiling_percent": 26,
+  "playback_highpass_hz": 500,
+  "greeting_correlation_band_hz": [
+    500,
+    1500
+  ],
+  "greeting_calibration_rms_rise_db": [
+    27.04446648157684
+  ],
+  "greeting_rms_margin_db": 24.04446648157684,
+  "initial_reserve_frames": 5,
+  "native_capture_rate_hz": 16000,
+  "harmonic_bandwidth_note": "H3-H5 at 3 kHz exceed native Nyquist and are unavailable; THD there is a lower bound.",
+  "tone_clean_thd_percent": [
+    4.984
+  ],
+  "speech_word_accuracy": 1.0,
+  "program_peak_percent": 19.419175022731576,
+  "knee_percent": 20.8,
+  "chain_response_dbfs": {
+    "board": {
+      "500": -77.5868800051674,
+      "800": -71.70404242634343,
+      "1000": -68.47488208706851,
+      "1500": -65.56727582622322,
+      "1600": -62.9097603363956,
+      "2000": -55.826341952447116,
+      "2400": -54.95420904056849,
+      "2500": -53.96575765113888,
+      "3000": -44.8529129842118,
+      "3200": -41.88294567739851,
+      "4000": -45.253365413858326,
+      "4500": -48.566939012686845,
+      "5000": -49.64655590139303,
+      "6000": -51.94957564842147,
+      "7500": -39.49783013877759
+    },
+    "jabra": {
+      "500": -54.2629886746975,
+      "800": -46.75301913134984,
+      "1000": -46.96910247580127,
+      "1500": -45.40266492875947,
+      "1600": -42.56521948823847,
+      "2000": -40.01931269186834,
+      "2400": -36.637680173598824,
+      "2500": -37.04405647364959,
+      "3000": -26.680293994596433,
+      "3200": -22.25084076228519,
+      "4000": -24.491500734925932,
+      "4500": -27.019488226278575,
+      "5000": -31.991640358510253,
+      "6000": -35.07527287379834,
+      "7500": -56.71444858974468
+    }
+  }
+}

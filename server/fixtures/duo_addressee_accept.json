@@ -1,0 +1,1686 @@
+{
+  "schema_version": 1,
+  "set": "accept",
+  "cases": [
+    {
+      "id": "accept-named_direct-angel-1",
+      "class": "named_direct",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Angel is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the consequences."
+        }
+      ],
+      "current": "angel",
+      "latest": "Devil, would you sneak another biscuit?",
+      "expected": "devil"
+    },
+    {
+      "id": "accept-named_direct-angel-2",
+      "class": "named_direct",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Angel is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the consequences."
+        }
+      ],
+      "current": "angel",
+      "latest": "What is your verdict, Devil?",
+      "expected": "devil"
+    },
+    {
+      "id": "accept-named_direct-angel-3",
+      "class": "named_direct",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Angel is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the consequences."
+        }
+      ],
+      "current": "angel",
+      "latest": "Listen, Devil, I need your opinion about this party.",
+      "expected": "devil"
+    },
+    {
+      "id": "accept-named_direct-angel-4",
+      "class": "named_direct",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Angel is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the consequences."
+        }
+      ],
+      "current": "angel",
+      "latest": "Devil, help me choose between work and a nap.",
+      "expected": "devil"
+    },
+    {
+      "id": "accept-named_direct-devil-1",
+      "class": "named_direct",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Devil is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little fun might help."
+        }
+      ],
+      "current": "devil",
+      "latest": "Angel, would you return the lost wallet?",
+      "expected": "angel"
+    },
+    {
+      "id": "accept-named_direct-devil-2",
+      "class": "named_direct",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Devil is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little fun might help."
+        }
+      ],
+      "current": "devil",
+      "latest": "What is your verdict, Angel?",
+      "expected": "angel"
+    },
+    {
+      "id": "accept-named_direct-devil-3",
+      "class": "named_direct",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Devil is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little fun might help."
+        }
+      ],
+      "current": "devil",
+      "latest": "Listen, Angel, I need your opinion about this argument.",
+      "expected": "angel"
+    },
+    {
+      "id": "accept-named_direct-devil-4",
+      "class": "named_direct",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Devil is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little fun might help."
+        }
+      ],
+      "current": "devil",
+      "latest": "Angel, help me choose the thoughtful option.",
+      "expected": "angel"
+    },
+    {
+      "id": "accept-hear_from-angel-1",
+      "class": "hear_from",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Angel is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the consequences."
+        }
+      ],
+      "current": "angel",
+      "latest": "Could the devil take this question?",
+      "expected": "devil"
+    },
+    {
+      "id": "accept-hear_from-angel-2",
+      "class": "hear_from",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Angel is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the consequences."
+        }
+      ],
+      "current": "angel",
+      "latest": "May I get the devil's view on my plan?",
+      "expected": "devil"
+    },
+    {
+      "id": "accept-hear_from-angel-3",
+      "class": "hear_from",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Angel is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the consequences."
+        }
+      ],
+      "current": "angel",
+      "latest": "Bring in the devil for a moment, please.",
+      "expected": "devil"
+    },
+    {
+      "id": "accept-hear_from-angel-4",
+      "class": "hear_from",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Angel is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the consequences."
+        }
+      ],
+      "current": "angel",
+      "latest": "I want to listen to the devil now.",
+      "expected": "devil"
+    },
+    {
+      "id": "accept-hear_from-devil-1",
+      "class": "hear_from",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Devil is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little fun might help."
+        }
+      ],
+      "current": "devil",
+      "latest": "Could the angel take this question?",
+      "expected": "angel"
+    },
+    {
+      "id": "accept-hear_from-devil-2",
+      "class": "hear_from",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Devil is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little fun might help."
+        }
+      ],
+      "current": "devil",
+      "latest": "May I get the angel's view on my plan?",
+      "expected": "angel"
+    },
+    {
+      "id": "accept-hear_from-devil-3",
+      "class": "hear_from",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Devil is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little fun might help."
+        }
+      ],
+      "current": "devil",
+      "latest": "Bring in the angel for a moment, please.",
+      "expected": "angel"
+    },
+    {
+      "id": "accept-hear_from-devil-4",
+      "class": "hear_from",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Devil is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little fun might help."
+        }
+      ],
+      "current": "devil",
+      "latest": "I want to listen to the angel now.",
+      "expected": "angel"
+    },
+    {
+      "id": "accept-epithets-angel-1",
+      "class": "epithets",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Angel is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the consequences."
+        }
+      ],
+      "current": "angel",
+      "latest": "Could the naughty one give me an opinion?",
+      "expected": "devil"
+    },
+    {
+      "id": "accept-epithets-angel-2",
+      "class": "epithets",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Angel is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the consequences."
+        }
+      ],
+      "current": "angel",
+      "latest": "Voice of temptation, is a little indulgence okay?",
+      "expected": "devil"
+    },
+    {
+      "id": "accept-epithets-angel-3",
+      "class": "epithets",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Angel is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the consequences."
+        }
+      ],
+      "current": "angel",
+      "latest": "Let the other one have a turn answering.",
+      "expected": "devil"
+    },
+    {
+      "id": "accept-epithets-angel-4",
+      "class": "epithets",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Angel is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the consequences."
+        }
+      ],
+      "current": "angel",
+      "latest": "You with the horns, what would you suggest?",
+      "expected": "devil"
+    },
+    {
+      "id": "accept-epithets-devil-1",
+      "class": "epithets",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Devil is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little fun might help."
+        }
+      ],
+      "current": "devil",
+      "latest": "Could the good one give me an opinion?",
+      "expected": "angel"
+    },
+    {
+      "id": "accept-epithets-devil-2",
+      "class": "epithets",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Devil is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little fun might help."
+        }
+      ],
+      "current": "devil",
+      "latest": "Voice of conscience, is that the right thing to do?",
+      "expected": "angel"
+    },
+    {
+      "id": "accept-epithets-devil-3",
+      "class": "epithets",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Devil is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little fun might help."
+        }
+      ],
+      "current": "devil",
+      "latest": "Let the other one have a turn answering.",
+      "expected": "angel"
+    },
+    {
+      "id": "accept-epithets-devil-4",
+      "class": "epithets",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Devil is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little fun might help."
+        }
+      ],
+      "current": "devil",
+      "latest": "You with the halo, what would you suggest?",
+      "expected": "angel"
+    },
+    {
+      "id": "accept-misheard_names-angel-1",
+      "class": "misheard_names",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Angel is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the consequences."
+        }
+      ],
+      "current": "angel",
+      "latest": "Devel, is one more slice too much?",
+      "expected": "devil"
+    },
+    {
+      "id": "accept-misheard_names-angel-2",
+      "class": "misheard_names",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Angel is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the consequences."
+        }
+      ],
+      "current": "angel",
+      "latest": "Tell me, Deville, should I skip my chores?",
+      "expected": "devil"
+    },
+    {
+      "id": "accept-misheard_names-angel-3",
+      "class": "misheard_names",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Angel is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the consequences."
+        }
+      ],
+      "current": "angel",
+      "latest": "Devill, can you answer my question?",
+      "expected": "devil"
+    },
+    {
+      "id": "accept-misheard_names-angel-4",
+      "class": "misheard_names",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Angel is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the consequences."
+        }
+      ],
+      "current": "angel",
+      "latest": "Hey debil, what is the fun option?",
+      "expected": "devil"
+    },
+    {
+      "id": "accept-misheard_names-devil-1",
+      "class": "misheard_names",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Devil is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little fun might help."
+        }
+      ],
+      "current": "devil",
+      "latest": "Angela, is sharing the fair thing to do?",
+      "expected": "angel"
+    },
+    {
+      "id": "accept-misheard_names-devil-2",
+      "class": "misheard_names",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Devil is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little fun might help."
+        }
+      ],
+      "current": "devil",
+      "latest": "Tell me, Angle, should I help my neighbour?",
+      "expected": "angel"
+    },
+    {
+      "id": "accept-misheard_names-devil-3",
+      "class": "misheard_names",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Devil is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little fun might help."
+        }
+      ],
+      "current": "devil",
+      "latest": "Anjell, can you answer my question?",
+      "expected": "angel"
+    },
+    {
+      "id": "accept-misheard_names-devil-4",
+      "class": "misheard_names",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Devil is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little fun might help."
+        }
+      ],
+      "current": "devil",
+      "latest": "Hey angell, what is the decent option?",
+      "expected": "angel"
+    },
+    {
+      "id": "accept-corrections-angel-1",
+      "class": "corrections",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Angel is speaking."
+        },
+        {
+          "role": "user",
+          "content": "What is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the consequences."
+        }
+      ],
+      "current": "angel",
+      "latest": "Wait, I wanted the devil to answer that.",
+      "expected": "devil"
+    },
+    {
+      "id": "accept-corrections-angel-2",
+      "class": "corrections",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Angel is speaking."
+        },
+        {
+          "role": "user",
+          "content": "What is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the consequences."
+        }
+      ],
+      "current": "angel",
+      "latest": "No thanks, not you. Devil, your turn.",
+      "expected": "devil"
+    },
+    {
+      "id": "accept-corrections-angel-3",
+      "class": "corrections",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Angel is speaking."
+        },
+        {
+          "role": "user",
+          "content": "What is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the consequences."
+        }
+      ],
+      "current": "angel",
+      "latest": "You misunderstood; I was talking to the devil.",
+      "expected": "devil"
+    },
+    {
+      "id": "accept-corrections-angel-4",
+      "class": "corrections",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Angel is speaking."
+        },
+        {
+          "role": "user",
+          "content": "What is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the consequences."
+        }
+      ],
+      "current": "angel",
+      "latest": "Actually, could the other one answer my question?",
+      "expected": "devil"
+    },
+    {
+      "id": "accept-corrections-devil-1",
+      "class": "corrections",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Devil is speaking."
+        },
+        {
+          "role": "user",
+          "content": "What is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little fun might help."
+        }
+      ],
+      "current": "devil",
+      "latest": "Wait, I wanted the angel to answer that.",
+      "expected": "angel"
+    },
+    {
+      "id": "accept-corrections-devil-2",
+      "class": "corrections",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Devil is speaking."
+        },
+        {
+          "role": "user",
+          "content": "What is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little fun might help."
+        }
+      ],
+      "current": "devil",
+      "latest": "No thanks, not you. Angel, your turn.",
+      "expected": "angel"
+    },
+    {
+      "id": "accept-corrections-devil-3",
+      "class": "corrections",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Devil is speaking."
+        },
+        {
+          "role": "user",
+          "content": "What is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little fun might help."
+        }
+      ],
+      "current": "devil",
+      "latest": "You misunderstood; I was talking to the angel.",
+      "expected": "angel"
+    },
+    {
+      "id": "accept-corrections-devil-4",
+      "class": "corrections",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Devil is speaking."
+        },
+        {
+          "role": "user",
+          "content": "What is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little fun might help."
+        }
+      ],
+      "current": "devil",
+      "latest": "Actually, could the other one answer my question?",
+      "expected": "angel"
+    },
+    {
+      "id": "accept-idioms-angel-1",
+      "class": "idioms",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Angel is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the consequences."
+        }
+      ],
+      "current": "angel",
+      "latest": "I am playing devil's advocate, but is saving always better?",
+      "expected": "stay"
+    },
+    {
+      "id": "accept-idioms-angel-2",
+      "class": "idioms",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Angel is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the consequences."
+        }
+      ],
+      "current": "angel",
+      "latest": "Well, speak of the devil, my sister has arrived.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept-idioms-angel-3",
+      "class": "idioms",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Angel is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the consequences."
+        }
+      ],
+      "current": "angel",
+      "latest": "Oh, you're an angel, that was helpful.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept-idioms-angel-4",
+      "class": "idioms",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Angel is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the consequences."
+        }
+      ],
+      "current": "angel",
+      "latest": "Better the devil you know, as they say. What do you think?",
+      "expected": "stay"
+    },
+    {
+      "id": "accept-idioms-devil-1",
+      "class": "idioms",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Devil is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little fun might help."
+        }
+      ],
+      "current": "devil",
+      "latest": "To be devil's advocate for a second, why not wait?",
+      "expected": "stay"
+    },
+    {
+      "id": "accept-idioms-devil-2",
+      "class": "idioms",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Devil is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little fun might help."
+        }
+      ],
+      "current": "devil",
+      "latest": "Speak of the devil! There is my neighbour.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept-idioms-devil-3",
+      "class": "idioms",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Devil is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little fun might help."
+        }
+      ],
+      "current": "devil",
+      "latest": "Thanks, you're an angel.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept-idioms-devil-4",
+      "class": "idioms",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Devil is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little fun might help."
+        }
+      ],
+      "current": "devil",
+      "latest": "I was no angel as a teenager. Is that surprising?",
+      "expected": "stay"
+    },
+    {
+      "id": "accept-talking_about-angel-1",
+      "class": "talking_about",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Angel is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the consequences."
+        }
+      ],
+      "current": "angel",
+      "latest": "What did you think of the devil's suggestion?",
+      "expected": "stay"
+    },
+    {
+      "id": "accept-talking_about-angel-2",
+      "class": "talking_about",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Angel is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the consequences."
+        }
+      ],
+      "current": "angel",
+      "latest": "Does the devil ever worry about consequences?",
+      "expected": "stay"
+    },
+    {
+      "id": "accept-talking_about-angel-3",
+      "class": "talking_about",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Angel is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the consequences."
+        }
+      ],
+      "current": "angel",
+      "latest": "Angel, explain why the devil is wrong about this.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept-talking_about-angel-4",
+      "class": "talking_about",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Angel is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the consequences."
+        }
+      ],
+      "current": "angel",
+      "latest": "I think the devil was a bit reckless. Do you?",
+      "expected": "stay"
+    },
+    {
+      "id": "accept-talking_about-devil-1",
+      "class": "talking_about",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Devil is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little fun might help."
+        }
+      ],
+      "current": "devil",
+      "latest": "What did you think of the angel's suggestion?",
+      "expected": "stay"
+    },
+    {
+      "id": "accept-talking_about-devil-2",
+      "class": "talking_about",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Devil is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little fun might help."
+        }
+      ],
+      "current": "devil",
+      "latest": "Does the angel ever take a day off?",
+      "expected": "stay"
+    },
+    {
+      "id": "accept-talking_about-devil-3",
+      "class": "talking_about",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Devil is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little fun might help."
+        }
+      ],
+      "current": "devil",
+      "latest": "Devil, explain why the angel is wrong about this.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept-talking_about-devil-4",
+      "class": "talking_about",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Devil is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little fun might help."
+        }
+      ],
+      "current": "devil",
+      "latest": "I think the angel was a bit strict. Do you?",
+      "expected": "stay"
+    },
+    {
+      "id": "accept-followups-angel-1",
+      "class": "followups",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Angel is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the consequences."
+        }
+      ],
+      "current": "angel",
+      "latest": "How would I put that into practice?",
+      "expected": "stay"
+    },
+    {
+      "id": "accept-followups-angel-2",
+      "class": "followups",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Angel is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the consequences."
+        }
+      ],
+      "current": "angel",
+      "latest": "What makes you say that?",
+      "expected": "stay"
+    },
+    {
+      "id": "accept-followups-angel-3",
+      "class": "followups",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Angel is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the consequences."
+        }
+      ],
+      "current": "angel",
+      "latest": "Is there another reason?",
+      "expected": "stay"
+    },
+    {
+      "id": "accept-followups-angel-4",
+      "class": "followups",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Angel is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the consequences."
+        }
+      ],
+      "current": "angel",
+      "latest": "Can you say a bit more about your suggestion?",
+      "expected": "stay"
+    },
+    {
+      "id": "accept-followups-devil-1",
+      "class": "followups",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Devil is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little fun might help."
+        }
+      ],
+      "current": "devil",
+      "latest": "How would I get started with that?",
+      "expected": "stay"
+    },
+    {
+      "id": "accept-followups-devil-2",
+      "class": "followups",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Devil is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little fun might help."
+        }
+      ],
+      "current": "devil",
+      "latest": "What makes you so sure?",
+      "expected": "stay"
+    },
+    {
+      "id": "accept-followups-devil-3",
+      "class": "followups",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Devil is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little fun might help."
+        }
+      ],
+      "current": "devil",
+      "latest": "Is there another way?",
+      "expected": "stay"
+    },
+    {
+      "id": "accept-followups-devil-4",
+      "class": "followups",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Devil is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little fun might help."
+        }
+      ],
+      "current": "devil",
+      "latest": "Can you expand on your suggestion?",
+      "expected": "stay"
+    },
+    {
+      "id": "accept-greetings_thanks-angel-1",
+      "class": "greetings_thanks",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Angel is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the consequences."
+        }
+      ],
+      "current": "angel",
+      "latest": "Hey, nice to see you.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept-greetings_thanks-angel-2",
+      "class": "greetings_thanks",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Angel is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the consequences."
+        }
+      ],
+      "current": "angel",
+      "latest": "Many thanks, I appreciate your help.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept-greetings_thanks-angel-3",
+      "class": "greetings_thanks",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Angel is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the consequences."
+        }
+      ],
+      "current": "angel",
+      "latest": "Hello, are you having a good day?",
+      "expected": "stay"
+    },
+    {
+      "id": "accept-greetings_thanks-angel-4",
+      "class": "greetings_thanks",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Angel is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the consequences."
+        }
+      ],
+      "current": "angel",
+      "latest": "Goodbye for now.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept-greetings_thanks-devil-1",
+      "class": "greetings_thanks",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Devil is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little fun might help."
+        }
+      ],
+      "current": "devil",
+      "latest": "Morning! Nice to talk to you.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept-greetings_thanks-devil-2",
+      "class": "greetings_thanks",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Devil is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little fun might help."
+        }
+      ],
+      "current": "devil",
+      "latest": "Cheers, that is useful advice.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept-greetings_thanks-devil-3",
+      "class": "greetings_thanks",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Devil is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little fun might help."
+        }
+      ],
+      "current": "devil",
+      "latest": "Hi there, how have you been?",
+      "expected": "stay"
+    },
+    {
+      "id": "accept-greetings_thanks-devil-4",
+      "class": "greetings_thanks",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Devil is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little fun might help."
+        }
+      ],
+      "current": "devil",
+      "latest": "Thanks and good night.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept-one_word_empty-angel-1",
+      "class": "one_word_empty",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Angel is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the consequences."
+        }
+      ],
+      "current": "angel",
+      "latest": "",
+      "expected": "stay"
+    },
+    {
+      "id": "accept-one_word_empty-angel-2",
+      "class": "one_word_empty",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Angel is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the consequences."
+        }
+      ],
+      "current": "angel",
+      "latest": "Sure.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept-one_word_empty-angel-3",
+      "class": "one_word_empty",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Angel is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the consequences."
+        }
+      ],
+      "current": "angel",
+      "latest": "Hmm.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept-one_word_empty-angel-4",
+      "class": "one_word_empty",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Angel is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the consequences."
+        }
+      ],
+      "current": "angel",
+      "latest": "Devil!",
+      "expected": "devil"
+    },
+    {
+      "id": "accept-one_word_empty-devil-1",
+      "class": "one_word_empty",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Devil is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little fun might help."
+        }
+      ],
+      "current": "devil",
+      "latest": "",
+      "expected": "stay"
+    },
+    {
+      "id": "accept-one_word_empty-devil-2",
+      "class": "one_word_empty",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Devil is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little fun might help."
+        }
+      ],
+      "current": "devil",
+      "latest": "Perhaps.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept-one_word_empty-devil-3",
+      "class": "one_word_empty",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Devil is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little fun might help."
+        }
+      ],
+      "current": "devil",
+      "latest": "Yes.",
+      "expected": "stay"
+    },
+    {
+      "id": "accept-one_word_empty-devil-4",
+      "class": "one_word_empty",
+      "prior": [
+        {
+          "role": "system",
+          "content": "Silent context: the Devil is speaking."
+        },
+        {
+          "role": "user",
+          "content": "I could use some advice."
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little fun might help."
+        }
+      ],
+      "current": "devil",
+      "latest": "Angel!",
+      "expected": "angel"
+    }
+  ]
+}

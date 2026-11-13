@@ -1,0 +1,149 @@
+menu "DG configuration"
+choice DG_BOARD
+    prompt "DG target board"
+    default DG_BOARD_P4XC if IDF_TARGET_ESP32P4
+    default DG_BOARD_ECHOEAR
+config DG_BOARD_ECHOEAR
+    bool "Espressif EchoEar"
+    depends on IDF_TARGET_ESP32S3
+config DG_BOARD_WAVESHARE_146
+    bool "Waveshare ESP32-S3 Touch LCD 1.46"
+    depends on IDF_TARGET_ESP32S3
+config DG_BOARD_P4XC
+    bool "ESP32-P4 WiFi6 Touch LCD XC"
+    depends on IDF_TARGET_ESP32P4
+endchoice
+config DG_WIFI_SSID
+    string "WiFi SSID"
+    default ""
+config DG_WIFI_PASSWORD
+    string "WiFi password"
+    default ""
+config DG_SERVER_URL
+    string "Server URL"
+    default ""
+endmenu
+
+config DG_CERT_OVERLAP_WIFI
+    bool "Generate the cached DTLS certificate during WiFi association"
+    default n
+
+config DG_HEAP_ATTRIBUTION
+    bool "P4 bench-only bounded per-cycle heap trace"
+    depends on DG_BOARD_P4XC && HEAP_TRACING_STANDALONE && ESP_SYSTEM_USE_FRAME_POINTER
+    default n
+    help
+        Diagnosis only. Requires the explicit heap-attribution defaults overlay
+        with eight frames. A console init allocates a fixed 4096-record PSRAM
+        buffer; ISR allocations cannot be traced with this buffer. Export only
+        while Idle after a cycle, never inside a qualification window. Default
+        and S3 builds have no command, buffer or added tracing behaviour.
+
+config DG_VERIFY_PHY_STORAGE
+    bool "Bench: verify PHY calibration NVS round trip on the internal boot stack"
+    default n
+
+config DG_WIFI_OBSERVE
+    bool "Experimental buffered WiFi station observations (no tuning)"
+    depends on IDF_TARGET_ESP32S3
+    default n
+    help
+        Opt-in 1 Hz PS readback/RSSI/channel and native STA TX completion
+        success/failure counts in a bounded PSRAM ring. No logging during
+        sampling. Uses IDF 6.1's private completion callback as its sole owner.
+        Completion is not an air timestamp, retries, ACK latency or RTP ID.
+        No PS/radio/queue settings are changed. Disabled builds allocate no
+        observer task/ring and register no callback. Observer cost still
+        requires measurement before scored use; existing frozen images do
+        not contain this feature. Export only outside acquisition windows.
+
+config DG_DEMO_AUTOSTART
+    bool "Standalone EchoEar demo autostart"
+    depends on DG_BOARD_ECHOEAR || DG_BOARD_P4XC
+    default n
+    help
+        Restore provisioned assets and connect without console input. NVS demo
+        settings select enabled/disabled and server URL; normal test images
+        always remain manual. Demo images must opt in through their defaults.
+
+config DG_DEMO_COMPILED_URL
+    bool "Autostart from the compiled server URL without NVS demo settings"
+    depends on DG_DEMO_AUTOSTART
+    default n
+    help
+        Public demo images connect at power-on to CONFIG_DG_SERVER_URL even
+        when no demo settings were written to NVS. Bench demo images keep
+        requiring `demo configure`, so an unprovisioned board stays idle.
+
+config DG_DUO
+    bool "Angel and Devil standalone image"
+    # Keep the new symbol invisible (and absent from legacy resolved configs)
+    # unless the dedicated build variant is selected before confgen.
+    depends on "$(DG_VARIANT)" = "duo"
+    depends on DG_BOARD_ECHOEAR || DG_BOARD_P4XC
+    depends on DG_DEMO_AUTOSTART && DG_ECHOEAR_AEC
+    default n
+
+config DG_ECHOEAR_AEC
+    bool "EchoEar MIC3 reference AFE echo cancellation (AEC image)"
+    depends on DG_BOARD_ECHOEAR || DG_BOARD_P4XC
+    select HEAP_ABORT_WHEN_ALLOCATION_FAILS
+    default n
+    help
+        Enable ES7210 TDM MIC1/MIC3 capture and ESP-SR AFE's AEC-only
+        full-duplex mode. Default off: the standard image mutes the mic
+        during speaker output. Build the AEC image with the
+        sdkconfig.defaults.echoear-aec overlay (docs/echoear-aec.md).
+        Qualification (step 9, decision 107): candidate aec-v87 (source
+        58f567e, ELF cbabb650...) PASSED q1-aec-v87-01 under q1-freeze-03
+        with exactly esp-sr 2.4.7 AFE_AEC FD_LOW_COST, filter length 4,
+        reference gain 15 dB, reply-start guard 400 ms / re-arm 2000 ms,
+        playback volumes 0 and -6 dB. Scope (docs/echoear-aec-q-scope.md):
+        AEC endpoints only, i.e. echo residual/reduction and near-end
+        content preservation in real (yielding) double talk. No claim on
+        STT, transport, resources or sustained double talk. A rebuilt
+        binary that differs from cbabb650 only in metadata (version, build
+        date/time, derived hashes) inherits the qualification. Its proof is
+        the hil/compare_masked_image.py JSON plus a promotion smoke on that
+        exact bundle (decision 109(a)). Any functional difference in
+        settings, source or layout re-runs the frozen qualification.
+        The bot selects full duplex from the firmware capability in /start
+        (ECHOEAR_AEC_FULL_DUPLEX unset). NS and AGC stay off.
+        The pinned vendor factory uses unchecked allocations internally.
+        AEC therefore requires global fail-stop on exhausted heap
+        allocation, before the vendor can dereference a null result.
+
+config DG_ECHOEAR_AEC_GUARD_MS
+    int "AEC reply-start source interval to suppress (ms)"
+    depends on DG_ECHOEAR_AEC
+    range 0 1000
+    default 400
+    help
+        Suppress this source interval after accepted local non-silent output.
+        Expiry follows actual delayed AFE samples, including 1024 samples of
+        AFE delay and conservative DMA/capture block timing. Zero disables it.
+        Re-arm silence is set separately, independent of remote speaking
+        notifications. Manual mute remains authoritative.
+
+config DG_ECHOEAR_AEC_GUARD_REARM_MS
+    int "AEC guard re-arm silence (ms)"
+    depends on DG_ECHOEAR_AEC
+    range 500 10000
+    default 2000
+    help
+        Require this gap between accepted local non-silent output intervals
+        before another source guard. Default 2000 ms avoids re-arming at the
+        measured inter-sentence TTS pauses. The minimum 500 ms retains the
+        prior setting and exceeds the continuous-write reservation lead.
+        Runtime aec-guard-rearm-ms changes require capture disabled and last
+        until reboot; they survive reconnect. Guard duration is unchanged.
+
+config DG_ECHOEAR_AEC_REF_GAIN_DB
+    int "EchoEar AEC MIC3 reference analog gain (dB, multiples of 3)"
+    depends on DG_ECHOEAR_AEC
+    range 0 33
+    default 0
+    help
+        ES7210 0..33 dB ladder in 3 dB steps. Non-ladder build settings fail
+        compilation. Runtime aec-ref-gain overrides last until reboot and
+        survive audio reinitialization and session reconnect.

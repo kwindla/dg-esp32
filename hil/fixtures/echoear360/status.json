@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "panel": [
+    360,
+    360
+  ],
+  "period_ms": 350,
+  "assets": [
+    {
+      "slot": 0,
+      "name": "disconnected",
+      "hash": "b2f933e63186288f27c9b66e7bb95690ce6f611400987b1c19a2456812b0d60e",
+      "bytes": 46504,
+      "width": 360,
+      "height": 360,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "slot": 1,
+      "name": "connecting",
+      "hash": "021440b7e954f734e932dfa83cff68e2f5a890935e602a0059ea4fb7a62e6f9a",
+      "bytes": 88250,
+      "width": 360,
+      "height": 360,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "slot": 2,
+      "name": "dots-0",
+      "hash": "46860664fc534f109c24e5f34ef3e35ec1fdf3ba3a7d22fe748369d394bf21f8",
+      "bytes": 367,
+      "width": 72,
+      "height": 18,
+      "x": 144,
+      "y": 285
+    },
+    {
+      "slot": 3,
+      "name": "dots-1",
+      "hash": "a6a3b7bb496ec9d1cf9820683c30a7dedad51fa8797d96f68a9e7434ea276c31",
+      "bytes": 367,
+      "width": 72,
+      "height": 18,
+      "x": 144,
+      "y": 285
+    },
+    {
+      "slot": 4,
+      "name": "dots-2",
+      "hash": "8a699f86a86b9fc0d8d0e1b278f08c9c9e578315f9ba8db66584ce60ac37632f",
+      "bytes": 367,
+      "width": 72,
+      "height": 18,
+      "x": 144,
+      "y": 285
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+menu "Board audio"
+config DG_MIC_DMA_DESCRIPTORS
+    int "Capture DMA descriptors (10 ms each)"
+    range 2 6
+    default 3
+config DG_MIC_DMA_FRAMES
+    int "Frames per capture DMA buffer"
+    range 80 320
+    default 160
+config DG_SPEAKER_DMA_DESCRIPTORS
+    int "Playback DMA descriptors (15 ms each)"
+    range 3 6
+    default 4
+config DG_SPEAKER_DMA_FRAMES
+    int "Frames per playback DMA buffer"
+    range 160 320
+    default 240
+config DG_MIC_GAIN_PERCENT
+    int "Microphone gain (percent)"
+    range 1 1600
+    default 125 if DG_BOARD_ECHOEAR
+    default 200
+config DG_PLAYBACK_GAIN_PERCENT
+    int "Legacy network playback gain (percent)"
+    range 1 100
+    default 4
+    help
+        Used only with speech normalization disabled. Normalized playback
+        uses its delivered RMS target and an audible threshold of one PCM unit.
+config DG_PLAYBACK_NORMALIZE
+    bool "Normalize active speech RMS with a look-ahead peak limiter"
+    default y
+config DG_PLAYBACK_TARGET_DBFS
+    int "Active speech target RMS (dBFS)"
+    range -40 -12
+    default -22
+# DG_PLAYBACK_SEED_DBFS_X10 is owned by pipecat_esp_peer/Kconfig.
+config DG_PLAYBACK_MAX_GAIN_DB
+    int "Maximum speech normalizer gain (dB)"
+    range 0 30
+    default 18
+config DG_PLAYBACK_ACTIVITY_DBFS
+    int "Clean-source speech activity threshold (dBFS)"
+    range -70 -30
+    default -45
+config DG_PLAYBACK_LEVEL_MS
+    int "Active speech RMS estimator time constant (ms)"
+    range 100 2000
+    default 400
+config DG_PLAYBACK_ATTACK_MS
+    int "Speech gain reduction time constant (ms)"
+    range 20 500
+    default 100
+config DG_PLAYBACK_RELEASE_MS
+    int "Speech gain increase time constant (ms)"
+    range 200 5000
+    default 1000
+config DG_PLAYBACK_LOOKAHEAD_MS
+    int "Peak limiter attack ramp L (ms; delay is 2L)"
+    range 1 2
+    default 2
+config DG_PLAYBACK_LIMITER_RELEASE_MS
+    int "Peak limiter release time constant (ms)"
+    range 50 100
+    default 75
+config DG_PLAYBACK_COMPRESSION_RATIO
+    int "Light amplitude compression ratio (1 disables)"
+    range 1 4
+    default 3
+config DG_PLAYBACK_COMPRESSION_THRESHOLD_DBFS
+    int "Normalized-speech compression threshold (dBFS peak)"
+    range -30 0
+    default -18
+config DG_PLAYBACK_CEILING_PERCENT
+    int "Speaker peak limiter ceiling (percent of full scale)"
+    range 1 100
+    default 26
+config DG_PLAYBACK_HIGHPASS_HZ
+    int "Playback Butterworth high-pass corner (0 disables)"
+    range 0 3000
+    default 500
+config DG_PLAYBACK_STACK_BYTES
+    int "Internal playback/Opus stack bytes"
+    range 16384 32768
+    default 17408
+config DG_FAST_MIC_DIAGNOSTICS
+    bool "Use hardware float bands and exact integer microphone power sums"
+    default n
+config DG_PLAYBACK_BENCH
+    bool "Playback self-test and deliberate pause commands (bench only)"
+    default n
+    help
+        Includes the decoder self-test fixtures and deliberate playback pause.
+        Leave disabled in production. Does not change audio or VAD settings.
+
+config DG_SPEAKER_DIAGNOSTICS
+    bool "Raw pre-gate microphone speaker measurement and runtime DSP staging"
+    default y
+endmenu

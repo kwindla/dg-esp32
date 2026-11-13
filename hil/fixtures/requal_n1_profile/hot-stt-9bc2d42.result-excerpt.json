@@ -1,0 +1,24 @@
+{
+ "points": [
+  {
+   "before": {
+    "pc_id": "SmallWebRTCConnection#0-270c129774094536a5c2ec55b5c42834",
+    "output_volume_db": -6
+   },
+   "after": {
+    "pc_id": "SmallWebRTCConnection#0-270c129774094536a5c2ec55b5c42834",
+    "output_volume_db": -6
+   }
+  },
+  {
+   "before": {
+    "pc_id": "SmallWebRTCConnection#0-5308f05825b544129c95b67cf72919df",
+    "output_volume_db": -6
+   },
+   "after": {
+    "pc_id": "SmallWebRTCConnection#0-5308f05825b544129c95b67cf72919df",
+    "output_volume_db": -6
+   }
+  }
+ ]
+}

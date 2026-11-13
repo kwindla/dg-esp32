@@ -1,0 +1,10 @@
+dependencies:
+  espressif/esp_lcd_jd9365:
+    version: "==2.0.2"
+    rules:
+      - if: "target == esp32p4"
+  espressif/esp_lcd_st77916: "==2.0.2"
+  espressif/esp_lcd_spd2010:
+    version: "==2.0.0~1"
+    rules:
+      - if: "target == esp32s3 && $CONFIG{DG_BOARD_WAVESHARE_146} == True"

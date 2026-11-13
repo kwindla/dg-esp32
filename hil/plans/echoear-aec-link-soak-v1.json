@@ -1,0 +1,375 @@
+{
+  "schema_version": 1,
+  "status": "draft",
+  "qualification": false,
+  "experiment": "candidate-link-soak-01",
+  "launch_status": "NOT EXECUTED",
+  "image": "/home/khkramer/src/evidence/echoear/aec-demo/step-9/candidate-b8a6fd9-ref15",
+  "image_bundle_sha256": "ebb71de6e6f762d4a3db7ad93ec3e3aec35c94c56616a74efb0e25a958f95832",
+  "elf_sha256": "76e29175ec089e47cedbfba8911ac8ba8fabec8ab975b3a50f1ce2f752c223e2",
+  "firmware_commit": "b8a6fd9803ad620670be207ba77e7ba2fba1cf7d",
+  "normal_elf_sha256": "9936da45a8c7dd6103c72f3fd3335e270659d4af6710bdc082a5d984a3feb758",
+  "gain_db": 15,
+  "boot_ref_gain_db": 15,
+  "volume_db": -6,
+  "blocks": [
+    {
+      "id": 1,
+      "mode": "no-dump",
+      "duration_s": 300
+    },
+    {
+      "id": 2,
+      "mode": "dump",
+      "duration_s": 300
+    },
+    {
+      "id": 3,
+      "mode": "no-dump",
+      "duration_s": 300
+    },
+    {
+      "id": 4,
+      "mode": "dump",
+      "duration_s": 300
+    },
+    {
+      "id": 5,
+      "mode": "no-dump",
+      "duration_s": 300
+    },
+    {
+      "id": 6,
+      "mode": "dump",
+      "duration_s": 300
+    }
+  ],
+  "prompts": [
+    {
+      "id": "link-block-1-reply-1",
+      "kind": "echo",
+      "text": "The little blue bicycle rolls beside the green meadow and over the wooden bridge.",
+      "block": 1,
+      "offset_s": 0,
+      "volume_db": -6
+    },
+    {
+      "id": "link-block-1-reply-2",
+      "kind": "echo",
+      "text": "The little blue bicycle rolls beside the green meadow and over the wooden bridge.",
+      "block": 1,
+      "offset_s": 60,
+      "volume_db": -6
+    },
+    {
+      "id": "link-block-1-reply-3",
+      "kind": "echo",
+      "text": "The little blue bicycle rolls beside the green meadow and over the wooden bridge.",
+      "block": 1,
+      "offset_s": 120,
+      "volume_db": -6
+    },
+    {
+      "id": "link-block-1-reply-4",
+      "kind": "echo",
+      "text": "The little blue bicycle rolls beside the green meadow and over the wooden bridge.",
+      "block": 1,
+      "offset_s": 180,
+      "volume_db": -6
+    },
+    {
+      "id": "link-block-1-reply-5",
+      "kind": "echo",
+      "text": "The little blue bicycle rolls beside the green meadow and over the wooden bridge.",
+      "block": 1,
+      "offset_s": 240,
+      "volume_db": -6
+    },
+    {
+      "id": "link-block-2-reply-1",
+      "kind": "echo",
+      "text": "The little blue bicycle rolls beside the green meadow and over the wooden bridge.",
+      "block": 2,
+      "offset_s": 0,
+      "volume_db": -6
+    },
+    {
+      "id": "link-block-2-reply-2",
+      "kind": "echo",
+      "text": "The little blue bicycle rolls beside the green meadow and over the wooden bridge.",
+      "block": 2,
+      "offset_s": 60,
+      "volume_db": -6
+    },
+    {
+      "id": "link-block-2-reply-3",
+      "kind": "echo",
+      "text": "The little blue bicycle rolls beside the green meadow and over the wooden bridge.",
+      "block": 2,
+      "offset_s": 120,
+      "volume_db": -6
+    },
+    {
+      "id": "link-block-2-reply-4",
+      "kind": "echo",
+      "text": "The little blue bicycle rolls beside the green meadow and over the wooden bridge.",
+      "block": 2,
+      "offset_s": 180,
+      "volume_db": -6
+    },
+    {
+      "id": "link-block-2-reply-5",
+      "kind": "echo",
+      "text": "The little blue bicycle rolls beside the green meadow and over the wooden bridge.",
+      "block": 2,
+      "offset_s": 240,
+      "volume_db": -6
+    },
+    {
+      "id": "link-block-3-reply-1",
+      "kind": "echo",
+      "text": "The little blue bicycle rolls beside the green meadow and over the wooden bridge.",
+      "block": 3,
+      "offset_s": 0,
+      "volume_db": -6
+    },
+    {
+      "id": "link-block-3-reply-2",
+      "kind": "echo",
+      "text": "The little blue bicycle rolls beside the green meadow and over the wooden bridge.",
+      "block": 3,
+      "offset_s": 60,
+      "volume_db": -6
+    },
+    {
+      "id": "link-block-3-reply-3",
+      "kind": "echo",
+      "text": "The little blue bicycle rolls beside the green meadow and over the wooden bridge.",
+      "block": 3,
+      "offset_s": 120,
+      "volume_db": -6
+    },
+    {
+      "id": "link-block-3-reply-4",
+      "kind": "echo",
+      "text": "The little blue bicycle rolls beside the green meadow and over the wooden bridge.",
+      "block": 3,
+      "offset_s": 180,
+      "volume_db": -6
+    },
+    {
+      "id": "link-block-3-reply-5",
+      "kind": "echo",
+      "text": "The little blue bicycle rolls beside the green meadow and over the wooden bridge.",
+      "block": 3,
+      "offset_s": 240,
+      "volume_db": -6
+    },
+    {
+      "id": "link-block-4-reply-1",
+      "kind": "echo",
+      "text": "The little blue bicycle rolls beside the green meadow and over the wooden bridge.",
+      "block": 4,
+      "offset_s": 0,
+      "volume_db": -6
+    },
+    {
+      "id": "link-block-4-reply-2",
+      "kind": "echo",
+      "text": "The little blue bicycle rolls beside the green meadow and over the wooden bridge.",
+      "block": 4,
+      "offset_s": 60,
+      "volume_db": -6
+    },
+    {
+      "id": "link-block-4-reply-3",
+      "kind": "echo",
+      "text": "The little blue bicycle rolls beside the green meadow and over the wooden bridge.",
+      "block": 4,
+      "offset_s": 120,
+      "volume_db": -6
+    },
+    {
+      "id": "link-block-4-reply-4",
+      "kind": "echo",
+      "text": "The little blue bicycle rolls beside the green meadow and over the wooden bridge.",
+      "block": 4,
+      "offset_s": 180,
+      "volume_db": -6
+    },
+    {
+      "id": "link-block-4-reply-5",
+      "kind": "echo",
+      "text": "The little blue bicycle rolls beside the green meadow and over the wooden bridge.",
+      "block": 4,
+      "offset_s": 240,
+      "volume_db": -6
+    },
+    {
+      "id": "link-block-5-reply-1",
+      "kind": "echo",
+      "text": "The little blue bicycle rolls beside the green meadow and over the wooden bridge.",
+      "block": 5,
+      "offset_s": 0,
+      "volume_db": -6
+    },
+    {
+      "id": "link-block-5-reply-2",
+      "kind": "echo",
+      "text": "The little blue bicycle rolls beside the green meadow and over the wooden bridge.",
+      "block": 5,
+      "offset_s": 60,
+      "volume_db": -6
+    },
+    {
+      "id": "link-block-5-reply-3",
+      "kind": "echo",
+      "text": "The little blue bicycle rolls beside the green meadow and over the wooden bridge.",
+      "block": 5,
+      "offset_s": 120,
+      "volume_db": -6
+    },
+    {
+      "id": "link-block-5-reply-4",
+      "kind": "echo",
+      "text": "The little blue bicycle rolls beside the green meadow and over the wooden bridge.",
+      "block": 5,
+      "offset_s": 180,
+      "volume_db": -6
+    },
+    {
+      "id": "link-block-5-reply-5",
+      "kind": "echo",
+      "text": "The little blue bicycle rolls beside the green meadow and over the wooden bridge.",
+      "block": 5,
+      "offset_s": 240,
+      "volume_db": -6
+    },
+    {
+      "id": "link-block-6-reply-1",
+      "kind": "echo",
+      "text": "The little blue bicycle rolls beside the green meadow and over the wooden bridge.",
+      "block": 6,
+      "offset_s": 0,
+      "volume_db": -6
+    },
+    {
+      "id": "link-block-6-reply-2",
+      "kind": "echo",
+      "text": "The little blue bicycle rolls beside the green meadow and over the wooden bridge.",
+      "block": 6,
+      "offset_s": 60,
+      "volume_db": -6
+    },
+    {
+      "id": "link-block-6-reply-3",
+      "kind": "echo",
+      "text": "The little blue bicycle rolls beside the green meadow and over the wooden bridge.",
+      "block": 6,
+      "offset_s": 120,
+      "volume_db": -6
+    },
+    {
+      "id": "link-block-6-reply-4",
+      "kind": "echo",
+      "text": "The little blue bicycle rolls beside the green meadow and over the wooden bridge.",
+      "block": 6,
+      "offset_s": 180,
+      "volume_db": -6
+    },
+    {
+      "id": "link-block-6-reply-5",
+      "kind": "echo",
+      "text": "The little blue bicycle rolls beside the green meadow and over the wooden bridge.",
+      "block": 6,
+      "offset_s": 240,
+      "volume_db": -6
+    }
+  ],
+  "trace_policy": {
+    "enabled": true,
+    "drain_interval_s": 15,
+    "max_drain_gap_s": 25,
+    "basis": "Same drain policy both arms; no-dump means no AEC PCM export. Drain before and after each synchronous export, otherwise every15s. Any overwritten/missing trace invalidates inference.",
+    "burst": "Count every consecutive Render PLC/Zero missing run of at least4 slots once at the fourth slot. Later Ingress witnesses classify late versus unresolved diagnostically; neither attribution nor genuine loss invalidates covered runs."
+  },
+  "decision_rule": "missing-run>=4 slots; dump-rate>=2*no-dump-rate and pooled-events>=5",
+  "noise_gate": {
+    "version": 3,
+    "level_max_dbfs": -55,
+    "level_rise_max_db": 6,
+    "transient_max_dbfs": -46,
+    "frame_ms": 20,
+    "quiet_seconds": 2,
+    "baseline_seconds": 6,
+    "settle_seconds": 5,
+    "baseline_max_dbfs": -53,
+    "baseline_max_attempts": 3,
+    "max_retries": 2,
+    "pause_consecutive_cells": 3,
+    "policy": "Coordinator step-9-coordinator-decisions-3, option (a): v3 filters each quiet window and settled baseline independently with the declared fourth-order Butterworth 100 Hz high-pass. Reference the +6 dB rise rule to max(filtered baseline, -61 dBFS), restoring the effective -55 dBFS RMS ceiling; absolute -55 and maximum20ms -46 limits unchanged. Two lifetime re-attempts and three-distinct-consecutive pause unchanged. Preserve full-band and MIC1/MIC3 low-pass100 diagnostics. MIC1-only low-frequency component has unresolved, silence-dependent origin; MIC3 is clean. Campaign-01 verdicts immutable; no old cells reused or performance retries.",
+    "filter": {
+      "kind": "butterworth-highpass",
+      "order": 4,
+      "cutoff_hz": 100,
+      "sample_rate_hz": 16000,
+      "application": "sosfiltfilt-per-window",
+      "padtype": "odd",
+      "padlen": 15
+    },
+    "rise_reference_min_dbfs": -61
+  },
+  "bot_config": {
+    "DEMO_TTS_PROACTIVE_RECONNECT": "1",
+    "DEMO_TTS_RECONNECT_EACH_GENERATION": "0",
+    "DEMO_TTS_TRIM_LEADING": "0",
+    "DEMO_LLM": "local",
+    "DEEPGRAM_TTS_VOICE": "flux-kelsey-en",
+    "DEEPGRAM_TTS_SPEED": "1.5",
+    "DEEPGRAM_TTS_EXPRESSIVITY": "2",
+    "ECHOEAR_LIVENESS_SECONDS": "0.5",
+    "ECHOEAR_AEC_FULL_DUPLEX": null,
+    "AUDIO_OUT_10MS_CHUNKS": "4",
+    "metrics_forwarded_to_device": false,
+    "sctp_rto_min_seconds": 1,
+    "interrupt_repeat_ms": 100,
+    "playout_cancel_mute_ms": 150,
+    "meaning_of_null_override": "Unset: capability controls full duplex. Record resolved full-duplex=true; no experimental override for acceptance."
+  },
+  "output": "/home/khkramer/src/evidence/echoear/aec-demo/step-9/link-soak-01",
+  "code_sha256": {},
+  "inputs": [],
+  "timing_policy": "Each block starts after its before wifi-observe/wifi-stats/PERF. TTS at absolute block offsets0,60,120,180,240s, max request lateness1s; record actual lateness without shifting cadence, completion deadline40s. Start no export after300s; an in-flight <=25s export finishes before next block. Rates use actual PERF device duration. Same trace drain policy in both arms; trace exports are separately recorded.",
+  "baseline_policy": "Settled 6.1s baseline captured once before connect; dump blocks re-export exactly that unchanged PCM/timing; no aec-record during the experiment.",
+  "safety": "Existing BenchHold per-hold flock spans candidate flash through normal hash-verified restore and mixer restore. SIGINT/SIGTERM cancels host stimulus worker then follows cleanup; failure to verify normal restore retains lock. No acceptance loss/burst gate stops this diagnostic experiment; device/resource/liveness/RF/observer integrity failures stop and restore.",
+  "measurement_limit": "Matched existing arrival trace changes PSRAM and console load; no-dump means no bulk AEC export. The traced base rate is comparable within this soak, not directly to untraced campaigns01-03. Trace ring8192 x32B at approximately293 records/s fills in approximately28s. Idle drain15s uses approximately4400 records; max drain gap25s leaves approximately10% margin. Any overflow, missing ticks, generation change or counter mismatch invalidates trace coverage. Every covered missing run>=4 slots counts; late/unresolved attribution is diagnostic only.",
+  "rf_note": "WIFI_PS_NONE already present at candidate b8a6fd9; no power-save A/B. Host5GHz/device2.4GHz dual-radio AP path retained. User-reported Eero-panel observation: board MAC b4:3a:45:16:2d:94 is on the same node as the host; not independently bench-verified in this host-only preparation. Both boundary wifi-observe rings record BSSID/RSSI/channel/ps_mode; no network changes.",
+  "acceptance_pending": "probe-own-rule-v1 implemented for future declarations; v7 freeze deferred. F1b post-PLC-zero device_alive rule unchanged. No historical verdict changed.",
+  "source_paths": [
+    "/home/khkramer/src/dg-esp32/proj-2026-10-15-0645/codex-jobs/fable-step-9-c3-review.md",
+    "/home/khkramer/src/dg-esp32/proj-2026-10-15-0645/codex-jobs/step-9-coordinator-decisions-8.md",
+    "/home/khkramer/src/evidence/echoear/aec-demo/step-9/freeze-v6/declaration-v6.json",
+    "/home/khkramer/src/dg-esp32/proj-2026-10-15-0645/codex-jobs/fable-step-9-link-soak-review.md",
+    "/home/khkramer/src/dg-esp32/proj-2026-10-15-0645/codex-jobs/step-9-coordinator-decisions-9.md"
+  ],
+  "wifi_observation_policy": {
+    "command": "wifi-observe",
+    "boundaries": [
+      "before",
+      "after"
+    ],
+    "arms": [
+      "no-dump",
+      "dump"
+    ],
+    "fields": [
+      "bssid",
+      "rssi_dbm",
+      "primary_channel",
+      "ps_mode"
+    ],
+    "coverage": "Last approximately256s per300s block; retain both boundary rings and report observed BSSID changes and uncovered gaps. A roam and return entirely in a gap can remain unseen."
+  },
+  "request_lateness_max_s": 1,
+  "seal_dependency": "First BotStoppedSpeakingFrame seals each reply only because validate() pins the one-sentence TTS text; multi-sentence prompts require a different completion rule."
+}

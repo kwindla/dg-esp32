@@ -1,0 +1,12 @@
+{
+  "basis": "Real Jabra acoustic recording, step8d3 nominal 3 s stressed 0.8 s pause; complete audible reply, not a cancellation",
+  "known_audible_ms": 1531.3125001266599,
+  "sent_at": 0.5000026380047204,
+  "ready_at": 0,
+  "prompt_start": 0.4,
+  "hashes": {
+    "response-model.json": "5a959c371a788777c3d9ccfeac542989797a7b003e30b71b6d5b0ff641f42e96",
+    "reference.wav": "7676b1c43760e4deb973a6e6fb544410b1dcc4886c4096c4bae1a0a0d08832e5",
+    "full-audible.wav": "d252e3f8b3ee9a70c3162aaebaedde6b90b42d0035dd160e11c2c858bb71473c"
+  }
+}

@@ -1,0 +1,2646 @@
+{
+  "schema_version": 1,
+  "set": "hard",
+  "cases": [
+    {
+      "id": "hard-other_address_mentions_current-angel-1",
+      "class": "other_address_mentions_current",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, should I have another slice of cake?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Indulge a little; another slice might be fun."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] You can enjoy yourself without overdoing it."
+        }
+      ],
+      "current": "angel",
+      "latest": "Devil, do you agree with the angel?",
+      "expected": "devil"
+    },
+    {
+      "id": "hard-other_address_mentions_current-angel-2",
+      "class": "other_address_mentions_current",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, should I go to the party tonight?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Take a chance and enjoy the party."
+        },
+        {
+          "role": "user",
+          "content": "Could you explain that advice, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It could be fun to take a chance."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Balance the fun with the rest you need."
+        }
+      ],
+      "current": "angel",
+      "latest": "The angel says to wait, but Devil, what would you do?",
+      "expected": "devil"
+    },
+    {
+      "id": "hard-other_address_mentions_current-angel-3",
+      "class": "other_address_mentions_current",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, what should I do about the money I found?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little windfall would be tempting."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the person who might be missing it."
+        }
+      ],
+      "current": "angel",
+      "latest": "Tell me, Devil, is the angel being too cautious about the trip?",
+      "expected": "devil"
+    },
+    {
+      "id": "hard-other_address_mentions_current-angel-4",
+      "class": "other_address_mentions_current",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, how should I respond to my friend?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A cheeky reply could be satisfying."
+        },
+        {
+          "role": "user",
+          "content": "Could you explain that advice, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It could be fun to take a chance."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] You could be honest and still be kind."
+        }
+      ],
+      "current": "angel",
+      "latest": "Devil, challenge what the angel just told me about the cake.",
+      "expected": "devil"
+    },
+    {
+      "id": "hard-other_address_mentions_current-devil-1",
+      "class": "other_address_mentions_current",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, should I have another slice of cake?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about how you will feel afterward."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] I still think a small indulgence sounds fun."
+        }
+      ],
+      "current": "devil",
+      "latest": "Angel, do you agree with the devil?",
+      "expected": "angel"
+    },
+    {
+      "id": "hard-other_address_mentions_current-devil-2",
+      "class": "other_address_mentions_current",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, should I go to the party tonight?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Consider tomorrow before deciding to stay out."
+        },
+        {
+          "role": "user",
+          "content": "Could you explain that advice, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] It helps to consider the consequences for everyone."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] There could be a good memory waiting for you."
+        }
+      ],
+      "current": "devil",
+      "latest": "The devil says to go for it, but Angel, what would you do?",
+      "expected": "angel"
+    },
+    {
+      "id": "hard-other_address_mentions_current-devil-3",
+      "class": "other_address_mentions_current",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, what should I do about the money I found?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Try to find the owner before thinking of yourself."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It is tempting, though you have a decision to make."
+        }
+      ],
+      "current": "devil",
+      "latest": "Tell me, Angel, is the devil being reckless about the money?",
+      "expected": "angel"
+    },
+    {
+      "id": "hard-other_address_mentions_current-devil-4",
+      "class": "other_address_mentions_current",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, how should I respond to my friend?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Pause and think about the other person."
+        },
+        {
+          "role": "user",
+          "content": "Could you explain that advice, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] It helps to consider the consequences for everyone."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] There is room for a little mischief in your response."
+        }
+      ],
+      "current": "devil",
+      "latest": "Angel, challenge what the devil just told me about the party.",
+      "expected": "angel"
+    },
+    {
+      "id": "hard-both_addressed-angel-1",
+      "class": "both_addressed",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, should I have another slice of cake?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Indulge a little; another slice might be fun."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] You can enjoy yourself without overdoing it."
+        }
+      ],
+      "current": "angel",
+      "latest": "Angel and Devil, what do you both think?",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-both_addressed-angel-2",
+      "class": "both_addressed",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, should I go to the party tonight?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Take a chance and enjoy the party."
+        },
+        {
+          "role": "user",
+          "content": "Could you explain that advice, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It could be fun to take a chance."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Balance the fun with the rest you need."
+        }
+      ],
+      "current": "angel",
+      "latest": "I want both your opinions, Devil and Angel.",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-both_addressed-angel-3",
+      "class": "both_addressed",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, what should I do about the money I found?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little windfall would be tempting."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the person who might be missing it."
+        }
+      ],
+      "current": "angel",
+      "latest": "You two, angel and devil, is another slice a good idea?",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-both_addressed-angel-4",
+      "class": "both_addressed",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, how should I respond to my friend?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A cheeky reply could be satisfying."
+        },
+        {
+          "role": "user",
+          "content": "Could you explain that advice, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It could be fun to take a chance."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] You could be honest and still be kind."
+        }
+      ],
+      "current": "angel",
+      "latest": "Could each of you, Angel and Devil, comment on the plan?",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-both_addressed-devil-1",
+      "class": "both_addressed",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, should I have another slice of cake?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about how you will feel afterward."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] I still think a small indulgence sounds fun."
+        }
+      ],
+      "current": "devil",
+      "latest": "Devil and Angel, what do you both think?",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-both_addressed-devil-2",
+      "class": "both_addressed",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, should I go to the party tonight?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Consider tomorrow before deciding to stay out."
+        },
+        {
+          "role": "user",
+          "content": "Could you explain that advice, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] It helps to consider the consequences for everyone."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] There could be a good memory waiting for you."
+        }
+      ],
+      "current": "devil",
+      "latest": "I want both your opinions, Angel and Devil.",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-both_addressed-devil-3",
+      "class": "both_addressed",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, what should I do about the money I found?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Try to find the owner before thinking of yourself."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It is tempting, though you have a decision to make."
+        }
+      ],
+      "current": "devil",
+      "latest": "You two, devil and angel, should I accept that invitation?",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-both_addressed-devil-4",
+      "class": "both_addressed",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, how should I respond to my friend?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Pause and think about the other person."
+        },
+        {
+          "role": "user",
+          "content": "Could you explain that advice, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] It helps to consider the consequences for everyone."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] There is room for a little mischief in your response."
+        }
+      ],
+      "current": "devil",
+      "latest": "Could each of you, Devil and Angel, comment on the argument?",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-negated_address-angel-1",
+      "class": "negated_address",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, should I have another slice of cake?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Indulge a little; another slice might be fun."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] You can enjoy yourself without overdoing it."
+        }
+      ],
+      "current": "angel",
+      "latest": "Don't let the devil answer this one.",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-negated_address-angel-2",
+      "class": "negated_address",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, should I go to the party tonight?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Take a chance and enjoy the party."
+        },
+        {
+          "role": "user",
+          "content": "Could you explain that advice, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It could be fun to take a chance."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Balance the fun with the rest you need."
+        }
+      ],
+      "current": "angel",
+      "latest": "I am not asking the devil; please keep helping me.",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-negated_address-angel-3",
+      "class": "negated_address",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, what should I do about the money I found?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little windfall would be tempting."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the person who might be missing it."
+        }
+      ],
+      "current": "angel",
+      "latest": "No answer from the devil this time, please.",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-negated_address-angel-4",
+      "class": "negated_address",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, how should I respond to my friend?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A cheeky reply could be satisfying."
+        },
+        {
+          "role": "user",
+          "content": "Could you explain that advice, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It could be fun to take a chance."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] You could be honest and still be kind."
+        }
+      ],
+      "current": "angel",
+      "latest": "Please answer without bringing the devil into it.",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-negated_address-devil-1",
+      "class": "negated_address",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, should I have another slice of cake?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about how you will feel afterward."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] I still think a small indulgence sounds fun."
+        }
+      ],
+      "current": "devil",
+      "latest": "Don't let the angel answer this one.",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-negated_address-devil-2",
+      "class": "negated_address",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, should I go to the party tonight?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Consider tomorrow before deciding to stay out."
+        },
+        {
+          "role": "user",
+          "content": "Could you explain that advice, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] It helps to consider the consequences for everyone."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] There could be a good memory waiting for you."
+        }
+      ],
+      "current": "devil",
+      "latest": "I am not asking the angel; please keep helping me.",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-negated_address-devil-3",
+      "class": "negated_address",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, what should I do about the money I found?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Try to find the owner before thinking of yourself."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It is tempting, though you have a decision to make."
+        }
+      ],
+      "current": "devil",
+      "latest": "No answer from the angel this time, please.",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-negated_address-devil-4",
+      "class": "negated_address",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, how should I respond to my friend?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Pause and think about the other person."
+        },
+        {
+          "role": "user",
+          "content": "Could you explain that advice, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] It helps to consider the consequences for everyone."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] There is room for a little mischief in your response."
+        }
+      ],
+      "current": "devil",
+      "latest": "Please answer without bringing the angel into it.",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-compliments_thanks-angel-1",
+      "class": "compliments_thanks",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, should I have another slice of cake?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Indulge a little; another slice might be fun."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] You can enjoy yourself without overdoing it."
+        }
+      ],
+      "current": "angel",
+      "latest": "Thanks, you little devil, that made me laugh.",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-compliments_thanks-angel-2",
+      "class": "compliments_thanks",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, should I go to the party tonight?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Take a chance and enjoy the party."
+        },
+        {
+          "role": "user",
+          "content": "Could you explain that advice, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It could be fun to take a chance."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Balance the fun with the rest you need."
+        }
+      ],
+      "current": "angel",
+      "latest": "You little devil! I appreciate your help.",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-compliments_thanks-angel-3",
+      "class": "compliments_thanks",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, what should I do about the money I found?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little windfall would be tempting."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the person who might be missing it."
+        }
+      ],
+      "current": "angel",
+      "latest": "Angel, you little devil, that was a clever suggestion.",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-compliments_thanks-angel-4",
+      "class": "compliments_thanks",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, how should I respond to my friend?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A cheeky reply could be satisfying."
+        },
+        {
+          "role": "user",
+          "content": "Could you explain that advice, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It could be fun to take a chance."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] You could be honest and still be kind."
+        }
+      ],
+      "current": "angel",
+      "latest": "That was devilishly clever of you, thank you.",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-compliments_thanks-devil-1",
+      "class": "compliments_thanks",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, should I have another slice of cake?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about how you will feel afterward."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] I still think a small indulgence sounds fun."
+        }
+      ],
+      "current": "devil",
+      "latest": "Thanks, you're an angel.",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-compliments_thanks-devil-2",
+      "class": "compliments_thanks",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, should I go to the party tonight?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Consider tomorrow before deciding to stay out."
+        },
+        {
+          "role": "user",
+          "content": "Could you explain that advice, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] It helps to consider the consequences for everyone."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] There could be a good memory waiting for you."
+        }
+      ],
+      "current": "devil",
+      "latest": "You are such an angel for helping me, thank you.",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-compliments_thanks-devil-3",
+      "class": "compliments_thanks",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, what should I do about the money I found?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Try to find the owner before thinking of yourself."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It is tempting, though you have a decision to make."
+        }
+      ],
+      "current": "devil",
+      "latest": "Devil, you're an angel, that was really useful.",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-compliments_thanks-devil-4",
+      "class": "compliments_thanks",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, how should I respond to my friend?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Pause and think about the other person."
+        },
+        {
+          "role": "user",
+          "content": "Could you explain that advice, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] It helps to consider the consequences for everyone."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] There is room for a little mischief in your response."
+        }
+      ],
+      "current": "devil",
+      "latest": "What an angel you are! I appreciate the advice.",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-post_handover_talking_about-angel-1",
+      "class": "post_handover_talking_about",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, should I have another slice of cake?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Indulge a little; another slice might be fun."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] You can enjoy yourself without overdoing it."
+        }
+      ],
+      "current": "angel",
+      "latest": "What did you think of the devil's suggestion?",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-post_handover_talking_about-angel-2",
+      "class": "post_handover_talking_about",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, should I go to the party tonight?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Take a chance and enjoy the party."
+        },
+        {
+          "role": "user",
+          "content": "Could you explain that advice, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It could be fun to take a chance."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Balance the fun with the rest you need."
+        }
+      ],
+      "current": "angel",
+      "latest": "Was the devil serious when he said I should indulge?",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-post_handover_talking_about-angel-3",
+      "class": "post_handover_talking_about",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, should I go to the party tonight?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Take a chance and enjoy the party."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Balance the fun with the rest you need."
+        }
+      ],
+      "current": "angel",
+      "latest": "Why did the devil suggest taking a chance?",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-post_handover_talking_about-angel-4",
+      "class": "post_handover_talking_about",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, how should I respond to my friend?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A cheeky reply could be satisfying."
+        },
+        {
+          "role": "user",
+          "content": "Could you explain that advice, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It could be fun to take a chance."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] You could be honest and still be kind."
+        }
+      ],
+      "current": "angel",
+      "latest": "You just heard the devil. Is that sensible advice?",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-post_handover_talking_about-devil-1",
+      "class": "post_handover_talking_about",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, should I have another slice of cake?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about how you will feel afterward."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] I still think a small indulgence sounds fun."
+        }
+      ],
+      "current": "devil",
+      "latest": "What did you think of the angel's suggestion?",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-post_handover_talking_about-devil-2",
+      "class": "post_handover_talking_about",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, how should I respond to my friend?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Pause and think about the other person."
+        },
+        {
+          "role": "user",
+          "content": "Could you explain that advice, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] It helps to consider the consequences for everyone."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] There is room for a little mischief in your response."
+        }
+      ],
+      "current": "devil",
+      "latest": "Was the angel serious when she said I should wait?",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-post_handover_talking_about-devil-3",
+      "class": "post_handover_talking_about",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, how should I respond to my friend?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Pause and think about the other person."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] There is room for a little mischief in your response."
+        }
+      ],
+      "current": "devil",
+      "latest": "Why did the angel suggest thinking about others?",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-post_handover_talking_about-devil-4",
+      "class": "post_handover_talking_about",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, how should I respond to my friend?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Pause and think about the other person."
+        },
+        {
+          "role": "user",
+          "content": "Could you explain that advice, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] It helps to consider the consequences for everyone."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] There is room for a little mischief in your response."
+        }
+      ],
+      "current": "devil",
+      "latest": "You just heard the angel. Is that sensible advice?",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-indirect_get_view-angel-1",
+      "class": "indirect_get_view",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, should I have another slice of cake?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Indulge a little; another slice might be fun."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] You can enjoy yourself without overdoing it."
+        }
+      ],
+      "current": "angel",
+      "latest": "Could I get the devil's view on this?",
+      "expected": "devil"
+    },
+    {
+      "id": "hard-indirect_get_view-angel-2",
+      "class": "indirect_get_view",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, should I go to the party tonight?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Take a chance and enjoy the party."
+        },
+        {
+          "role": "user",
+          "content": "Could you explain that advice, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It could be fun to take a chance."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Balance the fun with the rest you need."
+        }
+      ],
+      "current": "angel",
+      "latest": "I would welcome a second opinion from the devil.",
+      "expected": "devil"
+    },
+    {
+      "id": "hard-indirect_get_view-angel-3",
+      "class": "indirect_get_view",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, what should I do about the money I found?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little windfall would be tempting."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the person who might be missing it."
+        }
+      ],
+      "current": "angel",
+      "latest": "What is the devil's take? Let him tell me.",
+      "expected": "devil"
+    },
+    {
+      "id": "hard-indirect_get_view-angel-4",
+      "class": "indirect_get_view",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, how should I respond to my friend?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A cheeky reply could be satisfying."
+        },
+        {
+          "role": "user",
+          "content": "Could you explain that advice, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It could be fun to take a chance."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] You could be honest and still be kind."
+        }
+      ],
+      "current": "angel",
+      "latest": "Put the devil on for a moment; I want his opinion.",
+      "expected": "devil"
+    },
+    {
+      "id": "hard-indirect_get_view-devil-1",
+      "class": "indirect_get_view",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, should I have another slice of cake?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about how you will feel afterward."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] I still think a small indulgence sounds fun."
+        }
+      ],
+      "current": "devil",
+      "latest": "Could I get the angel's view on this?",
+      "expected": "angel"
+    },
+    {
+      "id": "hard-indirect_get_view-devil-2",
+      "class": "indirect_get_view",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, should I go to the party tonight?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Consider tomorrow before deciding to stay out."
+        },
+        {
+          "role": "user",
+          "content": "Could you explain that advice, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] It helps to consider the consequences for everyone."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] There could be a good memory waiting for you."
+        }
+      ],
+      "current": "devil",
+      "latest": "I would welcome a second opinion from the angel.",
+      "expected": "angel"
+    },
+    {
+      "id": "hard-indirect_get_view-devil-3",
+      "class": "indirect_get_view",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, what should I do about the money I found?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Try to find the owner before thinking of yourself."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It is tempting, though you have a decision to make."
+        }
+      ],
+      "current": "devil",
+      "latest": "What is the angel's take? Let her tell me.",
+      "expected": "angel"
+    },
+    {
+      "id": "hard-indirect_get_view-devil-4",
+      "class": "indirect_get_view",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, how should I respond to my friend?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Pause and think about the other person."
+        },
+        {
+          "role": "user",
+          "content": "Could you explain that advice, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] It helps to consider the consequences for everyone."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] There is room for a little mischief in your response."
+        }
+      ],
+      "current": "devil",
+      "latest": "Put the angel on for a moment; I want her opinion.",
+      "expected": "angel"
+    },
+    {
+      "id": "hard-disfluent_stt-angel-1",
+      "class": "disfluent_stt",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, should I have another slice of cake?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Indulge a little; another slice might be fun."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] You can enjoy yourself without overdoing it."
+        }
+      ],
+      "current": "angel",
+      "latest": "um so devil what would you do",
+      "expected": "devil"
+    },
+    {
+      "id": "hard-disfluent_stt-angel-2",
+      "class": "disfluent_stt",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, should I go to the party tonight?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Take a chance and enjoy the party."
+        },
+        {
+          "role": "user",
+          "content": "Could you explain that advice, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It could be fun to take a chance."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Balance the fun with the rest you need."
+        }
+      ],
+      "current": "angel",
+      "latest": "uh devil can you like give me your opinion",
+      "expected": "devil"
+    },
+    {
+      "id": "hard-disfluent_stt-angel-3",
+      "class": "disfluent_stt",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, what should I do about the money I found?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little windfall would be tempting."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the person who might be missing it."
+        }
+      ],
+      "current": "angel",
+      "latest": "well i er devil should i just go for it",
+      "expected": "devil"
+    },
+    {
+      "id": "hard-disfluent_stt-angel-4",
+      "class": "disfluent_stt",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, how should I respond to my friend?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A cheeky reply could be satisfying."
+        },
+        {
+          "role": "user",
+          "content": "Could you explain that advice, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It could be fun to take a chance."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] You could be honest and still be kind."
+        }
+      ],
+      "current": "angel",
+      "latest": "devil yeah you what do you reckon about that",
+      "expected": "devil"
+    },
+    {
+      "id": "hard-disfluent_stt-devil-1",
+      "class": "disfluent_stt",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, should I have another slice of cake?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about how you will feel afterward."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] I still think a small indulgence sounds fun."
+        }
+      ],
+      "current": "devil",
+      "latest": "um so angel what would you do",
+      "expected": "angel"
+    },
+    {
+      "id": "hard-disfluent_stt-devil-2",
+      "class": "disfluent_stt",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, should I go to the party tonight?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Consider tomorrow before deciding to stay out."
+        },
+        {
+          "role": "user",
+          "content": "Could you explain that advice, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] It helps to consider the consequences for everyone."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] There could be a good memory waiting for you."
+        }
+      ],
+      "current": "devil",
+      "latest": "uh angel can you like give me your opinion",
+      "expected": "angel"
+    },
+    {
+      "id": "hard-disfluent_stt-devil-3",
+      "class": "disfluent_stt",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, what should I do about the money I found?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Try to find the owner before thinking of yourself."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It is tempting, though you have a decision to make."
+        }
+      ],
+      "current": "devil",
+      "latest": "well i er angel should i do the kind thing",
+      "expected": "angel"
+    },
+    {
+      "id": "hard-disfluent_stt-devil-4",
+      "class": "disfluent_stt",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, how should I respond to my friend?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Pause and think about the other person."
+        },
+        {
+          "role": "user",
+          "content": "Could you explain that advice, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] It helps to consider the consequences for everyone."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] There is room for a little mischief in your response."
+        }
+      ],
+      "current": "devil",
+      "latest": "angel yeah you what do you reckon about that",
+      "expected": "angel"
+    },
+    {
+      "id": "hard-long_turns-angel-1",
+      "class": "long_turns",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, should I have another slice of cake?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Indulge a little; another slice might be fun."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] You can enjoy yourself without overdoing it."
+        }
+      ],
+      "current": "angel",
+      "latest": "I have been thinking about the cake all afternoon and I know I already had enough, but Devil, would you take another slice if nobody was watching?",
+      "expected": "devil"
+    },
+    {
+      "id": "hard-long_turns-angel-2",
+      "class": "long_turns",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, should I go to the party tonight?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Take a chance and enjoy the party."
+        },
+        {
+          "role": "user",
+          "content": "Could you explain that advice, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It could be fun to take a chance."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Balance the fun with the rest you need."
+        }
+      ],
+      "current": "angel",
+      "latest": "There are several reasons to stay home tonight, and work will be busy tomorrow, so before I decide, Devil, tell me whether the party is worth it.",
+      "expected": "devil"
+    },
+    {
+      "id": "hard-long_turns-angel-3",
+      "class": "long_turns",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, what should I do about the money I found?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little windfall would be tempting."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the person who might be missing it."
+        }
+      ],
+      "current": "angel",
+      "latest": "I have been thinking about the cake all afternoon and I know I already had enough, but I still want another slice; what would you suggest I do?",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-long_turns-angel-4",
+      "class": "long_turns",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, how should I respond to my friend?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A cheeky reply could be satisfying."
+        },
+        {
+          "role": "user",
+          "content": "Could you explain that advice, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It could be fun to take a chance."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] You could be honest and still be kind."
+        }
+      ],
+      "current": "angel",
+      "latest": "There are several reasons to stay home tonight, and work will be busy tomorrow, so before I decide I want you to explain your earlier suggestion again.",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-long_turns-devil-1",
+      "class": "long_turns",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, should I have another slice of cake?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about how you will feel afterward."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] I still think a small indulgence sounds fun."
+        }
+      ],
+      "current": "devil",
+      "latest": "I found a wallet on the pavement and I could really use the cash this week, but Angel, what would be the fair thing to do with it?",
+      "expected": "angel"
+    },
+    {
+      "id": "hard-long_turns-devil-2",
+      "class": "long_turns",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, should I go to the party tonight?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Consider tomorrow before deciding to stay out."
+        },
+        {
+          "role": "user",
+          "content": "Could you explain that advice, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] It helps to consider the consequences for everyone."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] There could be a good memory waiting for you."
+        }
+      ],
+      "current": "devil",
+      "latest": "My friend has been rather unkind and I am tempted to ignore her messages for a while, so tell me, Angel, how should I handle this without making things worse?",
+      "expected": "angel"
+    },
+    {
+      "id": "hard-long_turns-devil-3",
+      "class": "long_turns",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, what should I do about the money I found?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Try to find the owner before thinking of yourself."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It is tempting, though you have a decision to make."
+        }
+      ],
+      "current": "devil",
+      "latest": "I found a wallet on the pavement and I could really use the cash this week, but I keep thinking about the owner; what do you suggest?",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-long_turns-devil-4",
+      "class": "long_turns",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, how should I respond to my friend?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Pause and think about the other person."
+        },
+        {
+          "role": "user",
+          "content": "Could you explain that advice, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] It helps to consider the consequences for everyone."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] There is room for a little mischief in your response."
+        }
+      ],
+      "current": "devil",
+      "latest": "My friend has been rather unkind and I am tempted to ignore her messages for a while, so can you explain how your earlier advice would actually help?",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-mid_turn_correction-angel-1",
+      "class": "mid_turn_correction",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, should I have another slice of cake?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Indulge a little; another slice might be fun."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] You can enjoy yourself without overdoing it."
+        }
+      ],
+      "current": "angel",
+      "latest": "Angel— no, Devil, what would you do?",
+      "expected": "devil"
+    },
+    {
+      "id": "hard-mid_turn_correction-angel-2",
+      "class": "mid_turn_correction",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, should I go to the party tonight?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Take a chance and enjoy the party."
+        },
+        {
+          "role": "user",
+          "content": "Could you explain that advice, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It could be fun to take a chance."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Balance the fun with the rest you need."
+        }
+      ],
+      "current": "angel",
+      "latest": "Angel, can you answer—sorry, I mean Devil, your opinion please.",
+      "expected": "devil"
+    },
+    {
+      "id": "hard-mid_turn_correction-angel-3",
+      "class": "mid_turn_correction",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, what should I do about the money I found?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little windfall would be tempting."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the person who might be missing it."
+        }
+      ],
+      "current": "angel",
+      "latest": "Devil— no, Angel, what would you do?",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-mid_turn_correction-angel-4",
+      "class": "mid_turn_correction",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, how should I respond to my friend?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A cheeky reply could be satisfying."
+        },
+        {
+          "role": "user",
+          "content": "Could you explain that advice, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It could be fun to take a chance."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] You could be honest and still be kind."
+        }
+      ],
+      "current": "angel",
+      "latest": "I want the devil to answer. Actually, no, Angel, stick with you.",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-mid_turn_correction-devil-1",
+      "class": "mid_turn_correction",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, should I have another slice of cake?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about how you will feel afterward."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] I still think a small indulgence sounds fun."
+        }
+      ],
+      "current": "devil",
+      "latest": "Devil— no, Angel, what would you do?",
+      "expected": "angel"
+    },
+    {
+      "id": "hard-mid_turn_correction-devil-2",
+      "class": "mid_turn_correction",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, should I go to the party tonight?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Consider tomorrow before deciding to stay out."
+        },
+        {
+          "role": "user",
+          "content": "Could you explain that advice, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] It helps to consider the consequences for everyone."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] There could be a good memory waiting for you."
+        }
+      ],
+      "current": "devil",
+      "latest": "Devil, can you answer—sorry, I mean Angel, your opinion please.",
+      "expected": "angel"
+    },
+    {
+      "id": "hard-mid_turn_correction-devil-3",
+      "class": "mid_turn_correction",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, what should I do about the money I found?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Try to find the owner before thinking of yourself."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It is tempting, though you have a decision to make."
+        }
+      ],
+      "current": "devil",
+      "latest": "Angel— no, Devil, what would you do?",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-mid_turn_correction-devil-4",
+      "class": "mid_turn_correction",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, how should I respond to my friend?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Pause and think about the other person."
+        },
+        {
+          "role": "user",
+          "content": "Could you explain that advice, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] It helps to consider the consequences for everyone."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] There is room for a little mischief in your response."
+        }
+      ],
+      "current": "devil",
+      "latest": "I want the angel to answer. Actually, no, Devil, stick with you.",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-non_substring_misheard-angel-1",
+      "class": "non_substring_misheard",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, should I have another slice of cake?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Indulge a little; another slice might be fun."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] You can enjoy yourself without overdoing it."
+        }
+      ],
+      "current": "angel",
+      "latest": "Double, can you answer instead with the tempting option?",
+      "expected": "devil"
+    },
+    {
+      "id": "hard-non_substring_misheard-angel-2",
+      "class": "non_substring_misheard",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, should I go to the party tonight?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] Take a chance and enjoy the party."
+        },
+        {
+          "role": "user",
+          "content": "Could you explain that advice, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It could be fun to take a chance."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Balance the fun with the rest you need."
+        }
+      ],
+      "current": "angel",
+      "latest": "Hey double, give me your mischievous advice on the cake.",
+      "expected": "devil"
+    },
+    {
+      "id": "hard-non_substring_misheard-angel-3",
+      "class": "non_substring_misheard",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, what should I do about the money I found?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A little windfall would be tempting."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about the person who might be missing it."
+        }
+      ],
+      "current": "angel",
+      "latest": "Maybe double the amount would work; what do you think?",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-non_substring_misheard-angel-4",
+      "class": "non_substring_misheard",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Devil, how should I respond to my friend?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] A cheeky reply could be satisfying."
+        },
+        {
+          "role": "user",
+          "content": "Could you explain that advice, Devil?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It could be fun to take a chance."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Devil has handed over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Angel, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] You could be honest and still be kind."
+        }
+      ],
+      "current": "angel",
+      "latest": "It is double what I expected to pay. Should I buy it?",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-non_substring_misheard-devil-1",
+      "class": "non_substring_misheard",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, should I have another slice of cake?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Think about how you will feel afterward."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] I still think a small indulgence sounds fun."
+        }
+      ],
+      "current": "devil",
+      "latest": "Angle, can you answer instead with the kind option?",
+      "expected": "angel"
+    },
+    {
+      "id": "hard-non_substring_misheard-devil-2",
+      "class": "non_substring_misheard",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, should I go to the party tonight?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Consider tomorrow before deciding to stay out."
+        },
+        {
+          "role": "user",
+          "content": "Could you explain that advice, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] It helps to consider the consequences for everyone."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] There could be a good memory waiting for you."
+        }
+      ],
+      "current": "devil",
+      "latest": "And you'll, I mean the gentle voice, what should I do?",
+      "expected": "angel"
+    },
+    {
+      "id": "hard-non_substring_misheard-devil-3",
+      "class": "non_substring_misheard",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, what should I do about the money I found?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Try to find the owner before thinking of yourself."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] It is tempting, though you have a decision to make."
+        }
+      ],
+      "current": "devil",
+      "latest": "Maybe I should look at it from another angle. What do you think?",
+      "expected": "stay"
+    },
+    {
+      "id": "hard-non_substring_misheard-devil-4",
+      "class": "non_substring_misheard",
+      "prior": [
+        {
+          "role": "user",
+          "content": "Angel, how should I respond to my friend?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] Pause and think about the other person."
+        },
+        {
+          "role": "user",
+          "content": "Could you explain that advice, Angel?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Angel] It helps to consider the consequences for everyone."
+        },
+        {
+          "role": "system",
+          "content": "Silent context: the Angel has handed over to the Devil. Answer the next user turn as the Devil; do not greet or repeat the interrupted reply."
+        },
+        {
+          "role": "user",
+          "content": "Devil, what is your opinion?"
+        },
+        {
+          "role": "assistant",
+          "content": "[Devil] There is room for a little mischief in your response."
+        }
+      ],
+      "current": "devil",
+      "latest": "And you'll probably tell me to have fun, right?",
+      "expected": "stay"
+    }
+  ]
+}

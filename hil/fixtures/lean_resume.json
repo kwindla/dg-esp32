@@ -1,0 +1,9 @@
+{
+  "frames": 461,
+  "sha256": "01239ba82fe8b457bfba0fc39f339e7dd059194840115f7f56258217721fd16c",
+  "bitrate": 30000,
+  "cutoff_hz": 8000,
+  "decoder_rate": 16000,
+  "frame_ms": 20,
+  "source": "one second zeros, greeting, three seconds zeros, reply_pineapple, one second zeros"
+}

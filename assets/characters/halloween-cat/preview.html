@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#100b18">
+  <meta name="description" content="Meet Halloween Cat. Watch it listen, blink, twitch its whiskers, and talk.">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="app.css?v=interactive-1">
+  <title>Halloween Cat — say hello</title>
+</head>
+<body>
+  <div class="shell">
+    <header><a class="brand" href="./" aria-label="Halloween Cat home"><span class="brand-mark" aria-hidden="true">✦</span> HALLOWEEN CAT</a><span class="edition">PIPECAT CHARACTER LAB</span></header>
+    <main>
+      <section class="intro"><div class="eyebrow"><span></span> A SMALL SCREEN. A BIG PERSONALITY.</div><h1>Say hello to<br><em>Halloween Cat.</em></h1><p>A blink, a whisker twitch, a little Halloween chatter.<br class="desktop-break"> Watch the demo, or let this curious cat hear you.</p></section>
+      <section class="experience" aria-label="Interactive cat">
+        <div class="stage">
+          <div class="stage-stars" aria-hidden="true">✧ <span>✦</span></div>
+          <div class="round-display" id="display"><canvas width="412" height="412" aria-label="Halloween cat with animated eyes, mouth, and whiskers"></canvas></div>
+          <div class="state-badge" id="state-badge"><span class="state-dot"></span><span id="state-name">Getting ready</span></div>
+          <div class="speech-bubble"><p id="caption" aria-live="polite">One tiny witch hat. So much personality.</p></div>
+          <div class="meter" aria-hidden="true"><div id="energy-fill"></div></div>
+          <span class="meter-label" id="meter-label">ANIMATION DEMO</span>
+        </div>
+        <div class="panel">
+          <div class="panel-heading"><span class="mini-star" aria-hidden="true">✦</span><span>Meet your little familiar</span></div>
+          <p class="panel-copy">When you talk, the cat perks up and its whiskers respond. When it talks, watch that little mouth go.</p>
+          <button class="primary action" id="listen" disabled><span class="icon" aria-hidden="true">◉</span><span id="listen-label">Listen to me</span><span class="button-tail" aria-hidden="true">↗</span></button>
+          <p class="mic-note" id="mic-note">Your microphone is used here to animate the cat. This app does not record or upload it.</p>
+          <div class="or"><span></span> OR <span></span></div>
+          <label for="line">Give the cat a line</label>
+          <textarea id="line" rows="3" maxlength="280">Hello, little trick-or-treater! I'm Halloween Cat. Tell me something spooky. I'm all ears!</textarea>
+          <div class="secondary-actions"><button class="secondary" id="speak" disabled><span aria-hidden="true">♪</span> Hear the cat</button><button class="secondary quiet" id="demo" aria-pressed="true" disabled><span aria-hidden="true">▷</span> Watch demo</button></div>
+          <button class="stop" id="stop" hidden>Stop and rest</button>
+          <p class="feedback" id="feedback" role="status">Loading the cat…</p>
+          <div class="details"><span>412 × 412</span><span>PIXEL BY PIXEL</span><span>THREE MOVING LAYERS</span></div>
+        </div>
+      </section>
+    </main>
+    <footer><span>A familiar face, dressed for spooky season.</span><a href="sprite-workbench.html">Open sprite workbench <span aria-hidden="true">↗</span></a></footer>
+  </div>
+  <nav class="mobile-dock" aria-label="Cat controls"><button id="quick-listen" disabled>◉ Listen</button><button id="quick-speak" disabled>♪ Talk</button></nav>
+  <script src="sprites.js?v=rounded-mouth-2"></script>
+  <script src="app.js?v=interactive-1"></script>
+</body>
+</html>

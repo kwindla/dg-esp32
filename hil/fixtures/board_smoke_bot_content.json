@@ -1,0 +1,29 @@
+{
+  "sanitization": "Only public assistant transcript text retained; peer IDs, absolute times and all other recorder fields omitted.",
+  "cases": [
+    {
+      "name": "france_missing_paris",
+      "source": "bench-2026-10-31/runs/smokeC-aec-demo/failed-bot-events.json",
+      "source_sha256": "7a5b41fc735493b53c208d4c4a1c7c3f9a5b8f9aaff183b6b914a8aaa4a03ac2",
+      "assistant": "I don't know, but I'm sure it's somewhere in the deep gram speak schedule."
+    },
+    {
+      "name": "france_negated_paris",
+      "source": "step-11/calibration/runs/aec-normal-1/failed-bot-events.json",
+      "source_sha256": "cb6b3d2a5b492d3de767fbf06cfb2572ff18a50c5b9291e8d966f6cc12826cb8",
+      "assistant": "I don't know, but I can tell you the capital of Pipecat is definitely not Paris."
+    },
+    {
+      "name": "italy_missing_rome",
+      "source": "step-11/calibration/runs/aec-normal-1/failed-bot-events.json",
+      "source_sha256": "cb6b3d2a5b492d3de767fbf06cfb2572ff18a50c5b9291e8d966f6cc12826cb8",
+      "assistant": "Italy is a country in Europe, not a capital."
+    },
+    {
+      "name": "france_off_script",
+      "source": "bench-2026-10-31/runs/smokeC-aec-demo-2/failed-bot-events.json",
+      "source_sha256": "41fc7ef2332cb15d114fb827818ab85446aa87e8692769a1efa4423bd115afcd",
+      "assistant": "I don't know, but I'm sure it's a purr-fect city."
+    }
+  ]
+}

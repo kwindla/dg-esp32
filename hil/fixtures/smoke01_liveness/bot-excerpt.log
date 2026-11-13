@@ -1,0 +1,17 @@
+2026-10-25 15:02:28.096 | INFO     | __main__:on_client_connected:323 - Client connected; waiting for the user to speak first
+2026-10-25 15:02:30.461 | DEBUG    | pipecat.processors.aggregators.llm_response_universal:_on_user_turn_started:1346 - LLMUserAggregator#0: User started speaking (strategy: VADUserTurnStartStrategy#0)
+2026-10-25 15:02:32.343 | DEBUG    | pipecat.processors.aggregators.llm_response_universal:_on_user_turn_stopped:1441 - LLMUserAggregator#0: User stopped speaking (strategy: TurnAnalyzerUserTurnStopStrategy#0)
+2026-10-25 15:02:34.447 | INFO     | __main__:on_assistant_turn_stopped:344 - Transcript: assistant: Paris.
+2026-10-25 15:02:38.575 | DEBUG    | pipecat.processors.aggregators.llm_response_universal:_on_user_turn_started:1346 - LLMUserAggregator#0: User started speaking (strategy: TranscriptionUserTurnStartStrategy#0)
+2026-10-25 15:02:41.203 | DEBUG    | pipecat.processors.aggregators.llm_response_universal:_on_user_turn_stopped:1441 - LLMUserAggregator#0: User stopped speaking (strategy: TurnAnalyzerUserTurnStopStrategy#0)
+2026-10-25 15:02:44.607 | INFO     | __main__:on_client_connected:323 - Client connected; waiting for the user to speak first
+2026-10-25 15:02:44.772 | ERROR    | demo_liveness:tick:58 - LIVENESS alarm: no timely pong for 2.0 s; closing peer
+2026-10-25 15:02:44.772 | WARNING  | pipecat.transports.smallwebrtc.transport:read_audio_frame:406 - Media stream error while reading the audio; clearing track.
+2026-10-25 15:02:44.773 | INFO     | pipecat.transports.smallwebrtc.request_handler:handle_disconnected:212 - Discarding peer connection for pc_id: SmallWebRTCConnection#0-0fac7ccbe12140bca907af26dc18547d
+2026-10-25 15:02:44.773 | INFO     | __main__:on_client_disconnected:329 - Client disconnected
+2026-10-25 15:02:44.862 | INFO     | __main__:on_assistant_turn_stopped:344 - Transcript: assistant: One, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen, eighteen, nineteen, twenty.
+2026-10-25 15:02:46.542 | DEBUG    | pipecat.processors.aggregators.llm_response_universal:_on_user_turn_started:1346 - LLMUserAggregator#1: User started speaking (strategy: VADUserTurnStartStrategy#1)
+2026-10-25 15:02:48.545 | DEBUG    | pipecat.processors.aggregators.llm_response_universal:_on_user_turn_stopped:1441 - LLMUserAggregator#1: User stopped speaking (strategy: TurnAnalyzerUserTurnStopStrategy#1)
+2026-10-25 15:02:49.678 | INFO     | __main__:on_assistant_turn_stopped:344 - Transcript: assistant: Five.
+2026-10-25 15:02:54.517 | INFO     | pipecat.transports.smallwebrtc.transport:disconnect:504 - Disconnecting to Small WebRTC
+2026-10-25 15:02:54.518 | INFO     | pipecat.transports.smallwebrtc.request_handler:handle_disconnected:212 - Discarding peer connection for pc_id: SmallWebRTCConnection#1-0adb6529f53145bf94db78b57931f171

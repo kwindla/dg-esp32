@@ -1,0 +1,11 @@
+dependencies:
+  idf: ">=6.1,<7"
+  espressif/esp_peer: "~1.5.7"
+  # User-confirmed rev-1.3 exception (docs/p4xc.md, facts B). Keep the
+  # qualified S3 archive; the P4 spike proved the used Opus API on 2.5.0.
+  espressif/esp_audio_codec:
+    matches:
+      - if: "target == esp32p4"
+        version: "2.5.0"
+      - if: "target == esp32s3"
+        version: "2.6.2"

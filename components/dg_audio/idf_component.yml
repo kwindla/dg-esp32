@@ -1,0 +1,17 @@
+dependencies:
+  idf: ">=6.1,<7"
+  espressif/esp_codec_dev: "1.6.2"
+  espressif/esp-sr:
+    version: "2.4.7"
+    rules:
+      - if: "(target == esp32p4 || $CONFIG{DG_BOARD_ECHOEAR} == True) && $CONFIG{DG_ECHOEAR_AEC} == True"
+  # Freeze the AFE's otherwise ranged dependencies even when an AEC-off
+  # configuration's lockfile omits them.
+  espressif/dl_fft:
+    version: "0.8.0"
+    rules:
+      - if: "(target == esp32p4 || $CONFIG{DG_BOARD_ECHOEAR} == True) && $CONFIG{DG_ECHOEAR_AEC} == True"
+  espressif/cjson:
+    version: "1.7.19~2"
+    rules:
+      - if: "(target == esp32p4 || $CONFIG{DG_BOARD_ECHOEAR} == True) && $CONFIG{DG_ECHOEAR_AEC} == True"

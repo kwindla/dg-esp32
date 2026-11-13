@@ -1,0 +1,205 @@
+init_bus
+gpio 48 1
+direction 48 1
+gpio 15 0
+direction 15 1
+delay 50
+new_channel 0 role=1 dma=4/240 clear=1 tx=1 rx=1
+std RX rate=16000 mclk=256 data=16 mode=2 slot=0 ws=16 pins=42,40,39,41,3
+std TX rate=16000 mclk=256 data=16 mode=2 slot=0 ws=16 pins=42,40,39,41,3
+enable RX
+probe 18 5
+probe 40 5
+LOG echoear-audio codec probes 0x18/0x40 ready before 200ms rail deadline
+add_device 18 400000
+adc_control 80 0 400000
+read 18 0d 00 timeout=20
+LOG echoear-audio ES8311 initial REG0D=0x00
+write 18 0d fa timeout=20
+write 18 44 08 timeout=20
+LOG echoear-audio ES8311 startup reg=0x44 value=0x08 NACK (FAKE_ERROR); retry once
+delay 2
+write 18 44 08 timeout=20
+read 18 44 08 timeout=20
+LOG echoear-audio ES8311 startup REG44 retry verified=0x08
+write 18 44 08 timeout=20
+write 18 01 30 timeout=20
+write 18 02 00 timeout=20
+write 18 03 10 timeout=20
+write 18 16 24 timeout=20
+write 18 04 10 timeout=20
+write 18 05 00 timeout=20
+write 18 0b 00 timeout=20
+write 18 0c 00 timeout=20
+write 18 10 1f timeout=20
+write 18 11 7f timeout=20
+write 18 00 80 timeout=20
+read 18 00 80 timeout=20
+LOG ES8311 Work in Slave mode
+write 18 00 80 timeout=20
+write 18 01 3f timeout=20
+read 18 06 00 timeout=20
+write 18 06 00 timeout=20
+write 18 13 10 timeout=20
+write 18 1b 0a timeout=20
+write 18 1c 6a timeout=20
+write 18 44 58 timeout=20
+write 40 00 ff timeout=20
+write 40 00 41 timeout=20
+write 40 01 3f timeout=20
+write 40 09 30 timeout=20
+write 40 0a 30 timeout=20
+write 40 23 2a timeout=20
+write 40 22 0a timeout=20
+write 40 20 0a timeout=20
+write 40 21 2a timeout=20
+LOG ES7210 Work in Slave mode
+read 40 08 00 timeout=20
+write 40 08 00 timeout=20
+write 40 40 43 timeout=20
+write 40 41 70 timeout=20
+write 40 42 70 timeout=20
+write 40 07 20 timeout=20
+write 40 02 c1 timeout=20
+read 40 43 00 timeout=20
+write 40 43 00 timeout=20
+read 40 44 00 timeout=20
+write 40 44 00 timeout=20
+read 40 45 00 timeout=20
+write 40 45 00 timeout=20
+read 40 46 00 timeout=20
+write 40 46 00 timeout=20
+write 40 4b ff timeout=20
+write 40 4c ff timeout=20
+LOG ES7210 Enable ES7210_INPUT_MIC1
+read 40 01 3f timeout=20
+write 40 01 34 timeout=20
+write 40 4b 00 timeout=20
+read 40 43 00 timeout=20
+write 40 43 10 timeout=20
+read 40 43 10 timeout=20
+write 40 43 10 timeout=20
+LOG ES7210 Enable ES7210_INPUT_MIC2
+read 40 01 34 timeout=20
+write 40 01 34 timeout=20
+write 40 4b 00 timeout=20
+read 40 44 00 timeout=20
+write 40 44 10 timeout=20
+read 40 44 10 timeout=20
+write 40 44 10 timeout=20
+write 40 12 00 timeout=20
+read 40 43 10 timeout=20
+write 40 43 1a timeout=20
+read 40 44 10 timeout=20
+write 40 44 1a timeout=20
+read 40 01 34 timeout=20
+read 18 09 00 timeout=20
+read 18 0a 00 timeout=20
+write 18 09 0c timeout=20
+write 18 0a 0c timeout=20
+read 18 09 0c timeout=20
+read 18 0a 0c timeout=20
+write 18 09 0c timeout=20
+write 18 0a 0c timeout=20
+read 18 02 00 timeout=20
+write 18 02 00 timeout=20
+write 18 05 00 timeout=20
+read 18 03 10 timeout=20
+write 18 03 10 timeout=20
+read 18 04 10 timeout=20
+write 18 04 20 timeout=20
+read 18 07 00 timeout=20
+write 18 07 00 timeout=20
+write 18 08 ff timeout=20
+read 18 06 00 timeout=20
+write 18 06 03 timeout=20
+read 40 11 00 timeout=20
+write 40 11 60 timeout=20
+LOG ES7210 Bits 16
+read 40 11 60 timeout=20
+write 40 11 60 timeout=20
+write 40 01 34 timeout=20
+write 40 06 00 timeout=20
+write 40 40 43 timeout=20
+write 40 47 08 timeout=20
+write 40 48 08 timeout=20
+write 40 49 08 timeout=20
+write 40 4a 08 timeout=20
+read 40 43 1a timeout=20
+write 40 43 0a timeout=20
+read 40 44 1a timeout=20
+write 40 44 0a timeout=20
+read 40 45 00 timeout=20
+write 40 45 00 timeout=20
+read 40 46 00 timeout=20
+write 40 46 00 timeout=20
+write 40 4b ff timeout=20
+write 40 4c ff timeout=20
+LOG ES7210 Enable ES7210_INPUT_MIC1
+read 40 01 34 timeout=20
+write 40 01 34 timeout=20
+write 40 4b 00 timeout=20
+read 40 43 0a timeout=20
+write 40 43 1a timeout=20
+read 40 43 1a timeout=20
+write 40 43 10 timeout=20
+LOG ES7210 Enable ES7210_INPUT_MIC2
+read 40 01 34 timeout=20
+write 40 01 34 timeout=20
+write 40 4b 00 timeout=20
+read 40 44 0a timeout=20
+write 40 44 1a timeout=20
+read 40 44 1a timeout=20
+write 40 44 10 timeout=20
+write 40 12 00 timeout=20
+write 40 40 43 timeout=20
+write 40 00 71 timeout=20
+write 40 00 41 timeout=20
+write 18 00 80 timeout=20
+write 18 01 3f timeout=20
+read 18 09 0c timeout=20
+read 18 0a 0c timeout=20
+write 18 09 0c timeout=20
+write 18 0a 0c timeout=20
+write 18 17 bf timeout=20
+write 18 0e 02 timeout=20
+write 18 12 00 timeout=20
+write 18 14 1a timeout=20
+read 18 14 1a timeout=20
+write 18 14 1a timeout=20
+write 18 0d 01 timeout=20
+write 18 15 40 timeout=20
+write 18 37 08 timeout=20
+write 18 45 00 timeout=20
+read 18 31 00 timeout=20
+write 18 31 00 timeout=20
+read 40 43 10 timeout=20
+write 40 43 1a timeout=20
+write 18 32 ae timeout=20
+read 18 31 00 timeout=20
+write 18 31 00 timeout=20
+delay 6
+read 40 43 1a timeout=20
+read 18 32 ae timeout=20
+read 18 0d 01 timeout=20
+read 18 44 58 timeout=20
+LOG echoear-audio startup readback REG0D=0x01 REG44=0x58 MIC1_GAIN=0x1a
+LOG echoear-audio startup verified REG0D=0x01 REG44=0x58 MIC1_GAIN=0x1a EXPECTED_REG44=0x58 no_dac_ref=0
+LOG echoear-audio register readback MIC1_GAIN=0x1a DAC_VOLUME=0xae
+LOG echoear-audio ES7210 MIC1 mono from stereo, gain=30dB; ES8311 requested=-6dB register=-8.5dB PA=15; 16000Hz/16bit; AEC off
+callbacks TX sent=1 overflow=1 recv=0 overflow=0
+capture RX 12 timeout=10
+sample -357 raw=-292
+sample -14713 raw=-32768
+sample 14745 raw=32767
+clips 2 limited=2 adc=2
+preload TX 1280
+preload TX 1280
+preload TX 1280
+enable TX
+gpio 15 1
+LOG echoear-audio PA active=1 DAC muted=0
+pcm TX 12 timeout=10 -357 -357 -14713 -14713 14745 14745
+gpio 15 0
+LOG echoear-audio PA active=0 DAC muted=0
+disable TX

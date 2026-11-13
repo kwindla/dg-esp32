@@ -1,0 +1,22 @@
+{
+ "source": "/home/khkramer/src/evidence/echoear/aec-demo/step-10/requal-n1/smoke-r9/strict_voice_cat/attempt-1/rtp/rtp.jsonl",
+ "source_sha256": "1d05487cd858bb420de5d7430fd28aadd650cb980d0095a10a565aab81d55ecb",
+ "rows": 547,
+ "observed_ms_range": [
+  4576715000,
+  4576735000
+ ],
+ "keys": [
+  "pc_id",
+  "ssrc",
+  "seq",
+  "timestamp",
+  "observed_ms"
+ ],
+ "idle_window": {
+  "start_s": 4576725.904683221,
+  "end_s": 4576744.06605085,
+  "category": "idle"
+ },
+ "note": "smoke-r9 strict_voice_cat attempt-1 (FAIL of record): reordered packet at 4576725.907 inside an audio-idle window produced gap_ms 89478465 under the 0327c55 link_tail"
+}

@@ -1,0 +1,6 @@
+idf_component_register(SRCS "dg_net.c" "wifi_observe.cpp" INCLUDE_DIRS "include" REQUIRES esp_netif PRIV_REQUIRES dg_board esp_wifi nvs_flash esp_event esp_timer esp_hw_support)
+target_compile_features(${COMPONENT_LIB} PRIVATE cxx_std_17)
+if(IDF_TARGET STREQUAL "esp32p4")
+    target_sources(${COMPONENT_LIB} PRIVATE "hosted_version.c")
+    idf_component_optional_requires(PRIVATE espressif__esp_hosted)
+endif()
