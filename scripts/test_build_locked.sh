@@ -121,7 +121,7 @@ set -euo pipefail
 [[ "${DG_BUILD_LOCK_HELD:-}" != 1 ]]
 flock -n "$DG_BUILD_LOCK_FILE" true
 printf '%s\n' python "$@" >> "$ARGV_LOG"
-if [[ "$1" == */board_port.py || "$1" == */boards.py ]]; then printf 'fake-board-port\n'; fi
+if [[ "$1" == */board_port.py || "$1" == */board_port_macos.py || "$1" == */boards.py ]]; then printf 'fake-board-port\n'; fi
 SH
 chmod +x "$scratch/bin/idf.py" "$scratch/bin/python"
 export BASH_ENV="$scratch/idf-env.bash" PATH="$scratch/bin:$PATH" ARGV_LOG="$scratch/argv"
@@ -316,7 +316,7 @@ for port_option in -p --port; do
         -C "$scratch/p4" -B "$scratch/p4/build" "$port_option" fake-board-port flash
     grep -q '/hil/boards.py$' "$ARGV_LOG" || fail "P4 did not route through boards.py"
     grep -qx p4xc "$ARGV_LOG" || fail "P4 board identity was lost"
-    if grep -q '/hil/board_port.py$' "$ARGV_LOG"; then fail "P4 used frozen EchoEar resolver"; fi
+    if grep -Eq '/hil/board_port(_macos)?.py$' "$ARGV_LOG"; then fail "P4 used frozen EchoEar resolver"; fi
     if grep -q -- '-DSDKCONFIG_DEFAULTS=' "$ARGV_LOG"; then fail "P4 inherited S3 defaults"; fi
 done
 rm -f "$ARGV_LOG"

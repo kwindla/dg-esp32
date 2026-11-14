@@ -98,7 +98,7 @@ lane_board_neutral() {
 lane_build_tools() {
     [[ -x "$idf_python" ]] || missing "the IDF Python env at $idf_python"
     py uv run --project hil --frozen --offline python hil/test_boards.py
-    py env PYTHONPATH=hil uv run --project hil --frozen --offline python -m unittest hil/test_board_port.py
+    py env PYTHONPATH=hil uv run --project hil --frozen --offline python -m unittest hil/test_board_port.py hil/test_board_port_macos.py
     py python3 scripts/test_sdkconfig_keydiff.py
     py python3 scripts/test_capture_s3_baselines.py
     python3 scripts/test_check_sdkconfig.py

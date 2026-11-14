@@ -12,8 +12,6 @@ def resolve_port(requested=None):
     board = os.environ.get('DG_BOARD', 'echoear')
     if board != 'echoear':
         raise RuntimeError(f'Hardware access disabled for DG_BOARD={board!r}; only EchoEar is authorized')
-    if sys.platform == 'darwin':
-        return _resolve_port_macos(requested)
     resolved = ECHOEAR_PORT.resolve(strict=True)
     if requested and Path(requested).resolve() != resolved:
         raise RuntimeError(f'Refusing serial port {requested!r}: not the pinned EchoEar')
@@ -27,26 +25,6 @@ def resolve_port(requested=None):
     if mac != ECHOEAR_MAC:
         raise RuntimeError(f'EchoEar USB MAC mismatch: {mac!r}')
     return str(ECHOEAR_PORT)
-
-def _comports():
-    # Imported here: pyserial's macOS backend loads IOKit at import time.
-    from serial.tools import list_ports
-    return list_ports.comports()
-
-def _resolve_port_macos(requested=None):
-    # macOS has no /dev/serial/by-id or sysfs. Identify the board by its USB
-    # descriptor (Espressif VID, USB Serial/JTAG PID, serial = base MAC) from
-    # IOKit via pyserial, without opening the device. cu.usbmodem* names are
-    # never identities; exactly one matching device is required.
-    matches = [p.device for p in _comports()
-               if p.vid == 0x303a and p.pid == 0x1001
-               and (p.serial_number or '').lower() == ECHOEAR_MAC
-               and p.device.startswith('/dev/cu.')]
-    if len(matches) != 1:
-        raise RuntimeError(f'EchoEar USB identity {ECHOEAR_MAC} matched {len(matches)} ports')
-    if requested and os.path.realpath(requested) != os.path.realpath(matches[0]):
-        raise RuntimeError(f'Refusing serial port {requested!r}: not the pinned EchoEar')
-    return matches[0]
 
 def verify_flash_mac(port=None):
     port = resolve_port(port)

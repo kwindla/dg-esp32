@@ -128,7 +128,10 @@ if [[ "$port_action" == 1 ]]; then
         fi
         verified_port=$(python "$repo_root/hil/boards.py" --board p4xc --build "$build_dir" "$requested_port")
     else
-        verified_port=$(python "$repo_root/hil/board_port.py" "$requested_port")
+        # The Linux resolver is pinned by the parity runners; macOS has its own.
+        resolver=board_port.py
+        if [[ "$(uname -s)" == Darwin ]]; then resolver=board_port_macos.py; fi
+        verified_port=$(python "$repo_root/hil/$resolver" "$requested_port")
     fi
     export ESPPORT="$verified_port"
     build_command=(idf.py)
