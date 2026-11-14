@@ -2040,7 +2040,8 @@ async def bot(runner_args):
 if __name__ == "__main__":
     process_config = configuration()  # Refuse unauthorized test faults before the server binds.
     try:
-        require_llm_url(process_config)  # And a bot with no LLM to call.
+        # And a bot with no LLM to call, or a hosted endpoint without TLS.
+        deepgram_think.is_think_url(require_llm_url(process_config))
     except ValueError as error:
         sys.exit(f"duo bot not started: {error}")
     if os.getenv("ECHOEAR_AEC_FULL_DUPLEX") is not None:

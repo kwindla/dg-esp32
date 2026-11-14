@@ -66,6 +66,7 @@ def test_bad_token_characters_refused_without_echo(monkeypatch, capsys):
     monkeypatch.setenv("CF_TURN_API_TOKEN", "secret\ntoken")
     with pytest.raises(SystemExit) as exit_info:
         turn_env.main(["true"])
+    assert "unexpected characters" in str(exit_info.value)
     assert "secret" not in str(exit_info.value) + "".join(capsys.readouterr())
 
 
