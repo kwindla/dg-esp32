@@ -1,5 +1,9 @@
 """Canonical offline flag-off recorder. Run with ``uv run python duo_baseline.py``.
 
+That prints the recording of the labelled context (DUO_CONTEXT=labels), which
+is the bot as it was before DUO_CONTEXT existed. ``uv run python
+duo_baseline.py b2h`` prints the same six scenarios with the b2h context.
+
 Only the existing Harness's fake service boundaries are instrumented. Causal
 edges, rather than a clock-sorted event log, leave independent frame scheduling
 out of the contract. No service credentials or network connections are used.
@@ -173,7 +177,7 @@ async def record_scenario(name, *, config=None):
 
 
 async def record_baseline(*, config=None):
-    config = {"auto_switch": False} if config is None else config
+    config = {"auto_switch": False, "context": "labels"} if config is None else config
     return {name: await record_scenario(name, config=config)
             for name in ("hello", "plain-turns", "toggle", "open-turn", "rollback", "revert")}
 
@@ -183,4 +187,6 @@ def canonical_json(baseline):
 
 
 if __name__ == "__main__":
-    print(canonical_json(asyncio.run(record_baseline())), end="")
+    import sys
+    style = sys.argv[1] if len(sys.argv) > 1 else "labels"
+    print(canonical_json(asyncio.run(record_baseline(config={"auto_switch": False, "context": style}))), end="")

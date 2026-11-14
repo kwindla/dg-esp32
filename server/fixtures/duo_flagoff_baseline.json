@@ -324,10 +324,6 @@
         "role": "user"
       },
       {
-        "content": "[Devil] A small playful reply.",
-        "role": "assistant"
-      },
-      {
         "content": "Silent context: the Devil has handed back over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply.",
         "role": "system"
       },
@@ -372,10 +368,6 @@
           {
             "content": "What should I do?",
             "role": "user"
-          },
-          {
-            "content": "[Devil] A small playful reply.",
-            "role": "assistant"
           },
           {
             "content": "Silent context: the Devil has handed back over to the Angel. Answer the next user turn as the Angel; do not greet or repeat the interrupted reply.",

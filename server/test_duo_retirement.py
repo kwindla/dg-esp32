@@ -8,7 +8,7 @@ import pytest
 from duo_prompts import character_instructions
 from duo_bot import ConnectionResult, DuoServiceSwitcher, PipelineError, ResponseCompleted
 from pipecat.pipeline.service_switcher import ServiceSwitcher
-from test_duo_pipeline import pipeline, until, pytest_generate_tests, existing_stay_mode
+from test_duo_pipeline import pipeline, until, pytest_generate_tests, existing_stay_mode, context_style
 
 
 async def retired(h, service):

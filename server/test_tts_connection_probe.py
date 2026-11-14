@@ -16,12 +16,12 @@ def service():
 @pytest.mark.asyncio
 async def test_guard_fails_closed_once_without_private_calls(change):
     p=service();events=[]
-    with patch.object(probe,'SOURCE_HASHES',dict(EXPECTED_HASHES)),patch.object(probe.pipecat,'__version__','1.15.0'):
-        if change=='version':probe.pipecat.__version__='1.15.1'
+    with patch.object(probe,'SOURCE_HASHES',dict(EXPECTED_HASHES)),patch.object(probe.pipecat,'__version__','1.16.0'):
+        if change=='version':probe.pipecat.__version__='1.16.1'
         if change=='hash':probe.SOURCE_HASHES['tts']='changed'
         if change=='missing':
             # A complete interface is required even when two methods exist.
-            assert not supported(object(),'1.15.0',EXPECTED_HASHES)
+            assert not supported(object(),'1.16.0',EXPECTED_HASHES)
             p._transport_is_active=None
         if change=='noncallable':p._transport_is_active=1
         for _ in range(2):assert not await p.prepare_generation(lambda name,**kw:events.append(name))

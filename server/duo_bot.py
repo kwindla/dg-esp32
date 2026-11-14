@@ -1,8 +1,13 @@
 """Angel & Devil: silent, fenced persona/voice switching over RTVI.
 
-Runs on Pipecat 1.15. The file:line references below were taken from the
+DUO_CONTEXT chooses how the model is told who speaks. b2h, the default, is in
+duo_context.py: one prompt and a marker on each user message. labels is the
+earlier design, all in this file: the prompt swap and note of ``_mutate``,
+``CharacterContext`` and ``spoken_text``.
+
+Runs on Pipecat 1.16. The file:line references below were taken from the
 Pipecat 1.12 source (server/.venv/lib/python3.12/site-packages/pipecat/ at that
-version) and were not renumbered for 1.15; the functions they name still exist.
+version) and were not renumbered since; the functions they name still exist.
 No network connection is made on import; the coordinator launches this module.
 """
 
@@ -51,10 +56,15 @@ from pipecat.processors.frameworks.rtvi.observer import RTVIObserverParams
 from pipecat.services.deepgram.flux.tts import DeepgramFluxTTSService
 from pipecat.services.openai.llm import OpenAILLMService
 from pipecat.services.tts_service import TextAggregationMode
+from pipecat.turns.empty_user_turn import EmptyUserTurnConfig
+from pipecat.utils.text.base_text_aggregator import Aggregation, TextType
+from pipecat.utils.text.simple_text_aggregator import SimpleTextAggregator
 
 from demo_interrupts import RTVIProcessor
 from demo_policy import capability_aec, make_stt, turn_policy
-from duo_prompts import auto_note, character_instructions, history_line, silent_note
+from duo_context import TaggedContext, TaggedLLM, stamp
+from duo_prompts import (INAUDIBLE, auto_note, character_instructions, duo_instructions, history_line,
+                         silent_note, untagged)
 from duo_addressee import (Addressee, DEFAULT_AUTO_SWITCH_FLOOR, DEFAULT_ROUTE_BUDGET_S, DEFAULT_JEV_MODEL,
                            addressee_question, configuration as route_configuration)
 from duo_route import (DOWN, RESPONSE_FRAMES, HoldWake, RouteAdmitted, RouteCleanupOverdue, RouteStampingLLM,
@@ -71,7 +81,11 @@ MAX_PENDING_REQUESTS = 8
 # refuses to start without one. The bench launcher's identity check (hil/duo_identity.py) accepts only
 # this model, and an endpoint that came from one of these variables.
 LLM_URL_VARIABLES = ("DUO_LLM_URL", "LOCAL_LLM_URL")
-DEFAULT_LLM_MODEL = "phonellm-max-alpha-2-nvfp4"
+DEFAULT_LLM_MODEL = "phonellm-mini-alpha-2-nvfp4"
+# DUO_CONTEXT, how the model is told who speaks. b2h: one prompt, a marker at the end of each user
+# message, replies stored as spoken (duo_context.py). labels: a prompt per character swapped at
+# each switch, a note in the conversation, replies stored under [Angel] / [Devil].
+CONTEXTS = ("b2h", "labels")
 
 
 @dataclass
@@ -485,7 +499,7 @@ class CharacterContext(LLMContext):
 
     def add_message(self, message):
         if message.get("role") == "assistant" and isinstance(message.get("content"), str):
-            # Pipecat 1.15 keeps the model's text here, not the text the voice
+            # Pipecat (since 1.15) keeps the model's text here, not the text the voice
             # was given, so a label the model copied arrives with it. Left in,
             # it gets a second label below and the model copies both next time.
             spoken = SPOKEN_LABEL.sub("", message["content"])
@@ -529,10 +543,13 @@ class SpeakingCharacter(FrameProcessor):
         if direction == DOWN and isinstance(frame, LLMFullResponseStartFrame):
             self.context.speaking_character = frame.metadata.get(
                 "duo-character", self.context.speaking_character)
+            if "duo-user" in frame.metadata:  # DUO_CONTEXT=b2h: the user message this reply answers.
+                self.context.replying_to = frame.metadata["duo-user"]
         await self.push_frame(frame, direction)
 
 
 SPOKEN_LABEL = re.compile(r"\[(?:Angel|Devil)\]\s*")
+NOTE_MARKER = "Silent context"
 
 
 async def spoken_text(text, text_type):
@@ -543,8 +560,106 @@ async def spoken_text(text, text_type):
     a sentence that echoes a note is dropped. A TTS text transform: it changes
     only what is spoken. A dropped sentence never reaches the history, and
     CharacterContext removes the labels there.
+
+    With DUO_TTS_FIRST_CLAUSE=1 a reply's first sentence can arrive in two
+    pieces. FirstClause never cuts a piece off a sentence in which it has seen
+    the marker, and ends the rest of a cut sentence at a marker that comes
+    later, so no marker reaches this function in the second piece.
     """
-    return "" if "Silent context" in text else SPOKEN_LABEL.sub("", text)
+    return "" if NOTE_MARKER in text else SPOKEN_LABEL.sub("", text)
+
+
+class FirstClause(SimpleTextAggregator):
+    """Sentences, except that a reply's first sentence may go out in two pieces.
+
+    The voice then starts on the first clause while the model is still writing
+    the rest of the sentence. Flux appends every Speak of a reply to one turn
+    and takes the text as written, so the cut is not a break in the speech.
+
+    The first piece ends before a single ASCII space, either after the first
+    punctuation mark in BOUNDARIES with WORDS_AT_BOUNDARY spoken words before
+    it, or after WORDS_WITHOUT_BOUNDARY words when no such mark came. A
+    sentence the tokenizer ends first goes out whole, as before, however
+    short. After the first piece of a reply, whichever it was, everything is a
+    whole sentence (the rest of a cut sentence counts as one).
+
+    A cut removes exactly that one space, and the service puts exactly one
+    space back between the pieces for the voice and for the history, so both
+    get the characters the uncut sentence gives them. Any other whitespace at
+    the place (a second space, a tab, a newline, a no-break space) means no
+    cut there. A full stop may be a boundary without asking the tokenizer for
+    the same reason: after "Dr." the cut changes nothing that is said.
+
+    Notes. spoken_text drops a sentence that echoes a note, whole. No cut is
+    made while the text held contains the note marker or ends on its first
+    word, so a note at the start of a reply's first sentence is still dropped
+    whole. A first piece that has gone out is speech. If the rest of its
+    sentence then turns out to hold the marker, the rest is given to the voice
+    only as far as the marker, and the marker and what follows it in that
+    sentence are dropped here: the voice and the history get the same text.
+    """
+    WORDS_AT_BOUNDARY = 4
+    WORDS_WITHOUT_BOUNDARY = 8
+    BOUNDARIES = ",;:\u2014\u2013.!?\u2026"
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self._first = True
+        self._rest_due = False  # A first piece was cut off; the next aggregation is the rest of its sentence.
+
+    async def aggregate(self, text):
+        for char in text:
+            self._text += char
+            result = await self._check_sentence_with_lookahead(char)
+            if result is None and self._first and not char.isspace():
+                result = self._first_piece()
+                self._rest_due = result is not None
+            elif result is not None:
+                result = self._rest(result)
+            if result:
+                self._first = False
+                yield result
+
+    def _first_piece(self):
+        # Judged at the character after the space, so the space is known to be alone.
+        piece = self._text[:-2]
+        if self._text[-2:-1] != " " or not piece or piece[-1].isspace():
+            return None
+        if NOTE_MARKER in piece or piece.endswith(NOTE_MARKER.split()[0]):
+            return None
+        words = sum(any(c.isalnum() for c in word) for word in SPOKEN_LABEL.sub("", piece).split())
+        needed = self.WORDS_AT_BOUNDARY if piece[-1] in self.BOUNDARIES else self.WORDS_WITHOUT_BOUNDARY
+        if words < needed:
+            return None
+        self._text = self._text[len(piece):]
+        # A sentence end waiting for its lookahead was in the piece and went with it.
+        self._lookahead_state = type(self._lookahead_state).IDLE
+        return Aggregation(text=piece.strip(" "), type=TextType.SENTENCE)
+
+    def _rest(self, aggregation):
+        """The rest of a cut sentence ends at a note marker; anything else passes as it is."""
+        rest_due, self._rest_due = self._rest_due, False
+        if not rest_due or NOTE_MARKER not in aggregation.text:
+            return aggregation
+        kept = aggregation.text[:aggregation.text.index(NOTE_MARKER)].strip(" ")
+        return Aggregation(text=kept, type=aggregation.type) if kept.strip() else None
+
+    async def flush(self):
+        rest_due = self._rest_due  # The flush resets it.
+        result = await super().flush()
+        self._rest_due = rest_due and result is not None
+        return self._rest(result) if result is not None else None
+
+    # A reply ends in a flush or an interruption, and a flush with text held
+    # resets. Text is always held once a piece has gone out: the space or the
+    # lookahead character that released it stays behind.
+    async def handle_interruption(self):
+        await super().handle_interruption()
+        self._first, self._rest_due = True, False
+
+    async def reset(self):
+        await super().reset()
+        self._first, self._rest_due = True, False
 
 
 class DuoFluxTTS(DeepgramFluxTTSService):
@@ -556,9 +671,17 @@ class DuoFluxTTS(DeepgramFluxTTSService):
     Only that provider completion marks a stop successful (the base TTS also
     creates timeout stops, services/tts_service.py:1880-1890).
     """
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args, first_clause=False, **kwargs):
         kwargs["reconnect_on_error"] = False
         super().__init__(*args, **kwargs)
+        if first_clause:
+            # TTSService (1.16) takes no aggregator argument; it builds this
+            # attribute in __init__ and only replaces it for expressive
+            # conversation, which this bot does not enable.
+            if type(self._text_aggregator) is not SimpleTextAggregator or self._is_streaming_tokens:
+                raise RuntimeError("DUO_TTS_FIRST_CLAUSE needs the sentence aggregator of Pipecat 1.16")
+            self._text_aggregator = FirstClause(aggregation_type=self._text_aggregation_mode,
+                                                language=self._text_aggregator.language)
         self.coordinator = None
         self.owners = {}
         self.provider_completed = set()
@@ -764,9 +887,12 @@ class SwitchCoordinator(RouteTurns):
     def __init__(self, *, llm, services, switcher, context, gate, state=None,
                  deadline_secs=3, fault="", event=None, addressee=None,
                  route_budget_s=DEFAULT_ROUTE_BUDGET_S, auto_switch_floor=DEFAULT_AUTO_SWITCH_FLOOR,
-                 cancel_join_bound_s=None, vocative_rule=False):
+                 cancel_join_bound_s=None, vocative_rule=False, tags=False):
         self.llm, self.services, self.switcher = llm, services, switcher
         self.context, self.gate = context, gate
+        # DUO_CONTEXT=b2h: a switch writes nothing into the conversation. The committed character
+        # becomes the marker of the user message it answers (duo_context.py).
+        self.tags = tags
         self.state = state or SwitchState()
         self.deadline_secs, self.fault = deadline_secs, fault
         self.event = event or (lambda kind, **data: logger.info("DUO {} {}", kind, data))
@@ -1068,15 +1194,21 @@ class SwitchCoordinator(RouteTurns):
         self.mutation_interrupted = False
         target = self.services[incoming]
         needed = self.switcher.strategy.active_service is not target
-        note = dict(role="system", content=(silent_note(outgoing, incoming, reverting=reverting)
-                                           if note is None else note))
-        await self.worker.queue_frame(LLMUpdateSettingsFrame(
-            delta=OpenAILLMService.Settings(system_instruction=character_instructions(incoming),
-                                            **deepcopy(self.llm_invariants)),
-            service=self.llm))
+        if self.tags:
+            # The voice is all that changes hands. The one prompt stays, and nothing is added to the conversation.
+            note, instruction = None, duo_instructions()
+        else:
+            note = dict(role="system", content=(silent_note(outgoing, incoming, reverting=reverting)
+                                               if note is None else note))
+            instruction = character_instructions(incoming)
+            await self.worker.queue_frame(LLMUpdateSettingsFrame(
+                delta=OpenAILLMService.Settings(system_instruction=instruction,
+                                                **deepcopy(self.llm_invariants)),
+                service=self.llm))
         if needed:
             await self.worker.queue_frame(ManuallySwitchServiceFrame(service=target))
-        await self.worker.queue_frame(SilentNote(messages=[note], run_llm=False))
+        if note is not None:
+            await self.worker.queue_frame(SilentNote(messages=[note], run_llm=False))
         await self.worker.queue_frame(TransactionMarker(transaction))
         while transaction not in self.markers or (needed and (transaction, target) not in self.switched):
             self._observe(await self.queue.get())
@@ -1089,11 +1221,11 @@ class SwitchCoordinator(RouteTurns):
         # nothing about the interruptible manual switch. Public readers:
         # services/ai_service.py:61-69; service_switcher.py:78-87, 359-361.
         if (self.mutation_interrupted or
-                self.llm.settings.system_instruction != character_instructions(incoming) or
+                self.llm.settings.system_instruction != instruction or
                 llm_invariants(self.llm) != self.llm_invariants or
                 self.switcher.strategy.active_service is not target or not target.is_usable or
                 not target.connection_ready or
-                not any(message is note for message in self.context.get_messages())):
+                (note is not None and not any(message is note for message in self.context.get_messages()))):
             raise RuntimeError("mutation verification failed")
         self.event("verified", transaction=transaction, character=incoming, reverting=reverting)
         self.markers.discard(transaction)
@@ -1217,9 +1349,14 @@ class SwitchCoordinator(RouteTurns):
             async with asyncio.timeout_at(deadline):
                 await self._timed("retirement-wait", self._voice(service))
                 await self._timed("interrupt", self._interrupt())
-                note = await self._timed("mutate", self._mutate(old, target, note=auto_note(old, target)))
+                note = await self._timed("mutate", self._mutate(
+                    old, target, note=None if self.tags else auto_note(old, target)))
                 outcome = self.state.commit_auto(target, service)
                 committed = True
+                if self.tags and not self.context.answered(snapshot["user_object"]):
+                    # The turn that asked for the switch is the new character's from here on,
+                    # also if a later turn takes its place before it is run again.
+                    stamp([snapshot["user_object"]], target)
                 self._queue_rerun(snapshot, note)
                 self._retire_background(self.services[old])
                 await self._release(outcome, deadline)
@@ -1244,6 +1381,21 @@ class SwitchCoordinator(RouteTurns):
             self.event("route-rollback", error=type(error).__name__)
             if cancelled:
                 raise
+
+    def _unrouted(self, latest):
+        # DUO_CONTEXT=b2h: a request that brings no words of the user's has nobody to be addressed
+        # to. That is the turn stored for speech that was not understood, and any request whose
+        # newest user message already has its reply. No read, no hold: it goes out like a turn
+        # with routing off, and the committed character answers (or the LLM withdraws it).
+        if not self.tags or not (self.context.unheard(latest) or self.context.answered(latest)):
+            return False
+        self.event("route-skipped", reason="inaudible" if self.context.unheard(latest) else "answered-turn")
+        return True
+
+    def _history(self, messages):
+        if self.tags:
+            return self.context.labelled_history(messages)
+        return super()._history(messages)
 
     async def _device_request(self, data):
         request = None
@@ -1360,8 +1512,8 @@ class SwitchCoordinator(RouteTurns):
 
 
 def configuration(environ=None):
-    if version("pipecat-ai") != "1.15.0":
-        raise RuntimeError("Duo compatibility adapters require pipecat-ai 1.15.0")
+    if version("pipecat-ai") != "1.16.0":
+        raise RuntimeError("Duo compatibility adapters require pipecat-ai 1.16.0")
     env = os.environ if environ is None else environ
     temperature = float(env.get("DUO_LLM_TEMPERATURE", "0"))
     thinking = env.get("DUO_LLM_ENABLE_THINKING", "false").lower()
@@ -1386,6 +1538,12 @@ def configuration(environ=None):
     for name in ("DUO_GC_LOG", "DUO_GC_FREEZE", "DUO_VOCATIVE_RULE"):
         if env.get(name, "0") not in ("0", "1"):
             raise ValueError(f"{name} must be 0 or 1")
+    first_clause = env.get("DUO_TTS_FIRST_CLAUSE", "1")
+    if first_clause not in ("0", "1"):
+        raise ValueError("DUO_TTS_FIRST_CLAUSE must be 0 or 1")
+    context = env.get("DUO_CONTEXT", "b2h")
+    if context not in CONTEXTS:
+        raise ValueError("DUO_CONTEXT must be b2h or labels")
     keepwarm, hedge = env.get("DUO_JEV_KEEPWARM_S", ""), env.get("DUO_JEV_HEDGE_MS", "")
     jev_keepwarm_s = jev_hedge_s = None  # Unset: no keep-alive request, no duplicate read.
     if keepwarm:
@@ -1411,6 +1569,7 @@ def configuration(environ=None):
                 stt_keyterms=list(STT_KEYTERMS) if keyterms == "1" else None,
                 gc_log=env.get("DUO_GC_LOG", "0") == "1", gc_freeze=env.get("DUO_GC_FREEZE", "0") == "1",
                 vocative_rule=env.get("DUO_VOCATIVE_RULE", "0") == "1",
+                tts_first_clause=first_clause == "1", context=context,
                 **routing)
 
 
@@ -1464,12 +1623,22 @@ def effective_configuration(config, *, has_typesafe_key):
     return config
 
 
+def tags_enabled(config):
+    return config.get("context") == "b2h"
+
+
 def make_llm(config, service_class=OpenAILLMService):
+    tags = tags_enabled(config)
+    if tags:
+        # Inside the route stamp: a frame is stamped before the marker filter sees it, and the
+        # filter copies that stamp to text it held back and releases late.
+        service_class = type(f"Tagged{service_class.__name__}", (TaggedLLM, service_class), {})
     if config.get("auto_switch"):
         service_class = type(f"Routed{service_class.__name__}", (RouteStampingLLM, service_class), {})
     return service_class(base_url=require_llm_url(config), api_key="not-required",
         settings=OpenAILLMService.Settings(model=config["llm_model"], temperature=config["temperature"],
-            system_instruction=character_instructions("angel"), max_completion_tokens=250,
+            system_instruction=duo_instructions() if tags else character_instructions("angel"),
+            max_completion_tokens=250,
             extra={"extra_body": {"chat_template_kwargs": {"enable_thinking": config["enable_thinking"]}}}))
 
 
@@ -1485,15 +1654,19 @@ def make_stt_for(config, api_key):
 def make_tts(config):
     return {character: DuoFluxTTS(api_key=os.environ["DEEPGRAM_API_KEY"], sample_rate=SAMPLE_RATE,
         reconnect_on_error=False,
-        text_aggregation_mode=TextAggregationMode.SENTENCE, text_transforms=[("*", spoken_text)],
+        text_aggregation_mode=TextAggregationMode.SENTENCE,
+        # DUO_CONTEXT=b2h has no labels or notes to keep out of speech, and its LLM removes a copied
+        # marker at the source. With no transform here the device is told exactly what is spoken.
+        text_transforms=[] if tags_enabled(config) else [("*", spoken_text)],
+        first_clause=bool(config.get("tts_first_clause")),
         settings=DeepgramFluxTTSService.Settings(voice=voice)) for character, voice in config["voices"].items()}
 
 
 # Every local module the bot imports, at module level or inside bot(). A test
 # derives this set from the imports, and hil/duo_identity.py must list the same.
-IDENTITY_SOURCES = ("duo_bot.py", "duo_route.py", "duo_prompts.py", "duo_switch.py", "duo_addressee.py",
-                    "demo_policy.py", "demo_interrupts.py", "demo_liveness.py", "sctp_flight_fix.py",
-                    "settings.py", "aec_session_recorder.py")
+IDENTITY_SOURCES = ("duo_bot.py", "duo_route.py", "duo_context.py", "duo_prompts.py", "duo_switch.py",
+                    "duo_addressee.py", "demo_policy.py", "demo_interrupts.py", "demo_liveness.py",
+                    "sctp_flight_fix.py", "settings.py", "aec_session_recorder.py")
 
 
 def identity(config=None):
@@ -1511,8 +1684,16 @@ def identity(config=None):
 
 def build_worker(transport, stt, llm, services, *, config=None, recorder=None, deadline_secs=3, addressee=None):
     config = configuration() if config is None else config
-    context = CharacterContext()
-    user, assistant = LLMContextAggregatorPair(context, user_params=turn_policy(profile="demo"))
+    tags = tags_enabled(config)
+    if tags and not isinstance(llm, TaggedLLM):
+        raise ValueError("DUO_CONTEXT=b2h requires the marker-writing LLM")
+    context = TaggedContext() if tags else CharacterContext()
+    user_params = turn_policy(profile="demo")
+    if tags:
+        # An empty turn that interrupted a reply is still answered, as with labels, but not by
+        # Pipecat's developer instruction: the context stores this as the human's own turn.
+        user_params.empty_user_turn = EmptyUserTurnConfig(interrupted_prompt=INAUDIBLE)
+    user, assistant = LLMContextAggregatorPair(context, user_params=user_params)
     gate = TurnGate()
     switcher = DuoServiceSwitcher(services=[services["angel"], services["devil"]],
                                strategy_type=ServiceSwitcherStrategyManual)
@@ -1527,7 +1708,10 @@ def build_worker(transport, stt, llm, services, *, config=None, recorder=None, d
                                     route_budget_s=config.get("route_budget_s", DEFAULT_ROUTE_BUDGET_S),
                                     auto_switch_floor=config.get("auto_switch_floor", DEFAULT_AUTO_SWITCH_FLOOR),
                                     cancel_join_bound_s=config.get("cancel_join_bound_s"),
-                                    vocative_rule=bool(config.get("vocative_rule")))
+                                    vocative_rule=bool(config.get("vocative_rule")), tags=tags)
+    if tags:
+        context.state = llm.duo_state = coordinator.state
+        llm.duo_context = context
     if config.get("auto_switch"):
         if addressee is None or not isinstance(llm, RouteStampingLLM):
             raise ValueError("Enabled routing requires an addressee and a source-stamping LLM")
@@ -1571,7 +1755,11 @@ def build_worker(transport, stt, llm, services, *, config=None, recorder=None, d
                             rtvi_processor=RTVIProcessor(),
                             # The firmware reads user-transcription, not its 1.13 successor user-input,
                             # so the copy of every transcript is left out.
-                            rtvi_observer_params=RTVIObserverParams(metrics_enabled=False, user_input_enabled=False),
+                            # With DUO_CONTEXT=b2h user-llm-text is left out too: it quotes the stored
+                            # user message, marker included. The firmware does not read it.
+                            rtvi_observer_params=RTVIObserverParams(
+                                metrics_enabled=False, user_input_enabled=False,
+                                **(dict(user_llm_enabled=False) if tags else {})),
                             observers=([timing] if timing else []) + ([recorder.observer] if recorder else []),
                             params=PipelineParams(audio_in_sample_rate=SAMPLE_RATE,
                                                   audio_out_sample_rate=SAMPLE_RATE,
@@ -1580,8 +1768,10 @@ def build_worker(transport, stt, llm, services, *, config=None, recorder=None, d
 
     @user.event_handler("on_user_turn_stopped")
     async def user_stopped(aggregator, strategy, message):
+        def heard(content):  # The stored message without the marker DUO_CONTEXT=b2h keeps on it.
+            return untagged(content) if tags and isinstance(content, str) else content
         latest = next((m for m in reversed(context.get_messages())
-                       if m.get("role") == "user" and m.get("content") == message.content), None)
+                       if m.get("role") == "user" and heard(m.get("content")) == message.content), None)
         if timing:
             timing.turn_ended(latest)
         logger.info("Transcript: user: {}", message.content)

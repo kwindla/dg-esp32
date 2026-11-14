@@ -29,7 +29,9 @@ Four invariants carry the correctness. Each has tests in test_duo_pipeline.py.
 4. Rerun frozen before any await. The rerun placeholder is validated against
    the speech epoch, the inference sequence and the exact message objects, and
    becomes a context ending at the switch note before the LLM awaits anything
-   (``RouteStampingLLM.process_frame``). Later turns own later runs.
+   (``RouteStampingLLM.process_frame``). Later turns own later runs. With
+   DUO_CONTEXT=b2h there is no note: the context ends at the user message,
+   whose marker names the character who answers (``duo_context.py``).
 
 Ownership: the hold owns the held FIFO and the deadline timers; the
 coordinator task owns the single in-flight read and joins it; the LLM and the
@@ -119,7 +121,7 @@ class HoldWake(ControlFrame):
 class AutoRerunFrame(DataFrame):
     seq0: int
     user_object: dict
-    note_object: dict
+    note_object: dict | None  # None with DUO_CONTEXT=b2h: the switch is the marker on the user message.
     speech_epoch: int
 
 
@@ -335,10 +337,16 @@ class RouteStampingLLM:
             messages = fence.coordinator.context.get_messages()
             latest = next((m for m in reversed(messages) if m.get("role") == "user"), None)
             user_index = next((i for i, m in enumerate(messages) if m is frame.user_object), -1)
-            note_index = next((i for i, m in enumerate(messages) if m is frame.note_object), -1)
+            if fence.coordinator.tags:
+                # DUO_CONTEXT=b2h: no note follows. The run ends at the user message, and
+                # TaggedLLM gives it the committed character's marker on the way to the model.
+                note_index = user_index if frame.note_object is None else -1
+            else:
+                note_index = next((i for i, m in enumerate(messages) if m is frame.note_object), -1)
             if (fence.coordinator.user_speech_epoch != frame.speech_epoch or
                     fence.inference_seq != frame.seq0 or latest is not frame.user_object or
-                    user_index < 0 or note_index <= user_index):
+                    user_index < 0 or note_index < user_index or
+                    (note_index == user_index and not fence.coordinator.tags)):
                 fence.coordinator.event("route-rerun-withdrawn", seq0=frame.seq0)
                 return
             # Freeze before any awaited response-start; later turns own later runs.
@@ -378,7 +386,7 @@ class RouteTurns:
     """The coordinator's route half: one Jev read per admitted turn.
 
     Mixed into ``SwitchCoordinator``, which supplies ``state``, ``services``,
-    ``failed_voices``, ``gate``, ``timing``, ``event``, ``enqueue``,
+    ``failed_voices``, ``gate``, ``timing``, ``event``, ``enqueue``, ``tags``,
     ``stopping``, ``deadline_secs``, ``_wait_with_events`` and
     ``_end_pipeline``. Reads run one at a time in the coordinator task; the
     next route waits until the previous read has finished its cancellation
@@ -405,9 +413,9 @@ class RouteTurns:
         """Stamp a fresh inference and queue its read. True if older held output must wake."""
         messages = frame.context.get_messages()
         latest = next((m for m in reversed(messages) if m.get("role") == "user"), None)
-        if latest is None:
+        if latest is None or self._unrouted(latest):
             return False
-        prior, text = split_context(messages)
+        prior, text = self._history(messages)
         snapshot = dict(prior=prior, latest=text, current=self.state.character,
                         user_object=latest, user_index=next(i for i, m in enumerate(messages) if m is latest),
                         seq0=seq0, speech_epoch=self.user_speech_epoch)
@@ -418,6 +426,14 @@ class RouteTurns:
         frame.metadata["duo-output"] = self.hold.outputs[token]
         self.enqueue(RouteAdmitted(token, snapshot, admitted))
         return wake
+
+    def _unrouted(self, latest):
+        """Whether this request is answered by the committed character without asking who was addressed."""
+        return False
+
+    def _history(self, messages):
+        """What the Jev read is given: the conversation before the latest user message, and that message."""
+        return split_context(messages)
 
     def _cancel_route(self, reason):
         if self.route_cancel_reason is None:

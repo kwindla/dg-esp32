@@ -11,6 +11,14 @@ _transport_is_active are unchanged, and so are WebsocketService._connect and
 _disconnect. One thing under them did change: _websocket_connect now returns a
 connection whose sends time out after five seconds, so a blocked send closes
 the transport (ConnectionClosedError) instead of waiting (Sol WP8 note 1).
+
+Re-verified for 1.16.0 (from 1.15.0): flux/tts.py and flux/tts_base.py differ
+only by the new normalize_volume setting (unset here, so the query string is
+the same). _disconnect, _connect and _transport_is_active are unchanged, and so
+are WebsocketService._connect and _disconnect. Under them, _websocket is now a
+property: clearing or replacing it aborts the connection it held if that
+connection is not closed yet, so a disconnect cancelled before its close
+finished no longer leaves the provider connection open.
 """
 import asyncio
 import hashlib
@@ -23,10 +31,10 @@ from pipecat.services.deepgram.flux.tts import DeepgramFluxTTSService
 from pipecat.frames.frames import TTSStoppedFrame, EndFrame, CancelFrame, InterruptionFrame
 from pipecat.processors.frame_processor import FrameDirection
 
-EXPECTED_VERSION = '1.15.0'
+EXPECTED_VERSION = '1.16.0'
 EXPECTED_HASHES = {
-    'tts_base': 'c4a227fdbc256ea60c1f508c61800025f3161eacc6c071430d270198e1875a95',
-    'tts': '0b9a7643ed2bdccad7e1e7f10bb16067626e64fab311ffb6c4094e48962c22b9',
+    'tts_base': '79ad5130d1b2a011016b336cb5d5713de2ff8f9481e1122fabca7f49af1bf892',
+    'tts': 'f89a43c3a89997fe2121578094776ee4511ebcdf4b14f563ee349e69f25c9a43',
 }
 PRIVATE_NAMES = ('_disconnect', '_connect', '_transport_is_active')
 

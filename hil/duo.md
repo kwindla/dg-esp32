@@ -252,7 +252,7 @@ does not pin the endpoint: it requires an http(s) URL that came from one of
 those two variables, and the authenticated bot record keeps the URL and the
 variable's name (`llm_url`, `llm_url_source`). That record and the output of
 `duo_identity.py check` are evidence and stay out of git. The model is pinned:
-`phonellm-max-alpha-2-nvfp4`; temperature 0 and thinking disabled. Voices are
+`phonellm-mini-alpha-2-nvfp4`; temperature 0 and thinking disabled. Voices are
 `flux-hannah-en` and `flux-rufus-en`. No request text is scored as an LLM gate.
 
 ## Pre-declared pass rules

@@ -10,8 +10,8 @@ import duo_identity as identity
 
 def manifest():
     payload=dict(config=dict(temperature=0,enable_thinking=False,idle_timeout_secs=None,
-        voices=dict(angel='flux-hannah-en',devil='flux-rufus-en'),llm_model='phonellm-max-alpha-2-nvfp4',
-        llm_url='http://llm.invalid:8000/v1',llm_url_source='DUO_LLM_URL',duo_test=False,fault=''),versions={'pipecat-ai':'1.15.0','deepgram-sdk':'6'},
+        voices=dict(angel='flux-hannah-en',devil='flux-rufus-en'),llm_model='phonellm-mini-alpha-2-nvfp4',
+        llm_url='http://llm.invalid:8000/v1',llm_url_source='DUO_LLM_URL',duo_test=False,fault='',context='b2h'),versions={'pipecat-ai':'1.16.0','deepgram-sdk':'6'},
         code_sha256={n:identity.digest(identity.ROOT/'server'/n) for n in identity.SOURCES})
     return sign(payload)
 
@@ -51,7 +51,14 @@ def test_every_bound_source_is_checked(name):
     with pytest.raises(KeyError):identity.validate(sign(m))
 
 
-@pytest.mark.parametrize('field',['code','voices','model','endpoint','source','version','fault','digest','idle'])
+@pytest.mark.parametrize('style',['b2h','labels'])
+def test_both_context_styles_are_accepted(style):
+    # DUO_CONTEXT: the bot's default and the labelled context kept for a live comparison.
+    m=manifest();m['config']['context']=style
+    assert identity.validate(sign(m))['config']['context']==style
+
+
+@pytest.mark.parametrize('field',['code','voices','model','endpoint','source','version','fault','digest','idle','context','no-context'])
 def test_bad_identity_fails_closed(field):
     m=manifest()
     if field=='code':m['code_sha256']['duo_switch.py']='0'*64
@@ -62,6 +69,8 @@ def test_bad_identity_fails_closed(field):
     if field=='version':m['versions']['pipecat-ai']='2'
     if field=='fault':m['config']['fault']='drop-state-1'
     if field=='idle':m['config']['idle_timeout_secs']=300
+    if field=='context':m['config']['context']='notes'
+    if field=='no-context':del m['config']['context']
     m=sign(m)
     if field=='digest':m['config_sha256']='0'*64
     with pytest.raises(ValueError):identity.validate(m)

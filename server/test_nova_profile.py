@@ -34,7 +34,7 @@ def test_dev_defaults():
 def test_provenance_is_stable_secret_free_and_content_hashed():
     m=profile_manifest('dev')
     assert m==profile_manifest('dev')
-    assert m['versions']['pipecat-ai']=='1.15.0'
+    assert m['versions']['pipecat-ai']=='1.16.0'
     assert len(m['config_sha256'])==64 and m['local_model_sha256']
     assert m['config']['ttfs_p99_latency']==1.0
     assert m['config_sha256']!=profile_manifest('demo')['config_sha256']

@@ -13,8 +13,8 @@ from urllib.parse import urlsplit
 
 ROOT=Path(__file__).resolve().parents[1]
 # Must equal IDENTITY_SOURCES in server/duo_bot.py; test_duo_identity.py compares the two.
-SOURCES=('duo_bot.py','duo_route.py','duo_prompts.py','duo_switch.py','duo_addressee.py','demo_policy.py','demo_interrupts.py',
-         'demo_liveness.py','sctp_flight_fix.py','settings.py','aec_session_recorder.py')
+SOURCES=('duo_bot.py','duo_route.py','duo_context.py','duo_prompts.py','duo_switch.py','duo_addressee.py','demo_policy.py',
+         'demo_interrupts.py','demo_liveness.py','sctp_flight_fix.py','settings.py','aec_session_recorder.py')
 
 
 def require(value,message):
@@ -52,19 +52,20 @@ def validate(manifest,repo=ROOT):
     payload={key:manifest[key] for key in ('config','versions','code_sha256')}
     require(manifest['config_sha256']==hashlib.sha256(json.dumps(payload,sort_keys=True).encode()).hexdigest(),
             'bot identity digest differs')
-    require(manifest['versions']['pipecat-ai']=='1.15.0','unsupported Pipecat version')
+    require(manifest['versions']['pipecat-ai']=='1.16.0','unsupported Pipecat version')
     for name in SOURCES:
         require(manifest['code_sha256'][name]==digest(Path(repo)/'server'/name),'bot code differs: '+name)
     config=manifest['config']
     require(config['temperature']==0 and config['enable_thinking'] is False and config['idle_timeout_secs'] is None,
             'duo runtime invariants differ')
     require(config['voices']=={'angel':'flux-hannah-en','devil':'flux-rufus-en'},'duo voices differ')
-    require(config['llm_model']=='phonellm-max-alpha-2-nvfp4','duo model differs')
+    require(config['llm_model']=='phonellm-mini-alpha-2-nvfp4','duo model differs')
     # The endpoint is not pinned here, and nothing derived from it is: the repository names no LLM host.
     # What is checked is that one was given on purpose, through the environment, and is an http(s) URL.
     # The record keeps the URL itself (evidence, never git), so two runs can still be compared.
     require(config.get('llm_url_source') in LLM_URL_VARIABLES and endpoint(config.get('llm_url')),
             'duo LLM endpoint not set from the environment: export DUO_LLM_URL')
+    require(config.get('context') in ('b2h','labels'),'unknown duo context style')
     require(type(config['duo_test']) is bool and config['fault'] in ('','drop-state-1','drop-state-4','tts-fail-next') and
             (not config['fault'] or config['duo_test']),'invalid fault identity')
     return manifest

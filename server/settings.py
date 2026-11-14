@@ -51,7 +51,7 @@ def smartturn_stop_secs():
     return value
 
 def vad_min_volume(mode=None):
-    # Pipecat 1.15.0 VADParams default, for every speech pipeline.
+    # Pipecat 1.16.0 VADParams default, for every speech pipeline.
     default = "0.6"
     volume = float(os.getenv("BOT_VAD_MIN_VOLUME", default))
     if not 0 <= volume <= 1:

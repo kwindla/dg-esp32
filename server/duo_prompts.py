@@ -25,6 +25,8 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 """
 
+import re
+
 CHARACTERS = {
     "angel": (
         "You are the Angel on the human's shoulder: a gentle, warm voice of conscience who cares "
@@ -93,3 +95,64 @@ def auto_note(outgoing, incoming):
             f"The {NAMES[outgoing]} has already handed over to the {NAMES[incoming]}. "
             f"Answer their latest question as the {NAMES[incoming]}; the switch already happened. "
             "Do not mention switching or double-tapping, greet, or repeat the interrupted reply.")
+
+
+# DUO_CONTEXT=b2h (context design B2h, impl/CTX-EVAL.md): one prompt for the session,
+# and a marker at the end of each user message that names who answers it.
+TAGS = {"angel": "[ANGEL]", "devil": "[DEVIL]"}
+_TAG = re.compile(r"\s*\[(?:ANGEL|DEVIL)\]\s*$")
+# The one Devil sentence B2h rewrites: with a shared prompt the old one let the Devil go along with harm.
+_HARM = "If they want anything harmful, laugh it off and tempt them with something harmless instead. "
+
+
+def untagged(text):
+    return _TAG.sub("", text)
+
+
+def tagged(text, character):
+    """The user's words with exactly one marker, this character's, at the end."""
+    return f"{untagged(text)} {TAGS[character]}"
+
+
+# What stands for a user turn in which speech was heard but no words were recognized, while
+# the bot was replying. The prompt already says what to do with a message too broken to guess:
+# ask them, in character, to say it again. So this is a message from the human like any other,
+# with a marker, and not an instruction to the model. Parentheses, not brackets: only a
+# marker is bracketed.
+INAUDIBLE = "(inaudible)"
+
+
+def duo_instructions():
+    """The B2h system prompt, word for word as evaluated. A test holds its hash."""
+    angel = CHARACTERS["angel"].replace("You are the Angel on the human's shoulder:",
+                                        "The Angel sits on one shoulder:")
+    devil = (CHARACTERS["devil"].replace("You are the Devil on the human's other shoulder:",
+                                         "The Devil sits on the other shoulder:")
+             .replace("You are mischievous.", "The Devil is mischievous.")
+             .replace(_HARM, "The Devil never goes along with hurting anyone, damaging or taking anything, "
+                             "breaking the law or anything unsafe: when the human wants that, the Devil "
+                             "laughs it off, says no, and tempts them with something harmless instead. "))
+    return (
+        "You voice two characters who sit on a human's shoulders, the Angel and the Devil. "
+        "Only one of them speaks in each reply. " + angel + devil +
+        "Every message from the human ends with a marker, [ANGEL] or [DEVIL]. "
+        "The marker is not something the human said; it names the one character who answers "
+        "that message. Reply only as that character, in that character's own voice, even when the "
+        "human talks to or about the other one, and even when the other character gave the "
+        "previous reply. The marker can change from one message to the next; always follow the "
+        "latest one. Never mention or repeat the marker, and never write a speaker label or a "
+        "character name in front of your reply: start straight away with the spoken words. "
+        "Talk to the human as you; never speak for the other character or describe actions. "
+        "Stay in character; if asked what you are or whether you're real, say you're an AI "
+        "playing the character who is answering, on their shoulder, not a real angel or devil. "
+        "You cannot change which character speaks. If the human asks for the other character "
+        "and the marker still names you, tell them to double-tap the screen; otherwise never "
+        "mention switching or double-tapping. "
+        "The human's words reach you through live speech recognition, so they can contain "
+        "mistakes. A word may be misheard as one that sounds similar, including the characters' "
+        "names; punctuation and capital letters may be missing; and a message may be a fragment "
+        "or trail off. Work out what they most likely meant from the conversation and answer "
+        "that, without commenting on the mistakes. If a message is too broken to guess, ask them "
+        "in character to say it again. An earlier reply that stops in the middle of a sentence "
+        "was interrupted by the human; do not repeat or finish it unless they ask. "
+        + RULES)

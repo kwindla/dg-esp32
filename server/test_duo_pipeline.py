@@ -1,10 +1,11 @@
-"""Offline tests through real 1.15 worker, Flux queues and WebRTC output.
+"""Offline tests through real 1.16 worker, Flux queues and WebRTC output.
 
 Only the LLM completion and the two network provider/client boundaries are
 fake. No server, socket, device or audio playback is opened by these tests.
 """
 import asyncio
 from contextlib import asynccontextmanager
+import os
 import time
 import hashlib
 from pathlib import Path
@@ -35,18 +36,53 @@ from duo_bot import (ClientReady, DeviceRequest, DuoFluxTTS, PipelineError, Pong
                      build_worker, configuration, fault_config, identity, make_llm, make_tts,
                      require_llm_url)
 from duo_route import DOWN, AutoRerunFrame, HoldWake, RouteStampingLLM, RouteSuperseded, TextHold
-from duo_prompts import character_instructions, silent_note
+from duo_prompts import character_instructions, duo_instructions, silent_note, untagged
 from pipecat.classifiers.base_classifier import ChoiceResult
 
 
 EXISTING_STAY_MODE = ContextVar("existing_stay_mode", default=False)
 CANCEL_JOIN_BOUND = ContextVar("cancel_join_bound", default=None)
+# DUO_CONTEXT for a Harness that is not given one. These tests were written against the
+# labelled context, and it stays tested exactly as it was: every test runs under it. A test
+# that does not depend on the style runs under b2h, the bot's default, as well. The ones below
+# cannot: they read the labelled context itself (its notes, its labels, a prompt per
+# character), or hold a switch open on the settings frame that only it sends. What b2h does in
+# those places is tested in test_duo_context.py. test_duo_first_clause.py pins labels.
+# DUO_TEST_CONTEXT=b2h is a probe, not a lane: it runs everything here under b2h.
+CONTEXT_STYLE = ContextVar("context_style", default=os.environ.get("DUO_TEST_CONTEXT", "labels"))
+LABELS_ONLY = frozenset((
+    "test_real_switcher_output_marker_already_active_and_silent_note",
+    "test_interrupt_round_trip_old_tts_and_history_settle_before_any_mutation",
+    "test_surviving_marker_cannot_commit_missing_mutation",
+    "test_untyped_event_during_a_mutation_ends_the_session_without_rolling_back",
+    "test_late_uninterruptible_settings_timeout_restored_before_error",
+    "test_cancellation_rolls_back_before_releasing_gate",
+    "test_rollback_failure_closes_pipeline_and_keeps_gate_closed",
+    "test_first_synthesis_failure_streaming_and_arriving_turn_full_fenced_revert",
+    "test_history_labels_capture_each_turn_and_do_not_relabel_old_history",
+    "test_spoken_text_filter_drops_labels_and_echoed_notes",
+    "test_labels_the_model_copies_never_accumulate_in_history",
+    "test_auto_03_switch_quarantines_draft_and_reruns_once",
+    "test_auto_11_precommit_failure_restores_once_preserves_verification",
+    "test_auto_22_failed_hello_notes_session",
+    "test_auto_24_placeholder_ownership_and_exact_note_identity",
+    "test_auto_24_success_and_rollback_frozen_prefix_end_at_exact_note",
+    "test_auto_20_24_message_ownership_counts_match_flagoff_transaction",
+    "test_auto_interrupted_sentence_plus_partial_settles_as_it_does_without_routing",
+    # test_duo_retirement.py
+    "test_real_adapter_request_preserves_shared_history_note_and_leading_persona",
+    "test_non_armed_reply_socket_loss_preserves_session_history_and_next_turn",
+    "test_hello_adoption_failure_returns_current_state_then_resync_and_toggle_work",
+))
 
 
 def pytest_generate_tests(metafunc):
-    if (inspect.iscoroutinefunction(metafunc.function) and
-            not metafunc.function.__name__.startswith("test_auto_")):
+    if not inspect.iscoroutinefunction(metafunc.function):
+        return
+    if not metafunc.function.__name__.startswith("test_auto_"):
         metafunc.parametrize("existing_stay_mode", [False, True], indirect=True)
+    if metafunc.function.__name__ not in LABELS_ONLY:
+        metafunc.parametrize("context_style", ["labels", "b2h"], indirect=True)
 
 
 @pytest.fixture(autouse=True)
@@ -54,6 +90,13 @@ def existing_stay_mode(request):
     token = EXISTING_STAY_MODE.set(getattr(request, "param", False))
     yield
     EXISTING_STAY_MODE.reset(token)
+
+
+@pytest.fixture(autouse=True)
+def context_style(request):
+    token = CONTEXT_STYLE.set(getattr(request, "param", CONTEXT_STYLE.get()))
+    yield
+    CONTEXT_STYLE.reset(token)
 
 
 @pytest.fixture(params=[None, 0], ids=["join-unbounded", "join-bounded"])
@@ -384,6 +427,7 @@ class Harness:
         if auto_switch is None:
             auto_switch = EXISTING_STAY_MODE.get()
         config = (configuration({"DUO_TEST": "1", "DUO_FAULT": fault, "DUO_LLM_URL": TEST_LLM_URL,
+                                 "DUO_CONTEXT": CONTEXT_STYLE.get(),
                                  "DUO_AUTO_SWITCH": "1" if auto_switch else "0"}) |
                   {"cancel_join_bound_s": CANCEL_JOIN_BOUND.get()} | (config or {}))
         self.config = config
@@ -536,14 +580,14 @@ def test_identity_binds_every_local_module_the_bot_imports(tmp_path, monkeypatch
 def test_configuration_fault_guard_and_identity():
     config = configuration({})
     assert config["llm_url"] is None and config["llm_url_source"] is None  # No endpoint is built in.
-    assert config["llm_model"] == "phonellm-max-alpha-2-nvfp4"
+    assert config["llm_model"] == "phonellm-mini-alpha-2-nvfp4"
     assert config["voices"] == dict(angel="flux-hannah-en", devil="flux-rufus-en")
     assert config["idle_timeout_secs"] is None and config["enable_thinking"] is False
     assert config["temperature"] == 0 and config["stt_model"] == "flux-general-en"
     manifest = identity(config)
     assert manifest["config"]["duo_test"] is False and manifest["config"]["fault"] == ""
     assert manifest["config"]["tts_reconnect_on_error"] is False
-    assert manifest["versions"]["pipecat-ai"] == "1.15.0"
+    assert manifest["versions"]["pipecat-ai"] == "1.16.0"
     assert set(manifest["code_sha256"]) == local_import_closure()
     for name, digest in manifest["code_sha256"].items():
         assert digest == hashlib.sha256(Path(__file__).with_name(name).read_bytes()).hexdigest()
@@ -965,7 +1009,7 @@ async def test_gate_holds_turn_and_fences_already_open_aggregator_inference():
         result = await h.outcome()
         assert result["character"] == "devil"
         await until(lambda: h.llm.calls)
-        assert all(prompt == character_instructions("devil") for prompt, _ in h.llm.calls)
+        assert all(prompt == prompt_of(h, "devil") for prompt, _ in h.llm.calls)
 
 
 async def test_end_frame_is_never_held_by_closed_gate():
@@ -1031,10 +1075,10 @@ async def test_absolute_deadline_with_continuous_audio_and_verified_rollback():
         assert result["op"] == "error" and result["reason"] == "deadline"
         assert time.monotonic() - started < .6
         assert h.control.state.character == "angel"
-        assert h.llm.settings.system_instruction == character_instructions("angel")
+        assert h.llm.settings.system_instruction == prompt_of(h, "angel")
         assert any(t is InputAudioRawFrame for t, _ in h.stt.frames)
         assert await h.worker.flush_pipeline(timeout=.5)
-        assert h.llm.settings.system_instruction == character_instructions("angel")
+        assert h.llm.settings.system_instruction == prompt_of(h, "angel")
 
 
 async def test_watchdog_pongs_are_serviced_while_a_flush_is_delayed():
@@ -1549,8 +1593,21 @@ async def auto_open_turn(h, text="B arrives"):
     assert await h.worker.flush_pipeline(timeout=.5)
 
 
+def prompt_of(h, character):
+    """The prompt a request answered by this character carries: with b2h, the one prompt for both."""
+    return duo_instructions() if h.control.tags else character_instructions(character)
+
+
+def spoken_by(h, reply):
+    """Who the history says spoke a stored reply: its label, or with b2h the speaker kept beside it."""
+    if h.control.tags:
+        return h.control.context.speaker(reply)
+    return {"[Angel]": "angel", "[Devil]": "devil"}[reply["content"].split(" ", 1)[0]]
+
+
 def auto_user(call):
-    return next(m["content"] for m in reversed(call[1]) if m.get("role") == "user")
+    """The user's words in the newest user message of a request, without the marker b2h keeps on it."""
+    return untagged(next(m["content"] for m in reversed(call[1]) if m.get("role") == "user"))
 
 
 async def test_auto_production_order_off_structure_and_calibrated_identity():
@@ -1619,7 +1676,7 @@ async def test_auto_03_switch_quarantines_draft_and_reruns_once():
     fake = FakeAddressee("devil", delay=.04)
     async with pipeline(auto_switch=True, addressee=fake) as h:
         hello = await h.hello()
-        assert h.control.state.device_session == "boot"
+        await until(lambda: h.control.state.device_session == "boot")
         await h.turn("Devil, should I eat cake?")
         await auto_reply(h, "devil")
         assert len(fake.calls) == 1 and len(h.llm.calls) == 2
@@ -2009,7 +2066,7 @@ async def test_auto_20_open_turn_completion_during_transaction_owns_reply(phase)
         await auto_reply(h, "angel" if phase == "rollback" else "devil")
         assert completed and len(fake.calls) == 1
         assert [auto_user(call) for call in h.llm.calls] == ["B"]
-        assert h.llm.calls[0][0] == character_instructions("angel" if phase == "rollback" else "devil")
+        assert h.llm.calls[0][0] == prompt_of(h, "angel" if phase == "rollback" else "devil")
         assert any(k == "route-rerun-withdrawn" for k, _, _ in h.events)
 
 
@@ -2082,7 +2139,7 @@ async def test_auto_22_device_session_provenance_all_admission_cases():
     fake = FakeAddressee("devil", "angel", delay=.03)
     async with pipeline(auto_switch=True, addressee=fake) as h:
         await h.hello()
-        assert h.control.state.device_session == "boot"  # first-ever hello
+        await until(lambda: h.control.state.device_session == "boot")  # first-ever hello
         async def request(op, session, seq):
             h.control.enqueue(DeviceRequest(dict(v=1, op=op, session=session, seq=seq, have="angel")))
             await until(lambda: any(s["session"] == session and s["seq"] == seq for s in h.states()))
@@ -2116,7 +2173,8 @@ async def test_auto_22_failed_hello_notes_session():
         h.stt.sabotage = SilentNote
         baseline = await h.hello()
         assert baseline["reason"] == "adoption-failed" and baseline["rev"] == 0
-        assert h.control.state.device_session == "boot"
+        # The outcome is published inside the request; the session is noted when the request returns.
+        await until(lambda: h.control.state.device_session == "boot")
         await h.turn(); await auto_reply(h, "devil")
         assert h.states()[-1]["reason"] == "addressed" and h.states()[-1]["seq"] == 1
 
@@ -3243,7 +3301,7 @@ async def test_auto_fix2_b_finishes_before_a_cleanup_without_releasing_a(boundar
             h.llm.tokens = ("Fresh B reply. ", "B's own ending. ")
             await h.turn("B")  # Includes stop and ordinary inference, while A cleanup stays parked.
             await cleanup_parked.wait(); await until(fake.joined.is_set)
-            await until(lambda: any(m.get("role") == "user" and m.get("content") == "B"
+            await until(lambda: any(m.get("role") == "user" and untagged(m.get("content")) == "B"
                                     for m in h.control.context.get_messages()))
             assert h.control.user_aggregator.aggregation_string() == ""
             if boundary == "llm":
@@ -3623,7 +3681,7 @@ async def test_auto_fix3_toggle_during_fence_suspension(enabled):
             assert not h.services["angel"].speaks
             assert h.services["devil"].text_responses == [1, 1]
             assert [auto_user(c) for c in h.llm.calls] == ["A: what should I do"]
-            assert h.llm.calls[0][0] == character_instructions("devil")
+            assert h.llm.calls[0][0] == prompt_of(h, "devil")
             assert not fence.held and not h.control.gate.closed
             if enabled:
                 token = next(iter(h.control.hold.routes))
@@ -3677,7 +3735,7 @@ async def test_auto_fix3_claim_during_inflight_bargein_answers_only_b(join_bound
             assert h.services["devil"].text_responses == [2, 2]
             assert not h.services["angel"].speaks
             replies = [m for m in h.control.context.get_messages() if m.get("role") == "assistant"]
-            assert len(replies) == 1 and replies[0]["content"].startswith("[Devil]")
+            assert len(replies) == 1 and spoken_by(h, replies[0]) == "devil"
             assert len(fake.calls) == 2 and fake.cancelled == 0
             assert len([s for s in h.states() if s.get("reason") == "addressed"]) == 1
             assert any(k == "route-rerun-withdrawn" for k, _, _ in h.events)
@@ -3725,7 +3783,7 @@ async def test_auto_fix3_bargein_during_mutate_withdraws_old_rerun(rollback):
             character = "angel" if rollback else "devil"
             await auto_reply(h, character)
             assert [auto_user(c) for c in h.llm.calls] == ["A: Devil, answer me", "B is the new turn"]
-            assert h.llm.calls[-1][0] == character_instructions(character)
+            assert h.llm.calls[-1][0] == prompt_of(h, character)
             assert h.services[character].text_responses == [2, 2]
             assert len(h.addressee.calls) == 2
             assert not h.control.gate.fence.held and not h.control.hold.held

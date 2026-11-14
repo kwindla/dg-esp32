@@ -1,6 +1,6 @@
 # LAN Pipecat server (step 2)
 
-Python >=3.12, Pipecat 1.15.0 and SmallWebRTC. The bot speaks RTVI 2.3.0 and the
+Python >=3.12, Pipecat 1.16.0 and SmallWebRTC. The bot speaks RTVI 2.3.0 and the
 firmware 2.1.0; `user-input`, which the firmware does not read, is turned off. Install with
 `uv sync` from this directory. Keep the committed uv.lock and fixtures together.
 
@@ -44,7 +44,8 @@ LAN. The client creates an ordered reliable data channel named chat.
 `duo_bot.py` runs the two-character bot on the same port. `duo_switch.py` is
 the device protocol, `duo_route.py` the Jev addressee routing (its docstring
 states the four routing invariants), `duo_addressee.py` the classifier
-question and decision floor, and `duo_prompts.py` the personas.
+question and decision floor, `duo_prompts.py` the personas, and
+`duo_context.py` how the model is told which character answers.
 
 | Variable | Default | Effect |
 | --- | --- | --- |
@@ -58,14 +59,21 @@ question and decision floor, and `duo_prompts.py` the personas.
 | DUO_VOCATIVE_RULE | 0 | 1: a turn that opens by calling the other character (`Devil,` `Devil.` `Devil?` `Devil!`, a bare `Devil`, or one of those after `hey` / `okay` / `ok` / `so`) switches to them whatever Jev answered. The route event then says `reason: 'vocative-rule'` with `jev_target` and `jev_reason` beside it. Every other turn is Jev's, and every guard on a switch applies. A ruled turn's Jev read ends 50 ms before the route deadline. For a live A/B. |
 | DUO_GC_LOG | 0 | 1 logs one `DUO gc` row (`generation`, `ms`, `collected`) for each garbage collection that takes 20 ms or more. A full collection walks the whole import heap: about 150,000 objects and 60 to 75 ms offline, on the event loop. For a live A/B. |
 | DUO_GC_FREEZE | 0 | 1 imports what a session imports, collects once and calls `gc.freeze()` before the server starts, and logs `DUO gc-freeze` with the object count. Later collections skip the import heap (offline: a full collection drops from about 65 ms to under 0.1 ms). Nothing a session creates is frozen. Both GC flags are applied once per process by `start_process()`, whether the bot is run as a script or launched through `hil/duo_identity.py`. For a live A/B. |
+| DUO_TTS_FIRST_CLAUSE | 1 | 1: the first sentence of a reply may go to the voice in two pieces, so speech starts on the first clause while the model is still writing the rest. The first piece ends before a single space, after the first `, ; : — . ! ?` with at least four words before it, or after eight words when there is no such mark; everything after it goes sentence by sentence. A cut removes exactly that one space and the voice and the history get exactly one back, so the characters given to Flux and the stored reply are the ones flag 0 produces; where the whitespace is anything else (two spaces, a tab, a newline, a no-break space) no cut is made. `bot-tts-text` carries one message per piece. Notes, **pending user acceptance**: a sentence in which `Silent context` has been seen is never cut, so a note at the start of a reply is dropped whole as with flag 0. A first piece that has been sent is speech: if the rest of its sentence then holds `Silent context`, the marker and everything after it in that sentence are dropped, anything before the marker is spoken, and the history stores exactly what was sent (flag 0 would have dropped that whole sentence). 0: whole sentences only, the stock Pipecat aggregator. |
+| DUO_CONTEXT | b2h | How the model is told who speaks. `b2h`: one system prompt for the session that describes both characters; each stored user message ends with ` [ANGEL]` or ` [DEVIL]`, naming the character who answers it; replies are stored as spoken, with no label. A switch (double tap, auto-switch, revert) changes no prompt and adds nothing to the conversation: the next user message, or the one being run again, carries the new marker. A user message is pending until a reply to it is stored, whole or cut off; from then on its marker says who answered it and is never rewritten, so each request repeats the previous one byte for byte and only extends it. An empty user turn that interrupts a reply (speech heard, no words recognized) is still answered, as with `labels`, but Pipecat's developer instruction is not added: the turn is stored as the user message `(inaudible)` with the current character's marker, and the prompt's rule for a message too broken to guess makes the character ask again. Such a turn is not routed (`DUO route-skipped`): it has no words that could address anyone, so the committed character answers it. A request without new words whose newest user message was answered by the other character is withdrawn (`DUO request-withdrawn`); nothing in the bot makes one. A marker or label the model writes itself is removed where the text leaves the LLM, so the voice, `bot-llm-text`, `bot-tts-text`, `bot-output` and the history get the same clean text. `user-llm-text` is not sent (it would quote the marker; the firmware does not read it). `labels`: the earlier design, kept for a live comparison and unchanged: a prompt per character swapped at each switch, a `Silent context` note in the conversation, replies stored under `[Angel]` / `[Devil]`. |
 | DUO_LLM_URL | none, required | The OpenAI-compatible base URL of the duo LLM, `http://<host>:<port>/v1`. No endpoint is written in this repository; `LOCAL_LLM_URL` is read as a fallback. With neither set, `duo_bot.py` exits before it binds (`duo bot not started: DUO_LLM_URL is not set`), and the bench launcher refuses to record an identity. The identity records the URL and which variable it came from; the check requires an http(s) URL from one of the two, without credentials, and pins no host. |
-| DUO_LLM_MODEL | `phonellm-max-alpha-2-nvfp4` | `LOCAL_LLM_MODEL` is read as a fallback. The bench launcher's identity check accepts only the default. |
+| DUO_LLM_MODEL | `phonellm-mini-alpha-2-nvfp4` | `LOCAL_LLM_MODEL` is read as a fallback. The bench launcher's identity check accepts only the default. |
 | DUO_TEST, DUO_FAULT | unset | Fault injection for the harness; DUO_FAULT is refused without DUO_TEST=1. |
 
 Where the flags added in November 2026 stand. The behaviour flags are off
 unless set; DUO_TIMING alone has a conditional default and follows
-DUO_AUTO_SWITCH. A bot with none of them set behaves as the flag-off baseline
-test records.
+DUO_AUTO_SWITCH. DUO_TTS_FIRST_CLAUSE is the exception: it is on unless set to 0.
+DUO_CONTEXT is not a flag but a choice of two, and defaults to `b2h`.
+A bot with DUO_CONTEXT=labels and none of the others set behaves as the flag-off
+baseline test records (`fixtures/duo_flagoff_baseline.json`); that test drives
+the voices with its own settings, so it does not depend on DUO_TTS_FIRST_CLAUSE.
+The same six scenarios with the default context are recorded in
+`fixtures/duo_b2h_baseline.json`.
 "Live" means the bench runs of 2026-11-10 against the EchoEar and the web
 simulator; "offline" means the tests and probes in this directory.
 
@@ -73,6 +81,8 @@ simulator; "offline" means the tests and probes in this directory.
 | --- | --- | --- |
 | DUO_STT_KEYTERMS | Live: transcripts that mangled "Angel" ("Bangel", "Dangel") went from 3 to 5 in a 21-turn run to none. | Yes. |
 | DUO_VOCATIVE_RULE | Live, with transcripts that were exactly right: "Devil, what should I read next?" scored 0.77 and a bare "Devil." 0.68, both under the 0.80 floor, so neither switched. With the rule on, the web cohort's functional2 set (two addressed turns, an idiom and a mention) was routed right 4 of 4, with no false switch, and 17 of 17 addressed turns switched. | Yes, if the rule itself is wanted: a turn that opens with the other name always switches. It is a product decision, not a tuning. |
+| DUO_CONTEXT | Offline evaluation on PhoneLLM Max (2026-11-11, 164 turns per style): with labelled history the model copied a `[Angel]` / `[Devil]` label into 67% of its raw replies, with `b2h` into none; character fidelity was equal within noise (0.91 and 0.90), and `b2h` had no wrong-character reply on 59 switch turns. Cost measured there: 260 to 290 more prompt tokens and about 120 ms more time to first token per request. Not yet run live in this pipeline, and not measured on PhoneLLM Mini. | `b2h` is the default by the user's decision; `labels` is the other arm of the live A/B. |
+| DUO_TTS_FIRST_CLAUSE | Live, flag off, PhoneLLM Mini (2026-11-12): the first full sentence reached the voice about 550 ms after the model's first text (S1 p50 886 to 906 ms, first audio 1106 to 1154 ms after the end of the turn). Offline: the first piece leaves when its boundary arrives, and speech, history and timing rows are otherwise the same. No live comparison yet, and whether Flux starts speaking a clause before the rest arrives has not been observed. | On by default at the user's request; compare live with 0. |
 | DUO_JEV_KEEPWARM_S, DUO_JEV_HEDGE_MS | The reason for them is live: some Jev reads outlasted the 0.5 s budget and the turn lost its switch. Offline: an idle connection kept warm is reused, and a hedge's losing request is cancelled and joined. No live comparison has been recorded. | Not yet. Compare live first. |
 | DUO_CANCEL_JOIN_MS | Offline only: with a 300 ms request cleanup, a barge-in reached the end of the pipeline after 302 ms unlimited, 27 ms at 20 and 7 ms at 0. | Not yet. It moves a wait off the interruption path, so it needs a live comparison of barge-in behaviour. |
 | DUO_GC_FREEZE | Offline: a full collection takes 58 to 75 ms over the import heap and under 0.1 ms once it is frozen. Not measured live. A bot launched through `hil/duo_identity.py` applies it only from the commit that added `start_process()`; a comparison made through the launcher before that had two untreated arms. | Not yet. Compare live first, with DUO_GC_LOG on in both arms. |
@@ -98,15 +108,15 @@ Offline tests (no sockets, no credentials), from the repository root:
 ```sh
 PYTHONPATH=hil:server uv run --project server --frozen --offline --group dev python -m pytest \
   server/test_duo_switch.py server/test_duo_pipeline.py server/test_duo_retirement.py \
-  server/test_duo_addressee.py server/test_duo_baseline.py
+  server/test_duo_addressee.py server/test_duo_baseline.py server/test_duo_first_clause.py
 ```
 
 ### Pipecat upgrade checklist
 
-`configuration()` refuses any Pipecat other than 1.15.0 because the bot leans
+`configuration()` refuses any Pipecat other than 1.16.0 because the bot leans
 on behaviour that is not public API. Before raising the pin, re-read each of
-these in the new version and rerun the five files above (last done for
-1.12.0 to 1.15.0, 2026-11-11):
+these in the new version and rerun the six files above (last done for
+1.15.0 to 1.16.0, 2026-11-12):
 
 1. `BaseOpenAILLMService.process_frame` pushes the response Start, runs
    `_process_context`, pushes the End in a `finally`, and does not forward the
@@ -142,6 +152,18 @@ these in the new version and rerun the five files above (last done for
 10. What the firmware reads from RTVI: `bot-ready` (`version`),
    `user-transcription`, `bot-tts-text`, `server-message`, the speaking events
    and `error`. `hil/duo_identity.py` names the version too.
+11. `TTSService` keeps its text aggregator in `_text_aggregator`, builds a
+   `SimpleTextAggregator` there in `__init__`, and takes no aggregator
+   argument. `DuoFluxTTS` replaces it with `FirstClause`, which reads and
+   cuts `SimpleTextAggregator._text`, calls `_check_sentence_with_lookahead`
+   and resets `_lookahead_state`. In sentence mode each aggregation is
+   stripped of spaces, sent as one Flux `Speak` with one trailing space, all
+   of a reply's in one turn, and each becomes one `TTSTextFrame` that the
+   assistant aggregator joins with one space. `FirstClause` cuts only at a
+   single space because of exactly that. (`LLMTextProcessor` is the public
+   way to supply an aggregator; it is not used because its frames would
+   reach `DuoServiceSwitcher` without the reply metadata that keeps a
+   withdrawn reply out of the voices.)
 
 ## Routes and messages
 
@@ -355,10 +377,10 @@ only. Production uplink returns to **20 ms** with `DG_OPUS_UPLINK_FRAME40=n`,
 retaining the 32768-byte TX stack and other 8c optimizations. See
 [the step 8d3 report](../proj-2026-10-08-0949/codex-jobs/step-8d3-report.md)
 for image-specific results and qualification limits. Production VAD already
-matches Pipecat 1.15.0 defaults: confidence 0.7, start/stop 0.2 s, volume floor
+matches Pipecat 1.16.0 defaults: confidence 0.7, start/stop 0.2 s, volume floor
 0.6. The explicit speaking-state mute and firmware gate remain.
 
-Offline/live modes also return to the Pipecat 1.15.0 volume-floor default **0.6**.
+Offline/live modes also return to the Pipecat 1.16.0 volume-floor default **0.6**.
 The earlier step 8d3 120 s checks at 0.4 are historical; both modes are repeated
 on the final 20 ms image with the default floor. An explicit `BOT_VAD_MIN_VOLUME`
 override remains available for experiments. Production qualification clears

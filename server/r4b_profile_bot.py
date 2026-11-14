@@ -1,5 +1,5 @@
 """Diagnostic-only R4b bot copy; production bot.py remains unchanged."""
-"""Pipecat 1.15.0 LAN bot, with offline and credential-backed acceptance modes."""
+"""Pipecat 1.16.0 LAN bot, with offline and credential-backed acceptance modes."""
 import asyncio
 from collections import deque
 import json

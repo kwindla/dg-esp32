@@ -2,7 +2,7 @@
 
 `EspPeerTransport` implements the vendored Pipecat C++ Transport interface with
 native `esp_peer` and `esp_audio_codec` calls. There is no alternate-backend API.
-The current target is the local Pipecat 1.15.0 runner on port 7861 in **plain**
+The current target is the local Pipecat 1.16.0 runner on port 7861 in **plain**
 mode, with `BOT_MODE=offline-test` for digital-media acceptance.
 
 The start request's session ID derives the offer URL, retaining headers and query

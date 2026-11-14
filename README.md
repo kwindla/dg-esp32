@@ -378,7 +378,7 @@ only. Production uplink returns to **20 ms** with `DG_OPUS_UPLINK_FRAME40=n`,
 retaining the 32768-byte TX stack and other 8c optimizations. See
 [the step 8d3 report](proj-2026-10-08-0949/codex-jobs/step-8d3-report.md)
 for image-specific results and qualification limits. Production VAD already
-matches Pipecat 1.15.0 defaults: confidence 0.7, start/stop 0.2 s, volume floor
+matches Pipecat 1.16.0 defaults: confidence 0.7, start/stop 0.2 s, volume floor
 0.6. The explicit speaking-state mute and firmware gate remain.
 
 Final 20 ms qualification retains nominal **8/10**, quiet **4/5**, and
