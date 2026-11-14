@@ -4,16 +4,12 @@ from contextlib import contextmanager
 from pathlib import Path
 import fcntl
 import os
-import sys
 from board_port import resolve_port
 import json
 import re
 import threading
 import time
 import serial
-# The Linux bench keeps its historical lock path; macOS uses the per-user temp dir.
-BENCH_LOCK_DIR = ('/tmp/claude-1000' if sys.platform != 'darwin' else f'/tmp/claude-{os.getuid()}')
-
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -25,12 +21,11 @@ def port_lock():
     bench = None
     if inherited:
         fd = int(inherited)
-        if os.fstat(fd).st_ino != os.stat(f'{BENCH_LOCK_DIR}/echoear-bench.lock').st_ino:
+        if os.fstat(fd).st_ino != os.stat('/tmp/claude-1000/echoear-bench.lock').st_ino:
             raise RuntimeError('Invalid inherited bench lock')
         fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
     else:
-        os.makedirs(BENCH_LOCK_DIR, exist_ok=True)
-        bench = open(f'{BENCH_LOCK_DIR}/echoear-bench.lock', 'a')
+        bench = open('/tmp/claude-1000/echoear-bench.lock', 'a')
         try:
             fcntl.flock(bench, fcntl.LOCK_EX | fcntl.LOCK_NB)
         except BaseException:

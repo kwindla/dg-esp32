@@ -81,6 +81,9 @@ if [[ "$port_action" == 1 ]]; then
         echo "Refusing serial-port actions while DG_BUILD_LOCK_HELD=1; run separately after releasing the build lock" >&2
         exit 1
     fi
+    # hil/bench.py and the other bench tools open this one host-wide lock path
+    # and expect its directory to exist; macOS clears /tmp at restart.
+    mkdir -p /tmp/claude-1000
     if [[ "${DG_SERIAL_LOCK_HELD:-}" != 1 && -z "${DG_BENCH_LOCK_FD:-}" ]]; then
         exec python "$repo_root/hil/bench.py" "$0" "$@"
     fi
@@ -104,7 +107,8 @@ if [[ "$port_action" == 1 ]]; then
                 --define-cache-entry=*) entry="${arg#--define-cache-entry=}" ;;
                 *) if [[ "$previous" == -D || "$previous" == --define-cache-entry ]]; then entry="$arg"; fi ;;
             esac
-            if [[ "$entry" == SDKCONFIG_DEFAULTS=* ]]; then expected="${entry#SDKCONFIG_DEFAULTS=}"; fi
+            # CMake also accepts a typed definition, NAME:TYPE=value.
+            if [[ "$entry" =~ ^SDKCONFIG_DEFAULTS(:[A-Z]+)?=(.*)$ ]]; then expected="${BASH_REMATCH[2]}"; fi
             previous="$arg"
         done
         if [[ -f "$cache" ]]; then

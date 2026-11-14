@@ -290,6 +290,10 @@ for form in "-DSDKCONFIG_DEFAULTS=$aec_defaults" "-D SDKCONFIG_DEFAULTS=$aec_def
 done
 guard_run -B "$guard/aec" "-DSDKCONFIG_DEFAULTS=$aec_defaults" -DSDKCONFIG_DEFAULTS=other flash
 [[ "$result" == 1 ]] || fail "an earlier override hid a later one"
+guard_run -B "$guard/aec" "-DSDKCONFIG_DEFAULTS:STRING=$aec_defaults" flash
+[[ "$result" == 0 ]] || fail "typed override was refused"
+guard_run -B "$guard/aec" "-DSDKCONFIG_DEFAULTS=$aec_defaults" -DSDKCONFIG_DEFAULTS:STRING=other flash
+[[ "$result" == 1 ]] || fail "a typed later override was ignored"
 # A missing cache is not refused (first flash after a clean build directory).
 guard_run -B "$guard/none" flash
 [[ "$result" == 0 ]] || fail "missing cache was refused"

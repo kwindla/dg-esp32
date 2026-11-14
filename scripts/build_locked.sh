@@ -6,9 +6,7 @@ if [[ $# == 0 ]]; then
     exit 2
 fi
 # DG_BUILD_LOCK_FILE is a test-only override; production builds share one lock.
-# The Linux bench keeps its historical lock path; macOS uses the per-user temp dir.
-if [[ "$(uname -s)" == Darwin ]]; then lock_dir="/tmp/claude-$(id -u)"; else lock_dir=/tmp/claude-1000; fi
-lock_file="${DG_BUILD_LOCK_FILE:-$lock_dir/dg-esp32-build.lock}"
+lock_file="${DG_BUILD_LOCK_FILE:-/tmp/claude-1000/dg-esp32-build.lock}"
 mkdir -p "$(dirname "$lock_file")"
 exec {build_lock_fd}>"$lock_file"
 if [[ "${DG_BUILD_LOCK_HELD:-}" == 1 ]]; then
