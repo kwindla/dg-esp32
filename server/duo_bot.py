@@ -1965,6 +1965,8 @@ def start_process(config):
     global _process_started
     if _process_started:
         raise RuntimeError("the bot process was already started")
+    if config.get("llm_url"):
+        deepgram_think.is_think_url(config["llm_url"])  # A hosted endpoint without TLS is refused here too.
     _process_started = True
     if os.getenv("BOT_ICE_INTERFACE"):
         # Gather on one interface only: on a host with Tailscale, aioice otherwise
