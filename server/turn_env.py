@@ -63,8 +63,15 @@ def main(argv):
     token = os.getenv("CF_TURN_API_TOKEN") or file_values.get("CF_TURN_API_TOKEN")
     if not key_id or not token:
         sys.exit("CF_TURN_KEY_ID and CF_TURN_API_TOKEN are required")
+    if not key_id.isalnum() or not token.replace("-", "").replace("_", "").isalnum():
+        sys.exit("CF_TURN_KEY_ID / CF_TURN_API_TOKEN contain unexpected characters")
     ttl = int(os.getenv("CF_TURN_TTL", "21600"))
-    servers = ice_servers(key_id, token, ttl)
+    try:
+        servers = ice_servers(key_id, token, ttl)
+    except Exception as e:
+        # Never let a traceback carry the request headers (the token) to stderr.
+        status = getattr(e, "code", None)
+        sys.exit(f"turn_env: credential request failed ({type(e).__name__}{f' {status}' if status else ''})")
     print(f"turn_env: {sum(len(s['urls']) for s in servers)} ICE URLs, ttl {ttl}s", file=sys.stderr)
     os.environ["PIPECAT_ICE_SERVERS"] = json.dumps(servers)
     os.execvp(argv[0], argv)

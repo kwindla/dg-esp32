@@ -12,6 +12,7 @@ import hashlib
 import importlib.metadata
 import json
 import os
+import sys
 from pathlib import Path
 import re
 import subprocess
@@ -23,6 +24,9 @@ from echoear_aec_metrics import (RATE, FRAME, AFE_DELAY, activity, dbfs, echo_me
                                  near_metrics, reduction, missing_playback, reference_threshold, post_opus_residual, interval_latency)
 from echoear_aec_tts import tts_anchor, retained_tts_events
 from echoear_aec_timing import sample_interval, transaction_anchor, map_interval, mapped_sample_coverage
+# The Linux bench keeps its historical lock path; macOS uses the per-user temp dir.
+BENCH_LOCK_DIR = ('/tmp/claude-1000' if sys.platform != 'darwin' else f'/tmp/claude-{os.getuid()}')
+
 
 ROOT = Path(__file__).resolve().parents[1]
 EVIDENCE = Path.home()/'src/evidence/echoear/aec-demo'
@@ -235,8 +239,8 @@ def transcribe_afe(capture, out):
 @contextmanager
 def bench_lock():
     # Own the flock for acquisition AND restoration, inherited by serial helper.
-    os.makedirs(f'/tmp/claude-{os.getuid()}', exist_ok=True)
-    with open(f'/tmp/claude-{os.getuid()}/echoear-bench.lock', 'a') as lock:
+    os.makedirs(BENCH_LOCK_DIR, exist_ok=True)
+    with open(f'{BENCH_LOCK_DIR}/echoear-bench.lock', 'a') as lock:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         old = os.environ.get('DG_BENCH_LOCK_FD')
         os.environ['DG_BENCH_LOCK_FD'] = str(lock.fileno())

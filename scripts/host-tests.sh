@@ -79,7 +79,7 @@ lane_duo_hil() {
 lane_duo_bot() {
     server_pytest hil:server plain server/test_duo_switch.py server/test_duo_pipeline.py server/test_duo_retirement.py \
         server/test_duo_addressee.py server/test_duo_baseline.py server/test_duo_first_clause.py \
-        server/test_duo_context.py server/test_deepgram_think.py \
+        server/test_duo_context.py server/test_deepgram_think.py server/test_turn_env.py server/test_ice_path_darwin.py \
         --basetemp="$TMPDIR/duo-pytest"
 }
 lane_p4_touch() {
@@ -98,6 +98,7 @@ lane_board_neutral() {
 lane_build_tools() {
     [[ -x "$idf_python" ]] || missing "the IDF Python env at $idf_python"
     py uv run --project hil --frozen --offline python hil/test_boards.py
+    py env PYTHONPATH=hil uv run --project hil --frozen --offline python -m unittest hil/test_board_port.py
     py python3 scripts/test_sdkconfig_keydiff.py
     py python3 scripts/test_capture_s3_baselines.py
     python3 scripts/test_check_sdkconfig.py

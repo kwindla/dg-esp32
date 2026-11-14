@@ -8,7 +8,8 @@ std::atomic<unsigned> character_buffers{0};
 namespace pipecat::esp_peer {
 // Platform boundary only: run the production JSON/string allocator and dumper.
 void* stat_allocate(size_t n) {
-    if(n==257)++character_buffers;
+    // 256 characters and the terminator; libc++ rounds the capacity up to 16 bytes.
+    if(n>=257 && n<=272)++character_buffers;
     return std::malloc(n);
 }
 void stat_free(void* p) {std::free(p);}

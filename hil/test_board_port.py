@@ -17,7 +17,7 @@ class MacPortIdentity(unittest.TestCase):
     def resolve(self, ports, requested=None):
         with patch.dict(os.environ, {'DG_BOARD':'echoear'}), \
              patch.object(board_port.sys, 'platform', 'darwin'), \
-             patch('serial.tools.list_ports.comports', return_value=ports):
+             patch.object(board_port, '_comports', return_value=ports):
             return board_port.resolve_port(requested)
 
     def test_matches_usb_serial_on_any_name(self):

@@ -50,6 +50,11 @@ def filter_remote_sdp(sdp, network):
 
 
 def install():
+    if sys.platform=='darwin':
+        # The remote-network filter and impaired-path proof use Linux ioctls and `ip route`.
+        unsupported=[n for n in ('BOT_ICE_REMOTE_NETWORK_ONLY','BOT_IMPAIRED_INTERFACE') if os.getenv(n) not in (None,'','0')]
+        if unsupported:
+            raise RuntimeError('ice_path on macOS supports only BOT_ICE_INTERFACE; unset '+', '.join(unsupported))
     debug=os.getenv('BOT_ICE_DEBUG_PATH')
     if debug:
         import logging

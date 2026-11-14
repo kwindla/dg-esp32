@@ -1,10 +1,14 @@
 """P4 runner preflight; validation/imports are host-only and never open serial."""
 import fcntl
 import os
+import sys
 import subprocess
 from pathlib import Path
+# The Linux bench keeps its historical lock path; macOS uses the per-user temp dir.
+BENCH_LOCK_DIR = ('/tmp/claude-1000' if sys.platform != 'darwin' else f'/tmp/claude-{os.getuid()}')
 
-BENCH_LOCK = Path(f'/tmp/claude-{os.getuid()}/echoear-bench.lock')
+
+BENCH_LOCK = Path(f'{BENCH_LOCK_DIR}/echoear-bench.lock')
 WRITE_TIMEOUT = 1800
 VERIFY_TIMEOUT = 1800
 FLASH_TIMEOUT = 1800

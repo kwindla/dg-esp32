@@ -88,24 +88,31 @@ if [[ "$port_action" == 1 ]]; then
     # directory was configured from another selection (for example built with
     # DG_DEMO_AUTOSTART=1 DG_PUBLIC_DEMO=1 but flashed without them), idf.py
     # would silently rebuild a different image and flash that instead.
-    if [[ "$board" != p4xc && -n "$build_dir" ]]; then
-        cache="$build_dir/CMakeCache.txt"
-        [[ "$build_dir" == /* ]] || cache="$PWD/$cache"
-        # An explicit -D SDKCONFIG_DEFAULTS=... (the S3 AEC overlay) wins over the selection.
+    if [[ "$board" != p4xc ]]; then
+        # Without -B, idf.py builds in the project directory's build/.
+        guard_dir="${build_dir:-$project_dir/build}"
+        [[ "$guard_dir" == /* ]] || guard_dir="$PWD/$guard_dir"
+        cache="$guard_dir/CMakeCache.txt"
+        # An explicit SDKCONFIG_DEFAULTS definition (the S3 AEC overlay) wins over the
+        # selection; as in idf.py, the last definition counts.
         expected="$defaults"
         previous=
         for arg in "$@"; do
-            if [[ "$arg" == -DSDKCONFIG_DEFAULTS=* ]]; then expected="${arg#-DSDKCONFIG_DEFAULTS=}"
-            elif [[ "$previous" == -D && "$arg" == SDKCONFIG_DEFAULTS=* ]]; then expected="${arg#SDKCONFIG_DEFAULTS=}"
-            fi
+            entry=
+            case "$arg" in
+                -D?*) entry="${arg#-D}" ;;
+                --define-cache-entry=*) entry="${arg#--define-cache-entry=}" ;;
+                *) if [[ "$previous" == -D || "$previous" == --define-cache-entry ]]; then entry="$arg"; fi ;;
+            esac
+            if [[ "$entry" == SDKCONFIG_DEFAULTS=* ]]; then expected="${entry#SDKCONFIG_DEFAULTS=}"; fi
             previous="$arg"
         done
         if [[ -f "$cache" ]]; then
             cached=$(sed -n 's/^SDKCONFIG_DEFAULTS:[A-Z]*=//p' "$cache")
             if [[ -n "$cached" && "$cached" != "$expected" ]]; then
-                echo "Refusing $build_dir: built with SDKCONFIG_DEFAULTS=$cached," >&2
+                echo "Refusing $guard_dir: built with SDKCONFIG_DEFAULTS=$cached," >&2
                 echo "  but this invocation gives $expected." >&2
-                echo "  Re-run with the DG_* variables used for the build." >&2
+                echo "  Re-run with the DG_* variables (and any -D SDKCONFIG_DEFAULTS=...) used for the build." >&2
                 exit 1
             fi
         fi

@@ -21,7 +21,7 @@ struct i2s_std_config_t {
 struct i2s_chan_info_t {int role;uint32_t mclk_hz,bclk_hz;i2s_chan_handle_t pair_chan;};
 #define I2S_CHANNEL_DEFAULT_CONFIG(num,role) i2s_chan_config_t{}
 #define I2S_STD_CLK_DEFAULT_CONFIG(rate) i2s_std_clk_config_t{rate,I2S_MCLK_MULTIPLE_256}
-#define I2S_STD_PHILIPS_SLOT_DEFAULT_CONFIG(bits,mode) i2s_std_slot_config_t{bits,mode,0,bits}
+#define I2S_STD_PHILIPS_SLOT_DEFAULT_CONFIG(bits,mode) i2s_std_slot_config_t{bits,mode,0,unsigned(bits)}
 int i2s_new_channel(const i2s_chan_config_t*,i2s_chan_handle_t*,i2s_chan_handle_t*);
 int i2s_channel_init_std_mode(i2s_chan_handle_t,const i2s_std_config_t*);
 int i2s_channel_get_info(i2s_chan_handle_t,i2s_chan_info_t*);

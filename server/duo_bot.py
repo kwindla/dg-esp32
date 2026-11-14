@@ -1634,7 +1634,10 @@ def make_llm(config, service_class=OpenAILLMService):
     api_key = "not-required"
     if deepgram_think.is_think_url(url) and service_class is OpenAILLMService:
         # Deepgram's hosted PhoneLLM: same settings, adapted on the wire.
-        service_class, api_key = deepgram_think.DeepgramThinkLLMService, os.environ["DEEPGRAM_API_KEY"]
+        api_key = os.environ.get("DEEPGRAM_API_KEY")
+        if not api_key:
+            raise RuntimeError("DUO_LLM_URL is Deepgram's hosted PhoneLLM; set DEEPGRAM_API_KEY")
+        service_class = deepgram_think.DeepgramThinkLLMService
     if tags:
         # Inside the route stamp: a frame is stamped before the marker filter sees it, and the
         # filter copies that stamp to text it held back and releases late.

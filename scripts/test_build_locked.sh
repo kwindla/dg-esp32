@@ -234,6 +234,10 @@ for flag in -f -t; do
     EXPECT_BUILD_LOCK=0 timeout 10 "$repo_root/scripts/idf.sh" diag "$flag" flash
     grep -q '/hil/bench.py$' "$ARGV_LOG" || fail "diag $flag flash skipped bench wrapper"
 done
+# Port actions without -B check <cwd>/build; run them where none exists, so the
+# repository's own build directory cannot decide these routing cases.
+mkdir -p "$scratch/port-cwd"
+cd "$scratch/port-cwd"
 for action in flash monitor erase-flash erase_flash app-flash bootloader-flash partition-table-flash \
               encrypted-flash encrypted-app-flash erase-otadata read-otadata efuse-summary \
               efuse-burn-key dfu-flash coredump-info coredump-debug gdb gdbtui gdbgui openocd; do
@@ -252,6 +256,43 @@ for action in flash monitor erase-flash erase_flash app-flash bootloader-flash p
     EXPECT_BUILD_LOCK=0 DG_SERIAL_LOCK_HELD=1 timeout 10 "$repo_root/scripts/idf.sh" "$action"
     grep -qx idf.py "$ARGV_LOG" || fail "$action did not reach stub IDF"
 done
+cd "$repo_root"
+
+# A port action refuses a build directory configured with other SDKCONFIG_DEFAULTS.
+guard="$scratch/guard"
+mkdir -p "$guard/build" "$guard/aec"
+s3_defaults='sdkconfig.defaults;sdkconfig.local;sdkconfig.defaults.echoear'
+[[ -f "$repo_root/sdkconfig.local" ]] || s3_defaults='sdkconfig.defaults;sdkconfig.defaults.echoear'
+printf 'SDKCONFIG_DEFAULTS:STRING=%s;sdkconfig.defaults.demo\n' "$s3_defaults" > "$guard/build/CMakeCache.txt"
+aec_defaults='a;b;sdkconfig.defaults.echoear-aec'
+printf 'SDKCONFIG_DEFAULTS:UNINITIALIZED=%s\n' "$aec_defaults" > "$guard/aec/CMakeCache.txt"
+guard_run() {
+    rm -f "$ARGV_LOG"
+    result=0
+    EXPECT_BUILD_LOCK=0 DG_SERIAL_LOCK_HELD=1 timeout 10 "$repo_root/scripts/idf.sh" "$@" >"$scratch/guard.log" 2>&1 || result=$?
+}
+# Without -B the project's build/ is checked: a demo build flashed without DG_DEMO_AUTOSTART=1.
+guard_run -C "$guard" flash
+[[ "$result" == 1 && ! -e "$ARGV_LOG" ]] || fail "mismatched default build/ was flashed"
+grep -q 'Refusing .*guard/build' "$scratch/guard.log" || fail "unclear defaults refusal"
+DG_DEMO_AUTOSTART=1 guard_run -C "$guard" flash
+[[ "$result" == 0 ]] && grep -qx idf.py "$ARGV_LOG" || fail "matching default build/ was refused"
+(cd "$guard"; guard_run flash; [[ "$result" == 1 ]]) || fail "cwd build/ was not checked"
+guard_run -B "$guard/build" flash
+[[ "$result" == 1 && ! -e "$ARGV_LOG" ]] || fail "mismatched -B build was flashed"
+# An explicit override is compared instead of the selection, in every IDF spelling; the last wins.
+for form in "-DSDKCONFIG_DEFAULTS=$aec_defaults" "-D SDKCONFIG_DEFAULTS=$aec_defaults" \
+            "--define-cache-entry SDKCONFIG_DEFAULTS=$aec_defaults" \
+            "--define-cache-entry=SDKCONFIG_DEFAULTS=$aec_defaults"; do
+    read -r -a words <<< "$form"
+    guard_run -B "$guard/aec" "${words[@]}" flash
+    [[ "$result" == 0 ]] || fail "explicit override '$form' was refused"
+done
+guard_run -B "$guard/aec" "-DSDKCONFIG_DEFAULTS=$aec_defaults" -DSDKCONFIG_DEFAULTS=other flash
+[[ "$result" == 1 ]] || fail "an earlier override hid a later one"
+# A missing cache is not refused (first flash after a clean build directory).
+guard_run -B "$guard/none" flash
+[[ "$result" == 0 ]] || fail "missing cache was refused"
 for action in flash monitor erase-flash efuse-summary; do
     rm -f "$ARGV_LOG"
     result=0

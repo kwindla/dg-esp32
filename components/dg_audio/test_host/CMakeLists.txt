@@ -1,5 +1,10 @@
 cmake_minimum_required(VERSION 3.22)
 project(audio_logic_tests LANGUAGES C CXX)
+if(APPLE)
+    # pipeline.cpp and diagnostics.cpp call these weak symbols only when the app defines them; Mach-O
+    # needs to be told an undefined weak reference is allowed.
+    add_link_options(-Wl,-U,_dg_heap_shadow_sample -Wl,-U,_dg_deferred_log)
+endif()
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 include(trace_vendor.cmake)
@@ -131,4 +136,8 @@ target_include_directories(null_audio_tests PRIVATE fakes ../src/codec ../includ
 target_compile_definitions(null_audio_tests PRIVATE CONFIG_DG_MIC_GAIN_PERCENT=100)
 target_link_libraries(null_audio_tests PRIVATE GTest::gtest_main)
 target_compile_options(null_audio_tests PRIVATE -Wall -Wextra -Werror)
+if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+    # The null backend leaves production members unused; only Clang diagnoses that.
+    target_compile_options(null_audio_tests PRIVATE -Wno-unused-private-field)
+endif()
 gtest_discover_tests(null_audio_tests TEST_PREFIX headless.)

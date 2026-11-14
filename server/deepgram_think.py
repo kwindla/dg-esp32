@@ -15,6 +15,8 @@ there; the ``phonellm-max`` names return "Model not available".
 import json
 from urllib.parse import urlsplit
 
+from loguru import logger
+
 from openai import AsyncOpenAI, DefaultAsyncHttpxClient
 from pipecat.services.openai.llm import OpenAILLMService
 
@@ -30,7 +32,15 @@ ALLOWED = frozenset({"model", "temperature", "reasoning_effort", "messages", "to
 
 
 def is_think_url(url):
-    return bool(url) and urlsplit(url).hostname == "agent.deepgram.com"
+    """True for Deepgram's hosted endpoint; an http:// spelling is refused (the key would go in clear)."""
+    if not url or urlsplit(url).hostname != "agent.deepgram.com":
+        return False
+    if urlsplit(url).scheme != "https":
+        raise ValueError("DUO_LLM_URL for agent.deepgram.com must be https://")
+    return True
+
+
+_reported = set()
 
 
 def think_request(request):
@@ -41,6 +51,11 @@ def think_request(request):
     content = request.content
     if content and request.headers.get("content-type", "").startswith("application/json"):
         body = json.loads(content)
+        dropped = frozenset(body) - ALLOWED
+        if dropped and dropped not in _reported:
+            # /v1/think has no token cap: max_completion_tokens is dropped, so replies are not capped.
+            _reported.add(dropped)
+            logger.warning(f"Deepgram /v1/think does not accept {sorted(dropped)}; sent without them")
         content = json.dumps({k: v for k, v in body.items() if k in ALLOWED}).encode()
     headers = httpx.Headers(request.headers)
     headers.pop("content-length", None)

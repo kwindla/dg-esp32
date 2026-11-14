@@ -22,8 +22,11 @@ BASE=Path('/home/khkramer/src/evidence/echoear/aec-demo/step-9')
 # expectations (PUBLIC_ENV, raw PERF schema below) were written for 9936da45; a live rollback on the new target needs its
 # own reviewed session before it is relied on. Retained rollback-01 evidence is judged against the historical constant.
 from echoear_aec_bench import NORMAL,NORMAL_HASH
+# The Linux bench keeps its historical lock path; macOS uses the per-user temp dir.
+BENCH_LOCK_DIR = ('/tmp/claude-1000' if sys.platform != 'darwin' else f'/tmp/claude-{os.getuid()}')
+
 ESPTOOL='/home/khkramer/.espressif/python_env/idf6.1_py3.12_env/bin/python'
-LOCK=Path(f'/tmp/claude-{os.getuid()}/echoear-bench.lock')
+LOCK=Path(f'{BENCH_LOCK_DIR}/echoear-bench.lock')
 PUBLIC_ENV=dict(ECHOEAR_AEC_FULL_DUPLEX='0',ECHOEAR_LIVENESS_SECONDS='0',
     DEMO_TTS_PROACTIVE_RECONNECT='1',DEMO_TTS_RECONNECT_EACH_GENERATION='0',
     DEMO_TTS_TRIM_LEADING='0',DEMO_LLM='local',DEEPGRAM_TTS_VOICE='flux-kelsey-en',

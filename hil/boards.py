@@ -4,10 +4,14 @@ import argparse
 import fcntl
 import json
 import os
+import sys
 from pathlib import Path
 import re
 import subprocess
 import board_port
+# The Linux bench keeps its historical lock path; macOS uses the per-user temp dir.
+BENCH_LOCK_DIR = ('/tmp/claude-1000' if sys.platform != 'darwin' else f'/tmp/claude-{os.getuid()}')
+
 
 BOARDS = {
     'echoear': dict(by_id=str(board_port.ECHOEAR_PORT), usb_serial='B4:3A:45:16:2D:94',
@@ -21,7 +25,7 @@ BOARDS = {
         boot_pattern=r'DG_BOOT board=p4xc', build_only=False),
     'waveshare_146': dict(build_only=True),
 }
-BENCH_LOCK = Path(f'/tmp/claude-{os.getuid()}/echoear-bench.lock')
+BENCH_LOCK = Path(f'{BENCH_LOCK_DIR}/echoear-bench.lock')
 
 
 def hardware_board(board):
