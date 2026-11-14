@@ -7,7 +7,8 @@ import sys
 if __name__ == '__main__':
     if len(sys.argv) < 2:
         raise SystemExit('usage: bench.py COMMAND [ARG ...]')
-    with open('/tmp/claude-1000/echoear-bench.lock', 'a') as lock:
+    os.makedirs(f'/tmp/claude-{os.getuid()}', exist_ok=True)
+    with open(f'/tmp/claude-{os.getuid()}/echoear-bench.lock', 'a') as lock:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         os.set_inheritable(lock.fileno(), True)
         os.environ['DG_BENCH_LOCK_FD'] = str(lock.fileno())

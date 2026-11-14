@@ -21,7 +21,7 @@ BOARDS = {
         boot_pattern=r'DG_BOOT board=p4xc', build_only=False),
     'waveshare_146': dict(build_only=True),
 }
-BENCH_LOCK = Path('/tmp/claude-1000/echoear-bench.lock')
+BENCH_LOCK = Path(f'/tmp/claude-{os.getuid()}/echoear-bench.lock')
 
 
 def hardware_board(board):

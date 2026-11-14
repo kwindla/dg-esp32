@@ -92,6 +92,11 @@ standalone boot and provisioning), [docs/echoear-aec-q-scope.md](docs/echoear-ae
   generated `build-mute/sdkconfig` or `build/config-accept`; a stale one
   overrides the defaults.
 - `scripts/idf.sh` refuses `build` combined with `flash`/`monitor`; build first.
+- Flash with the same `DG_*` variables you built with (for example
+  `DG_DEMO_AUTOSTART=1 DG_PUBLIC_DEMO=1` for `build-public`). A flash re-runs
+  CMake with the current selection, so a mismatch would rebuild and flash a
+  different image; `idf.sh` now refuses it when the build directory's cached
+  `SDKCONFIG_DEFAULTS` differ.
 
 ### Bot server
 

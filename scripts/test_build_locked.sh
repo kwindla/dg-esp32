@@ -13,6 +13,12 @@ cleanup() {
     rm -rf "$scratch"
 }
 trap cleanup EXIT
+# macOS has no GNU timeout; Homebrew coreutils provides it as gtimeout.
+if ! command -v timeout >/dev/null; then
+    command -v gtimeout >/dev/null || { echo "FAIL: timeout or gtimeout (brew install coreutils) is required" >&2; exit 1; }
+    mkdir -p "$scratch/bin" && ln -s "$(command -v gtimeout)" "$scratch/bin/timeout"
+    export PATH="$scratch/bin:$PATH"
+fi
 unset DG_BUILD_LOCK_HELD DG_SERIAL_LOCK_HELD DG_BENCH_LOCK_FD DG_BOARD DG_DEMO_AUTOSTART DG_AEC
 
 fail() { echo "FAIL: $*" >&2; exit 1; }

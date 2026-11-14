@@ -12,7 +12,7 @@ import sys
 ROOT=Path(__file__).resolve().parents[1]
 BY_ID=Path('/dev/serial/by-id/usb-Espressif_USB_JTAG_serial_debug_unit_B4:3A:45:16:2D:94-if00')
 MAC='b4:3a:45:16:2d:94'
-LOCK=Path('/tmp/claude-1000/echoear-bench.lock')
+LOCK=Path(f'/tmp/claude-{os.getuid()}/echoear-bench.lock')
 
 @contextmanager
 def bench():

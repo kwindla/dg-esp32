@@ -6,7 +6,7 @@ if [[ $# == 0 ]]; then
     exit 2
 fi
 # DG_BUILD_LOCK_FILE is a test-only override; production builds share one lock.
-lock_file="${DG_BUILD_LOCK_FILE:-/tmp/claude-1000/dg-esp32-build.lock}"
+lock_file="${DG_BUILD_LOCK_FILE:-/tmp/claude-$(id -u)/dg-esp32-build.lock}"
 mkdir -p "$(dirname "$lock_file")"
 exec {build_lock_fd}>"$lock_file"
 if [[ "${DG_BUILD_LOCK_HELD:-}" == 1 ]]; then

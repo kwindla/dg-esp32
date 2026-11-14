@@ -4,7 +4,7 @@ import os
 import subprocess
 from pathlib import Path
 
-BENCH_LOCK = Path('/tmp/claude-1000/echoear-bench.lock')
+BENCH_LOCK = Path(f'/tmp/claude-{os.getuid()}/echoear-bench.lock')
 WRITE_TIMEOUT = 1800
 VERIFY_TIMEOUT = 1800
 FLASH_TIMEOUT = 1800

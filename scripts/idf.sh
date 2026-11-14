@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 set -e
+# Pin the IDF 6.1 Python env that host-tests.sh and hil/boards.py also use, so
+# export.sh does not pick an env from whichever python3 is first on PATH.
+pinned_idf_env="$HOME/.espressif/python_env/idf6.1_py3.12_env"
+if [[ -z "${IDF_PYTHON_ENV_PATH:-}" && -x "$pinned_idf_env/bin/python" ]]; then
+    export IDF_PYTHON_ENV_PATH="$pinned_idf_env"
+fi
 . "$HOME/esp/esp-idf-v6.1/export.sh" >/dev/null
 repo_root=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
 # Board, variant and overlays are resolved in cmake/dg_select.py, which the
@@ -50,7 +56,7 @@ if [[ -n "$option" ]]; then echo "Missing IDF option value" >&2; exit 2; fi
 # Only the main project owns these defaults/build directories/locks. A port
 # action may name an already-built external project; a config/build may not.
 if [[ -n "$default_build" && "$port_action" == 0 ]]; then
-    if [[ -z "$project_dir" || $(realpath -m -- "$project_dir") != "$repo_root" ]]; then
+    if [[ -z "$project_dir" || $(python3 -c 'import os, sys; print(os.path.realpath(sys.argv[1]))' "$project_dir") != "$repo_root" ]]; then
         echo "DG_BOARD=$board: non-port actions require the main project (-C $repo_root); use build_locked.sh for other projects" >&2
         exit 1
     fi
@@ -77,6 +83,32 @@ if [[ "$port_action" == 1 ]]; then
     fi
     if [[ "${DG_SERIAL_LOCK_HELD:-}" != 1 && -z "${DG_BENCH_LOCK_FD:-}" ]]; then
         exec python "$repo_root/hil/bench.py" "$0" "$@"
+    fi
+    # A port action re-runs CMake with this selection's defaults. If the build
+    # directory was configured from another selection (for example built with
+    # DG_DEMO_AUTOSTART=1 DG_PUBLIC_DEMO=1 but flashed without them), idf.py
+    # would silently rebuild a different image and flash that instead.
+    if [[ "$board" != p4xc && -n "$build_dir" ]]; then
+        cache="$build_dir/CMakeCache.txt"
+        [[ "$build_dir" == /* ]] || cache="$PWD/$cache"
+        # An explicit -D SDKCONFIG_DEFAULTS=... (the S3 AEC overlay) wins over the selection.
+        expected="$defaults"
+        previous=
+        for arg in "$@"; do
+            if [[ "$arg" == -DSDKCONFIG_DEFAULTS=* ]]; then expected="${arg#-DSDKCONFIG_DEFAULTS=}"
+            elif [[ "$previous" == -D && "$arg" == SDKCONFIG_DEFAULTS=* ]]; then expected="${arg#SDKCONFIG_DEFAULTS=}"
+            fi
+            previous="$arg"
+        done
+        if [[ -f "$cache" ]]; then
+            cached=$(sed -n 's/^SDKCONFIG_DEFAULTS:[A-Z]*=//p' "$cache")
+            if [[ -n "$cached" && "$cached" != "$expected" ]]; then
+                echo "Refusing $build_dir: built with SDKCONFIG_DEFAULTS=$cached," >&2
+                echo "  but this invocation gives $expected." >&2
+                echo "  Re-run with the DG_* variables used for the build." >&2
+                exit 1
+            fi
+        fi
     fi
     if [[ "${DG_BOARD:-echoear}" == p4xc ]]; then
         if [[ "$build_dir" != /* ]]; then

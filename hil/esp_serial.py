@@ -21,11 +21,12 @@ def port_lock():
     bench = None
     if inherited:
         fd = int(inherited)
-        if os.fstat(fd).st_ino != os.stat('/tmp/claude-1000/echoear-bench.lock').st_ino:
+        if os.fstat(fd).st_ino != os.stat(f'/tmp/claude-{os.getuid()}/echoear-bench.lock').st_ino:
             raise RuntimeError('Invalid inherited bench lock')
         fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
     else:
-        bench = open('/tmp/claude-1000/echoear-bench.lock', 'a')
+        os.makedirs(f'/tmp/claude-{os.getuid()}', exist_ok=True)
+        bench = open(f'/tmp/claude-{os.getuid()}/echoear-bench.lock', 'a')
         try:
             fcntl.flock(bench, fcntl.LOCK_EX | fcntl.LOCK_NB)
         except BaseException:

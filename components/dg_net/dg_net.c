@@ -45,7 +45,9 @@ static void event(void *arg, esp_event_base_t base, int32_t id, void *data) {
         dg_net_disconnect_cb cb = disconnect_cb;
         void *ctx = disconnect_ctx;
         portEXIT_CRITICAL(&guard);
-        if (cb) cb(((wifi_event_sta_disconnected_t *)data)->reason, ctx);
+        const wifi_event_sta_disconnected_t *d = data;
+        ESP_LOGW("dg-net", "WiFi disconnected reason=%u rssi=%d", (unsigned)d->reason, d->rssi);
+        if (cb) cb(d->reason, ctx);
         if (retry) esp_wifi_connect();
     }
 }

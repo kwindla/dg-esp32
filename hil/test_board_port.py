@@ -8,7 +8,36 @@ from unittest.mock import Mock, patch
 import board_port
 import step9a_echoear
 
+class MacPortIdentity(unittest.TestCase):
+    """macOS: identity is the USB descriptor, never the cu.usbmodem name."""
+    def ports(self, *serials):
+        return [Mock(device=f'/dev/cu.usbmodem{i}', vid=0x303a, pid=0x1001, serial_number=s)
+                for i, s in enumerate(serials)]
+
+    def resolve(self, ports, requested=None):
+        with patch.dict(os.environ, {'DG_BOARD':'echoear'}), \
+             patch.object(board_port.sys, 'platform', 'darwin'), \
+             patch('serial.tools.list_ports.comports', return_value=ports):
+            return board_port.resolve_port(requested)
+
+    def test_matches_usb_serial_on_any_name(self):
+        self.assertEqual(self.resolve(self.ports('aa:bb', 'B4:3A:45:16:2D:94')), '/dev/cu.usbmodem1')
+
+    def test_requires_exactly_one_match(self):
+        for ports in (self.ports('aa:bb'), self.ports('B4:3A:45:16:2D:94', 'b4:3a:45:16:2d:94')):
+            with self.subTest(n=len(ports)), self.assertRaises(RuntimeError): self.resolve(ports)
+
+    def test_rejects_other_requested_port(self):
+        with self.assertRaises(RuntimeError):
+            self.resolve(self.ports('B4:3A:45:16:2D:94'), '/dev/cu.usbmodem9')
+
+
 class PortIdentity(unittest.TestCase):
+    def setUp(self):
+        # These cases cover the Linux by-id/sysfs path; macOS uses IOKit identity.
+        platform = patch.object(board_port.sys, 'platform', 'linux')
+        platform.start(); self.addCleanup(platform.stop)
+
     def test_retired_board_is_rejected_before_device_lookup(self):
         with patch.dict(os.environ, {'DG_BOARD':'waveshare_146'}), patch.object(Path,'resolve') as resolve:
             with self.assertRaises(RuntimeError): board_port.resolve_port()

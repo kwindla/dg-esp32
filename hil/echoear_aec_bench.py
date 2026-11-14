@@ -235,7 +235,8 @@ def transcribe_afe(capture, out):
 @contextmanager
 def bench_lock():
     # Own the flock for acquisition AND restoration, inherited by serial helper.
-    with open('/tmp/claude-1000/echoear-bench.lock', 'a') as lock:
+    os.makedirs(f'/tmp/claude-{os.getuid()}', exist_ok=True)
+    with open(f'/tmp/claude-{os.getuid()}/echoear-bench.lock', 'a') as lock:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         old = os.environ.get('DG_BENCH_LOCK_FD')
         os.environ['DG_BENCH_LOCK_FD'] = str(lock.fileno())

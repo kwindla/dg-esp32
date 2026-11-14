@@ -23,7 +23,7 @@ BASE=Path('/home/khkramer/src/evidence/echoear/aec-demo/step-9')
 # own reviewed session before it is relied on. Retained rollback-01 evidence is judged against the historical constant.
 from echoear_aec_bench import NORMAL,NORMAL_HASH
 ESPTOOL='/home/khkramer/.espressif/python_env/idf6.1_py3.12_env/bin/python'
-LOCK=Path('/tmp/claude-1000/echoear-bench.lock')
+LOCK=Path(f'/tmp/claude-{os.getuid()}/echoear-bench.lock')
 PUBLIC_ENV=dict(ECHOEAR_AEC_FULL_DUPLEX='0',ECHOEAR_LIVENESS_SECONDS='0',
     DEMO_TTS_PROACTIVE_RECONNECT='1',DEMO_TTS_RECONNECT_EACH_GENERATION='0',
     DEMO_TTS_TRIM_LEADING='0',DEMO_LLM='local',DEEPGRAM_TTS_VOICE='flux-kelsey-en',

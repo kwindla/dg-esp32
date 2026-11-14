@@ -62,6 +62,7 @@ from pipecat.utils.text.simple_text_aggregator import SimpleTextAggregator
 
 from demo_interrupts import RTVIProcessor
 from demo_policy import capability_aec, make_stt, turn_policy
+import deepgram_think
 from duo_context import TaggedContext, TaggedLLM, stamp
 from duo_prompts import (INAUDIBLE, auto_note, character_instructions, duo_instructions, history_line,
                          silent_note, untagged)
@@ -1629,13 +1630,18 @@ def tags_enabled(config):
 
 def make_llm(config, service_class=OpenAILLMService):
     tags = tags_enabled(config)
+    url = require_llm_url(config)
+    api_key = "not-required"
+    if deepgram_think.is_think_url(url) and service_class is OpenAILLMService:
+        # Deepgram's hosted PhoneLLM: same settings, adapted on the wire.
+        service_class, api_key = deepgram_think.DeepgramThinkLLMService, os.environ["DEEPGRAM_API_KEY"]
     if tags:
         # Inside the route stamp: a frame is stamped before the marker filter sees it, and the
         # filter copies that stamp to text it held back and releases late.
         service_class = type(f"Tagged{service_class.__name__}", (TaggedLLM, service_class), {})
     if config.get("auto_switch"):
         service_class = type(f"Routed{service_class.__name__}", (RouteStampingLLM, service_class), {})
-    return service_class(base_url=require_llm_url(config), api_key="not-required",
+    return service_class(base_url=url, api_key=api_key,
         settings=OpenAILLMService.Settings(model=config["llm_model"], temperature=config["temperature"],
             system_instruction=duo_instructions() if tags else character_instructions("angel"),
             max_completion_tokens=250,
@@ -1666,7 +1672,8 @@ def make_tts(config):
 # derives this set from the imports, and hil/duo_identity.py must list the same.
 IDENTITY_SOURCES = ("duo_bot.py", "duo_route.py", "duo_context.py", "duo_prompts.py", "duo_switch.py",
                     "duo_addressee.py", "demo_policy.py", "demo_interrupts.py", "demo_liveness.py",
-                    "sctp_flight_fix.py", "settings.py", "aec_session_recorder.py")
+                    "sctp_flight_fix.py", "settings.py", "aec_session_recorder.py", "deepgram_think.py",
+                    "ice_path.py")
 
 
 def identity(config=None):
@@ -1956,6 +1963,11 @@ def start_process(config):
     if _process_started:
         raise RuntimeError("the bot process was already started")
     _process_started = True
+    if os.getenv("BOT_ICE_INTERFACE"):
+        # Gather on one interface only: on a host with Tailscale, aioice otherwise
+        # waits out a 5 s STUN/TURN timeout on the tailnet addresses before answering.
+        import ice_path
+        ice_path.install()
     start_gc_diagnostics(config)
 
 

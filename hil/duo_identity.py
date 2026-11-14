@@ -14,7 +14,8 @@ from urllib.parse import urlsplit
 ROOT=Path(__file__).resolve().parents[1]
 # Must equal IDENTITY_SOURCES in server/duo_bot.py; test_duo_identity.py compares the two.
 SOURCES=('duo_bot.py','duo_route.py','duo_context.py','duo_prompts.py','duo_switch.py','duo_addressee.py','demo_policy.py',
-         'demo_interrupts.py','demo_liveness.py','sctp_flight_fix.py','settings.py','aec_session_recorder.py')
+         'demo_interrupts.py','demo_liveness.py','sctp_flight_fix.py','settings.py','aec_session_recorder.py',
+         'deepgram_think.py','ice_path.py')
 
 
 def require(value,message):

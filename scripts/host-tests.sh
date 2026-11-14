@@ -79,7 +79,7 @@ lane_duo_hil() {
 lane_duo_bot() {
     server_pytest hil:server plain server/test_duo_switch.py server/test_duo_pipeline.py server/test_duo_retirement.py \
         server/test_duo_addressee.py server/test_duo_baseline.py server/test_duo_first_clause.py \
-        server/test_duo_context.py \
+        server/test_duo_context.py server/test_deepgram_think.py \
         --basetemp="$TMPDIR/duo-pytest"
 }
 lane_p4_touch() {

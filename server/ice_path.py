@@ -10,10 +10,17 @@ from pathlib import Path
 import socket
 import struct
 import subprocess
+import sys
 import time
 
 
 def interface_ipv4(name):
+    if sys.platform=='darwin':
+        # SIOCGIFADDR (0x8915) is Linux's number; ask the system instead.
+        address=subprocess.run(['ipconfig','getifaddr',name],capture_output=True,text=True).stdout.strip()
+        if not address:
+            raise OSError(f'no IPv4 address on {name}')
+        return address
     import fcntl
     with socket.socket(socket.AF_INET,socket.SOCK_DGRAM) as sock:
         return socket.inet_ntoa(fcntl.ioctl(sock.fileno(),0x8915,struct.pack('256s',name.encode()[:15]))[20:24])
