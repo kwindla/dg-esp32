@@ -42,6 +42,15 @@ MATRIX = {
                        f"{R}/build/sdkconfig-demo", f"{R}/build-public", ("", "")),
     "p4-duo": (dict(DG_BOARD="p4xc", DG_VARIANT="duo"), [P4_BASE, P4, P4_AEC, "sdkconfig.defaults.demo", "sdkconfig.defaults.duo"],
                f"{R}/sdkconfig", f"{R}/build-p4xc-duo", P4_ARGS),
+    "p4-duo-public": (dict(DG_BOARD="p4xc", DG_VARIANT="duo", DG_PUBLIC_DEMO="1"),
+                      [P4_BASE, P4, P4_AEC, "sdkconfig.defaults.demo", "sdkconfig.defaults.duo", "sdkconfig.defaults.public-demo"],
+                      f"{R}/sdkconfig", f"{R}/build-p4xc-duo-public", P4_ARGS),
+    "p4-aec-demo-public": (dict(DG_BOARD="p4xc", DG_AEC="1", DG_DEMO_AUTOSTART="1", DG_PUBLIC_DEMO="1"),
+                           [P4_BASE, P4, P4_AEC, "sdkconfig.defaults.demo", "sdkconfig.defaults.public-demo"],
+                           f"{R}/sdkconfig", f"{R}/build-p4xc-aec-demo-public", P4_ARGS),
+    "p4-demo-public": (dict(DG_BOARD="p4xc", DG_AEC="0", DG_DEMO_AUTOSTART="1", DG_PUBLIC_DEMO="1"),
+                       [P4_BASE, P4, "sdkconfig.defaults.demo", "sdkconfig.defaults.public-demo"],
+                       f"{R}/sdkconfig", f"{R}/build-p4xc-demo-public", P4_ARGS),
 }
 REFUSED = {
     "Unsupported DG_BOARD": [dict(DG_BOARD="bogus")],

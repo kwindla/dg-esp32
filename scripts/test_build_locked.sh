@@ -314,11 +314,109 @@ for port_option in -p --port; do
     rm -f "$ARGV_LOG"
     EXPECT_BUILD_LOCK=0 DG_BOARD=p4xc DG_SERIAL_LOCK_HELD=1 timeout 10 "$repo_root/scripts/idf.sh" \
         -C "$scratch/p4" -B "$scratch/p4/build" "$port_option" fake-board-port flash
-    grep -q '/hil/boards.py$' "$ARGV_LOG" || fail "P4 did not route through boards.py"
+    p4_resolver=boards.py
+    [[ "$(uname -s)" == Darwin ]] && p4_resolver=board_port_macos.py
+    grep -q "/hil/$p4_resolver\$" "$ARGV_LOG" || fail "P4 did not route through $p4_resolver"
     grep -qx p4xc "$ARGV_LOG" || fail "P4 board identity was lost"
-    if grep -Eq '/hil/board_port(_macos)?.py$' "$ARGV_LOG"; then fail "P4 used frozen EchoEar resolver"; fi
+    for other in board_port.py board_port_macos.py boards.py; do
+        [[ "$other" == "$p4_resolver" ]] && continue
+        if grep -q "/hil/$other\$" "$ARGV_LOG"; then fail "P4 used $other"; fi
+    done
     if grep -q -- '-DSDKCONFIG_DEFAULTS=' "$ARGV_LOG"; then fail "P4 inherited S3 defaults"; fi
 done
+# The defaults guard covers this repository's P4 images, by what the build
+# recorded: a duo build flashed without DG_VARIANT=duo is refused, and so is
+# the reverse. A scratch copy of the repository keeps sdkconfig.local out of it.
+p4_repo="$scratch/p4-repo"
+mkdir -p "$p4_repo" "$scratch/p4-guard"
+for item in scripts hil; do ln -s "$repo_root/$item" "$p4_repo/$item"; done
+cp -R "$repo_root/cmake" "$p4_repo/cmake"  # dg_select.py takes its root from its own resolved path.
+mkdir -p "$p4_repo/boards/common" "$p4_repo/boards/p4xc"
+: > "$p4_repo/boards/common/sdkconfig.defaults"
+for name in boards/p4xc/sdkconfig.defaults boards/p4xc/sdkconfig.defaults.aec sdkconfig.defaults.demo \
+            sdkconfig.defaults.duo sdkconfig.defaults.public-demo; do printf '# %s\n' "$name" > "$p4_repo/$name"; done
+p4_guard="$scratch/p4-guard"
+p4_plain="$p4_repo/boards/common/sdkconfig.defaults;$p4_repo/boards/p4xc/sdkconfig.defaults"
+p4_duo="$p4_plain;$p4_repo/boards/p4xc/sdkconfig.defaults.aec;$p4_repo/sdkconfig.defaults.demo;$p4_repo/sdkconfig.defaults.duo"
+p4_built() { printf '{"project_path": "%s", "config_defaults": "%s", "target": "esp32p4"}\n' "$1" "$2" > "$p4_guard/project_description.json"; }
+p4_run() {
+    rm -f "$ARGV_LOG"
+    result=0
+    EXPECT_BUILD_LOCK=0 DG_SERIAL_LOCK_HELD=1 DG_BOARD=p4xc timeout 10 "${p4_wrapper:-$p4_repo}/scripts/idf.sh" "$@" >"$scratch/guard.log" 2>&1 || result=$?
+}
+p4_refused() { [[ "$result" == 1 && ! -e "$ARGV_LOG" ]] && grep -q "Refusing .*${2:-p4-guard}" "$scratch/guard.log" || fail "$1"; }
+p4_built "$p4_repo" "$p4_duo"
+p4_run -B "$p4_guard" flash
+[[ "$result" == 1 && ! -e "$ARGV_LOG" ]] || fail "a P4 duo build was flashed as the plain image"
+grep -q 'Refusing .*p4-guard' "$scratch/guard.log" && grep -q 'DG_\* variables' "$scratch/guard.log" || fail "unclear P4 defaults refusal"
+DG_VARIANT=duo p4_run -B "$p4_guard" flash
+[[ "$result" == 0 ]] && grep -qx idf.py "$ARGV_LOG" || { sed "s#$HOME#~#g" "$scratch/guard.log" >&2; fail "a matching P4 duo build was refused"; }
+p4_built "$p4_repo" "$p4_plain"
+DG_VARIANT=duo DG_PUBLIC_DEMO=1 p4_run -B "$p4_guard" flash
+p4_refused "a plain P4 build was flashed as the duo public image"
+p4_run -B "$p4_guard" flash
+[[ "$result" == 0 ]] || fail "a matching plain P4 build was refused"
+(cd "$scratch"; p4_run -B "$p4_guard" flash; [[ "$result" == 0 ]]) || fail "a matching P4 build was refused from another directory"
+# An explicit override is compared instead of the selection.
+p4_run -B "$p4_guard" "-DSDKCONFIG_DEFAULTS=$p4_duo" flash
+p4_refused "a conflicting explicit P4 override was flashed"
+p4_built "$p4_repo" "$p4_duo"
+p4_run -B "$p4_guard" "-DSDKCONFIG_DEFAULTS=$p4_duo" flash
+[[ "$result" == 0 ]] || fail "a matching explicit P4 override was refused"
+# An empty override is not a selection this wrapper builds, and a build that
+# recorded no defaults cannot be matched: both are refused, not guessed at.
+p4_run -B "$p4_guard" -DSDKCONFIG_DEFAULTS= flash
+p4_refused "an empty P4 defaults override was flashed"
+for recorded in '"config_defaults": "", ' ''; do
+    printf '{"project_path": "%s", %s"target": "esp32p4"}\n' "$p4_repo" "$recorded" > "$p4_guard/project_description.json"
+    p4_run -B "$p4_guard" flash
+    p4_refused "a P4 build with no recorded defaults was flashed"
+    p4_run -B "$p4_guard" -DSDKCONFIG_DEFAULTS= flash
+    p4_refused "no recorded defaults matched an empty override"
+done
+# A description that does not name its project is refused, from any directory.
+printf '{"config_defaults": "%s", "target": "esp32p4"}\n' "$p4_plain" > "$p4_guard/project_description.json"
+for cwd in "$p4_repo" "$scratch"; do
+    (cd "$cwd"; p4_run -B "$p4_guard" flash; [[ "$result" == 1 && ! -e "$ARGV_LOG" ]]) || fail "a P4 build with no project path was flashed from $cwd"
+done
+# Without -B the selection's own build directory is the one checked.
+mkdir -p "$p4_repo/build-p4xc"
+printf '{"project_path": "%s", "config_defaults": "%s", "target": "esp32p4"}\n' "$p4_repo" "$p4_duo" > "$p4_repo/build-p4xc/project_description.json"
+p4_run flash
+p4_refused "a mismatched default P4 build directory was flashed" build-p4xc
+# Local overrides: either spelling is the same file, and a build made before
+# the file existed says so.
+p4_built "$p4_repo" "$p4_plain"
+: > "$p4_repo/sdkconfig.local"
+p4_run -B "$p4_guard" flash
+[[ "$result" == 1 ]] && grep -q 'sdkconfig.local was added or removed' "$scratch/guard.log" || fail "a build without the local overrides was not named"
+p4_local="$p4_repo/boards/common/sdkconfig.defaults;%s;$p4_repo/boards/p4xc/sdkconfig.defaults"
+for spelling in sdkconfig.local "$p4_repo/sdkconfig.local"; do
+    p4_built "$p4_repo" "$(printf "$p4_local" "$spelling")"
+    for cwd in "$p4_repo" "$scratch"; do
+        (cd "$cwd"; p4_run -B "$p4_guard" flash; [[ "$result" == 0 ]]) || fail "local overrides spelled $spelling were refused from $cwd"
+    done
+done
+rm "$p4_repo/sdkconfig.local"
+# A symlinked path to the repository is the same repository.
+ln -s "$p4_repo" "$scratch/p4-link"
+p4_built "$p4_repo" "$p4_duo"
+p4_wrapper="$scratch/p4-link" p4_run -B "$p4_guard" flash
+p4_refused "a symlinked repository path skipped the P4 guard"
+DG_VARIANT=duo p4_wrapper="$scratch/p4-link" p4_run -B "$p4_guard" flash
+[[ "$result" == 0 ]] || fail "a matching P4 build was refused through a symlinked repository path"
+# So is another spelling of it on a case-insensitive volume (the macOS default).
+p4_upper="$(dirname "$p4_repo")/P4-REPO"
+if [[ -d "$p4_upper" ]]; then
+    p4_wrapper="$p4_upper" p4_run -B "$p4_guard" flash
+    p4_refused "another letter case of the repository path skipped the P4 guard"
+    DG_VARIANT=duo p4_wrapper="$p4_upper" p4_run -B "$p4_guard" flash
+    [[ "$result" == 0 ]] || fail "a matching P4 build was refused through another letter case"
+fi
+# Another project's P4 build keeps its own defaults and is not compared.
+p4_built "$scratch/elsewhere" "its;own;defaults"
+p4_run -B "$p4_guard" flash
+[[ "$result" == 0 ]] || fail "an external P4 project was refused"
 rm -f "$ARGV_LOG"
 EXPECT_BUILD_LOCK=0 DG_BOARD=p4xc timeout 10 "$repo_root/scripts/idf.sh" -B "$scratch/p4/build" monitor
 grep -q '/hil/bench.py$' "$ARGV_LOG" || fail "P4 skipped bench wrapper"

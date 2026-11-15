@@ -96,7 +96,12 @@ standalone boot and provisioning), [docs/echoear-aec-q-scope.md](docs/echoear-ae
   `DG_DEMO_AUTOSTART=1 DG_PUBLIC_DEMO=1` for `build-public`). A flash re-runs
   CMake with the current selection, so a mismatch would rebuild and flash a
   different image; `idf.sh` now refuses it when the build directory's cached
-  `SDKCONFIG_DEFAULTS` differ.
+  `SDKCONFIG_DEFAULTS` differ. This covers this repository's P4 images too
+  (`DG_BOARD=p4xc DG_VARIANT=duo` for `build-p4xc-duo`); a P4 build of another
+  project is not compared.
+- On macOS the boards are found by USB descriptor (`hil/board_port_macos.py`),
+  for flash and monitor through `scripts/idf.sh` only. The P4 lookup is
+  unit-tested but has not yet been run against the board from a Mac.
 
 ### Bot server
 

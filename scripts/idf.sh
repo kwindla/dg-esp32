@@ -91,26 +91,40 @@ if [[ "$port_action" == 1 ]]; then
     # directory was configured from another selection (for example built with
     # DG_DEMO_AUTOSTART=1 DG_PUBLIC_DEMO=1 but flashed without them), idf.py
     # would silently rebuild a different image and flash that instead.
-    if [[ "$board" != p4xc ]]; then
-        # Without -B, idf.py builds in the project directory's build/.
-        guard_dir="${build_dir:-$project_dir/build}"
-        [[ "$guard_dir" == /* ]] || guard_dir="$PWD/$guard_dir"
+    # Without -B, idf.py builds in the project directory's build/.
+    guard_dir="${build_dir:-$project_dir/build}"
+    [[ "$guard_dir" == /* ]] || guard_dir="$PWD/$guard_dir"
+    # An explicit SDKCONFIG_DEFAULTS definition (the S3 AEC overlay) wins over the
+    # selection; as in idf.py, the last definition counts.
+    expected="$defaults"
+    if [[ "$board" == p4xc ]]; then
+        # The selection looks for local overrides in the current directory
+        # first; a P4 image of this repository is judged from its root.
+        expected=$(eval "$(python3 "$repo_root/cmake/dg_select.py" --shell --project "$repo_root")"; printf %s "$defaults")
+    fi
+    previous=
+    for arg in "$@"; do
+        entry=
+        case "$arg" in
+            -D?*) entry="${arg#-D}" ;;
+            --define-cache-entry=*) entry="${arg#--define-cache-entry=}" ;;
+            *) if [[ "$previous" == -D || "$previous" == --define-cache-entry ]]; then entry="$arg"; fi ;;
+        esac
+        # CMake also accepts a typed definition, NAME:TYPE=value.
+        if [[ "$entry" =~ ^SDKCONFIG_DEFAULTS(:[A-Z]+)?=(.*)$ ]]; then expected="${BASH_REMATCH[2]}"; fi
+        previous="$arg"
+    done
+    if [[ "$board" == p4xc ]]; then
+        # A P4 port action may name another already-built project (the probe
+        # spike, a restore build from another checkout), whose defaults are its
+        # own. Only this repository's P4 images are compared, by the project
+        # path and defaults chain the build itself recorded, as resolved paths:
+        # the spelling of an entry depends on where the build was started.
+        if [[ -f "$guard_dir/project_description.json" ]]; then
+            python3 "$repo_root/scripts/p4_defaults_guard.py" "$repo_root" "$guard_dir" "$expected" || exit 1
+        fi
+    else
         cache="$guard_dir/CMakeCache.txt"
-        # An explicit SDKCONFIG_DEFAULTS definition (the S3 AEC overlay) wins over the
-        # selection; as in idf.py, the last definition counts.
-        expected="$defaults"
-        previous=
-        for arg in "$@"; do
-            entry=
-            case "$arg" in
-                -D?*) entry="${arg#-D}" ;;
-                --define-cache-entry=*) entry="${arg#--define-cache-entry=}" ;;
-                *) if [[ "$previous" == -D || "$previous" == --define-cache-entry ]]; then entry="$arg"; fi ;;
-            esac
-            # CMake also accepts a typed definition, NAME:TYPE=value.
-            if [[ "$entry" =~ ^SDKCONFIG_DEFAULTS(:[A-Z]+)?=(.*)$ ]]; then expected="${BASH_REMATCH[2]}"; fi
-            previous="$arg"
-        done
         if [[ -f "$cache" ]]; then
             cached=$(sed -n 's/^SDKCONFIG_DEFAULTS:[A-Z]*=//p' "$cache")
             if [[ -n "$cached" && "$cached" != "$expected" ]]; then
@@ -126,7 +140,10 @@ if [[ "$port_action" == 1 ]]; then
             echo "P4 hardware actions require an absolute -B for an already-built P4 project" >&2
             exit 1
         fi
-        verified_port=$(python "$repo_root/hil/boards.py" --board p4xc --build "$build_dir" "$requested_port")
+        # boards.py is pinned by the parity runners; macOS has its own resolver.
+        resolver=boards.py
+        if [[ "$(uname -s)" == Darwin ]]; then resolver=board_port_macos.py; fi
+        verified_port=$(python "$repo_root/hil/$resolver" --board p4xc --build "$build_dir" "$requested_port")
     else
         # The Linux resolver is pinned by the parity runners; macOS has its own.
         resolver=board_port.py
