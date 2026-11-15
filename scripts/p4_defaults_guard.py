@@ -31,9 +31,13 @@ def chain(defaults, base):
 
 def main(argv):
     root, build, expected = argv
-    with open(os.path.join(build, "project_description.json")) as file:
-        description = json.load(file)
-    project = description["project_path"]
+    try:
+        with open(os.path.join(build, "project_description.json")) as file:
+            description = json.load(file)
+        project = description["project_path"]
+    except (KeyError, TypeError, ValueError, OSError):
+        print(f"Refusing {build}: unreadable or incomplete project_description.json; rebuild it.", file=sys.stderr)
+        return 1
     if identity(project) != identity(root):
         return 0
     built, wanted = chain(description.get("config_defaults", ""), project), chain(expected, root)
@@ -41,8 +45,9 @@ def main(argv):
         return 0
     print(f"Refusing {build}: built with SDKCONFIG_DEFAULTS={';'.join(built)},", file=sys.stderr)
     print(f"  but this invocation gives {';'.join(wanted)}.", file=sys.stderr)
-    local = os.path.realpath(os.path.join(root, "sdkconfig.local"))
-    if built and [entry for entry in built if entry != local] == [entry for entry in wanted if entry != local]:
+    local = identity(os.path.join(root, "sdkconfig.local"))
+    without_local = lambda entries: [key for key in map(identity, entries) if key != local]
+    if built and without_local(built) == without_local(wanted):
         print("  sdkconfig.local was added or removed since this build; rebuild it.", file=sys.stderr)
     else:
         print("  Re-run with the DG_* variables (and any -D SDKCONFIG_DEFAULTS=...) used for the build.", file=sys.stderr)

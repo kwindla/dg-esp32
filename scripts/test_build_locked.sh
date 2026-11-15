@@ -377,8 +377,12 @@ done
 # A description that does not name its project is refused, from any directory.
 printf '{"config_defaults": "%s", "target": "esp32p4"}\n' "$p4_plain" > "$p4_guard/project_description.json"
 for cwd in "$p4_repo" "$scratch"; do
-    (cd "$cwd"; p4_run -B "$p4_guard" flash; [[ "$result" == 1 && ! -e "$ARGV_LOG" ]]) || fail "a P4 build with no project path was flashed from $cwd"
+    (cd "$cwd"; p4_run -B "$p4_guard" flash; p4_refused "a P4 build with no project path was flashed from $cwd")
 done
+printf '{"project_path": ' > "$p4_guard/project_description.json"
+p4_run -B "$p4_guard" flash
+p4_refused "a truncated project description was flashed"
+if grep -q Traceback "$scratch/guard.log"; then fail "the P4 guard answered a damaged description with a traceback"; fi
 # Without -B the selection's own build directory is the one checked.
 mkdir -p "$p4_repo/build-p4xc"
 printf '{"project_path": "%s", "config_defaults": "%s", "target": "esp32p4"}\n' "$p4_repo" "$p4_duo" > "$p4_repo/build-p4xc/project_description.json"
@@ -390,6 +394,10 @@ p4_built "$p4_repo" "$p4_plain"
 : > "$p4_repo/sdkconfig.local"
 p4_run -B "$p4_guard" flash
 [[ "$result" == 1 ]] && grep -q 'sdkconfig.local was added or removed' "$scratch/guard.log" || fail "a build without the local overrides was not named"
+if [[ -d "$(dirname "$p4_repo")/P4-REPO" ]]; then
+    p4_wrapper="$(dirname "$p4_repo")/P4-REPO" p4_run -B "$p4_guard" flash
+    grep -q 'sdkconfig.local was added or removed' "$scratch/guard.log" || fail "another letter case hid the local-overrides hint"
+fi
 p4_local="$p4_repo/boards/common/sdkconfig.defaults;%s;$p4_repo/boards/p4xc/sdkconfig.defaults"
 for spelling in sdkconfig.local "$p4_repo/sdkconfig.local"; do
     p4_built "$p4_repo" "$(printf "$p4_local" "$spelling")"
